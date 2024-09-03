@@ -1,7 +1,7 @@
 import { initCodeCopy } from './code.js';
 import { csData } from './csdata.js';
-import { initializeScrollHint } from './main.js';
-import { resetScrollHint } from './main.js';
+// import { initializeScrollHint } from './main.js';
+// import { resetScrollHint } from './main.js';
 
 
 // *FUNC DEF* loader

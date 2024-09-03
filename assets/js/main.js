@@ -1,7 +1,7 @@
 
 let scrollHintInstance = null;
 
-export function initializeScrollHint() {
+function initializeScrollHint() {
     // ScrollHintの初期化
     scrollHintInstance = new ScrollHint('.table-content', {
         suggestiveShadow: true,
@@ -13,7 +13,7 @@ export function initializeScrollHint() {
 }
 
 // *FUNC DEF* Reset Scroll Hint
-export function resetScrollHint() {
+function resetScrollHint() {
     if (scrollHintInstance) {
         scrollHintInstance.items.forEach(item => {
             const element = item.element;
@@ -61,3 +61,7 @@ $window.on('scroll', function () {
 });
 
 $window.trigger('scroll');
+
+//global func
+window.initializeScrollHint = initializeScrollHint;
+window.resetScrollHint = resetScrollHint;
