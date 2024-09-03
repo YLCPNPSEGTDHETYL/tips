@@ -1,0 +1,5 @@
+{% for modal in site.data.CS.CSitems %}
+  <div data-target-modal="modal-{{ forloop.index }}">
+    <div data-link="{{ modal.link }}" class="related-link">{{ modal.title }}</div>
+  </div>
+{% endfor %}

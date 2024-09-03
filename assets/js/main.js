@@ -1,0 +1,63 @@
+
+let scrollHintInstance = null;
+
+export function initializeScrollHint() {
+    // ScrollHintの初期化
+    scrollHintInstance = new ScrollHint('.table-content', {
+        suggestiveShadow: true,
+        remainingTime: 5000,
+        i18n: {
+            scrollable: 'スクロールできます'
+        }
+    });
+}
+
+// *FUNC DEF* Reset Scroll Hint
+export function resetScrollHint() {
+    if (scrollHintInstance) {
+        scrollHintInstance.items.forEach(item => {
+            const element = item.element;
+
+            const iconWraps = element.querySelectorAll('.scroll-hint-icon-wrap');
+            iconWraps.forEach(iconWrap => {
+                iconWrap.remove();
+            });
+        });
+
+        scrollHintInstance.items.forEach(item => {
+            const element = item.element;
+            element.classList.remove('is-active', 'is-scrollable', 'is-right-scrollable', 'is-left-scrollable', 'scroll-hint');
+        });
+        scrollHintInstance = null;
+    }
+}
+
+let start_position = 0,
+    window_position,
+    $window = $(window),
+    $header = $('#header'),
+    header_height;
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    header_height = $("#header").height();
+
+    $("article").css("margin-top", header_height + 10);
+
+    document.body.classList.add('js-loaded');
+});
+
+
+$window.on('scroll', function () {
+    window_position = $(this).scrollTop();
+
+    if (window_position <= start_position) {
+        $header.css('top', '0');
+    } else {
+        $header.css('top', - header_height);
+    }
+    start_position = window_position;
+
+});
+
+$window.trigger('scroll');

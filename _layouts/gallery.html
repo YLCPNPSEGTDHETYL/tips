@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property='og:type' content='website'>
+    <meta property='og:url' content='{{ site.url }}{{ page.url }}'>
+    <title>{{ page.title | default: site.title }}</title>
+
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
+
+
+
+    <!-- favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🎓</text></svg>">
+    <link rel="icon alternate" type="image/png"
+        href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f393.png">
+
+
+
+    <!-- md, KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ './assets/css/code.css' | relative_url }}">
+
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ './assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ './assets/css/gallery.css' | relative_url }}">
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+        integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <script>
+        function renderMathInPage() {
+            $("script[type='math/tex']").replaceWith(function () {
+                var tex = $(this).text();
+                return "<span class=\"kdmath\">$" + tex + "$</span>";
+            });
+
+            $("script[type='math/tex; mode=display']").replaceWith(function () {
+                var tex = $(this).text();
+                tex = tex.replace('% <![CDATA[', '').replace('%]]>', '');
+                return "<div class=\"kdmath\">$$" + tex + "$$</div>";
+            });
+
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                ]
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInPage();
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div class="all-wrapper">
+        <header id="header">
+            {% include {{ page.header }}.html %}
+        </header>
+
+        <article class="page sans">
+
+            {{ content }}
+            <main class="sans">
+                <!-- item -->
+                <section class="grid-wrapper">
+                    <div class="Allfilter-controls">
+                        <div class="Search-Sort-control">
+                            <div class="control SeCont">
+                                <input class="search-field form-control" type="text" name="search" placeholder="例：箇条書き">
+                            </div>
+                            <div class="control SoCont">
+                                <select class="sort-field form-control">
+                                    <option value="order">デフォルト:ドラッグ順</option>
+                                    <option value="title">あいうえお順</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-field">
+                            <div class="filter-control">
+                                <div class="filter-wrapper">
+                                    <input id="checkbox-all" type="checkbox" name="filter" value="" checked>
+                                    <label for="checkbox-all" class="filter-btn all"> すべて
+                                    </label>
+                                    <input id="checkbox-1" type="checkbox" name="filter" value="MustKnow">
+                                    <label for="checkbox-1" class="filter-btn MustKnow">
+                                        <i class="fas fa-circle MustKnow-icon"></i> 基本
+                                    </label>
+                                    <input id="checkbox-2" type="checkbox" name="filter" value="Eq">
+                                    <label for="checkbox-2" class="filter-btn Eq">
+                                        <i class="fas fa-circle Eq-icon"></i> 数式
+                                    </label>
+                                    <input id="checkbox-3" type="checkbox" name="filter" value="EqSymbl">
+                                    <label for="checkbox-3" class="filter-btn EqSymbl">
+                                        <i class="fas fa-circle EqSymbl-icon"></i> 数式記号
+                                    </label>
+                                    <input id="checkbox-4" type="checkbox" name="filter" value="FigTabItm">
+                                    <label for="checkbox-4" class="filter-btn FigTabItm">
+                                        <i class="fas fa-circle FigTabItm-icon"></i> 図表／箇条書き
+                                    </label>
+                                    <input id="checkbox-5" type="checkbox" name="filter" value="Layout">
+                                    <label for="checkbox-5" class="filter-btn Layout">
+                                        <i class="fas fa-circle Layout-icon"></i> レイアウト
+                                    </label>
+                                    <input id="checkbox-6" type="checkbox" name="filter" value="StyDocStr">
+                                    <label for="checkbox-6" class="filter-btn StyDocStr">
+                                        <i class="fas fa-circle StyDocStr-icon"></i> 体裁／文書構造
+                                    </label>
+                                    <input id="checkbox-7" type="checkbox" name="filter" value="HighLevel">
+                                    <label for="checkbox-7" class="filter-btn HighLevel">
+                                        <i class="fas fa-circle HighLevel-icon"></i> 高度
+                                    </label>
+                                    <input id="checkbox-8" type="checkbox" name="filter" value="Macro">
+                                    <label for="checkbox-8" class="filter-btn Macro">
+                                        <i class="fas fa-circle Macro-icon"></i> マクロ
+                                    </label>
+                                    <input id="checkbox-9" type="checkbox" name="filter" value="Package">
+                                    <label for="checkbox-9" class="filter-btn Package">
+                                        <i class="fas fa-circle Package-icon"></i> Package
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="load">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="grid-container">
+                        <div class="grid">
+                            {% for item in site.data.CS.CSitems %}
+                            <div class="item" data-category="{{ item.tag }}" data-title="">
+                                <div class="item-content">
+                                    <div class="custom-content" data-micromodal-trigger="modal-{{ forloop.index }}">
+                                        <div class="modal-tag">
+                                            {% assign tags = item.tag | split: ' ' %}
+                                            {% for tag in tags %}
+                                            <span class="{{ tag }}">
+                                                {{ site.data.CS.CStag[tag] }}
+                                            </span>
+                                            {% endfor %}
+                                        </div>
+                                        <div id="title-input" class="modal-link modal-link-primary" role="button">
+                                            {{ item.title }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- modal elements -->
+                {% for item in site.data.CS.CSitems %}
+                <div class="modal micromodal-slide" id="modal-{{ forloop.index }}" aria-hidden="true"
+                    data-link="{{ item.link }}">
+                    <div class="modal-overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal-container" role="dialog" aria-modal="true"
+                            aria-labelledby="modal-{{ forloop.index }}-title">
+                            <header class="modal-header">
+                                <h1 class="modal-title" id="modal-{{ forloop.index }}-title">{{ item.title }}</h1>
+                                <button class="modal-close" aria-label="Close modal" data-micromodal-close></button>
+                            </header>
+                            <div class="modal-innertag">
+                                {% assign tags = item.tag | split: ' ' %}
+                                {% for tag in tags %}
+                                <span class="{{ tag }}">
+                                    {{ site.data.CS.CStag[tag] }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                            <main class="modal-content" id="modal-{{ forloop.index }}-content">
+                            </main>
+                            <footer class="modal-footer">
+                                <button class="modal-btn modal-btn-primary" data-micromodal-close
+                                    aria-label="Close this dialog window">
+                                    閉じる
+                                </button>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </main>
+        </article>
+
+        <footer id="footer">
+        </footer>
+
+    </div>
+
+
+    <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
+
+    <script src="{{ '/assets/js/lib/wanakana.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/lib/kuromoji.js' | relative_url }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js"></script>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+        integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+
+    <script id="cs-data" type="application/json">{{ site.data.CS.CSitems | json }}</script>
+    <!-- prism plugin -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+
+
+
+
+
+    <script src="{{ './assets/js/main.js' | relative_url }}" type="module"></script>
+    <script src="{{ './assets/js/csdata.js' | relative_url }}" type="module"></script>
+    <script src="{{ './assets/js/gallery.js' | relative_url }}" type="module"></script>
+    <script src="{{ './assets/js/code.js' | relative_url }}" type="module"></script>
+</body>
+
+<footer id="footer">
+    {% include footer.html %}
+</footer>
+
+</html>
