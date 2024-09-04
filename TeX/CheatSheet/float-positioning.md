@@ -7,7 +7,7 @@
         \usepackage{float} 
 
         \begin{figure}[H]
-        ...
+        ・・・
         \end{figure}
     ```
 
