@@ -19,8 +19,8 @@
 # in the templates via {{ site.myvariable }}.
 
 
-baseurl: "/tips.github.io"
-url: "https://ylcpnpsegtdhetyl.github.io/tips.github.io/"
+baseurl: "/tips"
+url: "https://ylcpnpsegtdhetyl.github.io/tips/"
 github_username:  jekyll
 
 # Build settings
