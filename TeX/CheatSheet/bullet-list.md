@@ -16,7 +16,7 @@
     
 - **出力**
     
-    ![1](/CheatSheet/bullet-list/1.png)
+    ![1](./CheatSheet/bullet-list/1.png)
     
 
 ### スペースの調整
@@ -46,7 +46,7 @@
       \end{itemize}
     ```
     
-    ![2](/CheatSheet/bullet-list/2.png)
+    ![2](./CheatSheet/bullet-list/2.png)
     
 - {左揃え(+太字)の見出しを出力したいとき：}[modal-6]<!--見出し付き箇条書き(description環境)-->
 

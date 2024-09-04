@@ -143,7 +143,7 @@ physics パッケージの後継に相当する physics*2* パッケージが 2
   \ab <\frac{1}{2}>           %  < >
 ```
 
-![1](/CheatSheet/big-brackets-in-equation/1.png)
+![1](./CheatSheet/big-brackets-in-equation/1.png)
 画像はOverleafで出力。
 
 
