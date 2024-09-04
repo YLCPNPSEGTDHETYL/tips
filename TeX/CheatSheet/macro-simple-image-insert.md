@@ -3,15 +3,15 @@
 
 ```latex
     % 1枚の図を貼るマクロ
-    \newcommand{\inputpic}[2]{%
+    \newcommand{\inputpic}[2]{ %
         \includegraphics[width={#2}\linewidth]{#1}}
         
     % 2枚の図を並列に貼るマクロ
-    \newcommand{\twocolpage}[2]{%
+    \newcommand{\twocolpage}[2]{ %
         \begin{minipage}[b]{.5\linewidth}\centering #1\end{minipage}%
         \begin{minipage}[b]{.5\linewidth}\centering #2\end{minipage}}
 
-    \newcommand{\twofigure}[4][h]{%
+    \newcommand{\twofigure}[4][h]{ %
         \begin{figure}[#1]\centering\twocolpage{#2}{#3}#4\end{figure}}
 ```
 
