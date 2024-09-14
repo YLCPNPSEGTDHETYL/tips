@@ -31,6 +31,6 @@
 - **関連リンク**
     
     <div class="related-link-wrapper">
-      [modal-8]<!--好きな位置に図表を配置(floatパッケージ)--><br>
+      [modal-9]<!--好きな位置に図表を配置(floatパッケージ)--><br>
 	  [modal-22]<!--Excel等で作った表をTeXに挿入-->
     </div>

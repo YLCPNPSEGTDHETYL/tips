@@ -54,18 +54,21 @@
     
     ![5](./CheatSheet/xcolor-text-color/5.png)
     
-
-```latex
-    \textcolor{Orchid}{e.g.\ Orchid(＝淡紫色)という色にしてみました。}
-```
-
-$$
-\textcolor{Orchid}{\mathrm{e.g.)\ Orchid(＝淡紫色)という色にしてみました。}}
-$$
+- 入力
+    ```latex
+        \textcolor{Orchid}{e.g.\ Orchid(＝淡紫色)という色にしてみました。}
+    ```
+- 出力
+    <div>
+    $$
+    \textcolor{Orchid}{\mathrm{e.g.)\ Orchid(＝淡紫色)という色にしてみました。}}
+    $$
+    </div>
 
 - もっと自分で定義した色とかも使いたい！という場合：[modal-23]<!--(マクロ)色を定義して使う-->
 
 
+---
 
 - **関連リンク**
     

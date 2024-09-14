@@ -91,9 +91,9 @@
 
 <body>
     <div class="all-wrapper">
-        <header id="header">
+        <!-- <header id="header">
             {% include {{ page.header }}.html %}
-        </header>
+        </header> -->
 
         <article class="page sans">
 
@@ -101,7 +101,8 @@
             <main class="sans">
                 <!-- item -->
                 <section class="grid-wrapper">
-                    <div class="Allfilter-controls">
+                    <!-- PC -->
+                    <div class="Allfilter-controls PC-only">
                         <div class="Search-Sort-control">
                             <div class="control SeCont">
                                 <input class="search-field form-control" type="text" name="search" placeholder="例：箇条書き">
@@ -117,49 +118,136 @@
                         <div class="filter-field">
                             <div class="filter-control">
                                 <div class="filter-wrapper">
-                                    <input id="checkbox-all" type="checkbox" name="filter" value="" checked>
-                                    <label for="checkbox-all" class="filter-btn all"> すべて
+                                    <input id="PC-checkbox-all" type="checkbox" name="filter" value="" checked>
+                                    <label for="PC-checkbox-all" class="filter-btn all"> すべて
                                     </label>
-                                    <input id="checkbox-1" type="checkbox" name="filter" value="MustKnow">
-                                    <label for="checkbox-1" class="filter-btn MustKnow">
+                                    <input id="PC-checkbox-1" type="checkbox" name="filter" value="MustKnow">
+                                    <label for="PC-checkbox-1" class="filter-btn MustKnow">
                                         <i class="fas fa-circle MustKnow-icon"></i> 基本
                                     </label>
-                                    <input id="checkbox-2" type="checkbox" name="filter" value="Eq">
-                                    <label for="checkbox-2" class="filter-btn Eq">
+                                    <input id="PC-checkbox-2" type="checkbox" name="filter" value="Eq">
+                                    <label for="PC-checkbox-2" class="filter-btn Eq">
                                         <i class="fas fa-circle Eq-icon"></i> 数式
                                     </label>
-                                    <input id="checkbox-3" type="checkbox" name="filter" value="EqSymbl">
-                                    <label for="checkbox-3" class="filter-btn EqSymbl">
+                                    <input id="PC-checkbox-3" type="checkbox" name="filter" value="EqSymbl">
+                                    <label for="PC-checkbox-3" class="filter-btn EqSymbl">
                                         <i class="fas fa-circle EqSymbl-icon"></i> 数式記号
                                     </label>
-                                    <input id="checkbox-4" type="checkbox" name="filter" value="FigTabItm">
-                                    <label for="checkbox-4" class="filter-btn FigTabItm">
+                                    <input id="PC-checkbox-4" type="checkbox" name="filter" value="FigTabItm">
+                                    <label for="PC-checkbox-4" class="filter-btn FigTabItm">
                                         <i class="fas fa-circle FigTabItm-icon"></i> 図表／箇条書き
                                     </label>
-                                    <input id="checkbox-5" type="checkbox" name="filter" value="Layout">
-                                    <label for="checkbox-5" class="filter-btn Layout">
+                                    <input id="PC-checkbox-5" type="checkbox" name="filter" value="Layout">
+                                    <label for="PC-checkbox-5" class="filter-btn Layout">
                                         <i class="fas fa-circle Layout-icon"></i> レイアウト
                                     </label>
-                                    <input id="checkbox-6" type="checkbox" name="filter" value="StyDocStr">
-                                    <label for="checkbox-6" class="filter-btn StyDocStr">
+                                    <input id="PC-checkbox-6" type="checkbox" name="filter" value="StyDocStr">
+                                    <label for="PC-checkbox-6" class="filter-btn StyDocStr">
                                         <i class="fas fa-circle StyDocStr-icon"></i> 体裁／文書構造
                                     </label>
-                                    <input id="checkbox-7" type="checkbox" name="filter" value="HighLevel">
-                                    <label for="checkbox-7" class="filter-btn HighLevel">
+                                    <input id="PC-checkbox-7" type="checkbox" name="filter" value="HighLevel">
+                                    <label for="PC-checkbox-7" class="filter-btn HighLevel">
                                         <i class="fas fa-circle HighLevel-icon"></i> 高度
                                     </label>
-                                    <input id="checkbox-8" type="checkbox" name="filter" value="Macro">
-                                    <label for="checkbox-8" class="filter-btn Macro">
+                                    <input id="PC-checkbox-8" type="checkbox" name="filter" value="Macro">
+                                    <label for="PC-checkbox-8" class="filter-btn Macro">
                                         <i class="fas fa-circle Macro-icon"></i> マクロ
                                     </label>
-                                    <input id="checkbox-9" type="checkbox" name="filter" value="Package">
-                                    <label for="checkbox-9" class="filter-btn Package">
+                                    <input id="PC-checkbox-9" type="checkbox" name="filter" value="Package">
+                                    <label for="PC-checkbox-9" class="filter-btn Package">
                                         <i class="fas fa-circle Package-icon"></i> Package
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- SP -->
+                    <div class="Allfilter-controls SP-only">
+                        <div class="Search-Sort-control">
+                            <div class="control SeCont">
+                                <input class="search-field form-control" type="text" name="search" placeholder="例：箇条書き">
+                                <button data-micromodal-trigger="popover-modal" class="settings-btn">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div id="popover-modal" class="modal popovermodal-slide filter-field" aria-hidden="true">
+                            <div class="modal-overlay" tabindex="-1" data-micromodal-close></div>
+                            <div class="modal-container popover" role="dialog" aria-modal="true"
+                                aria-labelledby="popover-modal-title">
+                                <header class="popovermodal-header">
+                                    <button class="modal-close" aria-label="Close modal" data-micromodal-close></button>
+                                </header>
+                                <div class="popover-body SoCont">
+                                    <span>Sort</span>
+                                    <div class="sort-buttons sort-field">
+                                        <label>
+                                            <input type="radio" name="sort-option" class="sort-radio" data-sort="order"
+                                                checked>
+                                            なし
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="sort-option" class="sort-radio" data-sort="title">
+                                            あいうえお順
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="popover-body filter-control">
+                                    <span>Category</span>
+                                    <div class="filter-wrapper">
+                                        <input id="SP-checkbox-all" type="checkbox" name="filter" value="" checked>
+                                        <label for="SP-checkbox-all" class="filter-btn all"> すべて
+                                        </label>
+                                        <input id="SP-checkbox-1" type="checkbox" name="filter" value="MustKnow">
+                                        <label for="SP-checkbox-1" class="filter-btn MustKnow">
+                                            <i class="fas fa-circle MustKnow-icon"></i> 基本
+                                        </label>
+                                        <input id="SP-checkbox-2" type="checkbox" name="filter" value="Eq">
+                                        <label for="SP-checkbox-2" class="filter-btn Eq">
+                                            <i class="fas fa-circle Eq-icon"></i> 数式
+                                        </label>
+                                        <input id="SP-checkbox-3" type="checkbox" name="filter" value="EqSymbl">
+                                        <label for="SP-checkbox-3" class="filter-btn EqSymbl">
+                                            <i class="fas fa-circle EqSymbl-icon"></i> 数式記号
+                                        </label>
+                                        <input id="SP-checkbox-4" type="checkbox" name="filter" value="FigTabItm">
+                                        <label for="SP-checkbox-4" class="filter-btn FigTabItm">
+                                            <i class="fas fa-circle FigTabItm-icon"></i> 図表／箇条書き
+                                        </label>
+                                        <input id="SP-checkbox-5" type="checkbox" name="filter" value="Layout">
+                                        <label for="SP-checkbox-5" class="filter-btn Layout">
+                                            <i class="fas fa-circle Layout-icon"></i> レイアウト
+                                        </label>
+                                        <input id="SP-checkbox-6" type="checkbox" name="filter" value="StyDocStr">
+                                        <label for="SP-checkbox-6" class="filter-btn StyDocStr">
+                                            <i class="fas fa-circle StyDocStr-icon"></i> 体裁／文書構造
+                                        </label>
+                                        <input id="SP-checkbox-7" type="checkbox" name="filter" value="HighLevel">
+                                        <label for="SP-checkbox-7" class="filter-btn HighLevel">
+                                            <i class="fas fa-circle HighLevel-icon"></i> 高度
+                                        </label>
+                                        <input id="SP-checkbox-8" type="checkbox" name="filter" value="Macro">
+                                        <label for="SP-checkbox-8" class="filter-btn Macro">
+                                            <i class="fas fa-circle Macro-icon"></i> マクロ
+                                        </label>
+                                        <input id="SP-checkbox-9" type="checkbox" name="filter" value="Package">
+                                        <label for="SP-checkbox-9" class="filter-btn Package">
+                                            <i class="fas fa-circle Package-icon"></i> Package
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
                     <div class="load">
                         <div class="loader"></div>
                     </div>
@@ -197,8 +285,12 @@
                         <div class="modal-container" role="dialog" aria-modal="true"
                             aria-labelledby="modal-{{ forloop.index }}-title">
                             <header class="modal-header">
+                                <div class="modal-header-btn">
+                                    <button class="modal-back" aria-label="back modal"></button>
+                                    <button class="modal-close" aria-label="Close modal" data-micromodal-close></button>
+                                </div>
                                 <h1 class="modal-title" id="modal-{{ forloop.index }}-title">{{ item.title }}</h1>
-                                <button class="modal-close" aria-label="Close modal" data-micromodal-close></button>
+
                             </header>
                             <div class="modal-innertag">
                                 {% assign tags = item.tag | split: ' ' %}

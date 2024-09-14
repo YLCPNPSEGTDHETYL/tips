@@ -1,4 +1,4 @@
-<!-- 10 -->
+<!--11-->
 <!--大きなかっこ(数式)-->
 
 <aside class="warning">
@@ -143,8 +143,8 @@ physics パッケージの後継に相当する physics*2* パッケージが 2
   \ab <\frac{1}{2}>           %  < >
 ```
 
-![1](./CheatSheet/big-brackets-in-equation/1.png)
-画像はOverleafで出力。
+![1](./CheatSheet/big-brackets-in-equations/1.png "max-width=250px")
+(上記画像はOverleafで出力。)
 
 
 また、以下の接頭辞を使って書くこともできる。
@@ -185,13 +185,13 @@ physics パッケージの後継に相当する physics*2* パッケージが 2
   \usepackage{physics}
 ```
 
-| **コマンド** | quantity | **出力** |
+| **コマンド** | **quantity** | **出力** |
 | --- | --- | --- |
 | \qty(a), \ptqy{a} | Parentheses | $(𝑎)$ |
 | \qty{a}, \Bqty{a} | Brace | $\{𝑎\}$ |
 | \qty[a], \bqty{a} | Bracket | $[𝑎]$ |
-| \qty|a|, \vqty{a} | Vertical bar | $|a|$ |
-| \abs{a} | absolutevalue | $|a|$ |
+| \qty\|a\|, \vqty{a} | Vertical bar | $\|a\|$ |
+| \abs{a} | absolutevalue | $\|a\|$ |
 | \norm{a} | norm | $\|a\|$ |
 
 physicsパッケージを使えば、通常は
@@ -208,9 +208,6 @@ physicsパッケージを使えば、通常は
 
 とするだけで記述できる。
 
-- **パッケージpdf**
-    
-    [https://ftp.jaist.ac.jp/pub/CTAN/macros/latex/contrib/physics/physics.pdf](https://ftp.jaist.ac.jp/pub/CTAN/macros/latex/contrib/physics/physics.pdf)
     
 
 ---

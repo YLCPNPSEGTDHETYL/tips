@@ -5,31 +5,11 @@ function initializeScrollHint() {
     // ScrollHintの初期化
     scrollHintInstance = new ScrollHint('.table-content', {
         suggestiveShadow: true,
-        remainingTime: 5000,
+        remainingTime: 8000,
         i18n: {
             scrollable: 'スクロールできます'
         }
     });
-}
-
-// *FUNC DEF* Reset Scroll Hint
-function resetScrollHint() {
-    if (scrollHintInstance) {
-        scrollHintInstance.items.forEach(item => {
-            const element = item.element;
-
-            const iconWraps = element.querySelectorAll('.scroll-hint-icon-wrap');
-            iconWraps.forEach(iconWrap => {
-                iconWrap.remove();
-            });
-        });
-
-        scrollHintInstance.items.forEach(item => {
-            const element = item.element;
-            element.classList.remove('is-active', 'is-scrollable', 'is-right-scrollable', 'is-left-scrollable', 'scroll-hint');
-        });
-        scrollHintInstance = null;
-    }
 }
 
 let start_position = 0,
@@ -64,4 +44,3 @@ $window.trigger('scroll');
 
 //global func
 window.initializeScrollHint = initializeScrollHint;
-window.resetScrollHint = resetScrollHint;

@@ -24,44 +24,44 @@
   link: "./CheatSheet/bullet-list.md"
 
 - id: "6"
+  tag: "MustKnow FigTabItm Package"
+  title: "番号付き箇条書き(enumitem環境)"
+  link: "./CheatSheet/numbered-list.md"
+
+- id: "7"
   tag: "FigTabItm"
   title: "見出し付き箇条書き(description環境)"
   link: "./CheatSheet/description-list.md"
 
-- id: "7"
+- id: "8"
   tag: "MustKnow StyDocStr"
   title: "ドキュメントクラス"
   link: "./CheatSheet/document-class.md"
 
-- id: "8"
+- id: "9"
   tag: "MustKnow FigTabItm Package"
   title: "好きな位置に図表を配置(floatパッケージ)"
   link: "./CheatSheet/float-positioning.md"
 
-- id: "9"
+- id: "10"
   tag: "MustKnow Eq"
   title: "align環境(ディスプレイ数式)"
   link: "./CheatSheet/align-environment.md"
 
-- id: "10"
+- id: "11"
   tag: "MustKnow Eq EqSymbl Package HighLevel"
   title: "大きなかっこ(数式)"
   link: "./CheatSheet/big-brackets-in-equations.md"
 
-- id: "11"
+- id: "12"
   tag: "MustKnow FigTabItm"
   title: "図挿入(figure環境)"
   link: "./CheatSheet/figure-insertion.md"
 
-- id: "12"
+- id: "13"
   tag: "MustKnow StyDocStr Package"
   title: "文字色指定(xcolorパッケージ)"
   link: "./CheatSheet/xcolor-text-color.md"
-
-- id: "13"
-  tag: "MustKnow FigTabItm Package"
-  title: "番号付き箇条書き(enumitem環境)"
-  link: "./CheatSheet/numbered-list.md"
 
 - id: "14"
   tag: "MustKnow Layout"
@@ -112,3 +112,23 @@
   tag: "Macro"
   title: "(マクロ)色を定義して使う"
   link: "./CheatSheet/macro-define-color.md"
+
+- id: "24"
+  tag: "MustKnow StyDocStr"
+  title: "クォーテーションの書き方"
+  link: "./CheatSheet/quotation-mark.md"
+
+- id: "25"
+  tag: "MustKnow EqSymbl"
+  title: "積分記号"
+  link: "./CheatSheet/int.md"
+
+- id: "26"
+  tag: "MustKnow EqSymbl"
+  title: "微分記号"
+  link: "./CheatSheet/diff.md"
+
+- id: "27"
+  tag: "StyDocStr Package"
+  title: "ハイパーリンクをつける(hyperrefパッケージ)"
+  link: "./CheatSheet/hyperref.md"

@@ -57,10 +57,11 @@
     
 - **出力**
     
+    <div>
     $$
     \left(\begin{array}{ccccc}a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\\vdots & \ddots &        &        & \vdots \\a_{i1} &        & a_{ii} &        & a_{in} \\\vdots &        &        & \ddots & \vdots \\a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}\end{array}\right)
     $$
-    
+    </div>
 
 <aside class="warning">
 <div>
@@ -75,5 +76,5 @@ amsmathパッケージを導入している場合は、matrix環境を使う方�
     
     <div class="related-link-wrapper">
       [modal-20]<!--場合分け(数式中)--><br>
-      [modal-10]<!--大きなかっこ(数式)-->
+      [modal-11]<!--大きなかっこ(数式)-->
     </div>

@@ -16,18 +16,18 @@
     
 - **出力**
     
-    ![1](./CheatSheet/bullet-list/1.png)
+    ![1](./CheatSheet/bullet-list/1.png "max-width=200px")
     
 
 ### スペースの調整
 
 ---
 
-- enumitemパッケージを使って調整するとよい：[modal-13]<!--番号付き箇条書き(enumitem環境)-->
+- enumitemパッケージを使って調整するとよい：[modal-6]<!--番号付き箇条書き(enumitem環境)-->
 
   ```latex
     \usepackage{enumitem} % enumerateパッケージの拡張版。
-
+    
     % すべてのitemize, enumerateで適用
     \setlist{temsep=1ex, leftmargin=1cm}
   ```
@@ -46,14 +46,14 @@
       \end{itemize}
     ```
     
-    ![2](./CheatSheet/bullet-list/2.png)
+    ![2](./CheatSheet/bullet-list/2.png "max-width=280px")
     
-- {左揃え(+太字)の見出しを出力したいとき：}[modal-6]<!--見出し付き箇条書き(description環境)-->
+- {左揃え(+太字)の見出しを出力したいとき：}[modal-7]<!--見出し付き箇条書き(description環境)-->
 
 ---
 
 - **関連リンク**
   <div class="related-link-wrapper">
-      [modal-13]<!--番号付き箇条書き(enumitem環境)--><br>
-      [modal-6]<!--見出し付き箇条書き(description環境)-->
+      [modal-6]<!--番号付き箇条書き(enumitem環境)--><br>
+      [modal-7]<!--見出し付き箇条書き(description環境)-->
   </div>

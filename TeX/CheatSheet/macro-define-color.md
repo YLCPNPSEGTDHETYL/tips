@@ -11,14 +11,13 @@
         %プリアンブル
         \definecolor{myred}{rgb}{0.937255,0.411765,0.388235}
         %
-
         \textcolor{myblue}{この文字は、myblueという名前の色になります。}
     ```
 
 ### 色の指定方法の種類
+---
 
 - cmyk, rgb, HTMLなどの形式で指定できる。
----
 
 ```latex    
     \definecolor{mypurple}{cmyk}{0.25,1,0.5,0} %各数字がそれぞれcyan, magenta, yellow, blackに対応。値は0~1の間をとる。
@@ -42,6 +41,6 @@
 - **関連リンク**
     
     <div class="related-link-wrapper">
-      [modal-12]<!--文字色指定(xcolorパッケージ)-->
+      [modal-13]<!--文字色指定(xcolorパッケージ)-->
     </div>
     

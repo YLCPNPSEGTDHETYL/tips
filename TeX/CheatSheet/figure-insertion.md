@@ -1,4 +1,4 @@
-<!--11-->
+<!--12-->
 <!--図挿入(figure環境)-->
 
 - **入力**
@@ -19,16 +19,10 @@
     
     ![neko.png](./CheatSheet/figure-insertion/neko.png)
 
-    <div>
-    $$
-    図1　これは猫です。
-    $$
-    </div>
-
 ---
 
 - **関連リンク**
     <div class="related-link-wrapper">
-        [modal-8]<!--好きな位置に図表を配置(floatパッケージ)--><br>
+        [modal-9]<!--好きな位置に図表を配置(floatパッケージ)--><br>
         [modal-21]<!--(マクロ)シンプルに図を貼る-->
     </div>

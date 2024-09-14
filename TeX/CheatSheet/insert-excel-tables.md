@@ -45,5 +45,5 @@ Excelで作った表。
     
     <div class="related-link-wrapper">
         [modal-2]<!--表挿入(tabular環境)--><br>    
-        [modal-8]<!--好きな位置に図表を配置(floatパッケージ)-->
+        [modal-9]<!--好きな位置に図表を配置(floatパッケージ)-->
     </div>

@@ -1,4 +1,4 @@
-<!--6-->
+<!--7-->
 <!--見出し付き箇条書き(description環境)-->
 
 ### 基本的な使い方
@@ -16,7 +16,7 @@
     
 - **出力**
     
-    ![1](./CheatSheet/description-list/1.png)
+    ![1](./CheatSheet/description-list/1.png "max-width=250px")
     
 
 ### **見出しと本文の間に改行**
@@ -75,7 +75,7 @@
 
 - **出力**
     
-    ![3](./CheatSheet/description-list/3.png)
+    ![3](./CheatSheet/description-list/3.png "max-width=250px")
     
 
 ---
@@ -84,5 +84,5 @@
     
     <div class="related-link-wrapper">
       [modal-5]<!--記号付き箇条書き(item環境)--><br>
-      [modal-13]<!--番号付き箇条書き(enumitem環境)-->
+      [modal-6]<!--番号付き箇条書き(enumitem環境)-->
     </div>

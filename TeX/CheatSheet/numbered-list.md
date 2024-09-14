@@ -1,4 +1,4 @@
-<!--13-->
+<!--6-->
 <!--番号付き箇条書き(enumitem環境)-->
 
 ### 基本的な使い方
@@ -20,7 +20,7 @@
     
 - **出力**
     
-    ![1](./CheatSheet/numbered-list/1.png)
+    ![1](./CheatSheet/numbered-list/1.png "max-width=200px")
     
 
 ### **番号ルールを変更**
@@ -74,7 +74,7 @@
         \end{enumerate}
     ```
     
-    ![2](./CheatSheet/numbered-list/2.png)
+    ![2](./CheatSheet/numbered-list/2.png "max-width=280px")
     
 - `\arabic*`の部分は、上記の番号の振り方に`*`をつければよい。
 
@@ -134,7 +134,7 @@
         \end{enumerate}
     ```
     
-    ![4](./CheatSheet/numbered-list/4.png)
+    ![4](./CheatSheet/numbered-list/4.png "max-width=350px")
     
 
 ---
@@ -143,5 +143,5 @@
     
     <div class="related-link-wrapper">
       [modal-5]<!--記号付き箇条書き(item環境)--><br>
-      [modal-6]<!--見出し付き箇条書き(description環境)-->
+      [modal-7]<!--見出し付き箇条書き(description環境)-->
     </div>

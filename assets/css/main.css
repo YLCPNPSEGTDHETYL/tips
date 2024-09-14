@@ -927,6 +927,7 @@ aside {
 	align-items: flex-start;
 	flex-wrap: nowrap;
 	gap: 1em;
+	margin: 2em 0;
 }
 
 aside.warning:before {
@@ -941,6 +942,7 @@ aside.pinned:before {
 	content: "📌";
 }
 
+
 .related-link-wrapper {
 	margin: 0.5em 0;
 }
@@ -954,6 +956,33 @@ aside.pinned:before {
 	display: inline;
 }
 
+
+.related-link {
+	cursor: pointer;
+	color: var(--col-text);
+	letter-spacing: .05em;
+	line-height: 1.2;
+	font-weight: 400;
+	transition: -webkit-transform .25s ease-out;
+	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+}
+
+
+.related-link:before {
+	content: "\f08e";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 600;
+	color: gray;
+	margin-right: 8px;
+}
+
+
+.related-link span {
+	text-decoration: underline;
+	text-decoration-color: rgb(199, 199, 199);
+}
+
 .scroll-hint.is-right-scrollable.is-left-scrollable {
 	background: linear-gradient(90deg, rgba(150, 150, 150, 0.15) 0, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0)), linear-gradient(270deg, rgba(150, 150, 150, 0.15) 0, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0));
 }
@@ -964,6 +993,23 @@ aside.pinned:before {
 
 .scroll-hint.is-right-scrollable {
 	background: linear-gradient(270deg, rgba(150, 150, 150, 0.15) 0, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0));
+}
+
+@media (hover: hover) {
+
+	.related-link:focus,
+	.related-link:hover {
+		color: var(--col-gray);
+		transform: translateY(1px);
+	}
+}
+
+
+@media (hover: none) {
+	.related-link:active {
+		color: var(--col-gray);
+		transform: translateY(1px);
+	}
 }
 
 
