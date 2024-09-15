@@ -871,7 +871,7 @@ pre.line-numbers code {
   }
 
   .modal-container {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     border-radius: 0%;
     padding: 30px 5%;
