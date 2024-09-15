@@ -36,8 +36,6 @@ window.addEventListener('load', getScrollbarWidth);
 window.addEventListener('resize', getScrollbarWidth);
 
 
-
-
 function markdownImageSize(md) {
   md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const token = tokens[idx];

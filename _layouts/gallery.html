@@ -290,16 +290,17 @@
                                     <button class="modal-close" aria-label="Close modal" data-micromodal-close></button>
                                 </div>
                                 <h1 class="modal-title" id="modal-{{ forloop.index }}-title">{{ item.title }}</h1>
-
+                                <div class="modal-innertag">
+                                    {% assign tags = item.tag | split: ' ' %}
+                                    {% for tag in tags %}
+                                    <span class="{{ tag }}">
+                                        {{ site.data.CS.CStag[tag] }}
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                                <hr class="modal-topline">
                             </header>
-                            <div class="modal-innertag">
-                                {% assign tags = item.tag | split: ' ' %}
-                                {% for tag in tags %}
-                                <span class="{{ tag }}">
-                                    {{ site.data.CS.CStag[tag] }}
-                                </span>
-                                {% endfor %}
-                            </div>
+
                             <main class="modal-content" id="modal-{{ forloop.index }}-content">
                             </main>
                             <footer class="modal-footer">

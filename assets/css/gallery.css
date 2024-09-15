@@ -63,20 +63,36 @@
 .modal-container {
   z-index: 1001;
   background-color: #fff;
-  padding: 30px 8%;
   width: 80vw;
   height: 90vh;
   border-radius: 4px;
   overflow-y: auto;
   box-sizing: border-box;
-  /* scroll-behavior: smooth; */
 }
 
 
+.modal-title,
+.modal-innertag,
+.modal-header-btn ,
+.modal-content {
+  padding: 0 8%;
+}
+
 .modal-header {
+  padding-top: 30px;
+  margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+}
+
+.modal-topline {
+  border-top: 1px solid var(--col-bg-gray);
+  border-bottom: unset;
 }
 
 .popovermodal-header {
@@ -123,6 +139,7 @@
 .modal-content {
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding: 0 8%;
   line-height: 1.5;
   overflow-x: auto;
 }
@@ -130,13 +147,6 @@
 .modal-content img {
   margin: 1em 0;
   width: 100%;
-}
-
-.modal-header,
-.modal-innertag,
-.modal-footer {
-  position: sticky;
-  z-index: 10;
 }
 
 .modal-link {
@@ -185,7 +195,6 @@
 
 .modal-tag,
 .modal-innertag {
-  padding: .5rem;
   display: flex;
   gap: 0 1em;
   min-width: 0px;
@@ -194,7 +203,13 @@
 
 
 .modal-tag {
+  padding: .5rem;
   font-size: .9rem;
+}
+
+
+.modal-innertag {
+  margin-bottom: 12px;
 }
 
 .table-content {
@@ -874,7 +889,26 @@ pre.line-numbers code {
     height: 100dvh;
     width: 100vw;
     border-radius: 0%;
-    padding: 30px 5%;
+    padding: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-title,
+  .modal-innertag,
+  .modal-header-btn ,
+  .modal-content {
+    padding: 0 5%;
+  }
+
+  .modal-header {
+    padding-top: 30px;
+    width: 100vw;
+  }
+  .modal-footer {
+    padding-bottom: 30px;
+    width: 100vw;
   }
 
   .item {
