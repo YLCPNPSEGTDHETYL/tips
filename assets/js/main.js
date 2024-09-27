@@ -21,9 +21,9 @@ let start_position = 0,
 
 document.addEventListener('DOMContentLoaded', function () {
     header_height = $("#header").height();
-
-    $("article").css("margin-top", header_height + 10);
-
+    if (!isSmallTouchDevice()) {
+        $("article").css("margin-top", header_height + 10);
+    }
     document.body.classList.add('js-loaded');
 });
 
@@ -44,3 +44,26 @@ $window.trigger('scroll');
 
 //global func
 window.initializeScrollHint = initializeScrollHint;
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.hash) {
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+});
+
+
+function isSmallTouchDevice() {
+    return window.matchMedia("(max-width: 640px)").matches && 'ontouchstart' in window;
+}
+function addClassIfSmallTouchDevice() {
+    const element = document.querySelector('.all-wrapper');
+    if (isSmallTouchDevice() && element) {
+        element.classList.add('SP-only');
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    addClassIfSmallTouchDevice();
+});
+window.addEventListener('resize', function () {
+    addClassIfSmallTouchDevice();
+});

@@ -38,9 +38,10 @@
     
     ```latex
         \begin{document}
-        % documentの中に書く
-        \setlength{\baselineskip}{18pt}
-        
+            なにか文章\\
+            % documentの中に書く
+            \setlength{\baselineskip}{18pt}
+            ここから先の行送りが変更される。
         \end{document}
     ```
     

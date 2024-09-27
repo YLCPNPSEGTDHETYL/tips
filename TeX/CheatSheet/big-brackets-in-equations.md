@@ -10,14 +10,14 @@
 </div>
 </aside>
 
-### **大きさを変えられる文字一覧**
+### 大きさを変えられる文字一覧
 
 ---
 
 | **出力** | **コマンド** |
 | --- | --- |
 | $( )$ | `( )` , or `\lparen`  `\rparen` |
-| $\{ \}$ | `\( \)` , or `\lbrace`  `\rbrace` |
+| $\lbrace \rbrace$ | `\( \)` , or `\lbrace`  `\rbrace` |
 | $[ ]$ | `[ ]` , or `\lbrack`  `\rbrack` |
 | $\lvert \rvert$ | `\| \|` , `\vert`, or `\lvert`  `\rvert` |
 | $\| \|$ | `\| \|` `\Vert`, or `\lVert`  `\rVert` |
@@ -34,14 +34,14 @@
 | $\Downarrow$ | `\Downarrow` |
 | $\Updownarrow$ | `\Updownarrow` |
 
-### **1. 自動調整(left, right)**
+### 1. 自動調整(left, right)
 
 ---
 
 
 <aside class="warning">
 <div>
-`\left`・`\right` は万能なようですが、括弧周りに不自然な空きが生じる重大な欠陥があります。
+<code>\left</code>・<code>\right</code> は万能なようですが、括弧周りに不自然な空きが生じる重大な欠陥があります。
 必要に応じて、手動調整やphysics2パッケージを使うべきです。
 </div>
 </aside>
@@ -80,7 +80,7 @@ $$
 $$
 </div>
 
-### **2. 手動調整**
+### 2. 手動調整
 
 ---
 
@@ -109,7 +109,7 @@ $$
 $$
 </div>
 
-### **3. (高度)physics2パッケージ**
+### 3. (高度)physics2パッケージ
 
 ---
 
@@ -144,6 +144,7 @@ physics パッケージの後継に相当する physics*2* パッケージが 2
 ```
 
 ![1](./CheatSheet/big-brackets-in-equations/1.png "max-width=250px")
+
 (上記画像はOverleafで出力。)
 
 

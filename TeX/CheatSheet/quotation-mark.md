@@ -12,7 +12,7 @@
 ---
 - **入力**
     - 始まりはバッククォート2つ<code>``</code>
-    - 終わりはシングルクォート2つ<code>''</code>
+    - 終わりはシングルクォート2つ`''`
         
     ```latex
         ダメな例："This is a wrong quote."
@@ -20,8 +20,9 @@
         良い例：``This is a double quote.''
     ```
     
-- **出力**    
-    ![1](./CheatSheet/quotation-mark/1.png)
+- **出力**
+
+    ![1](./CheatSheet/quotation-mark/1.png "max-width=450px")
 
 
 ### シングルクォーテーション
@@ -33,11 +34,12 @@
     ```latex
         ダメな例：'This is a wrong quote.'
         
-        良い例：`This is a double quote.'
+        良い例：`This is a single quote.'
     ```
     
 - **出力**    
-    ![2](./CheatSheet/quotation-mark/2.png)
+
+    ![2](./CheatSheet/quotation-mark/2.png "max-width=450px")
 
 ---
 

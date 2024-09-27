@@ -11,18 +11,18 @@
         %丸かっこの場合 
         \begin{align*}
             \begin{pmatrix}
-            a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\
-            \vdots & \ddots &        &        & \vdots \\
-            a_{i1} &        & a_{ii} &        & a_{in} \\
-            \vdots &        &        & \ddots & \vdots \\
-            a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}
+                a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\
+                \vdots & \ddots &        &        & \vdots \\
+                a_{i1} &        & a_{ii} &        & a_{in} \\
+                \vdots &        &        & \ddots & \vdots \\
+                a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}
             \end{pmatrix} 
         \end{align*}
     ```
     
 - **出力**
     
-    ![1](./CheatSheet/matrix-in-equations/1.png)
+    ![1](./CheatSheet/matrix-in-equations/1.png "max-width=285px")
     
 - **括弧の種類一覧**
     
@@ -45,11 +45,11 @@
         \begin{align*}
             \left(
             \begin{array}{ccccc}
-            a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\
-            \vdots & \ddots &        &        & \vdots \\
-            a_{i1} &        & a_{ii} &        & a_{in} \\
-            \vdots &        &        & \ddots & \vdots \\
-            a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}
+                a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\
+                \vdots & \ddots &        &        & \vdots \\
+                a_{i1} &        & a_{ii} &        & a_{in} \\
+                \vdots &        &        & \ddots & \vdots \\
+                a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}
             \end{array}
             \right)
         \end{align*}
@@ -59,7 +59,15 @@
     
     <div>
     $$
-    \left(\begin{array}{ccccc}a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\\vdots & \ddots &        &        & \vdots \\a_{i1} &        & a_{ii} &        & a_{in} \\\vdots &        &        & \ddots & \vdots \\a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}\end{array}\right)
+    \left(
+    \begin{array}{ccccc}
+        a_{11} & \cdots & a_{1i} & \cdots & a_{1n}\\
+        \vdots & \ddots &        &        & \vdots \\
+        a_{i1} &        & a_{ii} &        & a_{in} \\
+        \vdots &        &        & \ddots & \vdots \\
+        a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}
+    \end{array}
+    \right)
     $$
     </div>
 

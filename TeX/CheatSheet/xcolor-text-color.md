@@ -54,11 +54,11 @@
     
     ![5](./CheatSheet/xcolor-text-color/5.png)
     
-- 入力
+- **入力**
     ```latex
         \textcolor{Orchid}{e.g.\ Orchid(＝淡紫色)という色にしてみました。}
     ```
-- 出力
+- **出力**
     <div>
     $$
     \textcolor{Orchid}{\mathrm{e.g.)\ Orchid(＝淡紫色)という色にしてみました。}}

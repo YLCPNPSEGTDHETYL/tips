@@ -9,11 +9,11 @@
     
     ```latex
         \begin{align*}
-        f(x)=
-        \begin{cases}
-            1 & (x \geq 0)\\
-            0 & (x < 0)
-        \end{cases}
+            f(x)=
+            \begin{cases}
+                1 & (x \geq 0)\\
+                0 & (x < 0)
+            \end{cases}
         \end{align*}
     ```
     
@@ -36,12 +36,12 @@
     
     ```latex
     \begin{align*}
-    f(x) = \left\{
-     \begin{array}{ll}
-    	 1 & (x \geq 0)\\
-    	 0 & (x < 0)
-     \end{array}
-    \right.
+        f(x) = \left\{
+        \begin{array}{ll}
+            1 & (x \geq 0)\\
+            0 & (x < 0)
+        \end{array}
+        \right.
     \end{align*}
     ```
     

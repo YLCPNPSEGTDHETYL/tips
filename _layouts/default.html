@@ -46,10 +46,13 @@
     <div class="all-wrapper">
 
         <main>
+            <div class=" radial SP-only">
+                {% include radial.html %}
+            </div>
             {{ content }}
         </main>
 
-        <footer id="footer">
+        <footer id="footer" class="PC-only">
             {% include footer.html %}
         </footer>
 

@@ -8,10 +8,10 @@
 - **入力**
     
     ```latex
-        \begin{description}
+    \begin{description}
         \item[日程] 10月3日
         \item[時間] 15時頃
-        \end{description}
+    \end{description}
     ```
     
 - **出力**

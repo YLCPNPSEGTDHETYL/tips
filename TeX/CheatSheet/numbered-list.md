@@ -68,9 +68,9 @@
     
     ```latex
         \begin{enumerate}[label=\textbf{その\arabic*.}]
-        \item 一つ目
-        \item 二つ目
-        \item 三つ目
+            \item 一つ目
+            \item 二つ目
+            \item 三つ目
         \end{enumerate}
     ```
     
@@ -115,23 +115,24 @@
     
     ```latex
     \begin{enumerate}[start=4] % 「4」からスタートする。
-    \item 四つ目
-    \item 五つ目
-    \item 六つ目
+        \item 四つ目
+        \item 五つ目
+        \item 六つ目
     \end{enumerate}
     ```
     
 - あるいは、前の番号の続きから始めたいときには、次のようにする。
     
     ```latex
-        \begin{enumerate}
+    \begin{enumerate}
         \item 一つ目
         \item 二つ目
-        \end{enumerate}
-        続きから始めたいとき、
-        \begin{enumerate}[resume]
+    \end{enumerate}
+    
+    続きから始めたいとき、
+    \begin{enumerate}[resume]
         \item 三つ目
-        \end{enumerate}
+    \end{enumerate}
     ```
     
     ![4](./CheatSheet/numbered-list/4.png "max-width=350px")

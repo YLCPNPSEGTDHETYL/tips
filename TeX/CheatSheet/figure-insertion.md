@@ -17,7 +17,7 @@
 
 - **出力**
     
-    ![neko.png](./CheatSheet/figure-insertion/neko.png)
+    ![neko.png](./CheatSheet/figure-insertion/neko.png "max-width=250px")
 
 ---
 

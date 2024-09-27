@@ -1,0 +1,436 @@
+<style>
+    .radial-container {
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
+    }
+
+    .radial-container #menu {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        font-size: 200%;
+        padding: 0;
+        z-index: 1;
+    }
+
+    .button-content {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .radial-menu-button {
+        z-index: -1;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: 0;
+        border-radius: 50%;
+        background: #00bcd4;
+        background-size: 100%;
+        overflow: hidden;
+        text-decoration: none;
+        line-height: normal;
+        color: #fff;
+        font-size: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .button-content:active {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+
+    .radial-container #menu:not(:target)>.button-content .radial-open,
+    .radial-container #menu:target>.button-content .radial-close {
+        opacity: 1;
+        z-index: 1;
+    }
+
+
+    .radial-container #menu:not(:target)>.radial-open:before,
+    .radial-container #menu:target>.radial-close:before {
+        opacity: 1;
+    }
+
+    .radial-menu-item {
+        list-style: none;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 50%;
+        line-height: 5px;
+        top: 50%;
+        margin: -25px 0 0 -25px;
+        border-radius: 9999px;
+        /* background-color: #fff; */
+        transform: translate(0px, 0px);
+        opacity: 0;
+        transition: transform 0.3s 0.1s ease, opacity 0.2s ease-in-out;
+        z-index: -2;
+        padding: 0;
+    }
+
+    .radial-container #menu:target>.radial-menu-item {
+        opacity: 1;
+        transition: transform 0.3s ease, opacity 0.5s ease-in-out;
+    }
+
+    .radial-menu-item:hover {
+        opacity: 0.8;
+    }
+
+
+    .radial-menu-item a {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: none;
+        text-align: center;
+        line-height: normal;
+        font-size: 16px;
+    }
+
+    .radial-container #menu:target>.radial-menu-item:nth-child(1) {
+        transform: none;
+    }
+
+    .radial-container #menu:target>.radial-menu-item:nth-child(2) {
+        transform: translateY(-70px) translateX(-40vw);
+        transition-delay: 0s;
+    }
+
+    .radial-container #menu:target>.radial-menu-item:nth-child(3) {
+        transform: translateY(-70px) translateX(-20vw);
+        transition-delay: 0.05s;
+    }
+
+    .radial-container #menu:target>.radial-menu-item:nth-child(4) {
+        transform: translateY(-70px) translateX(0vw);
+        transition-delay: 0.1s;
+    }
+
+    .radial-container #menu:target>.radial-menu-item:nth-child(5) {
+        transform: translateY(-70px) translateX(20vw);
+        transition-delay: 0.15s;
+    }
+
+    .radial-container #menu:target>.radial-menu-item:nth-child(6) {
+        transform: translateY(-70px) translateX(40vw);
+        transition-delay: 0.2s;
+    }
+
+
+    .content {
+        position: absolute;
+        text-align: center;
+        margin: -10px 0 0 -30px;
+        top: 70%;
+        left: 50%;
+        font-size: 20px;
+    }
+
+
+    .ic-plus {
+        transition: transform 0.5s ease;
+        z-index: 10;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .radial-container #menu:target .ic-plus {
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+
+
+    .radial-overlay {
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .radial-container #menu:target~.radial-overlay {
+        display: block;
+    }
+
+    .ic-Igor {
+        width: 10vw;
+        height: 10vw;
+        max-width: 50vw;
+    }
+
+    .bottom-menubar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100dvw;
+        height: 55px;
+        background-color: var(--col-bg);
+        z-index: 1;
+        border-top: 1.2px solid #ccc;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 calc(25vw - 40px);
+    }
+
+    .stretch-animation {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 60px;
+        background-color: #fff;
+        z-index: -3;
+        transition: transform 0.2s 0.3s ease, opacity 0.1s ease-in-out, width 0.3s ease;
+        transform: translate(-50%, -50%);
+        border-radius: 9999px;
+        opacity: 0;
+    }
+
+
+    .radial-container #menu:target .stretch-animation {
+        width: 95vw;
+        opacity: 1;
+        transform: translateY(-70px) translate(-50%, -50%);
+        transition: transform 0.2s ease, opacity 0.2s ease-in-out, width 0.3s ease;
+    }
+
+    .article-info {
+        display: none;
+        position: fixed;
+        width: 100dvw;
+        height: 100dvh;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        z-index: 0;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s 1s ease, transform 0.5s 1s ease;
+    }
+
+    .article-info.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .bottom-menubar a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        font-weight: 600;
+        font-size: 0.7rem;
+        line-height: 1;
+        text-decoration: none;
+        color: #00bcd4;
+        padding: 10px;
+    }
+
+    .bottom-menubar a::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        background: #00bcd412;
+        border-radius: 9999px;
+        transition: transform 0.3s 0.5s ease, opacity 0.3s ease;
+        width: 50px;
+        height: 50px;
+        transform: translateY(-50%) scale(0);
+        opacity: 0;
+        transform-origin: center center;
+        z-index: -1;
+    }
+    
+    .bottom-menubar a:active::after {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+
+    .ic-home,
+    .ic-info {
+        width: 25px;
+        height: 25px;
+    }
+</style>
+
+<nav class="radial-container">
+    <div class="bottom-menubar">
+        <a href="{{ './index.html' | relative_url }}" class="menu-bar-btn home">
+            <img class="ic ic-home" src="{{ './assets/icon/home.svg' | relative_url }}" alt="home" />
+            home
+        </a>
+        <a href="{{ './index.html' | relative_url }}" class="menu-bar-btn info">
+            <img class="ic ic-info" src="{{ './assets/icon/info.svg' | relative_url }}" alt="info" />
+            info
+        </a>
+    </div>
+    <ul id="menu">
+        <div class="button-content">
+            <a class="radial-menu-button radial-open" href="#menu" title="Show radial-nav">
+                <img class="ic ic-plus" src="{{ './assets/icon/plus.svg' | relative_url }}" alt="plus" />
+            </a>
+            <a class="radial-menu-button radial-close" href="#0" title="Hide radial-nav">
+                <img class="ic ic-plus" src="{{ './assets/icon/plus.svg' | relative_url }}" alt="plus" />
+            </a>
+        </div>
+        <li class="radial-menu-item">
+            <a href="#menu" data-item="Igor" class="menu-link">
+                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            </a>
+        </li>
+        <li class="radial-menu-item">
+            <a href="#menu" data-item="VESTA" class="menu-link">
+                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            </a>
+        </li>
+        <li class="radial-menu-item">
+            <a href="#menu" data-item="TeX" class="menu-link">
+                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            </a>
+        </li>
+        <li class="radial-menu-item">
+            <a href="#menu" data-item="Presentation" class="menu-link">
+                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            </a>
+        </li>
+        <li class="radial-menu-item">
+            <a href="#menu" data-item="Others" class="menu-link">
+                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            </a>
+        </li>
+        <span class="stretch-animation"></span>
+    </ul>
+    <a class="radial-overlay" href="#0"></a>
+    <div id="article-info" class="article-info"></div>
+</nav>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const CheckSec = 500;
+        const menuLinks = document.querySelectorAll('.menu-link');
+        const articleInfo = document.getElementById('article-info');
+        let longPressTimer;
+
+        menuLinks.forEach(link => {
+            let longPressDetected = false;
+
+            link.addEventListener('touchstart', () => {
+                const title = link.getAttribute('data-item');
+                articleInfo.innerHTML = `<h1>${title}</h1>`;
+                articleInfo.classList.add('active');
+            });
+
+            LongPress(link,
+                () => {
+                    if (!longPressDetected) {
+                        window.location.href = link.href;
+                    }
+                },
+                () => {
+                    articleInfo.innerHTML += '<h2>長押ししました</h2>';
+                    longPressDetected = true;
+                },
+                CheckSec
+            );
+        });
+
+        const RadialClose = document.querySelector('.radial-close');
+        RadialClose.addEventListener('click', () => {
+            articleInfo.classList.remove('active');
+            articleInfo.innerHTML = '';
+            longPressDetected = false;
+        });
+
+
+        function LongPress(el, nf, lf, sec) {
+            let longclick = false;
+            let longtap = false;
+            let touch = false;
+            let timer;
+            el.addEventListener('touchstart', () => {
+                touch = true;
+                longtap = false;
+                timer = setTimeout(() => {
+                    longtap = true;
+                    lf();
+                }, sec);
+            })
+            el.addEventListener('touchend', () => {
+                if (!longtap) {
+                    clearTimeout(timer);
+                    nf();
+                } else {
+                    touch = false;
+                }
+            })
+
+            el.addEventListener('mousedown', () => {
+                if (touch) return;
+                longclick = false;
+                timer = setTimeout(() => {
+                    longclick = true;
+                    lf();
+                }, sec);
+            })
+            el.addEventListener('click', () => {
+                if (touch) {
+                    touch = false;
+                    return;
+                }
+                if (!longclick) {
+                    clearTimeout(timer);
+                    nf();
+                }
+            });
+        }
+
+    });
+
+    const menu = document.getElementById('menu');
+
+    menu.addEventListener('transitionend', () => {
+        if (menu.matches(':target')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+
+</script>

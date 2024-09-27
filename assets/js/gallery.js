@@ -25,7 +25,7 @@ let scrollbarWidth;
 function getScrollbarWidth() {
   scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 }
-function adjustBodyPadding() {  
+function adjustBodyPadding() {
   document.body.style.paddingRight = `${scrollbarWidth}px`;
 }
 function resetBodyPadding() {
@@ -132,7 +132,10 @@ function replaceMarkersWithLinks(modalContent) {
       return `
          <span class="related-link-caption">${prefixText || ''}</span>
         <span  class="related-link-id" data-target-modal="modal-${modalId}">
-          <span data-link="${item.link}" class="related-link"><span>${item.title}</span></span>
+          <span data-link="${item.link}" class="related-link">
+            <img class="ic ic-external-link" src="../assets/icon/external-link.svg" alt="external-link" />
+            <span>${item.title}</span>
+          </span>
         </span>
       `;
     } else {
@@ -176,6 +179,7 @@ function initializeMicroModal() {
         initializeScrollHint();
         updateHistoryOnOpen(modal.id); // モーダルが開いたときに履歴を更新
         resetScrollPosition(modal); // スクロール位置をリセット
+        addCloseButtonListener(modal.id);
       }
     },
     onClose: function (modal) {
@@ -193,10 +197,19 @@ function initializeMicroModal() {
 
   console.log('MicroModal initialized.');
 
-  // ブラウザの履歴APIによる履歴の変更を監視
+
   window.addEventListener('popstate', handleHistoryPopState);
 }
 
+function addCloseButtonListener(modalId) {
+  const closeButtons = document.querySelectorAll(`#${modalId} .modal-btn`);
+  closeButtons.forEach(closeButton => {
+    closeButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      MicroModal.close(modalId);
+    });
+  });
+}
 
 
 // ポップオーバー表示を切り替える関数
@@ -373,7 +386,8 @@ function setupModalLinkListeners() {
                 console.log('Modal opened, initializing ScrollHint');
                 initializeScrollHint();
                 updateHistoryOnOpen(modal.id); // モーダルが開いたときに履歴を更新
-                resetScrollPosition(modal)
+                resetScrollPosition(modal);
+                addCloseButtonListener(modal.id);
               },
               onClose: function (modal) {
                 console.log('Modal closed, resetting ScrollHint');
@@ -522,14 +536,13 @@ function setUpSearchFilterSort(grid, tokenizer) {
   filterCheckBoxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', handleFilterChange);
   });
+  updateCheckedList();
 
 
   searchField.addEventListener('keyup', function (event) {
     handleSearchFieldChange(tokenizer);
   });
-  filterField.addEventListener('change', function () {
-    handleFilterChange();
-  });
+  filterField.addEventListener('change', handleFilterChange);
 
   // SP版ではラジオボタンでソート
   if (isSP) {
@@ -596,6 +609,45 @@ function HiraganizeTheTitle(romaji) {
   return hiragana;
 }
 
+const checkboxMapping = {
+  'SP-checkbox-1': { tag: 'MustKnow', text: '基本' },
+  'SP-checkbox-2': { tag: 'Eq', text: '数式' },
+  'SP-checkbox-3': { tag: 'EqSymbl', text: '数式記号' },
+  'SP-checkbox-4': { tag: 'FigTabItm', text: '図表／箇条書き' },
+  'SP-checkbox-5': { tag: 'Layout', text: 'レイアウト' },
+  'SP-checkbox-6': { tag: 'StyDocStr', text: '体裁／文書構造' },
+  'SP-checkbox-7': { tag: 'HighLevel', text: '高度' },
+  'SP-checkbox-8': { tag: 'Macro', text: 'マクロ' },
+  'SP-checkbox-9': { tag: 'Package', text: 'Package' }
+};
+
+
+function updateCheckedList() {
+  const checkedList = document.querySelector('.SP-only.checked-list');
+
+  const existingSpans = checkedList.querySelectorAll('span');
+  existingSpans.forEach(span => span.remove());
+
+  const checkedSpans = [];
+  Object.keys(checkboxMapping).forEach(id => {
+    const checkbox = document.getElementById(id);
+    if (checkbox.checked) {
+      const { tag, text } = checkboxMapping[id];
+      const span = document.createElement('span');
+      span.className = tag;
+
+      span.textContent = text;
+      checkedSpans.push(span);
+    }
+  });
+  checkedSpans.forEach((span, index) => {
+    if (index < checkedSpans.length - 1) {
+      span.textContent = `${span.textContent}`;
+    }
+    checkedList.appendChild(span);
+  });
+}
+
 
 function filter(searchTextFormats = cachedSearchTextFormats) {
   const isSP = isSmallTouchDevice();
@@ -639,29 +691,29 @@ function filter(searchTextFormats = cachedSearchTextFormats) {
     // Return items that match both search and filter criteria
     return isSearchMatch && isFilterMatch;
   });
+  updateCheckedList();
 }
 
 
-function handleFilterChange() {
+function handleFilterChange(event) {
 
   const isSP = isSmallTouchDevice();
   const wrapper = document.querySelector(`.Allfilter-controls${isSP ? '.SP-only' : '.PC-only'}`);
 
   let filterCheckBoxes = wrapper.querySelectorAll('[name="filter"]');
+  const currentCheckbox = event.target;
 
   let checkboxPrefix = isSP ? '#SP-' : '#PC-';
   let allCheckbox = wrapper.querySelector(checkboxPrefix + 'checkbox-all');
 
   let checkedBoxes = Array.from(filterCheckBoxes).filter(cb => cb.checked && cb.value !== '');
 
-  console.log('Checkbox changed:', this.id, 'Checked:', this.checked);
 
-
-  if (this.value !== '' && this.checked) {
+  if (currentCheckbox.value !== '' && currentCheckbox.checked) {
     allCheckbox.checked = false;
   }
 
-  if (this === allCheckbox && this.checked) {
+  if (currentCheckbox === allCheckbox && currentCheckbox.checked) {
     filterCheckBoxes.forEach(function (checkbox) {
       if (checkbox !== allCheckbox) {
         checkbox.checked = false;
@@ -794,7 +846,6 @@ let grid;
 let initialtokenizer;
 
 
-// 2. DOMContentLoaded に対する既存のリスナ
 document.addEventListener('DOMContentLoaded', function () {
   showGridAfterDelay(2000);
   setupSettingsButton();
