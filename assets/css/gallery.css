@@ -943,7 +943,7 @@ pre.line-numbers code {
 
   .modal-close:hover,
   .modal-back:hover {
-    transform: translateY(-50%) scale(1);
+    transform: scale(1);
   }
 
 }
