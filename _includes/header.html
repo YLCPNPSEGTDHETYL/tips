@@ -1,0 +1,200 @@
+
+
+<style>
+    #header {
+        position: fixed;
+        top: 0;
+        margin: 0;
+        z-index: 999;
+        transition: 0.2s ease-in-out;
+        width: 100dvw;
+    }
+    .header-wrapper {
+        background-color: var(--col-text);
+        color: var(--col-bg);
+    }
+
+    .header-menu {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin: auto;
+        width: 100%;
+    }
+
+    .header-item-wrapper {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .header-home {
+        display: flex;
+        padding: 6px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .header-item-wrapper {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        background-color: var(--col-bg-blue);
+    }
+
+    .global-nav-wrapper {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    .global-nav-list {
+        font-weight: 500;
+        list-style: none;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .global-nav-wrapper ul,
+    .global-nav-wrapper ol {
+        padding: 0;
+        margin: 0;
+    }
+
+    .global-nav-list li {
+        position: relative;
+        list-style: none;
+    }
+
+    .global-nav-item {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+        white-space: nowrap;
+        padding: 10px 20px;
+        text-decoration: none;
+        transition: color .15s;
+    }
+
+
+    .link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color .15s;
+    }
+
+    .link:hover>a,
+    .link:focus-within>a {
+        opacity: 0.5;
+    }
+
+    .dropdown {
+        position: absolute;
+        bottom: 0;
+        display: none;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0px 3px 8px -2px #777;
+        color: initial;
+        transform: translate(0, 100%);
+        border-radius: 6px;
+    }
+
+    .dropdown-item a {
+        padding: 6px 10px;
+        font-weight: 400;
+        font-size: 90%;
+    }
+
+    .link:hover>.dropdown,
+    .link:focus-within>.dropdown {
+        display: block;
+    }
+
+    .dropdown-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .global-nav-item:hover,
+    .global-nav-item:focus {
+        opacity: 0.5;
+    }
+
+
+
+    @media (hover: hover) {
+
+        .global-nav-item:hover .dropdown {
+            display: block;
+        }
+    }
+</style>
+
+<div id="top">
+    <div class="header-wrapper sans">
+        <nav aria-label="global" class="global-nav-wrapper">
+            <ul class="global-nav-list">
+                <div class="header-item-wrapper">
+                    <a href="/" aria-label="home" class="header-home">
+                        home
+                    </a>
+                </div>
+                {% for category in site.data.Gnav %}
+                {% for subcategory in category.children %}
+                <li class="list-item">
+                    <div class="link" tabindex="0">
+                        <a href="{{ subcategory.url }}" class="global-nav-item">{{ subcategory.title }}</a>
+                        {% if subcategory.children %}
+                        <div class="dropdown">
+                            <ul class="dropdown-list">
+                                {% for child in subcategory.children %}
+                                <li class="dropdown-item">
+                                    <a href="{{ child.url }}" class="global-nav-item">{{ child.title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <nav aria-label="global" class="global-nav-wrapper" style="display: none;">
+            <ol class="global-nav-list">
+                {% for category in site.data.Gnav %}
+                {% for subcategory in category.children %}
+                <li>
+                    <a href="{{ subcategory.url }}" class="global-nav-item">{{ subcategory.title }}</a>
+                    {% if subcategory.children %}
+                    <ol class="dropdown">
+                        {% for child in subcategory.children %}
+                        <li class="dropdown">
+                            <a href="{{ child.url }}" class="global-nav-item">{{ child.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    {% endif %}
+                </li>
+                {% endfor %}
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</div>

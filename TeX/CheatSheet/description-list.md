@@ -16,7 +16,7 @@
     
 - **出力**
     
-    ![1](./CheatSheet/description-list/1.png "max-width=250px")
+    ![1](/TeX/CheatSheet/description-list/1.png "max-width=250px")
     
 
 ### **見出しと本文の間に改行**
@@ -48,7 +48,7 @@
     
 - **出力**
     
-    ![2](./CheatSheet/description-list/2.png)
+    ![2](/TeX/CheatSheet/description-list/2.png)
     
 
 ### 見出しと文章の境目を合わせる
@@ -75,7 +75,7 @@
 
 - **出力**
     
-    ![3](./CheatSheet/description-list/3.png "max-width=250px")
+    ![3](/TeX/CheatSheet/description-list/3.png "max-width=250px")
     
 
 ---

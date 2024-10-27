@@ -1,7 +1,7 @@
 <!--15-->
 <!--ページレイアウト-->
 
-![1](./CheatSheet/page-layout/1.png)
+![1](/TeX/CheatSheet/page-layout/1.png)
 
 ページレイアウトを変更するには、プリアンブルで上図のパラメータ値を変更する。
 ただし、余白設定はgeometryパッケージで行う方がよい。

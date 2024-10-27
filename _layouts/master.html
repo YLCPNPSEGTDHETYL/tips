@@ -29,14 +29,11 @@
 
 
     <!-- css -->
-    <link rel="stylesheet" href="{{ './assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
 
     <!-- favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🎓</text></svg>">
-    <link rel="icon alternate" type="image/png"
-        href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f393.png">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
 
 
 
@@ -49,6 +46,33 @@
             <div class=" radial SP-only">
                 {% include radial.html %}
             </div>
+
+            <article class="page sans">
+                <div class="page-body">
+                    <div class="column-list">
+                        {% for category in site.data.Gnav %}
+                        <div class="column">
+                            <h1>{{ category.title }}</h1>
+                            <hr>
+                            {% for subcategory in category.children %}
+                            <div class="column-category">
+                                <h2 class="submaster">
+                                    <a href="{{ subcategory.url }}" class="submaster-title">{{ subcategory.title }}
+                                    </a>
+                                </h2>
+                                {% for page in subcategory.children %}
+                                <a href="{{ page.url }}" class="link-to-page">
+                                    <img src="{{ page.img | relative_url }}" alt="{{ page.title }}" />
+                                    {{ page.title }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
             {{ content }}
         </main>
 
@@ -63,7 +87,7 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
 
-    <script src="{{ './assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
 </body>
 
 </html>

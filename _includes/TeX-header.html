@@ -20,7 +20,6 @@
         min-width: 1vw;
         margin: auto;
         text-align: center;
-        animation: backgroundChange 2s ease-in-out 5s forwards;
     }
 
     .TeX-header .link-btn {
@@ -62,6 +61,11 @@
         gap: 0.3em;
     }
 
+    .header-nav .ic-chevron-left,
+    .header-nav .ic-chevron-right{
+        width: 30px;
+    }
+
     .parent-link {
         display: inline-block;
     }
@@ -75,9 +79,18 @@
     }
 
     .TeX-header .link-btn a:after {
-        content: "🎓記事一覧";
+        content: "home";
     }
 
+    .TeX-header .link-btn a{
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+    }
+
+    .TeX-header .link-btn .ic-chevron-left{
+        width: 14px;
+    }
     @media (max-width : 640px) {
         .TeX-header svg {
             height: 20px;
@@ -103,43 +116,23 @@
         .header span {
             margin: 0;
         }
-
-        .TeX-header .link-btn a:after {
-            content: "一覧" !important;
-        }
-    }
-
-    /* アニメーションの定義 */
-    @keyframes backgroundChange {
-        0% {
-            background-color: var(--col-bg-opacity);
-        }
-
-        50% {
-            background-color: var(--col-bg-purple);
-            transform: scale(1.05);
-        }
-
-        100% {
-            background-color: var(--col-bg-opacity);
-        }
     }
 </style>
 
 <body id="top">
-    <header class="TeX-header">
+    <header class="TeX-header sans">
         <div class="header-wrapper">
             <span>
                 <nobr class="link-btn">
                     <a href="{{ 'index.html' | relative_url }}">
-                        <i class="fa-solid fa-angle-left"></i>
+                        <img src="{{ './assets/icon/chevron-left.svg' | relative_url }}" alt="chevron-left" class="ic ic-chevron-left">
                     </a>
                 </nobr>
             </span>
             <div class="header-nav">
                 <a href="{{ './Igor/Top.html' | relative_url }}">
                     <img class="neighbor-link Igor" src="{{ 'assets/icon/Igor.png' | relative_url }}">
-                    <i class="fa-solid fa-angle-left neighbor-link Igor"></i>
+                    <img src="{{ './assets/icon/chevron-left.svg' | relative_url }}" alt="chevron-left" class="ic ic-chevron-left">
                 </a>
 
                 <a href="#top" class="parent-link LaTeX">
@@ -163,7 +156,7 @@
                 </a>
 
                 <a href="{{ '.Presentation/Top.html' | relative_url }}">
-                    <i class="fa-solid fa-angle-right neighbor-link Presentation"></i>
+                    <img src="{{ './assets/icon/chevron-right.svg' | relative_url }}" alt="chevron-right" class="ic ic-chevron-right">
                 </a>
             </div>
         </div>

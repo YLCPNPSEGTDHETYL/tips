@@ -12,7 +12,7 @@
     
 - **出力**
 
-    ![align-environment](./CheatSheet/align-environment/1.png "max-width=600px")
+    ![align-environment](/TeX/CheatSheet/align-environment/1.png "max-width=600px")
 
 ---
 

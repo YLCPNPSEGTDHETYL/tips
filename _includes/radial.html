@@ -35,7 +35,7 @@
         top: 50%;
         margin: 0;
         border-radius: 50%;
-        background: #00bcd4;
+        background: var(--col-main);
         background-size: 100%;
         overflow: hidden;
         text-decoration: none;
@@ -235,14 +235,13 @@
         z-index: 0;
         color: #fff;
         opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.5s 1s ease, transform 0.5s 1s ease;
+        transition: opacity 0.2s ease, transform 0.2s ease;
     }
+
 
     .article-info.active {
         display: block;
         opacity: 1;
-        transform: translateY(0);
     }
 
     .bottom-menubar a {
@@ -256,7 +255,7 @@
         font-size: 0.7rem;
         line-height: 1;
         text-decoration: none;
-        color: #00bcd4;
+        color: var(--col-main);
         padding: 10px;
     }
 
@@ -274,7 +273,7 @@
         transform-origin: center center;
         z-index: -1;
     }
-    
+
     .bottom-menubar a:active::after {
         transition: transform 0.3s ease, opacity 0.3s ease;
         transform: translateY(-50%) scale(1);
@@ -286,51 +285,78 @@
         width: 25px;
         height: 25px;
     }
+
+
+    .radial-menu-button,
+    .menu-bar-btn,
+    .menu-link {
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+    }
+
+
+    .article-info h1,
+    .article-info h2 {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.2s 1s ease;
+    }
+
+    .article-info h1.active,
+    .article-info h2.active {
+        display: block;
+        opacity: 1;
+        transition: opacity 0.2s 1s ease;
+    }
 </style>
 
-<nav class="radial-container">
+<nav class="radial-container sans">
     <div class="bottom-menubar">
-        <a href="{{ './index.html' | relative_url }}" class="menu-bar-btn home">
-            <img class="ic ic-home" src="{{ './assets/icon/home.svg' | relative_url }}" alt="home" />
+        <a href="{{ '/index.html' | relative_url }}" class="menu-bar-btn home">
+            <img class="ic ic-home" src="{{ '/assets/icon/home.svg' | relative_url }}" alt="home" />
             home
         </a>
-        <a href="{{ './index.html' | relative_url }}" class="menu-bar-btn info">
-            <img class="ic ic-info" src="{{ './assets/icon/info.svg' | relative_url }}" alt="info" />
+        <a href="{{ '/index.html' | relative_url }}" class="menu-bar-btn info">
+            <img class="ic ic-info" src="{{ '/assets/icon/info.svg' | relative_url }}" alt="info" />
             info
         </a>
     </div>
     <ul id="menu">
         <div class="button-content">
             <a class="radial-menu-button radial-open" href="#menu" title="Show radial-nav">
-                <img class="ic ic-plus" src="{{ './assets/icon/plus.svg' | relative_url }}" alt="plus" />
+                <img class="ic ic-plus" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
             </a>
             <a class="radial-menu-button radial-close" href="#0" title="Hide radial-nav">
-                <img class="ic ic-plus" src="{{ './assets/icon/plus.svg' | relative_url }}" alt="plus" />
+                <img class="ic ic-plus" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
             </a>
         </div>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="Igor" class="menu-link">
-                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            <a href="/Igor/Igor.html" data-item="item-1" class="menu-link">
+                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="VESTA" class="menu-link">
-                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            <a href="#menu" data-item="item-2" class="menu-link">
+                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="TeX" class="menu-link">
-                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            <a href="#menu" data-item="item-3" class="menu-link">
+                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="Presentation" class="menu-link">
-                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            <a href="#menu" data-item="item-4" class="menu-link">
+                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="Others" class="menu-link">
-                <img class="ic ic-Igor" src="{{ './assets/icon/igor.svg' | relative_url }}" alt="igor" />
+            <a href="#menu" data-item="item-5" class="menu-link">
+                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
             </a>
         </li>
         <span class="stretch-animation"></span>
@@ -341,20 +367,76 @@
 
 
 
-<script>
+<script type="module">
+    import { Gnav } from '/assets/js/Gnav.js';
+
     document.addEventListener('DOMContentLoaded', () => {
         const CheckSec = 500;
         const menuLinks = document.querySelectorAll('.menu-link');
         const articleInfo = document.getElementById('article-info');
         let longPressTimer;
 
+
+        let subcategoryCount = 1;
+
+        Gnav.forEach(category => {
+            if (category.children) {
+                category.children.forEach(subcategory => {
+                    const subcategoryDiv = document.createElement('div');
+                    subcategoryDiv.className = `radial-entry-${subcategoryCount}`;
+
+                    const h1 = document.createElement('h1');
+                    const subcategoryLink = document.createElement('a');
+                    subcategoryLink.href = subcategory.url;
+                    subcategoryLink.textContent = subcategory.title;
+                    h1.appendChild(subcategoryLink);
+                    subcategoryDiv.appendChild(h1);
+
+                    if (subcategory.children) {
+                        subcategory.children.forEach(child => {
+                            const h2 = document.createElement('h2');
+                            const childLink = document.createElement('a');
+                            childLink.href = child.url;
+                            childLink.textContent = child.title;
+                            h2.appendChild(childLink);
+                            subcategoryDiv.appendChild(h2);
+                        });
+                    }
+
+                    articleInfo.appendChild(subcategoryDiv);
+                    subcategoryCount++;
+                });
+            }
+        });
+
+
+
+        function hideAllEntries() {
+            const allEntries = articleInfo.querySelectorAll('div[class^="radial-entry"]');
+            allEntries.forEach(entry => {
+                const h1 = entry.querySelector('h1');
+                const h2 = entry.querySelectorAll('h2');
+                if (h1) h1.classList.remove('active');
+                h2.forEach(h => h.classList.remove('active'));
+            });
+            articleInfo.classList.remove('active');
+        }
+
         menuLinks.forEach(link => {
             let longPressDetected = false;
 
             link.addEventListener('touchstart', () => {
-                const title = link.getAttribute('data-item');
-                articleInfo.innerHTML = `<h1>${title}</h1>`;
-                articleInfo.classList.add('active');
+                const itemNumber = link.getAttribute('data-item').split('-')[1];
+                const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+                hideAllEntries();
+
+                if (targetDiv) {
+                    const h1 = targetDiv.querySelector('h1');
+                    articleInfo.classList.remove('active');
+                    if (h1) h1.classList.add('active');
+                    articleInfo.classList.add('active');
+                }
+                longPressDetected = false;
             });
 
             LongPress(link,
@@ -364,8 +446,16 @@
                     }
                 },
                 () => {
-                    articleInfo.innerHTML += '<h2>長押ししました</h2>';
-                    longPressDetected = true;
+                    const itemNumber = link.getAttribute('data-item').split('-')[1];
+                    const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+
+                    if (targetDiv) {
+                        const h2Elements = targetDiv.querySelectorAll('h2');
+                        h2Elements.forEach(h2 => {
+                        h2.classList.add('active');
+                    });
+                        longPressDetected = true;
+                    }
                 },
                 CheckSec
             );
@@ -373,8 +463,7 @@
 
         const RadialClose = document.querySelector('.radial-close');
         RadialClose.addEventListener('click', () => {
-            articleInfo.classList.remove('active');
-            articleInfo.innerHTML = '';
+            hideAllEntries();
             longPressDetected = false;
         });
 
@@ -434,3 +523,5 @@
     });
 
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>

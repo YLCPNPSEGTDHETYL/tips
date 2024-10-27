@@ -14,7 +14,7 @@
 
 ---
 
-![1](./CheatSheet/insert-excel-tables/1.png "max-width=500px")
+![1](/TeX/CheatSheet/insert-excel-tables/1.png "max-width=500px")
 
 上がExcelで作った表。
 

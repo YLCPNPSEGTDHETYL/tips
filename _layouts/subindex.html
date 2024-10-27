@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property='og:type' content='website'>
+    <meta property='og:url' content='{{ site.url }}{{ page.url }}'>
+    
+    {% assign current_url = page.url %}
+    {% assign current_title = site.title %}
+    
+    {% for category in site.data.Gnav %}
+        {% for subcategory in category.children %}
+            {% if subcategory.url == current_url %}
+                {% assign current_title = subcategory.title %}
+            {% endif %}
+            {% for child in subcategory.children %}
+                {% if child.url == current_url %}
+                    {% assign current_title = child.title %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    
+    <title>{{ current_title | default: site.title }}</title>
+
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <!-- scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- css -->
+    <link rel="stylesheet" href="{{ '/assets/css/subindex.css' | relative_url }}">
+
+
+    <!-- favicon -->
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
+
+
+
+</head>
+
+<body>
+    <div class="all-wrapper">
+        <header id="header" class="PC-only">
+            {% include header.html %}
+        </header>
+        <div class=" radial SP-only">
+            {% include radial.html %}
+        </div>
+        <article class="page sans">
+            {% assign current_url = page.url %}
+            {% for category in site.data.Gnav %}
+                {% for subcategory in category.children %}
+                    {% if subcategory.url == current_url %}
+                    <div class="page-title-wrapper">
+                        <h1 class="page-title">
+                          {{ subcategory.title }}
+                       </h1>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <main class="main-content mid-width">
+                {% assign current_url = page.url %}
+                {% for category in site.data.Gnav %}
+                    {% for subcategory in category.children %}
+                        {% if subcategory.url == current_url %}
+                        <ul class="grid-layout">
+                            {% for child in subcategory.children %}
+                                <li class="grid-entry">
+                                    <a href="{{ child.url }}">
+                                        <div class="entry-thumbnail">
+                                            <img src="{{ child.thumbnail | default: '/assets/thumbnail/noimg.png' }}"
+                                                alt="{{ child.title }} thumbnail">
+                                        </div>
+                                        <div class="entry-tag">
+                                            {{ child.tag }}
+                                        </div>
+                                        <div class="entry-title">
+                                            {{ child.title }}
+                                        </div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                {{ content }}
+            </main>
+        </article>
+
+
+        <footer id="footer" class="PC-only">
+            {% include footer.html %}
+        </footer>
+
+    </div>
+
+
+    <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
+</body>
+
+</html>

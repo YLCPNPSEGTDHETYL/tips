@@ -164,34 +164,11 @@
 .modal-back {
   background: transparent;
   border: 0;
-  width: 18px;
-  height: 18px;
+  width: 28px;
+  height: 28px;
   display: flex;
-}
-
-.modal-close.modal-btn::after,
-.modal-back::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  background-color: var(--col-bg-gray);
   border-radius: 9999px;
-  transition: transform 0.3s 0.5s ease, opacity 0.3s ease;
-  width: 100px;
-  height: 100px;
-  transform: translateY(-50%) scale(0);
-  opacity: 0;
-  transform-origin: center center;
-  z-index: -1;
-
-}
-
-.modal-back::after {
-  left: -26px;
-}
-
-.modal-close.modal-btn::after {
-  right: -26px;
+  padding: 5px;
 }
 
 
@@ -229,19 +206,15 @@
   overflow: visible;
   line-height: 1.5;
   margin: auto;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  transition: -webkit-transform .25s ease-out;
-  transition: transform .25s ease-out;
-  transition: transform .25s ease-out, -webkit-transform .25s ease-out;
   text-decoration: underline;
   text-decoration-color: rgb(199, 199, 199);
+	transition: transform .2s ease-out;
 }
 
 
+.ic,
+.settings-btn,
+.sort-buttons,
 .modal-btn,
 .settings-btn,
 .filter-btn,
@@ -322,7 +295,8 @@
 
 .table-content {
   overflow-x: auto;
-  display: block;
+  display: flex;
+  justify-content: center;
   margin: 1em 0;
 }
 
@@ -915,7 +889,7 @@ pre.line-numbers code {
   color: var(--col-text);
   border-radius: 9999px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.1s ease;
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -941,9 +915,11 @@ pre.line-numbers code {
     background-color: var(--col-bg-gray);
   }
 
-  .modal-close:hover,
+  .modal-close.modal-btn:hover,
   .modal-back:hover {
+    transition: transform 0.3s ease, opacity 0.3s ease;
     transform: scale(1);
+    background-color: var(--col-bg-gray);
   }
 
 }
@@ -965,12 +941,13 @@ pre.line-numbers code {
   .filter-btn:active {
     background-color: var(--col-bg-gray);
   }
+  
 
-  .modal-close.modal-btn:active::after,
-  .modal-back:active::after {
+  .modal-close.modal-btn:active,
+  .modal-back:active {
     transition: transform 0.3s ease, opacity 0.3s ease;
-    transform: translateY(-50%) scale(1);
-    opacity: 1;
+    transform: scale(1);
+    background-color: var(--col-bg-gray);
   }
 
 }
@@ -992,16 +969,14 @@ pre.line-numbers code {
     /* 押下時の色 */
   }
 
+
   .filter-wrapper {
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    gap: 10px;
-    margin: 2rem 0;
-    justify-content: flex-start;
+    margin: .5rem 0;
   }
 
-  .code-wrapper {
-    font-size: 0.8rem;
+  .filter-btn {
+    padding: 5px 10px;
+    font-size: 13px;
   }
 }
 
@@ -1009,7 +984,7 @@ pre.line-numbers code {
 
 
   .code-wrapper {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 
   .grid {
@@ -1061,10 +1036,6 @@ pre.line-numbers code {
     width: 100%;
   }
 
-  .filter-btn {
-    padding: 5px 10px;
-    font-size: 13px;
-  }
 
   .sort-buttons {
     font-size: 13px;
@@ -1291,7 +1262,7 @@ pre.line-numbers code {
     top: 0;
     z-index: 12;
     padding: 5px 0;
-    background-color: var(--col-bg);
+    background-color: #fff;
   }
 
 }

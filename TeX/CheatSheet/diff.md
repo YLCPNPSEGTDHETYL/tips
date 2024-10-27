@@ -16,8 +16,8 @@
     | `f^{(n)}(x)`                          | $$ f^{(n)}(x) $$ |
     | `\dot{a}`                             | $$ \dot{a} $$ |
     | `\ddot{a}`                            | $$ \ddot{a} $$ |
-    | `\dddot{a}`                           | <img  style="width: auto;height: 13px;margin: 1em auto;display: flex;" src=".\CheatSheet\diff\dddot.svg" alt="dddot"> |
-    | `\ddddot{a}`                          | <img  style="width: auto;height: 13px;margin: 1em auto;display: flex;" src=".\CheatSheet\diff\ddddot.svg" alt="ddddot"> |
+    | `\dddot{a}`                           | <img  style="width: auto;height: 13px;margin: 1em auto;display: flex;" src="/TeX/CheatSheet/diff/dddot.svg" alt="dddot"> |
+    | `\ddddot{a}`                          | <img  style="width: auto;height: 13px;margin: 1em auto;display: flex;" src="/TeX/CheatSheet/diff/ddddot.svg" alt="ddddot"> |
     | `\nabla`                          | $$\nabla$$ |
     | `\bm{\nabla}`<br>※\usepackage{bm} が必要| $$\bm{\nabla}$$ |
     | `\vec{\nabla}`                          | $$\vec{\nabla}$$ |

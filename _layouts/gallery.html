@@ -30,10 +30,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🎓</text></svg>">
-    <link rel="icon alternate" type="image/png"
-        href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f393.png">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
 
 
 
@@ -44,13 +41,13 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ './assets/css/code.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/code.css' | relative_url }}">
 
 
 
     <!-- css -->
-    <link rel="stylesheet" href="{{ './assets/css/main.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ './assets/css/gallery.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
@@ -92,14 +89,17 @@
 <body>
     <div class="all-wrapper">
         <header id="header" class="PC-only">
-            {% include {{ page.header }}.html %}
+            {% include header.html %}
         </header>
 
 
         <article class="page sans">
+            <div class="page-title-wrapper">
+                <h1 class="page-title">{{ page.title }}</h1>
+            </div>
 
             {{ content }}
-            <main class="sans">
+            <main class="sans main-content full-width">
                 <!-- item -->
                 <section class="grid-wrapper">
                     <!-- PC -->
@@ -107,14 +107,14 @@
                         <div class="Search-Sort-control">
                             <div class="control SeCont">
                                 <div class="ic-wrapper">
-                                    <img class="ic ic-search" src="{{ './assets/icon/search.svg' | relative_url }}"
+                                    <img class="ic ic-search" src="{{ '/assets/icon/search.svg' | relative_url }}"
                                         alt="search" />
                                 </div>
                                 <input class="search-field form-control" type="text" name="search" placeholder="例：箇条書き">
                             </div>
                             <div class="control SoCont">
                                 <div class="ic-wrapper">
-                                    <img class="ic ic-sort" src="{{ './assets/icon/sort.svg' | relative_url }}"
+                                    <img class="ic ic-sort" src="{{ '/assets/icon/sort.svg' | relative_url }}"
                                         alt="sort" />
                                 </div>
                                 <select class="sort-field form-control">
@@ -133,119 +133,119 @@
                                     <input id="PC-checkbox-1" type="checkbox" name="filter" value="MustKnow">
                                     <label for="PC-checkbox-1" class="filter-btn MustKnow">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle MustKnow-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         基本
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-2" type="checkbox" name="filter" value="Eq">
                                     <label for="PC-checkbox-2" class="filter-btn Eq">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle Eq-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         数式
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-3" type="checkbox" name="filter" value="EqSymbl">
                                     <label for="PC-checkbox-3" class="filter-btn EqSymbl">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle EqSymbl-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         数式記号
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-4" type="checkbox" name="filter" value="FigTabItm">
                                     <label for="PC-checkbox-4" class="filter-btn FigTabItm">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle FigTabItm-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         図表／箇条書き
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-5" type="checkbox" name="filter" value="Layout">
                                     <label for="PC-checkbox-5" class="filter-btn Layout">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle Layout-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         レイアウト
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-6" type="checkbox" name="filter" value="StyDocStr">
                                     <label for="PC-checkbox-6" class="filter-btn StyDocStr">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle StyDocStr-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         体裁／文書構造
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-7" type="checkbox" name="filter" value="HighLevel">
                                     <label for="PC-checkbox-7" class="filter-btn HighLevel">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle HighLevel-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         高度
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-8" type="checkbox" name="filter" value="Macro">
                                     <label for="PC-checkbox-8" class="filter-btn Macro">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle Macro-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         マクロ
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                     <input id="PC-checkbox-9" type="checkbox" name="filter" value="Package">
                                     <label for="PC-checkbox-9" class="filter-btn Package">
                                         <img class="ic ic-plus-circle"
-                                            src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
                                         <svg class="ic ic-circle Package-icon">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         Package
                                         <img class="ic ic-x-circle"
-                                            src="{{ './assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
                                 </div>
                             </div>
@@ -257,15 +257,15 @@
                         <div class="Search-Sort-control">
                             <div class="control SeCont">
                                 <div class="ic-wrapper">
-                                    <img class="ic ic-search" src="{{ './assets/icon/search.svg' | relative_url }}"
+                                    <img class="ic ic-search" src="{{ '/assets/icon/search.svg' | relative_url }}"
                                         alt="search" />
                                 </div>
                                 <input class="search-field form-control" type="text" name="search" placeholder="例：箇条書き">
                                 <button data-micromodal-trigger="popover-modal" class="settings-btn">
-                                    <img class="ic ic-sliders" src="{{ './assets/icon/sliders.svg' | relative_url }}"
+                                    <img class="ic ic-sliders" src="{{ '/assets/icon/sliders.svg' | relative_url }}"
                                         alt="sliders" />
                                     <img class="ic ic-sliders colored"
-                                        src="{{ './assets/icon/sliders-colored.svg' | relative_url }}"
+                                        src="{{ '/assets/icon/sliders-colored.svg' | relative_url }}"
                                         alt="sliders-colored" />
                                 </button>
                             </div>
@@ -277,7 +277,7 @@
                                 aria-labelledby="popover-modal-title">
                                 <header class="popovermodal-header">
                                     <button class="modal-close" aria-label="Close modal" data-micromodal-close>
-                                        <img class="ic ic-x" src="{{ './assets/icon/x.svg' | relative_url }}" alt="x" />
+                                        <img class="ic ic-x" src="{{ '/assets/icon/x.svg' | relative_url }}" alt="x" />
                                     </button>
                                 </header>
                                 <div class="popover-body SoCont">
@@ -305,136 +305,136 @@
                                         <input id="SP-checkbox-1" type="checkbox" name="filter" value="MustKnow">
                                         <label for="SP-checkbox-1" class="filter-btn MustKnow">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle MustKnow-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             基本
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-2" type="checkbox" name="filter" value="Eq">
                                         <label for="SP-checkbox-2" class="filter-btn Eq">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle Eq-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             数式
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-3" type="checkbox" name="filter" value="EqSymbl">
                                         <label for="SP-checkbox-3" class="filter-btn EqSymbl">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle EqSymbl-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             数式記号
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-4" type="checkbox" name="filter" value="FigTabItm">
                                         <label for="SP-checkbox-4" class="filter-btn FigTabItm">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle FigTabItm-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             図表／箇条書き
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-5" type="checkbox" name="filter" value="Layout">
                                         <label for="SP-checkbox-5" class="filter-btn Layout">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle Layout-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             レイアウト
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-6" type="checkbox" name="filter" value="StyDocStr">
                                         <label for="SP-checkbox-6" class="filter-btn StyDocStr">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle StyDocStr-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             体裁／文書構造
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-7" type="checkbox" name="filter" value="HighLevel">
                                         <label for="SP-checkbox-7" class="filter-btn HighLevel">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle HighLevel-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             高度
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-8" type="checkbox" name="filter" value="Macro">
                                         <label for="SP-checkbox-8" class="filter-btn Macro">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle Macro-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             マクロ
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                         <input id="SP-checkbox-9" type="checkbox" name="filter" value="Package">
                                         <label for="SP-checkbox-9" class="filter-btn Package">
                                             <img class="ic ic-plus-circle"
-                                                src="{{ './assets/icon/plus-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
                                             <svg class="ic ic-circle Package-icon">
                                                 <use
-                                                    xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                    xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
                                             Package
                                             <img class="ic ic-x-circle"
-                                                src="{{ './assets/icon/x-circle.svg' | relative_url }}"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}"
                                                 alt="x-circle" />
                                         </label>
                                     </div>
@@ -447,7 +447,7 @@
                     </div>
                     <div class="SP-only checked-list">
                         <div class="checked-list-text">
-                            <img src="/assets/icon/tag.svg" alt="tag" class="ic ic-tag">
+                            <img src="{{ '/assets/icon/tag.svg' | relative_url }}" alt="tag" class="ic ic-tag">
                             絞り込み：
                         </div>
                     </div>
@@ -468,7 +468,7 @@
                                             <span class="{{ tag }}">
                                                 <svg class="ic ic-circle">
                                                     <use
-                                                        xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                                        xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                     </use>
                                                 </svg>
                                                 {{ site.data.CS.CStag[tag] }}
@@ -498,11 +498,11 @@
                                 <div class="modal-header-btn">
                                     <button class="modal-back" aria-label="back modal">
                                         <img class="ic ic-arrow-left"
-                                            src="{{ './assets/icon/arrow-left.svg' | relative_url }}"
+                                            src="{{ '/assets/icon/arrow-left.svg' | relative_url }}"
                                             alt="arrow-left" />
                                     </button>
                                     <button class="modal-close modal-btn" aria-label="Close modal">
-                                        <img class="ic ic-x" src="{{ './assets/icon/x.svg' | relative_url }}" alt="x" />
+                                        <img class="ic ic-x" src="{{ '/assets/icon/x.svg' | relative_url }}" alt="x" />
                                     </button>
                                 </div>
                                 <h1 class="modal-title" id="modal-{{ forloop.index }}-title">{{ item.title }}</h1>
@@ -511,7 +511,7 @@
                                     {% for tag in tags %}
                                     <span class="{{ tag }}">
                                         <svg class="ic ic-circle">
-                                            <use xlink:href="{{ './assets/icon/circle.svg#circle' | relative_url }}">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                             </use>
                                         </svg>
                                         {{ site.data.CS.CStag[tag] }}
@@ -534,13 +534,15 @@
                 {% endfor %}
             </main>
         </article>
+            
+        {% include page-navi.html %}
+
+        <footer id="footer" class="PC-only">
+            {% include footer.html %}
+        </footer>
 
     </div>
 
-
-    <footer id="footer" class="PC-only">
-        {% include footer.html %}
-    </footer>
 
 
     <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
@@ -555,8 +557,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js"></script>
 
-
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
         integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
 
@@ -573,10 +573,10 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
 
-    <script src="{{ './assets/js/main.js' | relative_url }}" type="module"></script>
-    <script src="{{ './assets/js/csdata.js' | relative_url }}" type="module"></script>
-    <script src="{{ './assets/js/gallery.js' | relative_url }}" type="module"></script>
-    <script src="{{ './assets/js/code.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/csdata.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/gallery.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/code.js' | relative_url }}" type="module"></script>
 </body>
 
 </html>

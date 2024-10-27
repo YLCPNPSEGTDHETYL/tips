@@ -22,7 +22,7 @@
     
 - **出力**
 
-    ![1](./CheatSheet/quotation-mark/1.png "max-width=450px")
+    ![1](/TeX/CheatSheet/quotation-mark/1.png "max-width=450px")
 
 
 ### シングルクォーテーション
@@ -39,7 +39,7 @@
     
 - **出力**    
 
-    ![2](./CheatSheet/quotation-mark/2.png "max-width=450px")
+    ![2](/TeX/CheatSheet/quotation-mark/2.png "max-width=450px")
 
 ---
 

@@ -1,5 +1,6 @@
-import { initCodeCopy } from './code.js';
-import { csData } from './csdata.js';
+import { initCodeCopy } from '/assets/js/code.js';
+import { csData } from '/assets/js/csdata.js';
+import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize } from '/assets/js/main.js'
 
 
 // *FUNC DEF* loader
@@ -9,15 +10,6 @@ function showGridAfterDelay(delay) {
     document.querySelector('.loader').classList.add('hidden');
     console.log('Grid is now visible, loader is hidden.');
   }, delay);
-}
-
-// *FUNC DEF* Convert Markdown LaTeX blocks to HTML with class
-function convertLatexBlocksToHTML(content) {
-  let updatedContent = content.replace(/```latex/g, '<pre class="line-numbers language-latex"><code class="language-latex">');
-
-  updatedContent = updatedContent.replace(/```/g, '</code></pre>');
-
-  return updatedContent;
 }
 
 let scrollbarWidth;
@@ -34,24 +26,6 @@ function resetBodyPadding() {
 
 window.addEventListener('load', getScrollbarWidth);
 window.addEventListener('resize', getScrollbarWidth);
-
-
-function markdownImageSize(md) {
-  md.renderer.rules.image = (tokens, idx, options, env, self) => {
-    const token = tokens[idx];
-    const src = token.attrGet('src');
-    const alt = token.content;
-    const title = token.attrGet('title') || '';
-
-    let style = '';
-    const maxWidthMatch = title.match(/max-width\s*=\s*(\d+px)/);
-    if (maxWidthMatch) {
-      style = `max-width: ${maxWidthMatch[1]};`;
-    }
-
-    return `<img src="${src}" alt="${alt}" style="${style}" />`;
-  };
-}
 
 
 // *FUNC DEF* Load html into modals
@@ -133,7 +107,7 @@ function replaceMarkersWithLinks(modalContent) {
          <span class="related-link-caption">${prefixText || ''}</span>
         <span  class="related-link-id" data-target-modal="modal-${modalId}">
           <span data-link="${item.link}" class="related-link">
-            <img class="ic ic-external-link" src="../assets/icon/external-link.svg" alt="external-link" />
+            <img class="ic ic-external-link" src="/assets/icon/external-link.svg" alt="external-link" />
             <span>${item.title}</span>
           </span>
         </span>
@@ -420,7 +394,7 @@ function wrapTablesInModalContent() {
 
 // *FUNC DEF* Initialize Kuromoji tokenizer
 function initializeTokenizer(callback) {
-  kuromoji.builder({ dicPath: '../assets/js/lib/dict' }).build((err, tokenizer) => {
+  kuromoji.builder({ dicPath: '/assets/js/lib/dict' }).build((err, tokenizer) => {
     if (err) {
       console.error(err);
       return;
@@ -448,11 +422,6 @@ function romanizeTheTitle(tokenizer) {
   });
 }
 
-
-// PC or SP
-function isTouchDevice() {
-  return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-}
 
 // *FUNC DEF* Set up drag event handlers for the grid
 function setUpDragEventHandlers(grid) {
@@ -511,7 +480,7 @@ function initializeMuuriGrid() {
   });
 
   if (isTouchDevice()) {
-    initialOrder = grid.getItems(); // 初期状態の並び順を保存する
+    initialOrder = grid.getItems(); 
     console.log('Initial order on touch device:', initialOrder);
   }
 
@@ -544,7 +513,6 @@ function setUpSearchFilterSort(grid, tokenizer) {
   });
   filterField.addEventListener('change', handleFilterChange);
 
-  // SP版ではラジオボタンでソート
   if (isSP) {
     const sortRadios = wrapper.querySelectorAll('.sort-radio');
     sortRadios.forEach(function (radio) {
@@ -560,7 +528,7 @@ function setUpSearchFilterSort(grid, tokenizer) {
 }
 
 
-let previousSortOrder = []; // ソート前の状態を保存する変数
+let previousSortOrder = [];
 
 // Function to sort items based on current sort criteria
 function sort() {
@@ -580,8 +548,7 @@ function sort() {
       console.log('PC: Sorted by previous order');
     }
   } else if (currentSort === 'title') {
-    // titleのときはSPもPCもtitle順でソート
-    previousSortOrder = grid.getItems(); // 現在の順序を保存
+    previousSortOrder = grid.getItems(); 
     grid.sort(CompareHiraganizedTitle);
     console.log(isSP ? 'SP: Sorted by title' : 'PC: Sorted by title');
   }
@@ -776,14 +743,6 @@ function handleSearchFieldChange(tokenizer) {
 }
 
 
-// function handleFilterFieldChange() {
-//   const isSP = isSmallTouchDevice();
-//   const wrapper = document.querySelector(`.Allfilter-controls${isSP ? '.SP-only' : '.PC-only'}`);
-//   const filterField = wrapper.querySelector('.filter-field');
-//   console.log('Filter field changed:', filterField.value);
-//   filter();
-// }
-
 function handleSortFieldChange() {
   const isSP = isSmallTouchDevice();
   const wrapper = document.querySelector(`.Allfilter-controls${isSP ? '.SP-only' : '.PC-only'}`);
@@ -799,30 +758,17 @@ function handleSortRadioChange(event) {
   const sortValue = event.target.getAttribute('data-sort');
   console.log('SP sort radio selected:', sortValue);
 
-  // ラジオボタンの値をソートフィールドに反映
   sortField.value = sortValue;
   console.log('sortField.value:', sortField.value);
-  sort(); // ソート関数を呼び出し
+  sort(); 
 }
 
 
-
-
-// 640px以下かつタッチデバイスかをチェックする関数
-function isSmallTouchDevice() {
-  return window.matchMedia('(max-width: 640px)').matches &&
-    ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-}
-
-
-// 初期状態を設定
 let previousWidth = window.innerWidth;
 
-// リサイズ時の処理
 function handleResize() {
   const currentWidth = window.innerWidth;
 
-  // 幅が640pxを横切った場合にリロード
   if (isTouchDevice()) {
     if ((previousWidth <= 640 && currentWidth > 640) || (previousWidth > 640 && currentWidth <= 640)) {
       console.log('Width has crossed 640px threshold. Reloading...');
@@ -830,14 +776,11 @@ function handleResize() {
     }
   }
 
-  // 現在の幅を保存
   previousWidth = currentWidth;
 }
 
-// リサイズイベントリスナーを登録
 window.addEventListener('resize', handleResize);
 
-// 初回チェック
 handleResize();
 
 

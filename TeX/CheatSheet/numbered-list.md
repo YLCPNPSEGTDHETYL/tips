@@ -20,7 +20,7 @@
     
 - **出力**
     
-    ![1](./CheatSheet/numbered-list/1.png "max-width=200px")
+    ![1](/TeX/CheatSheet/numbered-list/1.png "max-width=200px")
     
 
 ### **番号ルールを変更**
@@ -74,7 +74,7 @@
         \end{enumerate}
     ```
     
-    ![2](./CheatSheet/numbered-list/2.png "max-width=280px")
+    ![2](/TeX/CheatSheet/numbered-list/2.png "max-width=280px")
     
 - `\arabic*`の部分は、上記の番号の振り方に`*`をつければよい。
 
@@ -91,7 +91,7 @@
     
 - 各長さの名称は下図に準拠する。
     
-    ![3](./CheatSheet/numbered-list/3.png)
+    ![3](/TeX/CheatSheet/numbered-list/3.png)
     
 - あるいは、文書すべてで指定したいとき
     
@@ -135,7 +135,7 @@
     \end{enumerate}
     ```
     
-    ![4](./CheatSheet/numbered-list/4.png "max-width=350px")
+    ![4](/TeX/CheatSheet/numbered-list/4.png "max-width=350px")
     
 
 ---
