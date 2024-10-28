@@ -30,7 +30,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
 
 
 
@@ -490,7 +490,7 @@
                 <!-- modal elements -->
                 {% for item in site.data.CS.CSitems %}
                 <div class="modal micromodal-slide" id="modal-{{ forloop.index }}" aria-hidden="true"
-                    data-link="{{ item.link }}">
+                    data-link="{{ item.link | relative_url }}">
                     <div class="modal-overlay" tabindex="-1" data-micromodal-close>
                         <div class="modal-container" role="dialog" aria-modal="true"
                             aria-labelledby="modal-{{ forloop.index }}-title">

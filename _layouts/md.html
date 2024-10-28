@@ -46,7 +46,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
 
 
     <!-- md, KaTeX -->
@@ -121,7 +121,7 @@
                         <div class="main-wrapper {% if page.withTOC %}withTOC{% endif %}">
                             <main class="main-content">
                                 {% if child.thumbnail %}
-                                <img src="{{ child.thumbnail }}" alt="{{ child.title }}" class="thumbnail">
+                                <img src="{{ child.thumbnail | relative_url }}" alt="{{ child.title }}" class="thumbnail">
                                 {% endif %}
                                 {{ content }}
                             </main>

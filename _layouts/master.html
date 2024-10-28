@@ -33,7 +33,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url  }}" type="image/svg+xml">
 
 
 
@@ -61,7 +61,7 @@
                                     </a>
                                 </h2>
                                 {% for page in subcategory.children %}
-                                <a href="{{ page.url }}" class="link-to-page">
+                                <a href="{{ page.url | relative_url }}" class="link-to-page">
                                     <img src="{{ page.img | relative_url }}" alt="{{ page.title }}" />
                                     {{ page.title }}
                                 </a>

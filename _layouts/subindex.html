@@ -52,7 +52,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
 
 
 
@@ -87,9 +87,9 @@
                         <ul class="grid-layout">
                             {% for child in subcategory.children %}
                                 <li class="grid-entry">
-                                    <a href="{{ child.url }}">
+                                    <a href="{{ child.url | relative_url  }}">
                                         <div class="entry-thumbnail">
-                                            <img src="{{ child.thumbnail | default: '/assets/thumbnail/noimg.png' }}"
+                                            <img src="{{ child.thumbnail | default: '/assets/thumbnail/noimg.png' | relative_url  }}"
                                                 alt="{{ child.title }} thumbnail">
                                         </div>
                                         <div class="entry-tag">

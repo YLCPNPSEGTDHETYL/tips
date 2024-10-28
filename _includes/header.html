@@ -157,13 +157,13 @@
                 {% for subcategory in category.children %}
                 <li class="list-item">
                     <div class="link" tabindex="0">
-                        <a href="{{ subcategory.url }}" class="global-nav-item">{{ subcategory.title }}</a>
+                        <a href="{{ subcategory.url | relative_url }}" class="global-nav-item">{{ subcategory.title }}</a>
                         {% if subcategory.children %}
                         <div class="dropdown">
                             <ul class="dropdown-list">
                                 {% for child in subcategory.children %}
                                 <li class="dropdown-item">
-                                    <a href="{{ child.url }}" class="global-nav-item">{{ child.title }}</a>
+                                    <a href="{{ child.url | relative_url }}" class="global-nav-item">{{ child.title }}</a>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -181,12 +181,12 @@
                 {% for category in site.data.Gnav %}
                 {% for subcategory in category.children %}
                 <li>
-                    <a href="{{ subcategory.url }}" class="global-nav-item">{{ subcategory.title }}</a>
+                    <a href="{{ subcategory.url | relative_url }}" class="global-nav-item">{{ subcategory.title }}</a>
                     {% if subcategory.children %}
                     <ol class="dropdown">
                         {% for child in subcategory.children %}
                         <li class="dropdown">
-                            <a href="{{ child.url }}" class="global-nav-item">{{ child.title }}</a>
+                            <a href="{{ child.url | relative_url }}" class="global-nav-item">{{ child.title }}</a>
                         </li>
                         {% endfor %}
                     </ol>

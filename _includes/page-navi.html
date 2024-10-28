@@ -14,8 +14,8 @@
         {% assign previous_page = subcategory.children[previous_index] %}
         <div class="page-navigation-container">
             <h3 class="page-navigation-text">前ページへ</h3>
-            <a href="{{ previous_page.url }}" class="link-to-page">
-                <img src="{{ previous_page.img }}" alt="previous page icon" class="navigation-icon">
+            <a href="{{ previous_page.url | relative_url }}" class="link-to-page">
+                <img src="{{ previous_page.img | relative_url }}" alt="previous page icon" class="navigation-icon">
                 {{ previous_page.title }}
             </a>
         </div>
@@ -29,8 +29,8 @@
         {% assign next_page = subcategory.children[next_index] %}
         <div class="page-navigation-container">
             <h3 class="page-navigation-text">次ページへ</h3>
-            <a href="{{ next_page.url }}" class="link-to-page">                
-                <img src="{{ next_page.img }}" alt="next page icon" class="navigation-icon">
+            <a href="{{ next_page.url | relative_url }}" class="link-to-page">                
+                <img src="{{ next_page.img | relative_url }}" alt="next page icon" class="navigation-icon">
                 {{ next_page.title }}
             </a>
         </div>
