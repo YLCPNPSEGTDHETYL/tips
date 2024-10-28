@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
   exLinks.forEach(link => {
       const icon = document.createElement("img");
       icon.className = "ic ic-external-link";
-      icon.src = "/assets/icon/external-link.svg";
+      icon.src = "/tips//assets/icon/external-link.svg";
       icon.alt = "external-link";
 
       link.insertAdjacentElement("afterbegin", icon);
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
   inLinks.forEach(link => {
       const icon = document.createElement("img");
       icon.className = "ic ic-inside-link";
-      icon.src = "/assets/icon/inside-link.svg";
+      icon.src = "/tips/assets/icon/inside-link.svg";
       icon.alt = "inside-link";
       link.insertAdjacentElement("afterbegin", icon);
   });

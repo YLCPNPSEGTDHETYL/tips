@@ -16,7 +16,7 @@
     
 - **出力**
     
-    ![1](/TeX/CheatSheet/bullet-list/1.png "max-width=200px")
+    ![1](./bullet-list/1.png "max-width=200px")
     
 
 ### スペースの調整
@@ -46,7 +46,7 @@
       \end{itemize}
     ```
     
-    ![2](/TeX/CheatSheet/bullet-list/2.png "max-width=280px")
+    ![2](./bullet-list/2.png "max-width=280px")
     
 - {左揃え(+太字)の見出しを出力したいとき：}[modal-7]<!--見出し付き箇条書き(description環境)-->
 

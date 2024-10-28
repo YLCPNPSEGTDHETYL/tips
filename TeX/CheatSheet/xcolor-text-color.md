@@ -16,7 +16,7 @@
     
 - optionなしでは、以下の色が使える。
     
-    ![1](/TeX/CheatSheet/xcolor-text-color/1.png)
+    ![1](./xcolor-text-color/1.png)
     
     ```latex
         %テキストの色を変更(書き方は2通り)
@@ -42,17 +42,17 @@
     | `x11names` | 317色 |
     - `dvipsname`
         
-        ![2](/TeX/CheatSheet/xcolor-text-color/2.png)
+        ![2](./xcolor-text-color/2.png)
         
     - `svgnames`
         
-        ![3](/TeX/CheatSheet/xcolor-text-color/3.png)
+        ![3](./xcolor-text-color/3.png)
         
     - `x11names`
     
-    ![4](/TeX/CheatSheet/xcolor-text-color/4.png)
+    ![4](./xcolor-text-color/4.png)
     
-    ![5](/TeX/CheatSheet/xcolor-text-color/5.png)
+    ![5](./xcolor-text-color/5.png)
     
 - **入力**
     ```latex

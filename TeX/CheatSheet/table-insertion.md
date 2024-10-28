@@ -23,7 +23,7 @@
 
 - **出力**
     
-    ![1](/TeX/CheatSheet/table-insertion/1.png)
+    ![1](./table-insertion/1.png)
     
 
 ---

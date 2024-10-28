@@ -90,7 +90,7 @@ bstファイルの方は、既存の「junsrt.bst」を元にして、一部改�
 ### (1)TeXStudioの場合
 <aside class="">
   <div>
-  <span class="exlink">[エディタの準備(TeX Studioの場合)](/TeX/TeXstudio/TeXstudio.md)</span>でTeXStudioの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
+  <span class="exlink">[エディタの準備(TeX Studioの場合)](../TeXstudio/TeXstudio.md)</span>でTeXStudioの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
   </div>
 </aside>
 コンパイルの手順を説明します。本来、bibtexを含まないコンパイルでは、一番最後のdvi→pdfチェーンだけでよいですが、bibtexをかませるには次のようになります。
@@ -158,7 +158,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 ### (2)Overleafの場合
 <aside class="">
   <div>
-  <span class="exlink">[オンラインエディタを使う(Overleafの場合)](/TeX/Overleaf/Overleaf.md)</span>でOverleafの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
+  <span class="exlink">[オンラインエディタを使う(Overleafの場合)](../Overleaf/Overleaf.md)</span>でOverleafの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
   </div>
 </aside>
 1. OverleafでpLaTeX+pBibTeXで文書を書くには、複雑な設定は必要なく、latexmkrcファイルを用意すればよいです。このファイルには、コンパイラの設定などを書き込みます。
@@ -346,12 +346,12 @@ sample.texのコンパイル結果。
     
   <aside class="">
     <div>
-    <img class="ic ic-check" src="/assets/icon/check.svg" alt="check" /> 物質名の記述はどうか？
+    <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> 物質名の記述はどうか？
     (例：$\mathrm{Ca_3Co_4O_9}$なら、`$\mathrm{Ca_3Co_4O_9}$`のように数式モードになっているか？)
 
-    <img class="ic ic-check" src="/assets/icon/check.svg" alt="check" /> `$ $`の閉じ忘れはないか？
+    <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> `$ $`の閉じ忘れはないか？
     
-    <img class="ic ic-check" src="/assets/icon/check.svg" alt="check" /> そのほかの特殊文字が含まれていないか？
+    <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> そのほかの特殊文字が含まれていないか？
     
     </div>
   </aside>
@@ -430,11 +430,11 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
         
         <aside class="">
         <div>
-        <img class="ic ic-check" src="/assets/icon/check.svg" alt="check" /> title, authorなどの項目の括弧は閉じているか？
+        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> title, authorなどの項目の括弧は閉じているか？
 
-        <img class="ic ic-check" src="/assets/icon/check.svg" alt="check" /> 後ろに項目が続く場合、閉じ括弧の後ろに`,`があるか？
+        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> 後ろに項目が続く場合、閉じ括弧の後ろに`,`があるか？
         
-        <img class="ic ic-check" src="/assets/icon/check.svg" alt="check" /> `@article{ … }`のように、全体の括弧が閉じているか？
+        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> `@article{ … }`のように、全体の括弧が閉じているか？
         
         </div>
         </aside>

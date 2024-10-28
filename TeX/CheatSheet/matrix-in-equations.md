@@ -22,7 +22,7 @@
     
 - **出力**
     
-    ![1](/TeX/CheatSheet/matrix-in-equations/1.png "max-width=285px")
+    ![1](./matrix-in-equations/1.png "max-width=285px")
     
 - **括弧の種類一覧**
     

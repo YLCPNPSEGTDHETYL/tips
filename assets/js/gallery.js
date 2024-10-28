@@ -1,6 +1,6 @@
-import { initCodeCopy } from '/assets/js/code.js';
-import { csData } from '/assets/js/csdata.js';
-import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize } from '/assets/js/main.js'
+import { initCodeCopy } from './code.js';
+import { csData } from './csdata.js';
+import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize } from './main.js'
 
 
 // *FUNC DEF* loader
@@ -107,7 +107,7 @@ function replaceMarkersWithLinks(modalContent) {
          <span class="related-link-caption">${prefixText || ''}</span>
         <span  class="related-link-id" data-target-modal="modal-${modalId}">
           <span data-link="${item.link}" class="related-link">
-            <img class="ic ic-external-link" src="/assets/icon/external-link.svg" alt="external-link" />
+            <img class="ic ic-external-link" src="/tips/assets/icon/external-link.svg" alt="external-link" />
             <span>${item.title}</span>
           </span>
         </span>
@@ -394,7 +394,7 @@ function wrapTablesInModalContent() {
 
 // *FUNC DEF* Initialize Kuromoji tokenizer
 function initializeTokenizer(callback) {
-  kuromoji.builder({ dicPath: '/assets/js/lib/dict' }).build((err, tokenizer) => {
+  kuromoji.builder({ dicPath: '/tips/assets/js/lib/dict' }).build((err, tokenizer) => {
     if (err) {
       console.error(err);
       return;
