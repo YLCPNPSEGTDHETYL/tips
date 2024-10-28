@@ -57,7 +57,7 @@
                             {% for subcategory in category.children %}
                             <div class="column-category">
                                 <h2 class="submaster">
-                                    <a href="{{ subcategory.url }}" class="submaster-title">{{ subcategory.title }}
+                                    <a href="{{ subcategory.url | relative_url }}" class="submaster-title">{{ subcategory.title }}
                                     </a>
                                 </h2>
                                 {% for page in subcategory.children %}
