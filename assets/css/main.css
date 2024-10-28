@@ -1285,6 +1285,8 @@ thead {
 	transition: opacity .25s ease-out;
 	transition: opacity .25s ease-out, -webkit-transform .25s;
 	cursor: pointer;
+    z-index: 0;
+    position: relative;
 }
 
 .not-select {

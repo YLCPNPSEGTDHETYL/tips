@@ -104,6 +104,12 @@
         text-align: center;
         line-height: normal;
         font-size: 16px;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
     }
 
     .radial-container #menu:target>.radial-menu-item:nth-child(1) {
@@ -452,8 +458,8 @@
                     if (targetDiv) {
                         const h2Elements = targetDiv.querySelectorAll('h2');
                         h2Elements.forEach(h2 => {
-                        h2.classList.add('active');
-                    });
+                            h2.classList.add('active');
+                        });
                         longPressDetected = true;
                     }
                 },
