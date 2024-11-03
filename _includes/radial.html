@@ -124,8 +124,8 @@
         text-decoration: none;
         text-align: center;
         line-height: normal;
-        height: 14dvh;
-        width: 14dvh;
+        height: 20dvw;
+        width: 20dvw;
         -webkit-touch-callout: none;
         -moz-user-select: none;
         -webkit-user-select: none;
@@ -146,8 +146,8 @@
     .inner-circ {
         text-align: center;
         background-color: #ffffff;
-        width: 12dvh;
-        height: 12dvh;
+        height: 18dvw;
+        width: 18dvw;
         border-radius: 50%;
         position: absolute;
     }
@@ -207,7 +207,7 @@
 
     .ic-item {
         max-width: 40px;
-        width: 10dvh;
+        width: 15dvw;
         z-index: 1;
     }
 
@@ -282,14 +282,15 @@
 
     .article-info h1 {
         border-radius: 3px;
-        font-size: 1.2rem;
+        font-size: 1.8rem;
         font-weight: 500;
+        margin-bottom: 2rem;
     }
 
     .article-info h2 {
-        margin-top: 0.6rem;
+        margin-top: 1.2rem;
         border-radius: 3px;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         font-weight: 400;
         padding-left: 15px;
     }
@@ -444,11 +445,11 @@
         <span class="stretch-animation"></span>
     </ul>
     <a class="radial-overlay" href="#0"></a>
-    <div id="article-info" class="article-info">
+    <a id="article-info" class="article-info" href="#0">
         <div class="radial-entry-5">
             <h1>その他</h1>
         </div>
-    </div>
+    </a>
 </nav>
 
 
@@ -458,7 +459,7 @@
 
 
 
-    const CheckSec = 800;
+    const CheckSec = 400;
     const menuLinks = document.querySelectorAll('.menu-link');
     const articleInfo = document.getElementById('article-info');
     const RadialClose = document.querySelector('.radial-close');
