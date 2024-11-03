@@ -296,7 +296,7 @@
 .table-content {
   overflow-x: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 1em 0;
 }
 
