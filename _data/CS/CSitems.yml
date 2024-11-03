@@ -5,7 +5,7 @@
 
 - id: "2"
   tag: "MustKnow FigTabItm"
-  title: "表挿入(tabular環境)"
+  title: "表の挿入(tabular環境)"
   link: "/TeX/CheatSheet/table-insertion.md"
 
 - id: "3"
@@ -55,12 +55,12 @@
 
 - id: "12"
   tag: "MustKnow FigTabItm"
-  title: "図挿入(figure環境)"
+  title: "図の挿入(figure環境)"
   link: "/TeX/CheatSheet/figure-insertion.md"
 
 - id: "13"
   tag: "MustKnow StyDocStr Package"
-  title: "文字色指定(xcolorパッケージ)"
+  title: "文字などの色を指定(xcolorパッケージ)"
   link: "/TeX/CheatSheet/xcolor-text-color.md"
 
 - id: "14"
@@ -100,7 +100,7 @@
 
 - id: "21"
   tag: "Macro FigTabItm"
-  title: "(マクロ)シンプルに図を貼る"
+  title: "シンプルに図を貼る(マクロ)"
   link: "/TeX/CheatSheet/macro-simple-image-insert.md"
 
 - id: "22"
@@ -110,7 +110,7 @@
 
 - id: "23"
   tag: "Macro"
-  title: "(マクロ)色を定義して使う"
+  title: "色を定義して使う(マクロ)"
   link: "/TeX/CheatSheet/macro-define-color.md"
 
 - id: "24"

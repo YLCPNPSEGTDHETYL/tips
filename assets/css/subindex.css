@@ -12,6 +12,7 @@
     border-radius: 8px; 
     overflow: hidden; 
     background-color: #fff; 
+    padding: 10px;
 }
 
 .entry-thumbnail img {
@@ -19,10 +20,50 @@
     height: auto; 
 }
 
+.ic-circle {
+    width: 8px;
+    height: 8px;
+    overflow: visible;
+    margin-right: 5px;
+}
+
+.entry-title {
+    font-weight: 500;
+}
+
+.entry-tag {
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    color: var(--col-gray);
+}
+
+p.entry-tag {
+    margin: 0;
+    padding-left: 1%;
+}
+
+.introduction .ic-circle {
+    color: var(--col-highlight-red);
+}
+
+
+.writing .ic-circle {
+    color: var(--col-highlight-blue);
+}
+
+.practice .ic-circle {
+    color: var(--col-highlight-green);
+}
 
 
 @media (max-width : 640px) {
     .grid-layout {
         padding: 0 4%;
     }
+    .entry-tag {
+        font-size: 0.7rem;
+    }
 }
+
+

@@ -1,28 +1,34 @@
 <style>
     .radial-container {
         position: fixed;
-        bottom: 50px;
+        bottom: 0;
         left: 50%;
+        z-index: 1;
     }
 
     .radial-container #menu {
-        width: 150px;
-        height: 150px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        align-items: end;
+        justify-content: center;
+        justify-items: center;
+        gap: 5px;
+        margin: 0;
+        width: 95dvw;
         position: absolute;
         left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        bottom: 80px;
+        transform: translate(-50%, 0%);
         list-style: none;
         font-size: 200%;
         padding: 0;
         z-index: 1;
     }
 
+
     .button-content {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: fixed;
+        bottom: -35px;
         transition: transform 0.2s ease-in-out;
     }
 
@@ -67,78 +73,87 @@
     }
 
     .radial-menu-item {
+        display: none;
         list-style: none;
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        left: 50%;
         line-height: 5px;
-        top: 50%;
-        margin: -25px 0 0 -25px;
         border-radius: 9999px;
-        /* background-color: #fff; */
-        transform: translate(0px, 0px);
-        opacity: 0;
-        transition: transform 0.3s 0.1s ease, opacity 0.2s ease-in-out;
+        overflow: hidden;
+        opacity: 1;
         z-index: -2;
         padding: 0;
+        margin: 10px;
+        animation: HideMenu 0.2s ease forwards;
+
     }
 
     .radial-container #menu:target>.radial-menu-item {
-        opacity: 1;
-        transition: transform 0.3s ease, opacity 0.5s ease-in-out;
+        display: block;
+        animation: VisMenu 0.5s ease forwards;
     }
 
-    .radial-menu-item:hover {
-        opacity: 0.8;
+    @keyframes HideMenu {
+        0% {
+            display: block;
+            opacity: 1;
+        }
+
+        100% {
+            display: none;
+            opacity: 0;
+        }
     }
 
+    @keyframes VisMenu {
+        0% {
+            display: none;
+            opacity: 0;
+        }
+
+        100% {
+            display: block;
+            opacity: 1;
+        }
+    }
 
     .radial-menu-item a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         color: #fff;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         text-decoration: none;
         text-align: center;
         line-height: normal;
-        font-size: 16px;
+        height: 14dvh;
+        width: 14dvh;
         -webkit-touch-callout: none;
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
         user-select: none;
         touch-action: manipulation;
+        padding: 1dvw;
     }
 
-    .radial-container #menu:target>.radial-menu-item:nth-child(1) {
-        transform: none;
+    .radial-menu-item a:active {
+        opacity: 1;
+        background-image: conic-gradient(#e7eef1 0% 0%, #ffffff 0% 100%);
+        border-radius: 50%;
     }
 
-    .radial-container #menu:target>.radial-menu-item:nth-child(2) {
-        transform: translateY(-70px) translateX(-40vw);
-        transition-delay: 0s;
+    .inner-circ {
+        text-align: center;
+        background-color: #ffffff;
+        width: 12dvh;
+        height: 12dvh;
+        border-radius: 50%;
+        position: absolute;
     }
 
-    .radial-container #menu:target>.radial-menu-item:nth-child(3) {
-        transform: translateY(-70px) translateX(-20vw);
-        transition-delay: 0.05s;
-    }
-
-    .radial-container #menu:target>.radial-menu-item:nth-child(4) {
-        transform: translateY(-70px) translateX(0vw);
-        transition-delay: 0.1s;
-    }
-
-    .radial-container #menu:target>.radial-menu-item:nth-child(5) {
-        transform: translateY(-70px) translateX(20vw);
-        transition-delay: 0.15s;
-    }
-
-    .radial-container #menu:target>.radial-menu-item:nth-child(6) {
-        transform: translateY(-70px) translateX(40vw);
-        transition-delay: 0.2s;
+    .radial-menu-item span {
+        color: var(--col-text);
+        font-size: 10px;
+        z-index: 1;
     }
 
 
@@ -180,14 +195,18 @@
         background-color: rgba(0, 0, 0, 0.6);
     }
 
+    .radial-overlay:active {
+        opacity: 1;
+    }
+
     .radial-container #menu:target~.radial-overlay {
         display: block;
     }
 
-    .ic-Igor {
-        width: 10vw;
-        height: 10vw;
-        max-width: 50vw;
+    .ic-item {
+        max-width: 40px;
+        width: 10dvh;
+        z-index: 1;
     }
 
     .bottom-menubar {
@@ -209,34 +228,30 @@
 
     .stretch-animation {
         position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 0;
-        height: 60px;
+        width: 95dvw;
+        height: 100%;
         background-color: #fff;
         z-index: -3;
-        transition: transform 0.2s 0.3s ease, opacity 0.1s ease-in-out, width 0.3s ease;
-        transform: translate(-50%, -50%);
-        border-radius: 9999px;
+        transition: transform 0.2s ease, opacity 0.2s 0.05s ease-in-out;
+        border-radius: 10px;
         opacity: 0;
     }
 
 
     .radial-container #menu:target .stretch-animation {
-        width: 95vw;
         opacity: 1;
-        transform: translateY(-70px) translate(-50%, -50%);
-        transition: transform 0.2s ease, opacity 0.2s ease-in-out, width 0.3s ease;
+        transition: transform 0.2s ease, opacity 0.1s ease-in-out;
     }
 
     .article-info {
         display: none;
         position: fixed;
+        line-break: strict;
         width: 100dvw;
         height: 100dvh;
         top: 0;
         left: 0;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.6);
         padding: 10px;
         z-index: 0;
         color: #fff;
@@ -244,11 +259,39 @@
         transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
+    .article-info a {
+        text-decoration: none !important;
+    }
+
+    .article-info a:active {
+        opacity: 1;
+    }
 
     .article-info.active {
         display: block;
         opacity: 1;
     }
+
+    .article-info h1:active,
+    .article-info h2:active {
+        color: var(--col-main);
+        background-color: var(--col-text);
+    }
+
+    .article-info h1 {
+        border-radius: 3px;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .article-info h2 {
+        margin-top: 0.6rem;
+        border-radius: 3px;
+        font-size: 0.9rem;
+        font-weight: 400;
+        padding-left: 15px;
+    }
+
 
     .bottom-menubar a {
         display: flex;
@@ -265,26 +308,7 @@
         padding: 10px;
     }
 
-    .bottom-menubar a::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        background: #00bcd412;
-        border-radius: 9999px;
-        transition: transform 0.3s 0.5s ease, opacity 0.3s ease;
-        width: 50px;
-        height: 50px;
-        transform: translateY(-50%) scale(0);
-        opacity: 0;
-        transform-origin: center center;
-        z-index: -1;
-    }
 
-    .bottom-menubar a:active::after {
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        transform: translateY(-50%) scale(1);
-        opacity: 1;
-    }
 
     .ic-home,
     .ic-info {
@@ -307,68 +331,120 @@
 
     .article-info h1,
     .article-info h2 {
-        display: none;
+        visibility: hidden;
         opacity: 0;
-        transition: opacity 0.2s 1s ease;
+        transform: translate(0, 5px);
+        transition: opacity 0.5s ease, transform 0.4s ease;
     }
 
     .article-info h1.active,
     .article-info h2.active {
-        display: block;
+        visibility: visible;
         opacity: 1;
-        transition: opacity 0.2s 1s ease;
+        transform: translate(0, 0);
+        transition: opacity 0.5s ease, transform 0.4s ease;
+    }
+
+    .article-info div:has(a) {
+        position: absolute;
+        top: 0;
+        margin-top: 1rem;
+        width: calc(100dvw - 20px);
+    }
+
+    .article-info div:has(.active) {
+        overflow-y: scroll;
+        max-height: calc(100dvh - 205px);
+    }
+
+    .is-up-scrollable {
+        mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
+    }
+
+
+    .is-down-scrollable {
+        mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0));
+    }
+
+    .is-down-scrollable.is-up-scrollable {
+        mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
+    }
+
+    @media (max-width : 442px) {
+        .article-info div:has(.active) {
+            overflow-y: scroll;
+            max-height: calc(100dvh - 310px);
+        }
     }
 </style>
 
 <nav class="radial-container sans">
     <div class="bottom-menubar">
         <a href="{{ '/index.html' | relative_url }}" class="menu-bar-btn home">
-            <img class="ic ic-home" src="{{ '/assets/icon/home.svg' | relative_url }}" alt="home" />
+            <img class="ic ic-home not-select" src="{{ '/assets/icon/home.svg' | relative_url }}" alt="home" />
             home
         </a>
         <a href="{{ '/index.html' | relative_url }}" class="menu-bar-btn info">
-            <img class="ic ic-info" src="{{ '/assets/icon/info.svg' | relative_url }}" alt="info" />
+            <img class="ic ic-info not-select" src="{{ '/assets/icon/info.svg' | relative_url }}" alt="info" />
             info
         </a>
     </div>
     <ul id="menu">
         <div class="button-content">
             <a class="radial-menu-button radial-open" href="#menu" title="Show radial-nav">
-                <img class="ic ic-plus" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
+                <img class="ic ic-plus not-select" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
             </a>
             <a class="radial-menu-button radial-close" href="#0" title="Hide radial-nav">
-                <img class="ic ic-plus" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
+                <img class="ic ic-plus not-select" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
             </a>
         </div>
         <li class="radial-menu-item">
-            <a href="/Igor/Igor.html" data-item="item-1" class="menu-link">
-                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
+            <a href="{{ '/Igor/Igor.html' | relative_url }}" data-item="item-1" class="menu-link">
+                <img class="ic ic-item ic-Igor not-select" src="{{ '/assets/icon/Igor.svg' | relative_url }}"
+                    alt="Igor" />
+                <span>Igor</span>
+                <div class="inner-circ"></div>
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="item-2" class="menu-link">
-                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
+            <a href="{{ '/VESTA/VESTA.html' | relative_url }}" data-item="item-2" class="menu-link">
+                <img class="ic ic-item ic-VESTA not-select" src="{{ '/assets/icon/VESTA.png' | relative_url }}"
+                    alt="VESTA" />
+                <span>VESTA</span>
+                <div class="inner-circ"></div>
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="item-3" class="menu-link">
-                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
+            <a href="{{ '/TeX/TeX.html' | relative_url }}" data-item="item-3" class="menu-link">
+                <img class="ic ic-item ic-TeX not-select" src="{{ '/assets/icon/TeX.svg' | relative_url }}" alt="TeX" />
+                <span>TeX</span>
+                <div class="inner-circ"></div>
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="item-4" class="menu-link">
-                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
+            <a href="{{ '/Presentation/Presentation.html' | relative_url }}" data-item="item-4" class="menu-link">
+                <img class="ic ic-item ic-Presentation not-select"
+                    src="{{ '/assets/icon/powerpoint_icon.png' | relative_url }}" alt="Presentation" />
+                <span>プレゼン</span>
+                <div class="inner-circ"></div>
             </a>
         </li>
         <li class="radial-menu-item">
-            <a href="#menu" data-item="item-5" class="menu-link">
-                <img class="ic ic-Igor" src="{{ '/assets/icon/Igor.svg' | relative_url }}" alt="Igor" />
+            <a href="{{ '/index.html' | relative_url }}" data-item="item-5" class="menu-link">
+                <img class="ic ic-item ic-Igor not-select" src="{{ '/assets/icon/Others.svg' | relative_url }}"
+                    alt="Others" />
+                <span>その他</span>
+                <div class="inner-circ"></div>
             </a>
         </li>
         <span class="stretch-animation"></span>
     </ul>
     <a class="radial-overlay" href="#0"></a>
-    <div id="article-info" class="article-info"></div>
+    <div id="article-info" class="article-info">
+        <div class="radial-entry-5">
+            <h1>その他</h1>
+        </div>
+    </div>
 </nav>
 
 
@@ -376,24 +452,27 @@
 <script type="module">
     import { Gnav } from '/tips/assets/js/Gnav.js';
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const CheckSec = 500;
-        const menuLinks = document.querySelectorAll('.menu-link');
-        const articleInfo = document.getElementById('article-info');
-        let longPressTimer;
 
 
+    const CheckSec = 800;
+    const menuLinks = document.querySelectorAll('.menu-link');
+    const articleInfo = document.getElementById('article-info');
+    const RadialClose = document.querySelector('.radial-close');
+    const menu = document.getElementById('menu');
+    let longtapTimer;
+    let longtap
+
+
+    function setupMenuEntries() {
         let subcategoryCount = 1;
-
         Gnav.forEach(category => {
             if (category.children) {
                 category.children.forEach(subcategory => {
                     const subcategoryDiv = document.createElement('div');
                     subcategoryDiv.className = `radial-entry-${subcategoryCount}`;
-
                     const h1 = document.createElement('h1');
                     const subcategoryLink = document.createElement('a');
-                    subcategoryLink.href = subcategory.url;
+                    subcategoryLink.href = `/tips${subcategory.url}`;
                     subcategoryLink.textContent = subcategory.title;
                     h1.appendChild(subcategoryLink);
                     subcategoryDiv.appendChild(h1);
@@ -402,7 +481,7 @@
                         subcategory.children.forEach(child => {
                             const h2 = document.createElement('h2');
                             const childLink = document.createElement('a');
-                            childLink.href = child.url;
+                            childLink.href = `/tips${child.url}`;
                             childLink.textContent = child.title;
                             h2.appendChild(childLink);
                             subcategoryDiv.appendChild(h2);
@@ -414,117 +493,228 @@
                 });
             }
         });
+        setupScrollListeners();
+    }
 
+    function hideAllEntries() {
+        const allEntries = articleInfo.querySelectorAll('div[class^="radial-entry"]');
+        allEntries.forEach(entry => {
+            entry.scrollTop = 0;
+            const h1 = entry.querySelector('h1');
+            const h2 = entry.querySelectorAll('h2');
+            if (h1) h1.classList.remove('active');
+            h2.forEach(h => h.classList.remove('active'));
+        });
+        articleInfo.classList.remove('active');
+    }
 
-
-        function hideAllEntries() {
-            const allEntries = articleInfo.querySelectorAll('div[class^="radial-entry"]');
-            allEntries.forEach(entry => {
-                const h1 = entry.querySelector('h1');
-                const h2 = entry.querySelectorAll('h2');
-                if (h1) h1.classList.remove('active');
-                h2.forEach(h => h.classList.remove('active'));
-            });
-            articleInfo.classList.remove('active');
-        }
-
+    function setupMenuLinks() {
         menuLinks.forEach(link => {
-            let longPressDetected = false;
-
-            link.addEventListener('touchstart', () => {
-                const itemNumber = link.getAttribute('data-item').split('-')[1];
-                const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
-                hideAllEntries();
-
-                if (targetDiv) {
-                    const h1 = targetDiv.querySelector('h1');
-                    articleInfo.classList.remove('active');
-                    if (h1) h1.classList.add('active');
-                    articleInfo.classList.add('active');
-                }
-                longPressDetected = false;
-            });
-
-            LongPress(link,
-                () => {
-                    if (!longPressDetected) {
-                        window.location.href = link.href;
-                    }
-                },
-                () => {
-                    const itemNumber = link.getAttribute('data-item').split('-')[1];
-                    const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
-
-                    if (targetDiv) {
-                        const h2Elements = targetDiv.querySelectorAll('h2');
-                        h2Elements.forEach(h2 => {
-                            h2.classList.add('active');
-                        });
-                        longPressDetected = true;
-                    }
-                },
+            longtap = false;
+            link.addEventListener('touchstart', () => handleTouchStart(link));
+            LongPress(
+                link,
+                () => handleNormalPress(link, longtap),
+                () => handleLongPress(link),
                 CheckSec
             );
         });
+    }
 
-        const RadialClose = document.querySelector('.radial-close');
-        RadialClose.addEventListener('click', () => {
-            hideAllEntries();
-            longPressDetected = false;
+    function DrawCirc(link) {
+        const startTime = Date.now();
+        const endTime = startTime + CheckSec;
+
+        const interval = setInterval(() => {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+
+            const percentage = Math.min((elapsedTime / CheckSec), 1) * 100;
+
+            link.style.backgroundImage = `conic-gradient(#e7eef1 0% ${percentage}%, #ffffff ${percentage}% 100%)`;
+
+            if (currentTime >= endTime) {
+                clearInterval(interval);
+            }
+        }, 20);
+
+        link.addEventListener('touchend', () => {
+            clearInterval(interval);
+            link.style.backgroundImage = '';
         });
 
+        link.addEventListener('mouseup', () => {
+            clearInterval(interval);
+            link.style.backgroundImage = '';
+        });
+    }
 
-        function LongPress(el, nf, lf, sec) {
-            let longclick = false;
-            let longtap = false;
-            let touch = false;
-            let timer;
-            el.addEventListener('touchstart', () => {
-                touch = true;
-                longtap = false;
-                timer = setTimeout(() => {
-                    longtap = true;
-                    lf();
-                }, sec);
-            })
-            el.addEventListener('touchend', () => {
-                if (!longtap) {
-                    clearTimeout(timer);
-                    nf();
-                } else {
-                    touch = false;
-                }
-            })
 
-            el.addEventListener('mousedown', () => {
-                if (touch) return;
-                longclick = false;
-                timer = setTimeout(() => {
-                    longclick = true;
-                    lf();
-                }, sec);
-            })
-            el.addEventListener('click', () => {
-                if (touch) {
-                    touch = false;
-                    return;
-                }
-                if (!longclick) {
-                    clearTimeout(timer);
-                    nf();
-                }
+    function handleNormalPress(link, longtap) {
+        if (!longtap) {
+            window.location.href = link.href;
+        }
+    }
+
+    function handleTouchStart(link) {
+        DrawCirc(link);
+        const itemNumber = link.getAttribute('data-item').split('-')[1];
+        const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+        hideAllEntries();
+
+        if (targetDiv) {
+            articleInfo.classList.add('active');
+
+            setTimeout(() => {
+                const h1 = targetDiv.querySelector('h1');
+                if (h1) h1.classList.add('active');
+            }, 10);
+        } else {
+            articleInfo.classList.add('active');
+        }
+        longtap = false;
+    }
+
+    function handleLongPress(link) {
+        const itemNumber = link.getAttribute('data-item').split('-')[1];
+        const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+
+        if (targetDiv) {
+            const h2Elements = targetDiv.querySelectorAll('h2');
+            h2Elements.forEach((h2, index) => {
+                setTimeout(() => {
+                    h2.classList.add('active');
+                }, index * 20);
             });
         }
+        setupScrollListeners();
+        longtap = true;
+    }
 
+    function setupCloseButton() {
+        RadialClose.addEventListener('click', hideAllEntries);
+    }
+
+    function targetMenu() {
+        if (location.hash === '#0') {
+            hideAllEntries();
+            history.go(-2);
+        }
+    }
+
+    function setupMenuHistory() {
+        history.pushState({ menuOpen: true }, '', '');
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.menuOpen) {
+                hideAllEntries();
+            }
+        });
+    }
+
+    function setupMenuTransition() {
+        menu.addEventListener('transitionend', () => {
+            if (menu.matches(':target')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    function checkScrollability(targetDiv) {
+        const style = getComputedStyle(targetDiv);
+        const marginTop = parseFloat(style.marginTop);
+        if (targetDiv.scrollTop > 0) {
+            targetDiv.classList.add('is-up-scrollable');
+        } else {
+            targetDiv.classList.remove('is-up-scrollable');
+        }
+
+        if (targetDiv.scrollTop < targetDiv.scrollHeight - targetDiv.clientHeight - marginTop) {
+            targetDiv.classList.add('is-down-scrollable');
+        } else {
+            targetDiv.classList.remove('is-down-scrollable');
+        }
+    }
+
+    function setupScrollListeners() {
+        menuLinks.forEach(link => {
+            const itemNumber = link.getAttribute('data-item').split('-')[1];
+            const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+            if (targetDiv) {
+                initializeScrollability(targetDiv);
+                targetDiv.addEventListener('scroll', () => checkScrollability(targetDiv));
+            }
+        });
+    }
+
+    function initializeScrollability(targetDiv) {
+        const style = getComputedStyle(targetDiv);
+        const marginTop = parseFloat(style.marginTop);
+
+        if (targetDiv.scrollHeight > targetDiv.clientHeight + marginTop) {
+            targetDiv.classList.add('is-down-scrollable');
+        } else {
+            targetDiv.classList.remove('is-down-scrollable');
+        }
+    }
+
+    function LongPress(el, nf, lf, sec) {
+        let longclick = false;
+        let longtap = false;
+        let touch = false;
+        let timer;
+        el.addEventListener('touchstart', () => {
+            touch = true;
+            longtap = false;
+            timer = setTimeout(() => {
+                longtap = true;
+                lf();
+            }, sec);
+        })
+        el.addEventListener('touchend', () => {
+            if (!longtap) {
+                clearTimeout(timer);
+                nf();
+            } else {
+                touch = false;
+            }
+        })
+
+        el.addEventListener('mousedown', () => {
+            if (touch) return;
+            longclick = false;
+            timer = setTimeout(() => {
+                longclick = true;
+                lf();
+            }, sec);
+        })
+        el.addEventListener('click', () => {
+            if (touch) {
+                touch = false;
+                return;
+            }
+            if (!longclick) {
+                clearTimeout(timer);
+                nf();
+            }
+        });
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setupMenuEntries();
+        setupMenuLinks();
+        setupCloseButton();
+        setupMenuHistory();
+        setupMenuTransition();
     });
 
-    const menu = document.getElementById('menu');
-
-    menu.addEventListener('transitionend', () => {
-        if (menu.matches(':target')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
+    document.addEventListener('click', (event) => {
+        if (event.target.tagName === 'A' && event.target.getAttribute('href') === '#0') {
+            setTimeout(() => {
+                targetMenu();
+            }, 50);
         }
     });
 

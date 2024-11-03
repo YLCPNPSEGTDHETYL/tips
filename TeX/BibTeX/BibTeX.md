@@ -346,13 +346,12 @@ sample.texのコンパイル結果。
     
   <aside class="">
     <div>
-    <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> 物質名の記述はどうか？
-    (例：$\mathrm{Ca_3Co_4O_9}$なら、`$\mathrm{Ca_3Co_4O_9}$`のように数式モードになっているか？)
-
-    <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> `$ $`の閉じ忘れはないか？
-    
-    <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> そのほかの特殊文字が含まれていないか？
-    
+    <ul class="check">
+    <li>物質名の記述はどうか？<br>
+    (例：$\mathrm{Ca_3Co_4O_9}$なら、<code>$\mathrm{Ca_3Co_4O_9}$</code>のように数式モードになっているか？)</li>
+    <li><code>$ $</code>の閉じ忘れはないか？</li>
+    <li>そのほかの特殊文字が含まれていないか？</li>
+    </ul>
     </div>
   </aside>
     
@@ -380,16 +379,16 @@ I'm skipping whatever remains of this entry
 
 - エラーメッセージを読むと、`author = {O Sologub and P Salamakha and H No\"e}`とあるが、ここがエラーを吐いている。
     
-    ### **対処法**
+  ### **対処法**
+  
+  - 人名のウムラウト処理が上手くいっていないことが原因。
+  - bibファイルでは`"` は中括弧`{}` と同様の扱いなため、`author = {O Sologub and P Salamakha and H No\"`で括弧が閉じた扱いになっている。そのため、それ以降の部分が正しく処理されない。
+  - bibファイルでウムラウトを使うときには、必ず`{\"e}`のように`{}` で囲むようにする(下図参照)。
+  - あるいは、エンコーディングをT1エンコードにしていれば、直接ëのように入力しても大丈夫(なはず)。
+      
+    ![ウムラウト処理をするときは、(1)ではなく(2)のようにする。](9.png)
     
-    - 人名のウムラウト処理が上手くいっていないことが原因。
-    - bibファイルでは`"` は中括弧`{}` と同様の扱いなため、`author = {O Sologub and P Salamakha and H No\"`で括弧が閉じた扱いになっている。そのため、それ以降の部分が正しく処理されない。
-    - bibファイルでウムラウトを使うときには、必ず`{\"e}`のように`{}` で囲むようにする(下図参照)。
-    - あるいは、エンコーディングをT1エンコードにしていれば、直接ëのように入力しても大丈夫(なはず)。
-        
-        ![ウムラウト処理をするときは、(1)ではなく(2)のようにする。](9.png)
-        
-        ウムラウト処理をするときは、(1)ではなく(2)のようにする。
+    ウムラウト処理をするときは、(1)ではなく(2)のようにする。
         
 
 ---
@@ -417,7 +416,7 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
 
 - `@article{O.L.Sologub.200040,(Error may have been on previous line)`とあるが、実際には`O.L.Sologub.200040` のひとつ上の文献にエラーがある。
     
-    ### **対処法**
+  ### **対処法**
     
     - とにかくエラーメッセージの周囲をみて、構文ミスがないかを地道に確認するしかない。
     - TeXStudioのように、シンタックスハイライト機能のあるエディタだと、括弧の閉じ忘れのチェックがしやすい。
@@ -430,12 +429,18 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
         
         <aside class="">
         <div>
-        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> title, authorなどの項目の括弧は閉じているか？
+        <!-- <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> title, authorなどの項目の括弧は閉じているか？
 
         <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> 後ろに項目が続く場合、閉じ括弧の後ろに`,`があるか？
         
-        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> `@article{ … }`のように、全体の括弧が閉じているか？
-        
+        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> `@article{ … }`のように、全体の括弧が閉じているか？ -->
+
+        <ul class="check">
+        <li>title, authorなどの項目の括弧は閉じているか？</li>
+        <li>後ろに項目が続く場合、閉じ括弧の後ろに`,`があるか？</li>
+        <li>`@article{ … }`のように、全体の括弧が閉じているか？</li>
+        </ul>
+
         </div>
         </aside>
         

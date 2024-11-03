@@ -60,6 +60,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/subindex.css' | relative_url }}">
 
 
 
@@ -116,7 +117,14 @@
                                 <img src="{{ child.img | relative_url }}" alt="{{ child.title }}" class="title-icon"/>
                             {% endif %}
                             <h1 class="page-title">{{ child.title }}</h1>
-                            <p class="tag">{{ child.tag }}</p>
+                            {% assign tags = child.tag | split: ' ' %}
+                            <p class="entry-tag {{ tags[0] }}">
+                                <svg class="ic ic-circle">
+                                    <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                    </use>
+                                </svg>
+                                {{ tags[1] | default: 'tag' }}
+                            </p>
                         </div>
                         <div class="main-wrapper {% if page.withTOC %}withTOC{% endif %}">
                             <main class="main-content">

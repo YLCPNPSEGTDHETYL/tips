@@ -416,7 +416,8 @@ function romanizeTheTitle(tokenizer) {
       const readings = tokens.map(token => token.reading || token.surface_form);
       const fullReading = readings.join(''); // Join words
       const romaji = wanakana.toRomaji(fullReading).toLowerCase(); // "Roma"nize
-      item.setAttribute('data-title', romaji);
+      const dataTitle = `${romaji} ${text}`;
+      item.setAttribute('data-title', dataTitle);
       console.log(`Set data-title for item with text "${text}" to "${romaji}".`);
     }
   });
@@ -646,8 +647,8 @@ function filter(searchTextFormats = cachedSearchTextFormats) {
     const isSearchMatch = !cachedSearchTextFormats ? true : // EmptyInput
       itemTitleFormats.romaji.indexOf(cachedSearchTextFormats.romaji) > -1 ||
       itemTitleFormats.hiragana.indexOf(cachedSearchTextFormats.hiragana) > -1 ||
-      itemTitleFormats.katakana.indexOf(cachedSearchTextFormats.katakana) > -1;
-
+      itemTitleFormats.katakana.indexOf(cachedSearchTextFormats.katakana) > -1 ||
+      itemTitle.includes(cachedSearchTextFormats.original);
     console.log('Search match:', isSearchMatch);
 
     // Check for matches to both filter and search criteria
@@ -706,7 +707,7 @@ function convertTextFormats(text) {
   return {
     romaji: wanakana.toRomaji(text).toLowerCase(),
     hiragana: wanakana.toHiragana(text).toLowerCase(),
-    katakana: wanakana.toKatakana(text).toLowerCase()
+    katakana: wanakana.toKatakana(text).toLowerCase(),
   };
 }
 
@@ -715,7 +716,10 @@ function convertSearchInput(tokenizer, inputText, callback) {
   const tokens = tokenizer.tokenize(inputText);
   const readings = tokens.map(token => token.reading || token.surface_form);
   const fullReading = readings.join('');
-  const formats = convertTextFormats(fullReading);
+  const formats = {
+    ...convertTextFormats(fullReading),
+    original: inputText
+  };
   console.log(`Search input "${inputText}" converted to:`, formats);
   callback(formats);
 }

@@ -92,9 +92,14 @@
                                             <img src="{{ child.thumbnail | default: '/assets/thumbnail/noimg.png' | relative_url  }}"
                                                 alt="{{ child.title }} thumbnail">
                                         </div>
-                                        <div class="entry-tag">
-                                            {{ child.tag }}
-                                        </div>
+                                        {% assign tags = child.tag | split: ' ' %}
+                                        <span class="entry-tag {{ tags[0] }}">
+                                            <svg class="ic ic-circle">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            {{ tags[1] | default: 'tag' }}
+                                        </span>
                                         <div class="entry-title">
                                             {{ child.title }}
                                         </div>
