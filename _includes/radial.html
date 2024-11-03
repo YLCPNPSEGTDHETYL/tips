@@ -8,7 +8,7 @@
 
     .radial-container #menu {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         align-items: end;
         justify-content: center;
         justify-items: center;
@@ -130,6 +130,8 @@
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+        -khtml-user-select: none;
+        -khtml-user-drag: none;
         user-select: none;
         touch-action: manipulation;
         padding: 1dvw;
@@ -324,6 +326,8 @@
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+        -khtml-user-select: none;
+        -khtml-user-drag: none;
         user-select: none;
         touch-action: manipulation;
     }
@@ -398,7 +402,7 @@
                 <img class="ic ic-plus not-select" src="{{ '/assets/icon/plus.svg' | relative_url }}" alt="plus" />
             </a>
         </div>
-        <li class="radial-menu-item">
+        <li class="radial-menu-item prevent-context">
             <a href="{{ '/Igor/Igor.html' | relative_url }}" data-item="item-1" class="menu-link">
                 <img class="ic ic-item ic-Igor not-select" src="{{ '/assets/icon/Igor.svg' | relative_url }}"
                     alt="Igor" />
@@ -406,7 +410,7 @@
                 <div class="inner-circ"></div>
             </a>
         </li>
-        <li class="radial-menu-item">
+        <li class="radial-menu-item prevent-context">
             <a href="{{ '/VESTA/VESTA.html' | relative_url }}" data-item="item-2" class="menu-link">
                 <img class="ic ic-item ic-VESTA not-select" src="{{ '/assets/icon/VESTA.png' | relative_url }}"
                     alt="VESTA" />
@@ -414,14 +418,14 @@
                 <div class="inner-circ"></div>
             </a>
         </li>
-        <li class="radial-menu-item">
+        <li class="radial-menu-item prevent-context">
             <a href="{{ '/TeX/TeX.html' | relative_url }}" data-item="item-3" class="menu-link">
                 <img class="ic ic-item ic-TeX not-select" src="{{ '/assets/icon/TeX.svg' | relative_url }}" alt="TeX" />
                 <span>TeX</span>
                 <div class="inner-circ"></div>
             </a>
         </li>
-        <li class="radial-menu-item">
+        <li class="radial-menu-item prevent-context">
             <a href="{{ '/Presentation/Presentation.html' | relative_url }}" data-item="item-4" class="menu-link">
                 <img class="ic ic-item ic-Presentation not-select"
                     src="{{ '/assets/icon/powerpoint_icon.png' | relative_url }}" alt="Presentation" />
@@ -429,7 +433,7 @@
                 <div class="inner-circ"></div>
             </a>
         </li>
-        <li class="radial-menu-item">
+        <li class="radial-menu-item prevent-context">
             <a href="{{ '/index.html' | relative_url }}" data-item="item-5" class="menu-link">
                 <img class="ic ic-item ic-Igor not-select" src="{{ '/assets/icon/Others.svg' | relative_url }}"
                     alt="Others" />
@@ -701,6 +705,18 @@
         });
     }
 
+
+    document.querySelectorAll('.prevent-context').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+        });
+        link.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+        });
+        link.addEventListener('touchstart', (event) => {
+            event.preventDefault();
+        });
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
         setupMenuEntries();

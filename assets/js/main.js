@@ -191,6 +191,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+document.querySelectorAll('.prevent-context').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+  });
+  link.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+  });
+  link.addEventListener('touchstart', (event) => {
+    event.preventDefault();
+  });
+});
 
 // *FUNC DEF* Load html into modals
 async function loadModalContent() {
