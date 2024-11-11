@@ -86,10 +86,10 @@ $window.trigger('scroll');
 //global func
 window.initializeScrollHint = initializeScrollHint;
 
-document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.hash) {
-        history.pushState("", document.title, window.location.pathname + window.location.search);
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.hash && /^#modal-\d+$/.test(window.location.hash)) {
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+  }
 });
 
 
@@ -176,6 +176,18 @@ document.addEventListener("DOMContentLoaded", function() {
       icon.className = "ic ic-external-link";
       icon.src = "/tips//assets/icon/external-link.svg";
       icon.alt = "external-link";
+
+      link.insertAdjacentElement("afterbegin", icon);
+      link.setAttribute("target", "_blank");
+  });
+
+  const familyLinks = document.querySelectorAll("span.familylink a");
+
+  familyLinks.forEach(link => {
+      const icon = document.createElement("img");
+      icon.className = "ic ic-family-link";
+      icon.src = "/tips//assets/icon/family-link.svg";
+      icon.alt = "family-link";
 
       link.insertAdjacentElement("afterbegin", icon);
   });

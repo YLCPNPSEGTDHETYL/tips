@@ -1,6 +1,5 @@
 ---
 layout: md
-favicon: "/assets/icon/TeXLive.svg"
 withTOC: true
 ---
 
@@ -28,11 +27,11 @@ TeXをローカルで書くためには、TeX Liveというディストリビュ
 
 Macの場合はMacTeXというのもよく使われます。
 
-詳しいインストール方法は[TeX wiki｜TeX入手法](https://texwiki.texjp.org/?TeX%E5%85%A5%E6%89%8B%E6%B3%95){:target="_blank"}に書かれているので割愛します。
+詳しいインストール方法は<span class="exlink">[TeX wiki｜TeX入手法](https://texwiki.texjp.org/?TeX%E5%85%A5%E6%89%8B%E6%B3%95)</span>に書かれているので割愛します。
 
 <aside class="pinned">
 <div>
-ネットワークインストーラのリンク：[Installing TeX Live over the Internet](https://www.tug.org/texlive/acquire-netinstall.html){:target="_blank"}
+ネットワークインストーラのリンク：<span class="exlink">[Installing TeX Live over the Internet](https://www.tug.org/texlive/acquire-netinstall.html)</span>
 </div>
 </aside>
 
@@ -46,8 +45,8 @@ TeX Liveインストール時には、TeXworksを同時にインストールす�
 
 筆者としては、TeXworksはエディタとして使いにくいので、より高機能で初心者～上級者まで使いやすいTeXStudioがオススメです。
 
-[TeXstudioの導入方法についてはこちら。](/TeX/TeXstudio/TeXstudio.md)
+<span class="familylink">[TeXstudioの導入方法についてはこちら。](/TeX/TeXstudio/TeXstudio.md)</span>
 
 TeXworksをインストールしない場合には、オプションのチェックを外します。
 
-![TeXLive1](TeXLive1.png "max-width=500px TeXLiveインストーラ"){:.img-center}
+![TeXworksのチェックを外す](TeXLive1.png "max-width=500px TeXworksのチェックを外す場合")

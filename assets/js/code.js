@@ -1,4 +1,30 @@
-Prism.languages.latex = { comment: /%.*/, function: /\\(?:frac|sqrt|left|right|caption|includegraphics|footnote|footnotemark|footnotetext|tableofcontents|listoffigures|listoftables|setlength|pagestyle|sectionmark|subsectionmark|chaptermark|thispagestyle|fancypagestyle|textbf|textit|texttt|textsf|textsc|textnormal|textup|textmd|textsl|textsf|texttt|textcolor|color|textbackground|DeclareMathOperator|newcommand|renewcommand|providecommand|newtheorem|renewtheorem|newenvironment|renewenvironment|newcounter|setcounter|addtocounter|stepcounter|refstepcounter|makeatletter|makeatother|bibliography|printbibliography|bibliographystyle|thebibliography|addbibresource|verbatim|minted|lstlisting)\b/, keyword: { pattern: /\\(?:article|jsarticle|document|quote|equation|align|alignat|aligned|cases|matrix|pmatrix|bmatrix|vmatrix|Vmatrix|gather|gathered|multline|split|eqnarray|tabular|array|longtable|landscape|table|figure|flushleft|flushright|center|verse|enumerate|itemize|description|proof|theorem|lemma|corollary|proposition|definition|example|remark|note|case|subcase|frame|beamer|titlepage|minipage|parbox|picture|tikzpicture|graph|scope|jbook|jreport|tbook|tufte-book|natbib|subfiles|siunitx|xparse|bxpapersize|bxnewfont|fancybox|pdfpages)\{[^}]*\}/, inside: { keyword: /\\(?:article|jsarticle|document|quote|equation|align|alignat|aligned|cases|matrix|pmatrix|bmatrix|vmatrix|Vmatrix|gather|gathered|multline|split|eqnarray|tabular|array|longtable|landscape|table|figure|flushleft|flushright|center|verse|enumerate|itemize|description|proof|theorem|lemma|corollary|proposition|definition|example|remark|note|case|subcase|frame|beamer|titlepage|minipage|parbox|picture|tikzpicture|graph|scope|jbook|jreport|tbook|tufte-book|natbib|subfiles|siunitx|xparse|bxpapersize|bxnewfont|fancybox|pdfpages)/, argument: /{[^}]*}/ } }, option: /(?:\[(?:10pt|11pt|a4j|a4paper|dvipdfmx|landscape|twocolumn|titlepage|notitlepage|oneside|twoside|onecolumn|openright|openany|openleft|fleqn|leqno|reqno|fleqno|intlimits|sumlimits|namelimits|nosumlimits|tbtags|nofootinbib|reprint|preprint|balancelastpage|linenumbers|shortcaption|captionskip|nopagebreak|noindent|centering|flushleft|flushright|showlabels|hidelabels|draft|final|leqno|fleqn)\])/, package: /\b(?:amsmath|geometry|fancyhdr|hyperref|xcolor|graphix|graphicx|mathtools|ulem|pdfpages|multicol|tcolorbox|titlesec|unicode-math|fontspec|babel|caption|subcaption|titlesec|amsfonts|amssymb|inputenc|fontenc|csquotes|epigraph|todonotes|makeidx|soul|tocbibind|microtype|xfrac|gensymb|mhchem|booktabs|comment)\b/, environment: /\\(?:documentclass|usepackage|begin|end|chapter|section|subsection|subsubsection|paragraph|subparagraph)\b/, punctuation: /[{}[\]]/, selector: /\\[a-zA-Z]+/, argument: /{[^}]*}/, "special-command": /\\(?:new|renew|provide|Declare|Set|Add|step|refstep|value|makeat)/, symbol: /[&^_$\\]/ };
+Prism.languages.latex = {
+    verb: {
+        pattern: /\\verb([!"#$&'()\+\-\.,\/:;<=>?@\[\\\]^_`{|}~]).*?\1/,
+        inside: {
+            'keyword': /\\verb/,
+            'punctuation': /[!"#$&'()\+\-\.,\/:;<=>?@\[\\\]^_`{|}~]/,
+        }
+    },
+    comment: {
+        pattern: /%.*/,
+    },
+    function: /\\(?:frac|sqrt|left|right|caption|includegraphics|footnote|footnotemark|footnotetext|tableofcontents|listoffigures|listoftables|setlength|pagestyle|sectionmark|subsectionmark|chaptermark|thispagestyle|fancypagestyle|textbf|textit|texttt|textsf|textsc|textnormal|textup|textmd|textsl|textsf|texttt|textcolor|color|textbackground|DeclareMathOperator|newcommand|AtBeginDocument|RenewCommandCopy|renewcommand|providecommand|DeclareSymbolFont|DeclareMathSymbol|encodingdefault|familydefault|SetSymbolFont|newtheorem|renewtheorem|newenvironment|renewenvironment|newcounter|setcounter|addtocounter|stepcounter|refstepcounter|makeatletter|makeatother|bibliography|printbibliography|bibliographystyle|thebibliography|addbibresource|verbatim|minted|lstlisting)\b/,
+    keyword: {
+        pattern: /\\(?:begin|end)\{([a-zA-Z0-9\-]+)\}/,
+        inside: {
+            "environment": /\\(?:begin|end)/,
+            "package": /[a-zA-Z0-9\-]+/,
+            "punctuation": /[{}]/
+        },
+    },
+    package: /\b(?:adjustbox|algorithmicx|amscls|amsfonts|amsmath|amssymb|amsthm|appendix|arev|arydshln|array|atbegshi|autobreak|autonum|babel|bbm|biblatex|bigdelim|bm|bmpsize|booktabs|breqn|bxjalipsum|bxpapersize|bxpdfver|calc|caption|cases|cleveref|comment|csquotes|ctable|datetime2|dcolumn|delarray|derivative|diffcoeff|diagbox|empheq|enumitem|epigraph|esint|etoolbox|euscript|fancyhdr|fancyvrb|feyn|float|fontenc|fontspec|fourier|fouriernc|framed|fvextra|geometry|gensymb|gnuplottex|graphicx|hep-th|hyperref|hypcap|ifthen|import|inputenc|interval|jlreq|jtygm|koma-script|latexmk|listings|lipsum|longtable|lscape|makecell|makeidx|mathastext|mathbbol|mathdesign|mathdots|mathpazo|mathptmx|mathrsfs|mathtools|mhchem|minitoc|minitoc-ja|minted|multirow|multibib|multicol|multido|natbib|newfloat|newpxmath|newpxtext|newtxmath|newtxtext|nicematrix|overpic|pdfpages|physics|plistings|platex-tools|polyglossia|prettyref|pst-plot|pxbase|pxjahyper|pxrubrica|pygmentex|siunitx|showlabels|soul|standalone|stix2|subcaption|subfiles|tabularx|tcolorbox|tensor|textcomp|titlesec|tocbibind|tocloft|todonotes|twemojis|ulem|unicode-math|units|upgreek|url|verbatim|wasysym|wrapfig|xcolor|xfrac|xparse|xr|zref|zref-check|zref-clever|zref-xr|zlm|article|jarticle|jbook|jreport|jltxdoc|jsarticle|jreport|jspf|jlreq|tarticle|tbook|treport|tufte-book|memoir|beamer|book|report|bxjsarticle|bxjsbook|bxjsreport|revtex4|amsart|amsbook|amsdtx|amsproc)\b/,
+    environment: /\\(?:documentclass|usepackage|begin|end|chapter|section|subsection|subsubsection|paragraph|subparagraph|usephysicsmodule)\b/,
+    punctuation: /[{}[\]]/, 
+    selector: /\\[a-zA-Z]+/,
+    argument: /{[^}]*}/,
+    "special-command": /\\(?:|new|renew|provide|Declare|Set|Add|step|refstep|value|makeat)/, symbol: /[&^_$\\]/
+};
 
 Prism.languages.bibtex = {
     comment: /%.*$/,

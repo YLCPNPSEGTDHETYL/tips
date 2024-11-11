@@ -46,7 +46,25 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
+    {% assign current_img = '' %}
+    {% for category in site.data.Gnav %}
+        {% for subcategory in category.children %}
+            {% if subcategory.url == current_url %}
+                {% if subcategory.img %}
+                    {% assign current_img = subcategory.img %}
+                {% endif %}
+            {% endif %}
+            
+            {% for child in subcategory.children %}
+                {% if child.url == current_url %}
+                    {% if child.img %}
+                        {% assign current_img = child.img %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    <link rel="icon" href="{{ current_img | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
 
 
     <!-- md, KaTeX -->

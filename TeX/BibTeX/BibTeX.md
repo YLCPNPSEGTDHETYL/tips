@@ -1,6 +1,5 @@
 ---
 layout: md
-favicon: "/assets/icon/BibTeX_icon.svg"
 withTOC: true
 ---
 
@@ -8,7 +7,7 @@ withTOC: true
 
 ---
 
-卒論・修論みたいに、ページ数の膨大なレポートを書くときに、手打ちでひとつひとつ参考文献を書くのはめちゃ大変(しかも、人為的ミスが起きがち)。
+卒論・修論みたいに、ページ数の膨大なレポートを書くときに、手打ちでひとつひとつ参考文献を書くのはめちゃ大変（しかも、人為的ミスが起きがち）。
   - 引用した順に並べる、形式を間違えず書く、etc…
 
 
@@ -19,7 +18,7 @@ withTOC: true
 
 ---
 
-自動化のためには、拡張子が`.bib`(=bibliography)と、`.bst`(=bibliography style)の2つのファイルが必要です。
+自動化のためには、拡張子が`.bib`（=bibliography）と、`.bst`（=bibliography style）の2つのファイルが必要です。
 
 bstファイルは、LaTeX標準のものや、各論文誌の形式に沿ったものもありますが、今回は自作のファイルに基づいて説明します。
 
@@ -28,18 +27,18 @@ bstファイルは、LaTeX標準のものや、各論文誌の形式に沿った
 <div>
 bstファイルの方は、既存の「junsrt.bst」を元にして、一部改変をしています。<br>
 非公式のものなので、予期せぬエラーや不具合が生じる場合があります。<br>
-不具合報告は6223529＊ed.tus.ac.jpまで(＊→@)。
+不具合報告は6223529＊ed.tus.ac.jpまで（＊→@）。
 </div>
 </aside>
 
-- bstファイル「REVTeX-ja.bst」(必要ならばbibファイルref.bibも)を、以下からダウンロードします。
+- bstファイル「REVTeX-ja.bst」（必要ならばbibファイルref.bibも）を、以下からダウンロードします。
     
     <aside class="star">
     <div>
     **bstファイル**
     
-    - ~~bstファイルは、ハイパーリンク付き(`hyperref`パッケージが必要)とハイパーリンクなしの2つがあります。~~
-    - (2024/10/23)<span class="block-color-red">アップデートにより、ハイパーリンクの有無にかかわらず、同一のbstを使用できるようになりました。</span>
+    - ~~bstファイルは、ハイパーリンク付き（`hyperref`パッケージが必要）とハイパーリンクなしの2つがあります。~~
+    - （2024/10/23）<span class="block-color-red">アップデートにより、ハイパーリンクの有無にかかわらず、同一のbstを使用できるようになりました。</span>
 
     <div class="iframely-embed not-select">
     <a href="https://github.com/YLCPNPSEGTDHETYL/REVTeX-ja/blob/main/REVTeX-ja.bst" data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fgithub.com%2FYLCPNPSEGTDHETYL%2FREVTeX-ja%2Fblob%2Fmain%2FREVTeX-ja.bst&key=94043bf13722791cf83e87024e8939e2"></a>
@@ -84,13 +83,13 @@ bstファイルの方は、既存の「junsrt.bst」を元にして、一部改�
 ---
 
 - 今回は卒論、修論といった日本語文書の作成が目的なので、コンパイラは`platex`および`pbibtex`を使います。ここで注意すべきなのは、`bibtex`を含むコンパイルの場合、コンパイルの手順が増えるということです。
-- 以下では、<span class="inlink">[(1)TeXstudio(ローカル環境)の場合](#header-3)</span>と、<span class="inlink">[(2)Overleafの場合](#header-4)</span>の設定を説明します。
+- 以下では、<span class="inlink">[（1） TeXstudio（ローカル環境）の場合](#header-3)</span>と、<span class="inlink">[（2） Overleafの場合](#header-4)</span>の設定を説明します。
     - これら以外のエディタを使いたい場合は、各自やり方を調べてください。
 
-### (1)TeXStudioの場合
+### （1） TeXStudioの場合
 <aside class="">
   <div>
-  <span class="exlink">[エディタの準備(TeX Studioの場合)](../TeXstudio/TeXstudio.md)</span>でTeXStudioの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
+  <span class="familylink">[エディタの準備（TeX Studioの場合）](../TeXstudio/TeXstudio.md)</span>でTeXStudioの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
   </div>
 </aside>
 コンパイルの手順を説明します。本来、bibtexを含まないコンパイルでは、一番最後のdvi→pdfチェーンだけでよいですが、bibtexをかませるには次のようになります。
@@ -102,7 +101,7 @@ bstファイルの方は、既存の「junsrt.bst」を元にして、一部改�
 
 {::nomarkdown}
 <details  class= "details" markdown="1">
-    <summary class="summary"><span class="summary-inner">(読まなくてOK)なぜこのような手順をとるのか？<img class="ic ic-summary" src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="home" /></span></summary>
+    <summary class="summary"><span class="summary-inner">（読まなくてOK）なぜこのような手順をとるのか？<img class="ic ic-summary" src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="summary" /></span></summary>
     <div class="details-content">
     <div class="details-content-inner">
 {:/nomarkdown}
@@ -127,15 +126,15 @@ TeXStudioの場合、オプション>ビルドからコンパイラの設定が�
 
 <aside class="bulb">
 <div>
-TeXStudioのショートカット設定では、F5キーで「ビルド&表示」、F6キーで「既定のコンパイラ」が走るようになっています。今回は、F5キーでbibtexを含まない通常のコンパイル、F6キーでbibtexを含んだコンパイル、というように設定します(本来の既定のコンパイラの使用方法とは違うかもですが…)。
+TeXStudioのショートカット設定では、F5キーで「ビルド&表示」、F6キーで「既定のコンパイラ」が走るようになっています。今回は、F5キーでbibtexを含まない通常のコンパイル、F6キーでbibtexを含んだコンパイル、というように設定します（本来の既定のコンパイラの使用方法とは違うかもですが…）。
 </div>
 </aside>
 
 1. 左下の「高度なオプション」にチェックがない場合、チェックを入れます。
-2. コンパイラの設定をします。まずは「ビルド＆表示」の右側の設定ボタン(⚙)を押します。
+2. コンパイラの設定をします。まずは「ビルド＆表示」の右側の設定ボタン（⚙）を押します。
 3. 下図のようなダイアログが出てきます。左の欄からコンパイラを選び、中央の<span class="wrap-btn-style">➡追加</span>ボタンを押すことで、右側の「Ordered list of commands」に追加できます。
     1. 「ビルド＆表示」は、「DVI->PDF Chain」のみにします。
-    2. 「既定のコンパイラ」は、「LaTeX」>「BibTeX」>「DVI->PDF Chain」の順になるようにします(下図)。
+    2. 「既定のコンパイラ」は、「LaTeX」>「BibTeX」>「DVI->PDF Chain」の順になるようにします（下図）。
     
     ![既定のコンパイラ](1.png "max-width=700px 「既定のコンパイラ」の設定。"){:.img-center}
     
@@ -145,7 +144,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 
   ![コンパイラ設定画面](2.png "max-width=700px コンパイラ設定画面。"){:.img-center}
     
-1. 次に、オプション>コマンドで、LaTeXおよびBibTeXの欄のコマンド設定を確認し、LaTeXは「platex.exe」、BibTeXは「pbibtex.exe」にします。例えば以下のようになっていればOKです(※LaTeXの`-synctex=1`以降はオプションなので、違っていても大丈夫)。
+1. 次に、オプション>コマンドで、LaTeXおよびBibTeXの欄のコマンド設定を確認し、LaTeXは「platex.exe」、BibTeXは「pbibtex.exe」にします。例えば以下のようになっていればOKです（※LaTeXの`-synctex=1`以降はオプションなので、違っていても大丈夫）。
     - **LaTeX：**<br>
     `platex.exe -synctex=1 -kanji=utf8 -no-guess-input-enc -interaction=nonstopmode %.tex`
     - **BibTeX：**<br>
@@ -155,15 +154,15 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 
 これでTeXStudio側の設定は完了です。
 
-### (2)Overleafの場合
+### （2） Overleafの場合
 <aside class="">
   <div>
-  <span class="exlink">[オンラインエディタを使う(Overleafの場合)](../Overleaf/Overleaf.md)</span>でOverleafの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
+  <span class="familylink">[オンラインエディタを使う（Overleafの場合）](../Overleaf/Overleaf.md)</span>でOverleafの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
   </div>
 </aside>
 1. OverleafでpLaTeX+pBibTeXで文書を書くには、複雑な設定は必要なく、latexmkrcファイルを用意すればよいです。このファイルには、コンパイラの設定などを書き込みます。
 2. 中身は以下。
-コンパイラの設定が、LaTeXは`platex.exe`、BibTeXは`pbibtex.exe`になっています(TeXStudioで説明したのと一緒)。
+コンパイラの設定が、LaTeXは`platex.exe`、BibTeXは`pbibtex.exe`になっています（TeXStudioで説明したのと一緒）。
     
     ```latexmkrc
     #!/usr/bin/env perl
@@ -215,12 +214,12 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 - 論文のwebページからコピペできる場合が多いです。
     - 例えばAPSであれば、「Export Citation」というボタンから、Format:BibTeX選ぶことでコピペできます。
 - Nature系などの一部の論文誌では、BibTeX形式でのサポートがなく、RIS形式でのダウンロードしかできません。こういうときには、オンライン上でris→bibに変換できるサービスを使うとよいです。
-    - <span class="exlink">[Online BibTeX to RIS converter](https://www.bibtex.com/c/bibtex-to-ris-converter/)</span>{:target="_blank"}
+    - <span class="exlink">[Online BibTeX to RIS converter](https://www.bibtex.com/c/bibtex-to-ris-converter/)</span>
 - 入手したbibファイルは、メモ帳やTeXStudio、VS Codeといったテキストエディタで開くことができます。
 
 ### 書籍の場合
 
-- 通常の検索や<span class="exlink">[Google Books](https://books.google.co.jp/?hl=ja){:target="_blank"}</span>、<span class="exlink">[CiNii](https://ci.nii.ac.jp/books/){:target="_blank"}</span>などで、本のタイトルや著者で検索をかけることで入手できます。
+- 通常の検索や<span class="exlink">[Google Books](https://books.google.co.jp/?hl=ja)</span>、<span class="exlink">[CiNii](https://ci.nii.ac.jp/books/)</span>などで、本のタイトルや著者で検索をかけることで入手できます。
     
     
     ![Google booksの検索結果のスクショ。](6.png "max-width=800px Google booksの検索結果のスクショ。"){:.img-center}
@@ -259,7 +258,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 @文献タイプ { 引用キー,
   フィールド値1 = {フィールドの中身1},
   フィールド値2 = {フィールドの中身2},
-  ...(中略)...
+  ...（中略）...
   フィールド値n = {フィールドの中身n}
 }
 ```
@@ -280,14 +279,14 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 
 また、場合によっては、必要に応じて記述の一部を書き換える必要があります。
 
-- 数式用の記述(`_`や`\alpha`など)はインライン`$ $` で囲む。
+- 数式用の記述（`_`や`\alpha`など）はインライン`$ $` で囲む。
 - ウムラウトや特殊文字などは、TeXの表記法に従って書き直します。このとき、**コマンドは必ず{}で囲むようにします。**
     - 例：Ä→`{\"A}`
         
-        特殊文字の記法については、 <span class="exlink">[LaTeX チートシート](/TeX/CheatSheet/LaTeX-CheatSheet.html){:target="_blank"}</span> も参照。
+        特殊文字の記法については、 <span class="familylink">[LaTeX チートシート](/TeX/CheatSheet/LaTeX-CheatSheet.html){:target="_blank"}</span> も参照。
         
 
-次に、texファイルと同じディレクトリに置いたbibファイル(ref.bib)に、上記の情報をペーストします。論文の順序は気にしなくて大丈夫です。
+次に、texファイルと同じディレクトリに置いたbibファイル（ref.bib）に、上記の情報をペーストします。論文の順序は気にしなくて大丈夫です。
 
 ![ref.bibの中身。](7.png "max-width=800px ref.bibの中身。"){:.img-center}
 
@@ -315,7 +314,7 @@ texファイルで引用したい箇所に`\cite`コマンドで引用します�
 
 sample.texのコンパイル結果。
 
-これで、参考文献リストの(ほぼ)自動化が完了です😆
+これで、参考文献リストの（ほぼ）自動化が完了です😆
 
 あと自分でやることは、参考文献のwebページからbibファイルをとってきて、`\bibliography`コマンドで指定したbibファイルに書き込んでいくだけ！
 
@@ -337,25 +336,25 @@ sample.texのコンパイル結果。
 
 ## ①sample.bbl: error: line5: Missing $ inserted.
 
-- bibファイルで、`$ $`(インライン数式)に囲まれていない数式用の記述がある場合に現れるメッセージ。
+- bibファイルで、`$ $`（インライン数式）に囲まれていない数式用の記述がある場合に現れるメッセージ。
 - bibファイルからbblファイルに書き込むときにエラーが起きる。
 
 ### **対処法**
 
-- 論文誌のサイト等からコピペしてきたbibファイルは、まれにアンダーバー(`_`)や`\alpha`などが数式外にある場合がある。エラーの生じた周囲の記述を確認するとよい。
+- 論文誌のサイト等からコピペしてきたbibファイルは、まれにアンダーバー（`_`）や`\alpha`などが数式外にある場合がある。エラーの生じた周囲の記述を確認するとよい。
     
   <aside class="">
     <div>
     <ul class="check">
     <li>物質名の記述はどうか？<br>
-    (例：$\mathrm{Ca_3Co_4O_9}$なら、<code>$\mathrm{Ca_3Co_4O_9}$</code>のように数式モードになっているか？)</li>
+    （例：$\mathrm{Ca_3Co_4O_9}$なら、<code>$\mathrm{Ca_3Co_4O_9}$</code>のように数式モードになっているか？）</li>
     <li><code>$ $</code>の閉じ忘れはないか？</li>
     <li>そのほかの特殊文字が含まれていないか？</li>
     </ul>
     </div>
   </aside>
     
-- 修正後、bblファイルを削除(Overleafならキャッシュ削除)してコンパイルすると直る。
+- 修正後、bblファイルを削除（Overleafならキャッシュ削除）してコンパイルすると直る。
 
 ## ②I was expecting a ',' or a '}'
 
@@ -383,12 +382,12 @@ I'm skipping whatever remains of this entry
   
   - 人名のウムラウト処理が上手くいっていないことが原因。
   - bibファイルでは`"` は中括弧`{}` と同様の扱いなため、`author = {O Sologub and P Salamakha and H No\"`で括弧が閉じた扱いになっている。そのため、それ以降の部分が正しく処理されない。
-  - bibファイルでウムラウトを使うときには、必ず`{\"e}`のように`{}` で囲むようにする(下図参照)。
-  - あるいは、エンコーディングをT1エンコードにしていれば、直接ëのように入力しても大丈夫(なはず)。
+  - bibファイルでウムラウトを使うときには、必ず`{\"e}`のように`{}` で囲むようにする（下図参照）。
+  - あるいは、エンコーディングをT1エンコードにしていれば、直接ëのように入力しても大丈夫（なはず）。
       
-    ![ウムラウト処理をするときは、(1)ではなく(2)のようにする。](9.png)
+    ![ウムラウト処理をするときは、（1）ではなく（2）のようにする。](9.png)
     
-    ウムラウト処理をするときは、(1)ではなく(2)のようにする。
+    ウムラウト処理をするときは、（1）ではなく（2）のようにする。
         
 
 ---
@@ -421,9 +420,9 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
     - とにかくエラーメッセージの周囲をみて、構文ミスがないかを地道に確認するしかない。
     - TeXStudioのように、シンタックスハイライト機能のあるエディタだと、括弧の閉じ忘れのチェックがしやすい。
         
-        ![title = { }の最後の`}` がない。そのため、author以降の項目の色がおかしくなっている(本来は、項目名は太字の紫色になるはず)。](10.png)
+        ![title = { }の最後の`}` がない。そのため、author以降の項目の色がおかしくなっている（本来は、項目名は太字の紫色になるはず)。](10.png)
         
-        title = { }の最後の`}` がない。そのため、author以降の項目の色がおかしくなっている(本来は、項目名は太字の紫色になるはず)。
+        title = { }の最後の`}` がない。そのため、author以降の項目の色がおかしくなっている（本来は、項目名は太字の紫色になるはず）。
         
     - `,`の閉じ忘れの場合も、エラーの出た文献の前後に原因があることがほとんど。
         
@@ -445,7 +444,7 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
         </aside>
         
 
-## (備忘録)REVTeX-ja.bstの中身
+## （備忘録）REVTeX-ja.bstの中身
 
 ---
 
@@ -457,12 +456,12 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
 ---
 
 - APS形式で出力できること。
-    - 論文なら、[著者(全員)], [タイトル], [雑誌名] **[巻]**, [ページ] ([年]).
-- 著者の表記は、下の名前(First name)がイニシャルになるようにする。
+    - 論文なら、[著者（全員）], [タイトル], [雑誌名] **[巻]**, [ページ] ([年]).
+- 著者の表記は、下の名前（First name）がイニシャルになるようにする。
     - 文献からbibを取ってきたときに、コピペ元の方が最初からイニシャルになっている場合がある。そのため、参考文献一覧でフルネームorイニシャルが混在しないために、全文献をイニシャルになるように統一する。
 - **junsrt.bst**
     - 文献をアルファベット順ではなく、引用された順に並べることができるため、これを下敷きに作成。
-    - junsrt.bstは、論文なら[著者名], [タイトル], [雑誌名(斜体)], Vol. [巻], No. [号] p. [ページ数], [月] [年].のように出力される。
+    - junsrt.bstは、論文なら[著者名], [タイトル], [雑誌名（斜体）], Vol. [巻], No. [号] p. [ページ数], [月] [年].のように出力される。
     - そのため、変更したい点は以下。
         1. 雑誌名の斜体を解除する。
         2. 巻、ページ数のスタイル変更。
@@ -480,7 +479,7 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
 > <a href="https://github.com/texjporg/pbibtex-base/blob/master/junsrt.bst" data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fgithub.com%2Ftexjporg%2Fpbibtex-base%2Fblob%2Fmaster%2Fjunsrt.bst&key=94043bf13722791cf83e87024e8939e2"></a>
 > </div>
 
-bstファイルは、<span class="exlink">[Designing BIBTEX Styles ---BIBTEXスタイルの作り方---](https://mirrors.ibiblio.org/CTAN/biblio/pbibtex/pbibtex-manual/jbtxhak.pdf){:target="_blank"}</span>とかを見ながら書き換えを行う。
+bstファイルは、<span class="exlink">[Designing BIBTEX Styles ---BIBTEXスタイルの作り方---](https://mirrors.ibiblio.org/CTAN/biblio/pbibtex/pbibtex-manual/jbtxhak.pdf)</span>とかを見ながら書き換えを行う。
 
 
 
@@ -500,10 +499,10 @@ bstファイルの構文は基本的にはスタックみたい。
 1行目の条件がTrueなら2行目の処理、Falseなら3行目の処理を行う。
 条件は当然入れ子にもできる。
 
-論文誌(article)の場合では、元ファイルの787行目からの`FUNCTION {article}`が参考文献リストに載るスタイルの指定になっている(書籍ならもちろん`FUNCTION {book}` )。
+論文誌（article）の場合では、元ファイルの787行目からの`FUNCTION {article}`が参考文献リストに載るスタイルの指定になっている（書籍ならもちろん`FUNCTION {book}` ）。
 
 ```
-(中略)
+（中略）
 
 FUNCTION {article}
 { output.bibitem
@@ -528,14 +527,14 @@ FUNCTION {article}
   fin.entry
 }
 
-(以下略)
+（以下略）
 ```
 
 例として、5行目の`format.authors "author" output.check`を解読してみる。
 
 1. 最初の`format.authors`：元ファイル292行目の`FUNCTION {format.authors}` のことを指す。著者の出力形式を指定する関数。
 2. 次の`"author"`：bibファイルのフィールド値のひとつ、authorと紐づいている。
-3. 最後の`output.check` ：元ファイル144行目以下の`FUNCTION {output.check}`を指す。outputするときの形式(カンマをいれるかどうかなど)を決めている？
+3. 最後の`output.check` ：元ファイル144行目以下の`FUNCTION {output.check}`を指す。outputするときの形式（カンマをいれるかどうかなど）を決めている？
 
 つまり、この記述によって、
 「著者の出力形式を指定>著者情報にあたるフィールドを読み込み>output形式を指定」
@@ -630,7 +629,7 @@ FUNCTION {output.check}
 {s nameptr "{f.~}{v.~}{ll}{, jj}" format.name$ 't :=}
 ```
 
-- (修論では使わないけど)ついでに、著者数が〇人以上になったら省略する、という設定もできるようにしてみた。
+- （修論では使わないけど）ついでに、著者数が〇人以上になったら省略する、という設定もできるようにしてみた。
 - `FUNCTION {format.authors}`で、`author format.names`を`author format.names.et.al.`にすればよい。
 
 ```
@@ -750,7 +749,7 @@ FUNCTION {format.names}
   while$
 }
 
-(以下略)
+（以下略）
 
 % アウトプット
 
