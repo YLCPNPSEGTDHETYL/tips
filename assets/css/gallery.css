@@ -126,6 +126,11 @@
   padding: 0 8%;
 }
 
+.modal-content h3 {
+  padding: 0;
+  border-left: none;
+}
+
 .modal-header {
   padding-top: 30px;
   margin-bottom: 10px;
@@ -208,7 +213,7 @@
   margin: auto;
   text-decoration: underline;
   text-decoration-color: rgb(199, 199, 199);
-	transition: transform .2s ease-out;
+  transition: transform .2s ease-out;
 }
 
 
@@ -941,7 +946,7 @@ pre.line-numbers code {
   .filter-btn:active {
     background-color: var(--col-bg-gray);
   }
-  
+
 
   .modal-close.modal-btn:active,
   .modal-back:active {
