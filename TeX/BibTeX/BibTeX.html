@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property='og:type' content='website'>
+    <meta property='og:url' content='https://ylcpnpsegtdhetyl.github.io/tips//TeX/BibTeX/BibTeX.html'>
+    
+    
+    
+    
+    
+    
+    <title>【卒論、修論用】BibTeX置き場(和文、APS形式)</title>
+
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <!-- scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
+
+
+    <!-- favicon -->
+    
+    
+    <link rel="icon" href="/tips/assets/icon/BibTeX_icon.svg" type="image/svg+xml">
+
+
+    <!-- md, KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/tips/assets/css/code.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="/tips/assets/css/main.css">
+    <link rel="stylesheet" href="/tips/assets/css/subindex.css">
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+        integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <script>
+
+        function renderMathInPage() {
+            $("script[type='math/tex']").replaceWith(function () {
+                var tex = $(this).text();
+                return "<span class=\"kdmath\">$" + tex + "$</span>";
+            });
+
+            $("script[type='math/tex; mode=display']").replaceWith(function () {
+                var tex = $(this).text();
+                tex = tex.replace('% <![CDATA[', '').replace('%]]>', '');
+                return "<div class=\"kdmath\">$$" + tex + "$$</div>";
+            });
+
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                ]
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInPage();
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="all-wrapper">
+        <header id="header" class="PC-only">
+            
+
+<style>
+    #header {
+        position: fixed;
+        top: 0;
+        margin: 0;
+        z-index: 999;
+        transition: 0.2s ease-in-out;
+        width: 100dvw;
+    }
+    .header-wrapper {
+        background-color: var(--col-text);
+        color: var(--col-bg);
+    }
+
+    .header-menu {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin: auto;
+        width: 100%;
+    }
+
+    .header-item-wrapper {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .header-home {
+        display: flex;
+        padding: 6px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .header-item-wrapper {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        background-color: var(--col-bg-blue);
+    }
+
+    .global-nav-wrapper {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    .global-nav-list {
+        font-weight: 500;
+        list-style: none;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .global-nav-wrapper ul,
+    .global-nav-wrapper ol {
+        padding: 0;
+        margin: 0;
+    }
+
+    .global-nav-list li {
+        position: relative;
+        list-style: none;
+    }
+
+    .global-nav-item {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+        white-space: nowrap;
+        padding: 10px 20px;
+        text-decoration: none;
+        transition: color .15s;
+    }
+
+
+    .link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color .15s;
+    }
+
+    .link:hover>a,
+    .link:focus-within>a {
+        opacity: 0.5;
+    }
+
+    .dropdown {
+        position: absolute;
+        bottom: 0;
+        display: none;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0px 3px 8px -2px #777;
+        color: initial;
+        transform: translate(0, 100%);
+        border-radius: 6px;
+    }
+
+    .dropdown-item a {
+        padding: 6px 10px;
+        font-weight: 400;
+        font-size: 90%;
+    }
+
+    .link:hover>.dropdown,
+    .link:focus-within>.dropdown {
+        display: block;
+    }
+
+    .dropdown-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .global-nav-item:hover,
+    .global-nav-item:focus {
+        opacity: 0.5;
+    }
+
+
+
+    @media (hover: hover) {
+
+        .global-nav-item:hover .dropdown {
+            display: block;
+        }
+    }
+</style>
+
+<div id="top">
+    <div class="header-wrapper sans">
+        <nav aria-label="global" class="global-nav-wrapper">
+            <ul class="global-nav-list">
+                <div class="header-item-wrapper">
+                    <a href="/tips/" aria-label="home" class="header-home">
+                        home
+                    </a>
+                </div>
+                
+                
+                <li class="list-item">
+                    <div class="link" tabindex="0">
+                        <a href="/tips/Igor/Igor.html" class="global-nav-item">Igor</a>
+                        
+                        <div class="dropdown">
+                            <ul class="dropdown-list">
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/Igor/Igor-Manual/Igor-Manual.html" class="global-nav-item">Igorお役立ちマニュアル</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/Igor/Igor-Shortcut/Igor-Shortcut.html" class="global-nav-item">ショートカット一覧</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/Igor/Igor-Macro/Igor-Macro.html" class="global-nav-item">マクロ倉庫</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </li>
+                
+                <li class="list-item">
+                    <div class="link" tabindex="0">
+                        <a href="/tips/VESTA/VESTA.html" class="global-nav-item">VESTA</a>
+                        
+                    </div>
+                </li>
+                
+                
+                
+                <li class="list-item">
+                    <div class="link" tabindex="0">
+                        <a href="/tips/TeX/TeX.html" class="global-nav-item">TeX</a>
+                        
+                        <div class="dropdown">
+                            <ul class="dropdown-list">
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/TeXLive/TeXLive-install.html" class="global-nav-item">TeX Liveのインストール</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/TeXstudio/TeXstudio.html" class="global-nav-item">エディタ(TeXstudio)の準備</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/Overleaf/Overleaf.html" class="global-nav-item">オンラインエディタ(Overleaf)を使う</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/LaTeX-beginner/LaTeX-beginner.html" class="global-nav-item">LaTeX文書を書いてみる</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/LaTeX-sahou/LaTeX-sahou.html" class="global-nav-item">LaTeX文書のお作法</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/LaTeX-dont-use/LaTeX-dont-use.html" class="global-nav-item">使ってはいけないコマンド</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/LaTeX-math-font/LaTeX-math-font.html" class="global-nav-item">数式フォントを考える</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/CheatSheet/LaTeX-CheatSheet.html" class="global-nav-item">LaTeX チートシート</a>
+                                </li>
+                                
+                                <li class="dropdown-item">
+                                    <a href="/tips/TeX/BibTeX/BibTeX.html" class="global-nav-item">【卒論、修論用】BibTeX置き場(和文、APS形式)</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </li>
+                
+                
+                
+                
+            </ul>
+        </nav>
+
+        <nav aria-label="global" class="global-nav-wrapper" style="display: none;">
+            <ol class="global-nav-list">
+                
+                
+                <li>
+                    <a href="/tips/Igor/Igor.html" class="global-nav-item">Igor</a>
+                    
+                    <ol class="dropdown">
+                        
+                        <li class="dropdown">
+                            <a href="/tips/Igor/Igor-Manual/Igor-Manual.html" class="global-nav-item">Igorお役立ちマニュアル</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/Igor/Igor-Shortcut/Igor-Shortcut.html" class="global-nav-item">ショートカット一覧</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/Igor/Igor-Macro/Igor-Macro.html" class="global-nav-item">マクロ倉庫</a>
+                        </li>
+                        
+                    </ol>
+                    
+                </li>
+                
+                <li>
+                    <a href="/tips/VESTA/VESTA.html" class="global-nav-item">VESTA</a>
+                    
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/tips/TeX/TeX.html" class="global-nav-item">TeX</a>
+                    
+                    <ol class="dropdown">
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/TeXLive/TeXLive-install.html" class="global-nav-item">TeX Liveのインストール</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/TeXstudio/TeXstudio.html" class="global-nav-item">エディタ(TeXstudio)の準備</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/Overleaf/Overleaf.html" class="global-nav-item">オンラインエディタ(Overleaf)を使う</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/LaTeX-beginner/LaTeX-beginner.html" class="global-nav-item">LaTeX文書を書いてみる</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/LaTeX-sahou/LaTeX-sahou.html" class="global-nav-item">LaTeX文書のお作法</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/LaTeX-dont-use/LaTeX-dont-use.html" class="global-nav-item">使ってはいけないコマンド</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/LaTeX-math-font/LaTeX-math-font.html" class="global-nav-item">数式フォントを考える</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/CheatSheet/LaTeX-CheatSheet.html" class="global-nav-item">LaTeX チートシート</a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="/tips/TeX/BibTeX/BibTeX.html" class="global-nav-item">【卒論、修論用】BibTeX置き場(和文、APS形式)</a>
+                        </li>
+                        
+                    </ol>
+                    
+                </li>
+                
+                
+                
+                
+            </ol>
+        </nav>
+    </div>
+</div>
+        </header>
+        
+        <article class="sans article-wrapper md-content">
+        
+        
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+            
+        
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <div class="page-title-wrapper">
+                            
+                                <img src="/tips/assets/icon/BibTeX_icon.svg" alt="【卒論、修論用】BibTeX置き場(和文、APS形式)" class="title-icon"/>
+                            
+                            <h1 class="page-title">【卒論、修論用】BibTeX置き場(和文、APS形式)</h1>
+                            
+                            <p class="entry-tag practice">
+                                <svg class="ic ic-circle">
+                                    <use xlink:href="/tips/assets/icon/circle.svg#circle">
+                                    </use>
+                                </svg>
+                                実践編
+                            </p>
+                            <span class="bar">|</span>
+                            <span class="last-date">最終更新日: 2024/11/24 (Sun)</span>
+                        </div>
+                        <div class="main-wrapper withTOC">
+                            <main class="main-content">
+                                
+                                <img src="/tips/assets/thumbnail/BibTeX.png" alt="【卒論、修論用】BibTeX置き場(和文、APS形式)" class="thumbnail">
+                                
+                                <h1 id="bibファイルで参考文献を自動作成しよう">bibファイルで参考文献を自動作成しよう！</h1>
+
+<hr />
+
+<p>卒論・修論みたいに、ページ数の膨大なレポートを書くときに、手打ちでひとつひとつ参考文献を書くのはめちゃ大変（しかも、人為的ミスが起きがち）。</p>
+<ul>
+  <li>引用した順に並べる、形式を間違えず書く、etc…</li>
+</ul>
+
+<p><strong>bibファイルを用いることで、この作業を自動化しよう！</strong>　というのが本記事の目的です。</p>
+
+<h1 id="事前準備bibファイルbstファイルの準備">事前準備①：bibファイル、bstファイルの準備</h1>
+
+<hr />
+
+<p>自動化のためには、拡張子が<code class="language-plaintext highlighter-rouge">.bib</code>（=bibliography）と、<code class="language-plaintext highlighter-rouge">.bst</code>（=bibliography style）の2つのファイルが必要です。</p>
+
+<p>bstファイルは、LaTeX標準のものや、各論文誌の形式に沿ったものもありますが、今回は自作のファイルに基づいて説明します。</p>
+
+<aside class="pinned">
+  <div>
+    <p>bstファイルの方は、既存の「junsrt.bst」を元にして、一部改変をしています。<br />
+非公式のものなので、予期せぬエラーや不具合が生じる場合があります。<br />
+不具合報告は6223529＊ed.tus.ac.jpまで（＊→@）。</p>
+  </div>
+</aside>
+
+<ul>
+  <li>
+    <p>bstファイル「REVTeX-ja.bst」（必要ならばbibファイルref.bibも）を、以下からダウンロードします。</p>
+
+    <aside class="star">
+      <div>
+        <p><strong>bstファイル</strong></p>
+
+        <ul>
+          <li><del>bstファイルは、ハイパーリンク付き（<code class="language-plaintext highlighter-rouge">hyperref</code>パッケージが必要）とハイパーリンクなしの2つがあります。</del></li>
+          <li>（2024/10/23）<span class="block-color-red">アップデートにより、ハイパーリンクの有無にかかわらず、同一のbstを使用できるようになりました。</span></li>
+        </ul>
+
+        <div class="iframely-embed not-select">
+          <p><a href="https://github.com/YLCPNPSEGTDHETYL/REVTeX-ja/blob/main/REVTeX-ja.bst" data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fgithub.com%2FYLCPNPSEGTDHETYL%2FREVTeX-ja%2Fblob%2Fmain%2FREVTeX-ja.bst&amp;key=94043bf13722791cf83e87024e8939e2"></a></p>
+        </div>
+
+      </div>
+    </aside>
+
+    <aside class="star">
+      <div>
+        <p><strong>bibファイル</strong></p>
+
+        <ul>
+          <li>bibファイルは、論文情報などを自分で書き込んでいくテキストファイルです。</li>
+          <li>大抵は、論文誌のwebページからコピペできます。あるいは、<span class="exlink"><a href="https://scholar.google.co.jp/schhp?hl=ja">Google Scholar</a></span>からでも可能です。</li>
+        </ul>
+
+        <div class="iframely-embed not-select">
+          <p><a href="https://github.com/YLCPNPSEGTDHETYL/REVTeX-ja/blob/main/ref.bib" data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fgithub.com%2FYLCPNPSEGTDHETYL%2FREVTeX-ja%2Fblob%2Fmain%2Fref.bib&amp;key=94043bf13722791cf83e87024e8939e2"></a></p>
+        </div>
+
+      </div>
+    </aside>
+  </li>
+  <li>ダウンロードしたbstファイルおよびbibファイルを、texファイルのおかれたディレクトリと同じ位置におきます。
+    <ul>
+      <li>
+        <p>あるいは、使いまわしたい場合は<code class="language-plaintext highlighter-rouge">C:\texlive\texmf-local\bibtex\bst</code>などに置くとよいです。</p>
+
+        <p><img src="0.png" alt="ディレクトリ" title="max-width=600px ディレクトリ構造。" class="img-center" /></p>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">.tex</code>という拡張子のファイルと同じディレクトリに置きます。</li>
+  <li>
+    <p>texファイルの参考文献リストを出力したい場所に、次のように書きます。</p>
+
+    <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">%参考文献のリストをつくる位置</span>
+  <span class="k">\bibliographystyle</span><span class="p">{</span>REVTeX-ja<span class="p">}</span><span class="c">%	*.bstファイル名。</span>
+  <span class="k">\bibliography</span><span class="p">{</span>ref<span class="p">}</span> <span class="c">%	*.bibファイル名。</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="事前準備エディタの準備">事前準備②：エディタの準備</h1>
+
+<hr />
+
+<ul>
+  <li>今回は卒論、修論といった日本語文書の作成が目的なので、コンパイラは<code class="language-plaintext highlighter-rouge">platex</code>および<code class="language-plaintext highlighter-rouge">pbibtex</code>を使います。ここで注意すべきなのは、<code class="language-plaintext highlighter-rouge">bibtex</code>を含むコンパイルの場合、コンパイルの手順が増えるということです。</li>
+  <li>以下では、<span class="inlink"><a href="#header-3">（1） TeXstudio（ローカル環境）の場合</a></span>と、<span class="inlink"><a href="#header-4">（2） Overleafの場合</a></span>の設定を説明します。
+    <ul>
+      <li>これら以外のエディタを使いたい場合は、各自やり方を調べてください。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="1-texstudioの場合">（1） TeXStudioの場合</h3>
+<aside class="">
+  <div>
+    <p><span class="familylink"><a href="../TeXstudio/TeXstudio.md">エディタの準備（TeX Studioの場合）</a></span>でTeXStudioの設定を済ませている場合は、<span class="inlink"><a href="#header-5">bibtexコードの入手方法</a></span>まで飛んでください。</p>
+  </div>
+</aside>
+<p>コンパイルの手順を説明します。本来、bibtexを含まないコンパイルでは、一番最後のdvi→pdfチェーンだけでよいですが、bibtexをかませるには次のようになります。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">platex</code> でコンパイル</li>
+  <li><code class="language-plaintext highlighter-rouge">bibtex</code>でコンパイル</li>
+  <li><code class="language-plaintext highlighter-rouge">dvi-&gt;pdfチェーン</code>でコンパイル</li>
+</ol>
+
+<details  class= "details" markdown="1">
+    <summary class="summary"><span class="summary-inner">（読まなくてOK）なぜこのような手順をとるのか？<img class="ic ic-summary" src="/tips/assets/icon/chevron-down.svg" alt="summary" /></span></summary>
+    <div class="details-content">
+    <div class="details-content-inner">
+
+<ol>
+  <li>最初の<code class="language-plaintext highlighter-rouge">platex</code> では、.auxという拡張子のファイルが生成されます。ここには以下の情報が格納されます。
+    <ul>
+      <li>texファイル中で<code class="language-plaintext highlighter-rouge">\cite</code>命令で引用されている文献情報。</li>
+      <li><code class="language-plaintext highlighter-rouge">\bibliography</code>命令で指定されているbibファイル名。</li>
+      <li><code class="language-plaintext highlighter-rouge">\bibliographystyle</code> 命令で指定されているbstファイル名。</li>
+    </ul>
+  </li>
+  <li>次の<code class="language-plaintext highlighter-rouge">bibtex</code>では、1で作成したauxファイルの情報を使って、以下の操作をします。
+    <ul>
+      <li>bibファイルから、<code class="language-plaintext highlighter-rouge">\cite</code> で引用された文献のみを探し出す。</li>
+      <li>bstファイルで指定したスタイル通りに、参考文献の情報を生成する。</li>
+      <li>生成された参考文献リストは、.bblという拡張子のファイルに順に書き込まれる。</li>
+    </ul>
+  </li>
+  <li>最後の<code class="language-plaintext highlighter-rouge">dvi-&gt;pdfチェーン</code>で、作成された参考文献リストがbblから読み込まれます。</li>
+</ol>
+
+  </div>
+  </div>
+</details>
+
+<p>TeXStudioの場合、オプション&gt;ビルドからコンパイラの設定ができます。</p>
+
+<aside class="bulb">
+  <div>
+    <p>TeXStudioのショートカット設定では、F5キーで「ビルド&amp;表示」、F6キーで「既定のコンパイラ」が走るようになっています。今回は、F5キーでbibtexを含まない通常のコンパイル、F6キーでbibtexを含んだコンパイル、というように設定します（本来の既定のコンパイラの使用方法とは違うかもですが…）。</p>
+  </div>
+</aside>
+
+<ol>
+  <li>左下の「高度なオプション」にチェックがない場合、チェックを入れます。</li>
+  <li>コンパイラの設定をします。まずは「ビルド＆表示」の右側の設定ボタン（⚙）を押します。</li>
+  <li>下図のようなダイアログが出てきます。左の欄からコンパイラを選び、中央の<span class="wrap-btn-style">➡追加</span>ボタンを押すことで、右側の「Ordered list of commands」に追加できます。
+    <ol>
+      <li>「ビルド＆表示」は、「DVI-&gt;PDF Chain」のみにします。</li>
+      <li>「既定のコンパイラ」は、「LaTeX」&gt;「BibTeX」&gt;「DVI-&gt;PDF Chain」の順になるようにします（下図）。</li>
+    </ol>
+
+    <p><img src="1.png" alt="既定のコンパイラ" title="max-width=700px 「既定のコンパイラ」の設定。" class="img-center" /></p>
+  </li>
+  <li>これで、コンパイラの設定はOKです。
+参考文献を増やしていないときはF5キー、参考文献を追加したときにだけF6キー、というように使い分けると良いでしょう。
+コマンドが次のようになっていたらOKです。</li>
+</ol>
+
+<p><img src="2.png" alt="コンパイラ設定画面" title="max-width=700px コンパイラ設定画面。" class="img-center" /></p>
+
+<ol>
+  <li>次に、オプション&gt;コマンドで、LaTeXおよびBibTeXの欄のコマンド設定を確認し、LaTeXは「platex.exe」、BibTeXは「pbibtex.exe」にします。例えば以下のようになっていればOKです（※LaTeXの<code class="language-plaintext highlighter-rouge">-synctex=1</code>以降はオプションなので、違っていても大丈夫）。
+    <ul>
+      <li><strong>LaTeX：</strong><br />
+ <code class="language-plaintext highlighter-rouge">platex.exe -synctex=1 -kanji=utf8 -no-guess-input-enc -interaction=nonstopmode %.tex</code></li>
+      <li><strong>BibTeX：</strong><br />
+ <code class="language-plaintext highlighter-rouge">pbibtex.exe %</code></li>
+    </ul>
+
+    <p><img src="3.png" alt="コマンド設定。" title="max-width=700px コマンド設定。" class="img-center" /></p>
+  </li>
+</ol>
+
+<p>これでTeXStudio側の設定は完了です。</p>
+
+<h3 id="2-overleafの場合">（2） Overleafの場合</h3>
+<aside class="">
+  <div>
+    <p><span class="familylink"><a href="../Overleaf/Overleaf.md">オンラインエディタを使う（Overleafの場合）</a></span>でOverleafの設定を済ませている場合は、<span class="inlink"><a href="#header-5">bibtexコードの入手方法</a></span>まで飛んでください。</p>
+  </div>
+</aside>
+<ol>
+  <li>OverleafでpLaTeX+pBibTeXで文書を書くには、複雑な設定は必要なく、latexmkrcファイルを用意すればよいです。このファイルには、コンパイラの設定などを書き込みます。</li>
+  <li>
+    <p>中身は以下。
+コンパイラの設定が、LaTeXは<code class="language-plaintext highlighter-rouge">platex.exe</code>、BibTeXは<code class="language-plaintext highlighter-rouge">pbibtex.exe</code>になっています（TeXStudioで説明したのと一緒）。</p>
+
+    <pre><code class="language-latexmkrc"> #!/usr/bin/env perl
+     
+ $latex = 'platex -synctex=1 -halt-on-error -interaction=nonstopmode -file-line-error %O %S';
+ $bibtex = 'pbibtex %O %S';
+ $biber = 'biber --bblencoding=utf8 -u -U --output_safechars %O %S';
+ $makeindex = 'mendex %O -o %D %S';
+ $dvipdf = 'dvipdfmx %O -o %D %S';
+ $makeindex = 'mendex %O -o %D %S';
+ $max_repeat = 5;
+ $pdf_mode = 3;
+ $ENV{TZ} = 'Asia/Tokyo';
+ $ENV{OPENTYPEFONTS} = '/usr/share/fonts//:';
+ $ENV{TTFONTS} = '/usr/share/fonts//:';
+     
+ # preview
+ $pvc_view_file_via_temporary = 0;
+ if ($^O eq 'linux') {
+     $dvi_previewer = "xdg-open %S";
+     $pdf_previewer = "xdg-open %S";
+ } elsif ($^O eq 'darwin') {
+     $dvi_previewer = "open %S";
+     $pdf_previewer = "open %S";
+ } else {
+     $dvi_previewer = "start %S";
+     $pdf_previewer = "start %S";
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>このlatexmkrcファイルを、以下の図のようにtexやbib、bstファイルと同じ位置に配置します。拡張子は不要です。</p>
+
+    <p><img src="4.png" alt="Overleafでのディレクトリ構成。" title="max-width=300px Overleafでのディレクトリ構成。" class="img-center" /></p>
+  </li>
+  <li>
+    <p>続いて、左上のメニュー&gt;設定から、コンパイラを「LaTeX」にします。</p>
+
+    <p><img src="5.png" alt="コンパイラは標準はpdfLaTeXですが、LaTeXに変更します。" title="max-width=400px コンパイラをLaTeXに変更します。" class="img-center" /></p>
+  </li>
+</ol>
+
+<p>これでOverleafの設定は完了です。</p>
+
+<h1 id="bibtexコードの入手方法">bibtexコードの入手方法</h1>
+
+<hr />
+
+<p>修論なんかでは、論文誌か書籍からの引用がほぼすべてだと思うので、今回はこの2つについて説明します。</p>
+
+<h3 id="論文誌の場合">論文誌の場合</h3>
+
+<ul>
+  <li>論文のwebページからコピペできる場合が多いです。
+    <ul>
+      <li>例えばAPSであれば、「Export Citation」というボタンから、Format:BibTeX選ぶことでコピペできます。</li>
+    </ul>
+  </li>
+  <li>Nature系などの一部の論文誌では、BibTeX形式でのサポートがなく、RIS形式でのダウンロードしかできません。こういうときには、オンライン上でris→bibに変換できるサービスを使うとよいです。
+    <ul>
+      <li><span class="exlink"><a href="https://www.bibtex.com/c/bibtex-to-ris-converter/">Online BibTeX to RIS converter</a></span></li>
+    </ul>
+  </li>
+  <li>入手したbibファイルは、メモ帳やTeXStudio、VS Codeといったテキストエディタで開くことができます。</li>
+</ul>
+
+<h3 id="書籍の場合">書籍の場合</h3>
+
+<ul>
+  <li>
+    <p>通常の検索や<span class="exlink"><a href="https://books.google.co.jp/?hl=ja">Google Books</a></span>、<span class="exlink"><a href="https://ci.nii.ac.jp/books/">CiNii</a></span>などで、本のタイトルや著者で検索をかけることで入手できます。</p>
+
+    <p><img src="6.png" alt="Google booksの検索結果のスクショ。" title="max-width=800px Google booksの検索結果のスクショ。" class="img-center" /></p>
+  </li>
+  <li>Google booksの場合、「引用を作成」&gt;「BibTeX」とすればOK。</li>
+  <li>こちらも、ダウンロードしたファイルをエディタで開くと、論文情報を確認できます。</li>
+</ul>
+
+<h1 id="参考文献の出力">参考文献の出力</h1>
+
+<hr />
+
+<h3 id="bibファイルに書き込む">bibファイルに書き込む</h3>
+
+<p>論文誌からとってきたファイルの中身は、以下のようになっています。</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span> <span class="p">{</span><span class="nl">YJSato.PhysRevMaterials.6.104412</span><span class="p">,</span>
+	<span class="na">title</span> <span class="p">=</span> <span class="s">{New Gd-based magnetic compound ${\mathrm{GdPt}}_{2}\mathrm{B}$ with a chiral crystal structure}</span><span class="p">,</span>
+	<span class="na">author</span> <span class="p">=</span> <span class="s">{Sato, Yoshiki J. and Manako, Hikari and Homma, Yoshiya and Li, Dexin and Okazaki, Ryuji and Aoki, Dai}</span><span class="p">,</span>
+	<span class="na">journal</span> <span class="p">=</span> <span class="s">{Phys. Rev. Mater.}</span><span class="p">,</span>
+	<span class="na">volume</span> <span class="p">=</span> <span class="s">{6}</span><span class="p">,</span>
+	<span class="na">issue</span> <span class="p">=</span> <span class="s">{10}</span><span class="p">,</span>
+	<span class="na">pages</span> <span class="p">=</span> <span class="s">{104412}</span><span class="p">,</span>
+	<span class="na">numpages</span> <span class="p">=</span> <span class="s">{8}</span><span class="p">,</span>
+	<span class="na">year</span> <span class="p">=</span> <span class="s">{2022}</span><span class="p">,</span>
+	<span class="na">month</span> <span class="p">=</span> <span class="s">{Oct}</span><span class="p">,</span>
+	<span class="na">publisher</span> <span class="p">=</span> <span class="s">{American Physical Society}</span><span class="p">,</span>
+	<span class="na">doi</span> <span class="p">=</span> <span class="s">{10.1103/PhysRevMaterials.6.104412}</span><span class="p">,</span>
+	<span class="na">url</span> <span class="p">=</span> <span class="s">{https://link.aps.org/doi/10.1103/PhysRevMaterials.6.104412}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>この構造を単純に書くと、下のようになっています。</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">@文献タイプ { 引用キー,</span>
+  <span class="c">フィールド値1 = {フィールドの中身1},</span>
+  <span class="c">フィールド値2 = {フィールドの中身2},</span>
+  <span class="c">...（中略）...</span>
+  <span class="c">フィールド値n = {フィールドの中身n}</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<p>文献タイプは、雑誌ならarticle、書籍ならbook、のような値が入ります。また、引用キーには、texファイル上で引用する際にわかりやすいような独自のキーを割り当てます。</p>
+
+<p>そして、APS形式での出力には以下のフィールド値が必要です。これ以外のフィールド値は、bibファイルに書かれていてもコンパイル時に表示されることはありません。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">title</code>：論文タイトル。</li>
+  <li><code class="language-plaintext highlighter-rouge">author</code>：著者。</li>
+  <li><code class="language-plaintext highlighter-rouge">journal</code>：ジャーナル名。</li>
+  <li><code class="language-plaintext highlighter-rouge">volume</code>：巻。</li>
+  <li><code class="language-plaintext highlighter-rouge">pages</code>：ページ数。</li>
+  <li><code class="language-plaintext highlighter-rouge">year</code>：年数。</li>
+  <li><code class="language-plaintext highlighter-rouge">url</code>：URL。省略した場合はリンクが付きません。</li>
+</ul>
+
+<p>逆に、webからとってきた文献であっても、これらの記載がない場合、正しく文献情報を出力できない可能性があります。</p>
+
+<p>また、場合によっては、必要に応じて記述の一部を書き換える必要があります。</p>
+
+<ul>
+  <li>数式用の記述（<code class="language-plaintext highlighter-rouge">_</code>や<code class="language-plaintext highlighter-rouge">\alpha</code>など）はインライン<code class="language-plaintext highlighter-rouge">$ $</code> で囲む。</li>
+  <li>ウムラウトや特殊文字などは、TeXの表記法に従って書き直します。このとき、<strong>コマンドは必ず{}で囲むようにします。</strong>
+    <ul>
+      <li>
+        <p>例：Ä→<code class="language-plaintext highlighter-rouge">{\"A}</code></p>
+
+        <p>特殊文字の記法については、 <span class="familylink"><a href="/TeX/CheatSheet/LaTeX-CheatSheet.html" target="_blank">LaTeX チートシート</a></span> も参照。</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>次に、texファイルと同じディレクトリに置いたbibファイル（ref.bib）に、上記の情報をペーストします。論文の順序は気にしなくて大丈夫です。</p>
+
+<p><img src="7.png" alt="ref.bibの中身。" title="max-width=800px ref.bibの中身。" class="img-center" /></p>
+
+<p>ref.bibの中身。こんな感じでペタペタと貼っていきます。</p>
+
+<p>これで、参考文献を出力する準備はすべて整いました。</p>
+
+<h3 id="実際に引用してみる">実際に引用してみる</h3>
+
+<p>texファイルで引用したい箇所に<code class="language-plaintext highlighter-rouge">\cite</code>コマンドで引用します。</p>
+
+<ul>
+  <li>引用は、論文誌であれば<code class="language-plaintext highlighter-rouge">@article{</code>から<code class="language-plaintext highlighter-rouge">,</code>の間に書かれている文字を引数とします。例えば、<a href="BibTeX.md">上記の例で挙げた文献</a>なら、以下のようになります。</li>
+</ul>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">%TeXの本文中で、引用したい箇所に記載。</span>
+<span class="k">\cite</span><span class="p">{</span>YJSato.PhysRevMaterials.6.104412<span class="p">}</span>
+</code></pre></div></div>
+
+<p>コンパイルしたときに、次のようになります。</p>
+
+<ul>
+  <li>本文中で引用した箇所に引用番号が付いている。</li>
+  <li>参考文献一覧に、引用した順に文献が表示されている。</li>
+</ul>
+
+<p><img src="8.png" alt="sample.texのコンパイル結果。" title="max-width=800px sample.texのコンパイル結果。" class="img-center" /></p>
+
+<p>sample.texのコンパイル結果。</p>
+
+<p>これで、参考文献リストの（ほぼ）自動化が完了です😆</p>
+
+<p>あと自分でやることは、参考文献のwebページからbibファイルをとってきて、<code class="language-plaintext highlighter-rouge">\bibliography</code>コマンドで指定したbibファイルに書き込んでいくだけ！</p>
+
+<aside class="warning">
+  <div>
+    <p>エラーに気づきにくいので、コンパイルごとにエラーしていないか確認するとよいです。詳細は、<a href="#header-12">bibtex周りのよくあるエラーと対処法</a>を参照。</p>
+  </div>
+</aside>
+
+<h1 id="おまけciteの形式を変更するには">おまけ：citeの形式を変更するには</h1>
+
+<hr />
+
+<p>準備中</p>
+
+<h1 id="bibtex周りのよくあるエラーと対処法">bibtex周りのよくあるエラーと対処法</h1>
+
+<hr />
+
+<h2 id="samplebbl-error-line5-missing--inserted">①sample.bbl: error: line5: Missing $ inserted.</h2>
+
+<ul>
+  <li>bibファイルで、<code class="language-plaintext highlighter-rouge">$ $</code>（インライン数式）に囲まれていない数式用の記述がある場合に現れるメッセージ。</li>
+  <li>bibファイルからbblファイルに書き込むときにエラーが起きる。</li>
+</ul>
+
+<h3 id="対処法"><strong>対処法</strong></h3>
+
+<ul>
+  <li>
+    <p>論文誌のサイト等からコピペしてきたbibファイルは、まれにアンダーバー（<code class="language-plaintext highlighter-rouge">_</code>）や<code class="language-plaintext highlighter-rouge">\alpha</code>などが数式外にある場合がある。エラーの生じた周囲の記述を確認するとよい。</p>
+
+    <aside class="">
+      <div>
+        <ul class="check">
+          <li>物質名の記述はどうか？<br /> （例：$\mathrm{Ca_3Co_4O_9}$なら、<code class="language-plaintext highlighter-rouge">$\mathrm{Ca_3Co_4O_9}$</code>のように数式モードになっているか？）</li>
+          <li><code class="language-plaintext highlighter-rouge">$ $</code>の閉じ忘れはないか？</li>
+          <li>そのほかの特殊文字が含まれていないか？</li>
+        </ul>
+      </div>
+    </aside>
+  </li>
+  <li>
+    <p>修正後、bblファイルを削除（Overleafならキャッシュ削除）してコンパイルすると直る。</p>
+  </li>
+</ul>
+
+<h2 id="i-was-expecting-a--or-a-">②I was expecting a ',' or a '}'</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">,</code>や<code class="language-plaintext highlighter-rouge">}</code>が期待される位置にない、というエラー。途中でエラー終了してしまうが、コンパイルは通るので気づきにくい。</li>
+  <li>エラーの要因は主に<span class="familylink"><a href="#header-16">ウムラウト処理</a>、あるいは<span class="familylink"><a href="#header-18">単純に構文ミス</a></span>の2パターン。</span></li>
+</ul>
+
+<h3 id="1-ウムラウト処理">1. ウムラウト処理</h3>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is pBibTeX, Version 0.99d-j0.34 (utf8.euc) (TeX Live 2022)
+The top-level auxiliary file: sample.aux
+The style file: REVTeX-ja.bst
+Database file #1: ref.bib
+I was expecting a ,' or a <span class="p">}</span>'---line 119 of file ref.bib
+:  author = <span class="p">{</span>O Sologub and P Salamakha and H No<span class="k">\"</span>e<span class="p">}</span>
+:                                                  l and M Potel and M Almeida and C Godart<span class="p">}</span>,
+I'm skipping whatever remains of this entry
+(There was 1 error message)
+プロセスはエラー終了しました
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>エラーメッセージを読むと、<code class="language-plaintext highlighter-rouge">author = {O Sologub and P Salamakha and H No\"e}</code>とあるが、ここがエラーを吐いている。</p>
+
+    <h3 id="対処法-1"><strong>対処法</strong></h3>
+
+    <ul>
+      <li>人名のウムラウト処理が上手くいっていないことが原因。</li>
+      <li>bibファイルでは<code class="language-plaintext highlighter-rouge">"</code> は中括弧<code class="language-plaintext highlighter-rouge">{}</code> と同様の扱いなため、<code class="language-plaintext highlighter-rouge">author = {O Sologub and P Salamakha and H No\"</code>で括弧が閉じた扱いになっている。そのため、それ以降の部分が正しく処理されない。</li>
+      <li>bibファイルでウムラウトを使うときには、必ず<code class="language-plaintext highlighter-rouge">{\"e}</code>のように<code class="language-plaintext highlighter-rouge">{}</code> で囲むようにする（下図参照）。</li>
+      <li>
+        <p>あるいは、エンコーディングをT1エンコードにしていれば、直接ëのように入力しても大丈夫（なはず）。</p>
+
+        <p><img src="9.png" alt="ウムラウト処理をするときは、（1）ではなく（2）のようにする。" /></p>
+
+        <p>ウムラウト処理をするときは、（1）ではなく（2）のようにする。</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="2-の閉じ忘れおよびの抜け">2. <code class="language-plaintext highlighter-rouge">{}</code>の閉じ忘れ、および<code class="language-plaintext highlighter-rouge">,</code>の抜け</h3>
+
+<ul>
+  <li>以下は<code class="language-plaintext highlighter-rouge">{}</code>の閉じ忘れの例。</li>
+</ul>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is pBibTeX, Version 0.99d-j0.34 (utf8.euc) (TeX Live 2022)
+The top-level auxiliary file: sample.aux
+The style file: REVTeX-ja.bst
+Database file #1: ref.bib
+I was expecting a ,' or a <span class="p">}</span>'---line 101 of file ref.bib
+:
+: @article<span class="p">{</span>O.L.Sologub.200040,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "YJSato.PhysRevMaterials.6.104t412"
+Warning--empty author in YJSato.PhysRevMaterials.5.034411
+Warning--empty journal in YJSato.PhysRevMaterials.5.034411
+(There was 1 error message)
+プロセスはエラー終了しました
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">@article{O.L.Sologub.200040,(Error may have been on previous line)</code>とあるが、実際には<code class="language-plaintext highlighter-rouge">O.L.Sologub.200040</code> のひとつ上の文献にエラーがある。</p>
+
+    <h3 id="対処法-2"><strong>対処法</strong></h3>
+
+    <ul>
+      <li>とにかくエラーメッセージの周囲をみて、構文ミスがないかを地道に確認するしかない。</li>
+      <li>
+        <p>TeXStudioのように、シンタックスハイライト機能のあるエディタだと、括弧の閉じ忘れのチェックがしやすい。</p>
+
+        <p><img src="10.png" alt="title = { }の最後の`}` がない。そのため、author以降の項目の色がおかしくなっている（本来は、項目名は太字の紫色になるはず)。" /></p>
+
+        <p>title = { }の最後の<code class="language-plaintext highlighter-rouge">}</code> がない。そのため、author以降の項目の色がおかしくなっている（本来は、項目名は太字の紫色になるはず）。</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">,</code>の閉じ忘れの場合も、エラーの出た文献の前後に原因があることがほとんど。</p>
+
+        <aside class="">
+          <div>
+            <ul class="check">
+              <li>title, authorなどの項目の括弧は閉じているか？</li>
+              <li>後ろに項目が続く場合、閉じ括弧の後ろに<code class="language-plaintext highlighter-rouge">,</code>があるか？</li>
+              <li><code class="language-plaintext highlighter-rouge">@article{ … }</code>のように、全体の括弧が閉じているか？</li>
+            </ul>
+
+          </div>
+        </aside>
+        <p><br /></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="以下備忘録revtex-jabstの中身">（以下備忘録）REVTeX-ja.bstの中身</h2>
+
+<hr />
+
+<ul>
+  <li>APSが配布しているrevtexは、和文の文書には対応できない。</li>
+  <li>一方、和文に対応しているスタイルは、どれもAPSスタイルとはちょっと違うのでそのまま使えない。</li>
+</ul>
+
+<h3 id="自作bstファイルの要件">自作bstファイルの要件</h3>
+
+<hr />
+
+<ul>
+  <li>APS形式で出力できること。
+    <ul>
+      <li>論文なら、[著者（全員）], [タイトル], [雑誌名] <strong>[巻]</strong>, [ページ] ([年]).</li>
+    </ul>
+  </li>
+  <li>著者の表記は、下の名前（First name）がイニシャルになるようにする。
+    <ul>
+      <li>文献からbibを取ってきたときに、コピペ元の方が最初からイニシャルになっている場合がある。そのため、参考文献一覧でフルネームorイニシャルが混在しないために、全文献をイニシャルになるように統一する。</li>
+    </ul>
+  </li>
+  <li><strong>junsrt.bst</strong>
+    <ul>
+      <li>文献をアルファベット順ではなく、引用された順に並べることができるため、これを下敷きに作成。</li>
+      <li>junsrt.bstは、論文なら[著者名], [タイトル], [雑誌名（斜体）], Vol. [巻], No. [号] p. [ページ数], [月] [年].のように出力される。</li>
+      <li>そのため、変更したい点は以下。
+        <ol>
+          <li>雑誌名の斜体を解除する。</li>
+          <li>巻、ページ数のスタイル変更。</li>
+          <li>月表示を消し、年を丸かっこで囲む。</li>
+          <li>雑誌名と巻、ページ数と年の間のカンマを消す。</li>
+          <li>ファーストネームをイニシャルに固定する。</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="まずはおおもとのbstを読む">まずはおおもとのbstを読む</h3>
+
+<hr />
+
+<ul>
+  <li>
+    <p>junsrt.bst 
+<span class="exlink"><a href="https://github.com/texjporg/pbibtex-base/blob/master/junsrt.bst">https://github.com/texjporg/pbibtex-base/blob/master/junsrt.bst</a></span></p>
+  </li>
+  <li>
+    <p>REVTeX 4.2 
+APSで公式に配布されている。 
+<span class="exlink"><a href="https://journals.aps.org/revtex">https://journals.aps.org/revtex</a></span></p>
+  </li>
+</ul>
+
+<p>bstファイルは、<span class="exlink"><a href="https://mirrors.ibiblio.org/CTAN/biblio/pbibtex/pbibtex-manual/jbtxhak.pdf">Designing BIBTEX Styles —BIBTEXスタイルの作り方—</a></span>とかを見ながら書き換えを行う。</p>
+
+<p>bstファイルの構文は基本的にはスタックみたい。</p>
+
+<p>条件分岐は4行で1かたまりになっている。たとえば…</p>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">FUNCTION {example}</span>
+  <span class="c">{ field empty$</span>
+      <span class="c">{ A }</span>
+      <span class="c">{ B }</span>
+    <span class="c">if$</span>
+  <span class="c">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">example</code>が関数名。
+<code class="language-plaintext highlighter-rouge">field empty$</code>から<code class="language-plaintext highlighter-rouge">if$</code>までの4行が一つのかたまりになっていて、
+1行目の条件がTrueなら2行目の処理、Falseなら3行目の処理を行う。
+条件は入れ子にできる。</p>
+
+<p>論文誌（article）の場合では、元ファイルの787行目からの<code class="language-plaintext highlighter-rouge">FUNCTION {article}</code>が参考文献リストに載るスタイルの指定になっている（書籍ならもちろん<code class="language-plaintext highlighter-rouge">FUNCTION {book}</code> ）。</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">（中略）</span>
+
+<span class="c">FUNCTION {article}</span>
+<span class="c">{ output.bibitem</span>
+  <span class="c">format.authors "author" output.check</span>
+  <span class="c">new.block</span>
+  <span class="c">format.title "title" output.check</span>
+  <span class="c">new.block</span>
+  <span class="c">crossref missing$</span>
+    <span class="c">{ journal emphasize "journal" output.check</span>
+
+      <span class="c">format.vol.num.pages output</span>
+      <span class="c">format.date "year" output.check</span>
+
+<span class="c">}</span>
+    <span class="c">{ format.article.crossref output.nonnull</span>
+      <span class="c">format.pages output</span>
+    <span class="c">}</span>
+  <span class="c">if$</span>
+
+  <span class="c">new.block</span>
+  <span class="c">note output</span>
+  <span class="c">fin.entry</span>
+<span class="c">}</span>
+
+<span class="c">（以下略）</span>
+</code></pre></div></div>
+
+<p>例として、5行目の<code class="language-plaintext highlighter-rouge">format.authors "author" output.check</code>を解読してみる。</p>
+
+<ol>
+  <li>最初の<code class="language-plaintext highlighter-rouge">format.authors</code>：元ファイル292行目の<code class="language-plaintext highlighter-rouge">FUNCTION {format.authors}</code> のことを指す。著者の出力形式を指定する関数。</li>
+  <li>次の<code class="language-plaintext highlighter-rouge">"author"</code>：bibファイルのフィールド値のひとつ、authorと紐づいている。</li>
+  <li>最後の<code class="language-plaintext highlighter-rouge">output.check</code> ：元ファイル144行目以下の<code class="language-plaintext highlighter-rouge">FUNCTION {output.check}</code>を指す。outputするときの形式（カンマをいれるかどうかなど）を決めている？</li>
+</ol>
+
+<p>つまり、この記述によって、
+「著者の出力形式を指定&gt;著者情報にあたるフィールドを読み込み&gt;output形式を指定」
+という動作をすることになる。</p>
+
+<p>詳しい文法は説明が大変なので、他を参照してください。</p>
+
+<h3 id="改変した点">改変した点</h3>
+
+<hr />
+
+<h3 id="1-雑誌名の斜体を解除する">1. 雑誌名の斜体を解除する</h3>
+
+<ul>
+  <li>雑誌名の表記は、<code class="language-plaintext highlighter-rouge">journal emphasize "journal" output.check</code> の行</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">emphasize</code> が斜体にする関数なのでこれを消すだけでよい。</p>
+
+    <div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">%% 斜体 </span>
+  <span class="c">FUNCTION {emphasize}</span>
+  <span class="c">{ duplicate$ empty$</span>
+      <span class="c">{ pop$ "" }</span>
+      <span class="c">{ duplicate$ is.kanji.str$</span>
+  	<span class="c">'skip$</span>
+  	<span class="c">{ "{\it " swap$ * "}" * }</span>
+        <span class="c">if$</span>
+      <span class="c">}</span>
+    <span class="c">if$</span>
+  <span class="c">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="2-巻ページ数のスタイル変更">2. 巻、ページ数のスタイル変更</h3>
+
+<ul>
+  <li>巻、号、ページの表記は、<code class="language-plaintext highlighter-rouge">format.vol.num.pages output</code> の行</li>
+  <li>号表記をなくすために、新たに<code class="language-plaintext highlighter-rouge">FUNCTION {format.vol.pages}</code>を定義する。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">FUNCTION {format.vol.num.pages}</code>をコピペして、号に対応する部分だけ消す。</li>
+    </ul>
+  </li>
+  <li>巻やページ数の前に出力されるVol. やp. など、余計な表記を消す。</li>
+  <li>巻を太字にする。太字にする関数がなかったので、斜体にする<code class="language-plaintext highlighter-rouge">emphasize</code> 関数をコピペして、新しく<code class="language-plaintext highlighter-rouge">bold</code>関数を定義する。その後、<code class="language-plaintext highlighter-rouge">format.vol.pages</code>の巻の部分にboldを書き足す。</li>
+  <li>最後に、<code class="language-plaintext highlighter-rouge">FUNCTION {article}</code>と<code class="language-plaintext highlighter-rouge">FUNCTION {book}</code>の出力方法を変更。</li>
+</ul>
+
+<h3 id="3--月表示を消し年を丸かっこで囲む">3.  月表示を消し、年を丸かっこで囲む</h3>
+
+<ul>
+  <li>月、年の表記は、<code class="language-plaintext highlighter-rouge">format.date "year" output.check</code>の行。</li>
+  <li>format.dateを複製したformat.OnlyYearで、<code class="language-plaintext highlighter-rouge">month</code>に関する記述を消せばよい。</li>
+  <li>年を丸かっこで囲むには、最後の<code class="language-plaintext highlighter-rouge">if$</code>の後に<code class="language-plaintext highlighter-rouge">" (" swap$ * ")" *</code>を追加すればよい。</li>
+</ul>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">FUNCTION {format.OnlyYear}</span>
+<span class="c">{ year empty$</span>
+<span class="c">%    { month empty$</span>
+<span class="c">%	{ "" }</span>
+<span class="c">%	{ "there's a month but no year in " cite$ * warning$</span>
+<span class="c">%	  month</span>
+<span class="c">%	}</span>
+<span class="c">%     if$</span>
+<span class="c">%    }</span>
+<span class="c">%    { month empty$</span>
+	<span class="c">'year</span>
+	<span class="c">{ year }</span>
+<span class="c">%      if$</span>
+<span class="c">%    }</span>
+  <span class="c">if$</span>
+  <span class="c">" (" swap$ * ")" *</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<h3 id="4--雑誌名と巻ページ数と年の間のカンマを消す">4.  雑誌名と巻、ページ数と年の間のカンマを消す</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">FUNCTION {output.check}</code>を複製し、カンマを挿入しない関数<code class="language-plaintext highlighter-rouge">output.nonnullNONEcomma</code>を定義。</li>
+</ul>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">FUNCTION {output.check}</span>
+<span class="c">{ 't :=</span>
+  <span class="c">duplicate$ empty$</span>
+    <span class="c">{ pop$ "empty " t * " in " * cite$ * warning$ }</span>
+    <span class="c">'output.nonnull</span>
+  <span class="c">if$</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>最後に、<code class="language-plaintext highlighter-rouge">FUNCTION {article}</code>と<code class="language-plaintext highlighter-rouge">FUNCTION {book}</code>の出力方法を変更。</li>
+</ul>
+
+<h3 id="5--ファーストネームをイニシャルに固定する">5.  ファーストネームをイニシャルに固定する</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">FUNCTION {format.names}</code>の記述を変更すればよい。</li>
+  <li><code class="language-plaintext highlighter-rouge">{ff~}</code>がファミリーネームを表しているので、ここを<code class="language-plaintext highlighter-rouge">{f.~}</code>のようにする。</li>
+</ul>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">%{s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=}</span>
+<span class="c">{s nameptr "{f.~}{v.~}{ll}{, jj}" format.name$ 't :=}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>（修論では使わないけど）ついでに、著者数が〇人以上になったら省略する、という設定もできる。</li>
+  <li><code class="language-plaintext highlighter-rouge">FUNCTION {format.authors}</code>で、<code class="language-plaintext highlighter-rouge">author format.names</code>を<code class="language-plaintext highlighter-rouge">author format.names.et.al.</code>にすればよい。</li>
+</ul>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">FUNCTION {format.authors}</span>
+<span class="c">{ author empty$</span>
+    <span class="c">{ "" }</span>
+    <span class="c">{ author format.names}	</span>
+<span class="c">%    { author format.names.et.al.}	% et.al.表記にしたいときはこっち</span>
+  <span class="c">if$</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<h3 id="6-雑誌名部分にハイパーリンクをつける">6. 雑誌名部分にハイパーリンクをつける</h3>
+
+<p>RevTeXを参照しながら作成。</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">FUNCTION {doi.base}</span>
+<span class="c">{</span>
+  <span class="c">"https://doi.org/"</span>
+<span class="c">}</span>
+
+<span class="c">FUNCTION {doi.base.command}</span>
+<span class="c">{</span>
+  <span class="c">"http://dx.doi.org/"</span>
+<span class="c">}</span>
+
+<span class="c">FUNCTION {noop.command}</span>
+<span class="c">{</span>
+  <span class="c">"\href"</span>
+<span class="c">}</span>
+
+
+<span class="c">FUNCTION {href.command}</span>
+<span class="c">{</span>
+  <span class="c">"\href "</span>
+<span class="c">}</span>
+
+<span class="c">FUNCTION {link.tag.open}</span>
+<span class="c">{</span>
+	<span class="c">doi duplicate$ empty$</span>
+	<span class="c">{</span>
+    <span class="c">pop$</span>
+    <span class="c">url duplicate$ empty$</span>
+    <span class="c">{</span>
+      <span class="c">pop$ "" noop.command</span>
+    <span class="c">}{</span>
+      <span class="c">href.command</span>
+    <span class="c">}</span>
+    <span class="c">if$</span>
+  <span class="c">}{</span>
+    <span class="c">"https://doi.org/" swap$ *</span>
+    <span class="c">href.command</span>
+  <span class="c">}</span>
+    <span class="c">if$</span>
+    <span class="c">"{" * swap$ * "} {" *</span>
+<span class="c">}</span>
+
+
+<span class="c">FUNCTION {link.tag.shut}</span>
+<span class="c">{</span>
+  <span class="c">"}"</span>
+<span class="c">}</span>
+
+<span class="c">FUNCTION {link.open}</span>
+<span class="c">{</span>
+  <span class="c">link.tag.open output.nopunct</span>
+<span class="c">}</span>
+
+<span class="c">FUNCTION {link.shut}</span>
+<span class="c">{</span>
+  <span class="c">link.tag.shut *</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">link.tag.open</code>関数は、フィールド値のdoiまたはurlのどちらかが空でない場合、<code class="language-plaintext highlighter-rouge">\href</code>の一つ目の引数にその中身を書き込む（doiの場合は頭にhttps://doi.org/ をつけたものを書き込む）ような関数。</p>
+
+<p>どちらのフィールド値も指定されていない場合は何も入らない。</p>
+
+<p>以下のように、hrefで囲みたい記述を<code class="language-plaintext highlighter-rouge">link.open</code>と<code class="language-plaintext highlighter-rouge">link.shut</code>で囲むことで、\hrefの二つ目の引数の値を指定する。</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c">FUNCTION {article}</span>
+<span class="c">{ </span>
+  <span class="c">（中略）</span>
+    <span class="c">{ link.open</span>
+      <span class="c">journal "journal" output.checkNONEcomma</span>
+      <span class="c">before.all 'output.state :=</span>
+      <span class="c">format.vol.pages output.nonnullNONEcomma</span>
+      <span class="c">format.OnlyYear "year" output.checkNONEcomma</span>
+      <span class="c">link.shut</span>
+    <span class="c">}</span>
+  <span class="c">（中略）</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<h3 id="7-その他の細かい修正">7. その他の細かい修正</h3>
+
+<p>基本的に同じような考え方でいろいろと書き換えたけど、全容は省略。</p>
+
+                            </main>
+                            <nav class="TOC"></nav>
+                        </div>
+                    
+                
+            
+        
+            
+        
+
+            <div class=" radial SP-only">
+                <style>
+    .radial-container h2 {        
+	font-size: 1.3rem;
+	margin-top: 1.1rem;
+    margin-bottom: 1em;
+    padding: 0;
+    background-color: unset;
+    }
+
+
+    .radial-container {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        z-index: 1;
+        overscroll-behavior: none;
+    }
+
+    .radial-container #menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        align-items: end;
+        justify-content: center;
+        justify-items: center;
+        gap: 5px;
+        margin: 0;
+        width: 95dvw;
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        transform: translate(-50%, 0%);
+        list-style: none;
+        font-size: 200%;
+        padding: 0;
+        z-index: 1;
+    }
+
+
+    .button-content {
+        position: fixed;
+        bottom: -35px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .radial-menu-button {
+        z-index: -1;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: 0;
+        border-radius: 50%;
+        background: var(--col-main);
+        background-size: 100%;
+        overflow: hidden;
+        text-decoration: none;
+        line-height: normal;
+        color: #fff;
+        font-size: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .button-content:active {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+
+    .radial-container #menu:not(:target)>.button-content .radial-open,
+    .radial-container #menu:target>.button-content .radial-close {
+        opacity: 1;
+        z-index: 1;
+    }
+
+
+    .radial-container #menu:not(:target)>.radial-open:before,
+    .radial-container #menu:target>.radial-close:before {
+        opacity: 1;
+    }
+
+    .radial-menu-item {
+        display: none;
+        list-style: none;
+        line-height: 5px;
+        border-radius: 9999px;
+        overflow: hidden;
+        opacity: 1;
+        z-index: -2;
+        padding: 0;
+        margin: 10px;
+        animation: HideMenu 0.2s ease forwards;
+
+    }
+
+    .radial-container #menu:target>.radial-menu-item {
+        display: block;
+        animation: VisMenu 0.5s ease forwards;
+    }
+
+    @keyframes HideMenu {
+        0% {
+            display: block;
+            opacity: 1;
+        }
+
+        100% {
+            display: none;
+            opacity: 0;
+        }
+    }
+
+    @keyframes VisMenu {
+        0% {
+            display: none;
+            opacity: 0;
+        }
+
+        100% {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    .radial-menu-item a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        line-height: normal;
+        height: 20dvw;
+        width: 20dvw;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        -khtml-user-drag: none;
+        user-select: none;
+        touch-action: manipulation;
+        padding: 1dvw;
+    }
+
+    .radial-menu-item a:active {
+        opacity: 1;
+        background-image: conic-gradient(#e7eef1 0% 0%, #ffffff 0% 100%);
+        border-radius: 50%;
+    }
+
+    .inner-circ {
+        text-align: center;
+        background-color: #ffffff;
+        height: 18dvw;
+        width: 18dvw;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .radial-menu-item span {
+        color: var(--col-text);
+        font-size: 10px;
+        z-index: 1;
+    }
+
+
+    .content {
+        position: absolute;
+        text-align: center;
+        margin: -10px 0 0 -30px;
+        top: 70%;
+        left: 50%;
+        font-size: 20px;
+    }
+
+
+    .ic-plus {
+        transition: transform 0.5s ease;
+        z-index: 10;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .radial-container #menu:target .ic-plus {
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+
+
+    .radial-overlay {
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .radial-overlay:active {
+        opacity: 1;
+    }
+
+    .radial-container #menu:target~.radial-overlay {
+        display: block;
+    }
+
+    .ic-item {
+        max-width: 40px;
+        width: 15dvw;
+        z-index: 1;
+    }
+
+    .bottom-menubar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100dvw;
+        height: 55px;
+        background-color: var(--col-bg);
+        z-index: 1;
+        border-top: 1.2px solid #ccc;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 calc(25vw - 40px);
+    }
+
+    .stretch-animation {
+        position: absolute;
+        width: 95dvw;
+        height: 100%;
+        background-color: #fff;
+        z-index: -3;
+        transition: transform 0.2s ease, opacity 0.2s 0.05s ease-in-out;
+        border-radius: 10px;
+        opacity: 0;
+    }
+
+
+    .radial-container #menu:target .stretch-animation {
+        opacity: 1;
+        transition: transform 0.2s ease, opacity 0.1s ease-in-out;
+    }
+
+    .article-info {
+        display: none;
+        position: fixed;
+        line-break: strict;
+        width: 100dvw;
+        height: 100dvh;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px;
+        z-index: 0;
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .article-info a {
+        text-decoration: none !important;
+    }
+
+    .article-info a:active {
+        opacity: 1;
+    }
+
+    .article-info.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .article-info h1:active,
+    .article-info h2:active {
+        color: var(--col-main);
+        background-color: var(--col-text);
+    }
+
+    .article-info h1 {
+        border-radius: 3px;
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+
+    .article-info h2 {
+        margin-top: 1.2rem;
+        border-radius: 3px;
+        font-size: 1.1rem;
+        font-weight: 400;
+        padding-left: 15px;
+    }
+
+
+    .bottom-menubar a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        font-weight: 600;
+        font-size: 0.7rem;
+        line-height: 1;
+        text-decoration: none;
+        color: var(--col-main);
+        padding: 10px;
+    }
+
+
+
+    .ic-home,
+    .ic-info {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .radial-menu-button,
+    .menu-bar-btn,
+    .menu-link {
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        -khtml-user-drag: none;
+        user-select: none;
+        touch-action: manipulation;
+    }
+
+
+    .article-info h1,
+    .article-info h2 {
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(0, 5px);
+        transition: opacity 0.5s ease, transform 0.4s ease;
+    }
+
+    .article-info h1.active,
+    .article-info h2.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: opacity 0.5s ease, transform 0.4s ease;
+    }
+
+    .article-info div:has(a) {
+        position: absolute;
+        top: 0;
+        margin-top: 1rem;
+        width: calc(100dvw - 20px);
+    }
+
+    .article-info div:has(.active) {
+        overflow-y: scroll;
+        max-height: calc(100dvh - 205px);
+    }
+
+    .is-up-scrollable {
+        mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
+    }
+
+
+    .is-down-scrollable {
+        mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0));
+    }
+
+    .is-down-scrollable.is-up-scrollable {
+        mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
+    }
+
+    @media (max-width : 442px) {
+        .article-info div:has(.active) {
+            overflow-y: scroll;
+            max-height: calc(100dvh - 310px);
+        }
+    }
+</style>
+
+<nav class="radial-container sans">
+    <div class="bottom-menubar">
+        <a href="/tips/index.html" class="menu-bar-btn home">
+            <img class="ic ic-home not-select" src="/tips/assets/icon/home.svg" alt="home" />
+            home
+        </a>
+        <a href="/tips/index.html" class="menu-bar-btn info">
+            <img class="ic ic-info not-select" src="/tips/assets/icon/info.svg" alt="info" />
+            info
+        </a>
+    </div>
+    <ul id="menu">
+        <div class="button-content">
+            <a class="radial-menu-button radial-open" href="#menu" title="Show radial-nav">
+                <img class="ic ic-plus not-select" src="/tips/assets/icon/plus.svg" alt="plus" />
+            </a>
+            <a class="radial-menu-button radial-close" href="#0" title="Hide radial-nav">
+                <img class="ic ic-plus not-select" src="/tips/assets/icon/plus.svg" alt="plus" />
+            </a>
+        </div>
+        <li class="radial-menu-item prevent-context">
+            <a href="/tips/Igor/Igor.html" data-item="item-1" class="menu-link">
+                <img class="ic ic-item ic-Igor not-select" src="/tips/assets/icon/Igor.svg"
+                    alt="Igor" />
+                <span>Igor</span>
+                <div class="inner-circ"></div>
+            </a>
+        </li>
+        <li class="radial-menu-item prevent-context">
+            <a href="/tips/VESTA/VESTA.html" data-item="item-2" class="menu-link">
+                <img class="ic ic-item ic-VESTA not-select" src="/tips/assets/icon/VESTA.png"
+                    alt="VESTA" />
+                <span>VESTA</span>
+                <div class="inner-circ"></div>
+            </a>
+        </li>
+        <li class="radial-menu-item prevent-context">
+            <a href="/tips/TeX/TeX.html" data-item="item-3" class="menu-link">
+                <img class="ic ic-item ic-TeX not-select" src="/tips/assets/icon/TeX.svg" alt="TeX" />
+                <span>TeX</span>
+                <div class="inner-circ"></div>
+            </a>
+        </li>
+        <li class="radial-menu-item prevent-context">
+            <a href="/tips/Presentation/Presentation.html" data-item="item-4" class="menu-link">
+                <img class="ic ic-item ic-Presentation not-select"
+                    src="/tips/assets/icon/powerpoint_icon.png" alt="Presentation" />
+                <span>プレゼン</span>
+                <div class="inner-circ"></div>
+            </a>
+        </li>
+        <li class="radial-menu-item prevent-context">
+            <a href="/tips/index.html" data-item="item-5" class="menu-link">
+                <img class="ic ic-item ic-Igor not-select" src="/tips/assets/icon/Others.svg"
+                    alt="Others" />
+                <span>その他</span>
+                <div class="inner-circ"></div>
+            </a>
+        </li>
+        <span class="stretch-animation"></span>
+    </ul>
+    <a class="radial-overlay" href="#0"></a>
+    <a id="article-info" class="article-info" href="#0">
+        <div class="radial-entry-5">
+            <h1>その他</h1>
+        </div>
+    </a>
+</nav>
+
+
+
+<script type="module">
+    import { Gnav } from '/tips/assets/js/Gnav.js';
+
+
+
+    const CheckSec = 400;
+    const menuLinks = document.querySelectorAll('.menu-link');
+    const articleInfo = document.getElementById('article-info');
+    const RadialClose = document.querySelector('.radial-close');
+    const menu = document.getElementById('menu');
+    let longtapTimer;
+    let longtap
+
+
+    function setupMenuEntries() {
+        let subcategoryCount = 1;
+        Gnav.forEach(category => {
+            if (category.children) {
+                category.children.forEach(subcategory => {
+                    const subcategoryDiv = document.createElement('div');
+                    subcategoryDiv.className = `radial-entry-${subcategoryCount}`;
+                    const h1 = document.createElement('h1');
+                    const subcategoryLink = document.createElement('a');
+                    subcategoryLink.href = `/tips${subcategory.url}`;
+                    subcategoryLink.textContent = subcategory.title;
+                    h1.appendChild(subcategoryLink);
+                    subcategoryDiv.appendChild(h1);
+
+                    if (subcategory.children) {
+                        subcategory.children.forEach(child => {
+                            const h2 = document.createElement('h2');
+                            const childLink = document.createElement('a');
+                            childLink.href = `/tips${child.url}`;
+                            childLink.textContent = child.title;
+                            h2.appendChild(childLink);
+                            subcategoryDiv.appendChild(h2);
+                        });
+                    }
+
+                    articleInfo.appendChild(subcategoryDiv);
+                    subcategoryCount++;
+                });
+            }
+        });
+        setupScrollListeners();
+    }
+
+    function hideAllEntries() {
+        const allEntries = articleInfo.querySelectorAll('div[class^="radial-entry"]');
+        allEntries.forEach(entry => {
+            entry.scrollTop = 0;
+            const h1 = entry.querySelector('h1');
+            const h2 = entry.querySelectorAll('h2');
+            if (h1) h1.classList.remove('active');
+            h2.forEach(h => h.classList.remove('active'));
+        });
+        articleInfo.classList.remove('active');
+    }
+
+    function setupMenuLinks() {
+        menuLinks.forEach(link => {
+            longtap = false;
+            link.addEventListener('touchstart', () => handleTouchStart(link));
+            LongPress(
+                link,
+                () => handleNormalPress(link, longtap),
+                () => handleLongPress(link),
+                CheckSec
+            );
+        });
+    }
+
+    function DrawCirc(link) {
+        const startTime = Date.now();
+        const endTime = startTime + CheckSec;
+
+        const interval = setInterval(() => {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+
+            const percentage = Math.min((elapsedTime / CheckSec), 1) * 100;
+
+            link.style.backgroundImage = `conic-gradient(#e7eef1 0% ${percentage}%, #ffffff ${percentage}% 100%)`;
+
+            if (currentTime >= endTime) {
+                clearInterval(interval);
+            }
+        }, 20);
+
+        link.addEventListener('touchend', () => {
+            clearInterval(interval);
+            link.style.backgroundImage = '';
+        });
+
+        link.addEventListener('mouseup', () => {
+            clearInterval(interval);
+            link.style.backgroundImage = '';
+        });
+    }
+
+
+    function handleNormalPress(link, longtap) {
+        if (!longtap) {
+            window.location.href = link.href;
+        }
+    }
+
+    function handleTouchStart(link) {
+        DrawCirc(link);
+        const itemNumber = link.getAttribute('data-item').split('-')[1];
+        const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+        hideAllEntries();
+
+        if (targetDiv) {
+            articleInfo.classList.add('active');
+
+            setTimeout(() => {
+                const h1 = targetDiv.querySelector('h1');
+                if (h1) h1.classList.add('active');
+            }, 10);
+        } else {
+            articleInfo.classList.add('active');
+        }
+        longtap = false;
+    }
+
+    function handleLongPress(link) {
+        const itemNumber = link.getAttribute('data-item').split('-')[1];
+        const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+
+        if (targetDiv) {
+            const h2Elements = targetDiv.querySelectorAll('h2');
+            h2Elements.forEach((h2, index) => {
+                setTimeout(() => {
+                    h2.classList.add('active');
+                }, index * 20);
+            });
+        }
+        setupScrollListeners();
+        longtap = true;
+    }
+
+    function setupCloseButton() {
+        RadialClose.addEventListener('click', hideAllEntries);
+    }
+
+    function targetMenu() {
+        if (location.hash === '#0') {
+            hideAllEntries();
+            history.go(-2);
+        }
+    }
+
+    function setupMenuHistory() {
+        history.pushState({ menuOpen: true }, '', '');
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.menuOpen) {
+                hideAllEntries();
+            }
+        });
+    }
+
+    function setupMenuTransition() {
+        menu.addEventListener('transitionend', () => {
+            if (menu.matches(':target')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    function checkScrollability(targetDiv) {
+        const style = getComputedStyle(targetDiv);
+        const marginTop = parseFloat(style.marginTop);
+        if (targetDiv.scrollTop > 0) {
+            targetDiv.classList.add('is-up-scrollable');
+        } else {
+            targetDiv.classList.remove('is-up-scrollable');
+        }
+
+        if (targetDiv.scrollTop < targetDiv.scrollHeight - targetDiv.clientHeight - marginTop) {
+            targetDiv.classList.add('is-down-scrollable');
+        } else {
+            targetDiv.classList.remove('is-down-scrollable');
+        }
+    }
+
+    function setupScrollListeners() {
+        menuLinks.forEach(link => {
+            const itemNumber = link.getAttribute('data-item').split('-')[1];
+            const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+            if (targetDiv) {
+                initializeScrollability(targetDiv);
+                targetDiv.addEventListener('scroll', () => checkScrollability(targetDiv));
+            }
+        });
+    }
+
+    function initializeScrollability(targetDiv) {
+        const style = getComputedStyle(targetDiv);
+        const marginTop = parseFloat(style.marginTop);
+
+        if (targetDiv.scrollHeight > targetDiv.clientHeight + marginTop) {
+            targetDiv.classList.add('is-down-scrollable');
+        } else {
+            targetDiv.classList.remove('is-down-scrollable');
+        }
+    }
+
+    function LongPress(el, nf, lf, sec) {
+        let longclick = false;
+        let longtap = false;
+        let touch = false;
+        let timer;
+        el.addEventListener('touchstart', () => {
+            touch = true;
+            longtap = false;
+            timer = setTimeout(() => {
+                longtap = true;
+                lf();
+            }, sec);
+        })
+        el.addEventListener('touchend', () => {
+            if (!longtap) {
+                clearTimeout(timer);
+                nf();
+            } else {
+                touch = false;
+            }
+        })
+
+        el.addEventListener('mousedown', () => {
+            if (touch) return;
+            longclick = false;
+            timer = setTimeout(() => {
+                longclick = true;
+                lf();
+            }, sec);
+        })
+        el.addEventListener('click', () => {
+            if (touch) {
+                touch = false;
+                return;
+            }
+            if (!longclick) {
+                clearTimeout(timer);
+                nf();
+            }
+        });
+    }
+
+
+    document.querySelectorAll('.prevent-context').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+        });
+        link.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+        });
+        link.addEventListener('touchstart', (event) => {
+            event.preventDefault();
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setupMenuEntries();
+        setupMenuLinks();
+        setupCloseButton();
+        setupMenuHistory();
+        setupMenuTransition();
+    });
+
+    document.addEventListener('click', (event) => {
+        if (event.target.tagName === 'A' && event.target.getAttribute('href') === '#0') {
+            setTimeout(() => {
+                targetMenu();
+            }, 50);
+        }
+    });
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+            </div>
+        </article>
+
+        <!-- Navigation buttons -->
+<div class="page-navigation sans">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Previous Page Button -->
+    
+        
+        <div class="page-navigation-container">
+            <h3 class="page-navigation-text">前ページへ</h3>
+            <a href="/tips/TeX/CheatSheet/LaTeX-CheatSheet.html" class="link-to-page">
+                <img src="/tips/assets/icon/emoji2603.svg" alt="previous page icon" class="navigation-icon">
+                LaTeX チートシート
+            </a>
+        </div>
+    
+
+    <!-- Next Page Button -->
+    
+        <div class="page-navigation-container">
+        </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+        
+        <footer id="footer" class="PC-only">
+            <style>
+  footer div {
+    font-size: 12px;
+    align-items: center;
+    background: var(--col-text);
+    color: var(--col-bg);
+    height: auto;
+    padding: 1rem 2rem;
+    justify-content: center;
+    width: 100vw;
+    max-width: 100%;
+    min-width: 1vw;
+    margin: auto;
+    text-align: center;
+  }
+
+  footer .link-btn {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3pt;
+  }
+
+  footer span {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8pt;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+</style>
+
+<body>
+  <footer class="sans">
+    <div>
+      <span>
+        <nobr class="link-btn">
+          <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            制作者情報<!-- 眞子 日佳里：6223529*ed.tus.ac.jp(*--&gt;@) -->
+          </a>
+        </nobr>
+        <nobr class="link-btn">
+          <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            サイトポリシー
+          </a>
+        </nobr>
+      </span>
+      <p class="copy">Copyright &copy; Manako 2024 All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+        </footer>
+
+    </div>
+
+
+    <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+        integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    
+    <!-- prism plugin -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
+
+    <script src="/tips/assets/js/main.js " type="module"></script>
+    <script src="/tips/assets/js/md.js " type="module"></script>
+    <script src="/tips/assets/js/code.js" type="module"></script>
+</body>
+
+</html>

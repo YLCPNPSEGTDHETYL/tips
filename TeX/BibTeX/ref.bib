@@ -1,0 +1,146 @@
+
+%%-----------「*.bib」の使い方-----------%%
+%%	%がひとつだとコメントアウトされない？らしいです。めんどくさかったので試してないです。嘘かも。
+%%	一項目だけコメントアウトとかはできないっぽいので、いらない項目があったら消してください。これも試してないので嘘かも。
+%%	＠article{○○○○,...で始めると、「*.bst」内のFUNCTION{article}に従って参考文献を出力します。
+%%	＠book{○○○○,...で始めた場合は、FUNCTION{book}になります。
+%%	それ以外のやつはデフォルトからいじってないのでよくわかりません。多分使う機会ないと思います。
+%%	「*.tex」の引用したい部分に\ cite{○○○○}と入力します(カンマの前まで！)。参考文献のリストには引用した順番に並びます。また、引用していないものは表示されません。
+%%	コンパイルは「pLaTeX」-->「pBibTeX」-->「dvi-pdf-chain」の順に行います(pBibTeXを挟まないと情報が更新されません)。
+%%	引用された参考文献のリストは、新たに生成されるファイル「*.bbl」の中に書き込まれています。
+
+%%-----------「*.bib」に文献情報を書き込む際の注意点-----------%%
+%%---基本はコピペでいけますが、次の条件に当てはまっているとコンパイルエラーします。というか、普通にTeXの構文エラーで引っかかるやつは全部ダメだと思ってください。
+%%	著者名にウムラウト等がついている場合。ウムラウト用のコマンドにして下さい(ダメな例：Grüneisen／良い例：Gr\"{u}neisen)。
+%%	_(アンダーバー)などが数式環境の外にいる場合。別の文字(ハイフンとか)を用いるか、「\_」と書くことで回避してください(TeXで特殊文字を出力したいときと同じ)。特にURLの中身とか注意。
+%%	コピペしてきたままだと、物質名の下付きなどがちゃんとできてない場合が多々あります。TeXの構文に従って直してください。
+%%	一度コンパイルエラーになると、そのあと「*.bib」は正しいはずなのにコンパイルが通らない！という現象が起きることがあります。この場合、エラーの原因は大体「*.bbl」の中身がバグってるせいです。「*.bbl」に書き込まれた文献情報を一度リセットするとうまくいきます。		
+	
+%%------------------------------------------------------以下サンプル------------------------------------------------------%%
+%%%%%	RPt2B	%%%%%
+
+@article{YJSato.PhysRevMaterials.6.104412,
+	title = {New Gd-based magnetic compound ${\mathrm{GdPt}}_{2}\mathrm{B}$ with a chiral crystal structure},
+	author = {Sato, Yoshiki J. and Manako, Hikari and Homma, Yoshiya and Li, Dexin and Okazaki, Ryuji and Aoki, Dai},
+	journal = {Phys. Rev. Mater.},
+	volume = {6},
+	issue = {10},
+	pages = {104412},
+	numpages = {8},
+	year = {2022},
+	month = {Oct},
+	publisher = {American Physical Society},
+	doi = {10.1103/PhysRevMaterials.6.104412},
+	url = {https://link.aps.org/doi/10.1103/PhysRevMaterials.6.104412},
+}
+
+@article{YJSato.PhysRevMaterials.5.034411,
+	title = {Single-crystal growth and magnetic phase diagram of the enantiopure crystal of ${\mathrm{NdPt}}_{2}\mathrm{B}$},
+	author = {Sato, Yoshiki J. and Honda, Fuminori and Maurya, Arvind and Shimizu, Yusei and Nakamura, Ai and Homma, Yoshiya and Li, Dexin and Haga, Yoshinori and Aoki, Dai},
+	journal = {Phys. Rev. Mater.},
+	volume = {5},
+	issue = {3},
+	pages = {034411},
+	numpages = {9},
+	year = {2021},
+	month = {Mar},
+	publisher = {American Physical Society},
+	doi = {10.1103/PhysRevMaterials.5.034411},
+	url = {https://link.aps.org/doi/10.1103/PhysRevMaterials.5.034411}
+}
+
+@article{O.L.Sologub.200040,
+	title = {New structure type of ternary intermetallic borides ${\mathrm{CePt}}_{2}\mathrm{B}$},
+	journal = {Journal of Alloys and Compounds},
+	volume = {307},
+	pages = {40-44},
+	year = {2000},
+	issn = {0925-8388},
+	doi = {https://doi.org/10.1016/S0925-8388(00)00825-2},
+	url = {https://www.sciencedirect.com/science/article/pii/S0925838800008252},
+	author = {O Sologub and P Salamakha and H No\"{e}l and M Potel and M Almeida and C Godart},
+	keywords = {Rare earth compounds, Crystal structure, X-ray diffraction, Magnetization},
+	abstract = {The crystal structure of a new ternary boride CePt2B, space group P6222 (N180), a=5.4898(5) Å, c=7.8860(9) Å, Z=3, V=205.83(1) Å, ρ=13.097 g cm−3, μ=117.63 mm−1 was refined to R=0.0384, wR2=0.0926 from single-crystal X-ray diffraction data. Rietveld refinement of the X-ray powder data collected from the CePt2B sample annealed at 1070 K confirmed the structural model obtained by single-crystal refinement (a=5.4811(3) Å, c=7.8830(2) Å, RF=0.0497, RB=0.0668 from X-ray powder diffraction). This is the first representative of a new structure type of intermetallic compound. Preliminary magnetic measurements show the sample to be nonsuperconducting at 2 K with possible magnetic ordering below 7 K.}
+}
+
+@article{O.L.Sologub.Solid.State.Commun.2003379,
+	title = {Crystal structure and physical properties of new ternary ${\mathrm{RPt}}_{2}\mathrm{B}$ compounds, R=La, Pr, Nd},
+	journal = {Solid State Communications},
+	volume = {127},
+	pages = {379-383},
+	year = {2003},
+	issn = {0038-1098},
+	doi = {https://doi.org/10.1016/S0038-1098(03)00438-1},
+	url = {https://www.sciencedirect.com/science/article/pii/S0038109803004381},
+	author = {O.L Sologub and K. Hiebl and P.S. Salamakha},
+	keywords = {A. Rare earth platinum borides, B. Crystal structure, D. Electrical resistivity, E. Magnetic measurements},
+	abstract = {A new series of ternary rare-earth platinum borides RPt2B (R=La, Pr, Nd) has been synthesized by arc melting and structurally characterized using X-ray powder diffraction method. Compounds were found to crystallize with the CePt2B structure type, space group P6222 (No. 180), Z=3. LaPt2B is a temperature independent Pauli-type paramagnet from room temperature down to 4 K. PrPt2B orders antiferromagnetically at a Néel temperature TN=4.6K, whereas NdPt2B exhibits an antiferromagnetic spin alignment at TN=18K followed by a ‘ferromagnetic’ spin flip at TC=10K. The temperature dependence of the electrical resistivity, ρ(T), reflects the metallic character of these compounds. Furthermore the charactristic changes of slope of ρ(T) plots confirm the magnetic transitions.}
+}
+
+@article{yao2013first,
+	title = {First-principles study of structural stability, elastic and electronic properties of ternary rare earth-transition metal—Borides and carbides (RT$_\mathit{x}$Z, R=Sc, Y, and La, T=Pt and Pd, Z=B and C, and $\mathit{x}$=2, 3, and 4)},
+	journal = {Physica B: Condensed Matter},
+	volume = {431},
+	pages = {58-68},
+	year = {2013},
+	issn = {0921-4526},
+	doi = {https://doi.org/10.1016/j.physb.2013.08.031},
+	url = {https://www.sciencedirect.com/science/article/pii/S0921452613005036},
+	author = {Tiankai Yao and Yachun Wang and Hui Li and Jie Lian and Jingwu Zhang and Huiyang Gou},
+	keywords = {First-principles calculations, Rare-earth compounds, Elastic properties, Electronic structure},
+	abstract = {Using first-principles total energy calculations (CASTEP code), the structural stability, elastic, and electronic properties of ternary rare earth-transition metal borides and carbides (RTxZ, R=Sc, Y, and La, T=Pt and Pd, Z=B and C, and x=2, 3, and 4) compounds were studied. Results show that RT3Z compounds with tetragonal P4mm structure are energetically more favorable than usually cubic perovskite-type structure. Furthermore, RT3Z with perovskite structure is found to be mechanically unstable with the negative C44. Formation enthalpy calculations indicate that Pt-based borides are easier to be synthesized compared with Pd-based ones and counterpart carbides, respectively. Elastic constants, bulk moduli, shear moduli, Young's moduli, and Poisson's ratio of studied compounds have been calculated. Also, all the studied compounds show ductile behavior. Moreover, total and partial density of states (DOSs) and bonding charge density were employed to elucidate the bonding features of these compounds. The results reveal that the covalency between Pt-5d and Z-2p as well as T-nd (n=4 for Pd and 5 for Pt) and B-2p states, are the cause of the relatively higher elastic moduli of Pt-based compounds and R–T-borides, respectively.}
+}
+
+@article{YPB-DIAS200762,
+	title = {Crystal structure and magnetism of YPt$_2$B},
+	journal = {Journal of Alloys and Compounds},
+	volume = {438},
+	pages = {62-65},
+	year = {2007},
+	issn = {0925-8388},
+	doi = {https://doi.org/10.1016/j.jallcom.2006.08.044},
+	url = {https://www.sciencedirect.com/science/article/pii/S0925838806010735},
+	author = {M. Dias and O.L. Sologub and L.C.J. Pereira and A.P. Gon\c{c}alves},
+	keywords = {Rare earth intermetallics, Crystal structure of intermetallics, Diffraction},
+	abstract = {The new ternary YPt2B compound was synthesized by arc-melting, followed by annealing at 1370K. The structure was refined down to R=0.0408, wR2=0.0692 from single crystal X-ray diffraction data (CAD-4 diffractometer, Mo Kα, 269 reflections with I>2σ(Io)) and to RF=0.0539, RB=0.0970 from X-ray powder diffraction for 77 reflections. YPt2B was found to crystallize with a CePt2B structure type, P6222 space group (no. 180) (a=5.2977(1)Å, c=7.8875(2)Å, Z=3, V=191.715(8)Å3, ρ=12.752gcm−3). Magnetization and AC-susceptibility measurements indicate that there is no magnetic or superconducting transition in YPt2B down to 2K.}
+}
+
+@article{R.T.Khan-2010,
+	doi = {10.1088/1742-6596/200/3/032034},
+	url = {https://dx.doi.org/10.1088/1742-6596/200/3/032034},
+	year = {2010},
+	month = {jan},
+	publisher = {},
+	volume = {200},
+	pages = {032034},
+	author = {R. T. Khan and  G. Hilscher and  H. Michor and  E. Bauer and  O.L. Sologub and  P. Rogl and  G. Giester},
+	title = {Magnetic and thermal properties of novel TmPt$_2$B},
+	journal = {Journal of Physics: Conference Series},
+	abstract = {Ternary TmPt2B crystallizes in the hexagonal CePt2B-type structure (space group P6222). Magnetic and specific heat measurements reveal long range magnetic order at 12.5 K. Field dependent results of both quantities clearly evidence a predominant ferromagnetic phase. The total angular momentum associated with the Tm3+ electronic configuration becomes split by crystalline electric field effects. The overall splitting turns out to be larger than 170 K.}
+}
+
+@article{K.han-2015,
+	doi = {10.1088/0953-8984/27/14/146001},
+	url = {https://dx.doi.org/10.1088/0953-8984/27/14/146001},
+	year = {2015},
+	month = {mar},
+	publisher = {IOP Publishing},
+	volume = {27},
+	pages = {146001},
+	author = {R. T. Khan and F. Kneidinger and G. Hilscher and A. Sidorenko and O.L. Sologub and H. Michor and E. Bauer and P. Rogl and G. Giester},
+	title = {Thermal, magnetic and electronic properties of non-centrosymmetric YbPt$_2$B},
+	journal = {Journal of Physics: Condensed Matter},
+	abstract = {Ternary YbPt2B crystallizes in the non-centrosymmetric hexagonal CePt2B-type structure (space group P6222). Electrical resistivity, specific heat and magnetic measurements reveal a magnetic instability at 5.6 K. Furthermore, a spin-reorientation of presumably a ferromagnetic type occurs around 1.5 K. The behaviour at low temperature is governed by a rather weak Kondo effect, TK ⩽ 1 K, in the presence of strong crystalline electric field splitting, with a doublet ground state. Besides, the complex magnetic behaviour presumably results from a Dzyaloshinskii–Moriya interaction triggered by the absence of inversion symmetry in the crystal structure. Scaling according to the de Gennes factor traces back magnetic ordering in YbPt2B to the Rudermann–Kittel–Kasuya–Yoshida (RKKY) interaction and the smooth evolution of the lattice constants and the unit cell volume of REPt2B (RE = rare earths) refers to the 4f13 electronic configuration of Yb in YbPt2B.}
+}	
+@article{philips1958method,
+title={A method of measuring specific resistivity and Hall effect of discs of arbitrary shape},
+author={van der Pauw, L. J},
+journal={Philips Res. Rep},
+volume={13},
+number={1},
+pages={1--9},
+year={1958}
+}
+
+
+%%---------------------------------------------------------------------------------------------------------------------------%%
