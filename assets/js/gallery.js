@@ -1,6 +1,6 @@
 import { initCodeCopy } from './code.js';
 import { csData } from './csdata.js';
-import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize,addLinkIcons } from './main.js'
+import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize,addLinkIcons,LastDate } from './main.js'
 
 
 // *FUNC DEF* loader
@@ -837,6 +837,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setTimeout(async function () {
     await loadModalContent();
     handleHeaderScroll();
+    LastDate();
     addLinkIcons();
     wrapTablesInModalContent();
     setupModalLinkListeners();
