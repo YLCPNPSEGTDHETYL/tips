@@ -5,30 +5,21 @@
 
 ---
 
-- 欧文用の主要なドキュメントクラス
-    
-    
-    | **名称** | **用途** | **特徴** |
-    | --- | --- | --- |
-    | article | ・短いレポート<br>・雑誌記事<br>・論文<br>※もっとも一般的 | \sectionが最上位。<br>\chapterはない。 |
-    | report | ・やや長めの報告書 | \chapterが最上位。 |
-    | book | ・本 | \chapterが最上位。<br>奇数ページ、偶数ページのレイアウトが異なる(ノド側の余白が大きい)。 |
-- 和文の文書で推奨されるクラス：jsシリーズ
-    - jsarticle
-    - jsreport
-    - jsbook
-- 古い和文クラス**(非推奨)**：jシリーズ
-    
-    <aside class="warning">
-    <div>
-        jシリーズのフォントメトリック(文字の組み方)は「min10」という古いデフォルトです。
-        小さい文字(拗音)、括弧、行間、インデント等の組版が不自然なので、原則使用しません。
-    </div>
-    </aside>
-    
-    - jarticle
-    - jreport
-    - jbook
+欧文がメインの場合にはjsの付かないクラス（article, report, book）、和文がメインの場合はjsの付くクラス（jsarticle, jsreport, jsbook）を用います。
+
+| **名称** | **用途** | **特徴** |
+| --- | --- | --- |
+| article<br>jsarticle | ・短いレポート<br>・雑誌記事<br>・論文<br>※もっとも一般的 | \sectionが最上位。<br>\chapterはない。 |
+| report<br>jsreport | ・やや長めの報告書 | \chapterが最上位。 |
+| book<br>jsbook | ・本 | \chapterが最上位。<br>奇数ページ、偶数ページのレイアウトが異なる(ノド側の余白が大きい)。 |
+
+<aside class="warning">
+<div>
+    和文用には、jシリーズというクラス（jarticle, jreport, jbook）もありますが、これらは非推奨です。
+    jシリーズのフォントメトリック(文字の組み方)は「min10」という古いデフォルトです。
+    小さい文字(拗音)、括弧、行間、インデント等の組版が不自然なので、原則使用しません。
+</div>
+</aside>
 
 ### **オプション一覧**
 

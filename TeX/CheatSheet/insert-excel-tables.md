@@ -5,7 +5,7 @@
 
 ---
 
-- [**Tables Generator(外部リンク)**](https://www.tablesgenerator.com/latex_tables)などのサイト上で行うとよい。
+- <span class="exlink">[**Tables Generator(外部リンク)**](https://www.tablesgenerator.com/latex_tables)</span>などのサイト上で行うとよい。
     - File>Paste tabe dataで、Excelの表をコピペしたのち、Generateボタンを押すと生成される。
     - 整列(左寄せ、中央、右寄せ)や罫線、行列のマージなどもでき、かなり複雑な表でも生成してくれるので便利。
     - 「Extra options…」で「caption above」および「Center table horizontally」のチェックをしておくとよい。
@@ -39,7 +39,7 @@
     \end{table}
 ```
 
-[Tables Generator(外部リンク)](https://www.tablesgenerator.com/latex_tables)で実際に出力された表。簡単な表だけでなく、セル間の結合があるような複雑な表でも簡単に作ってくれて便利。
+<span class="exlink">[**Tables Generator(外部リンク)**](https://www.tablesgenerator.com/latex_tables)</span>で実際に出力された表。簡単な表だけでなく、セル間の結合があるような複雑な表でも簡単に作ってくれて便利。
 
 なお、`\multirow`を使うためには、`\usepackage{multirow}`が必要。
 

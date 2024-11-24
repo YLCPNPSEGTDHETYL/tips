@@ -5,32 +5,32 @@
 
 - id: "2"
   tag: "MustKnow FigTabItm"
-  title: "表の挿入(tabular環境)"
+  title: "表の挿入（tabular環境）"
   link: "/TeX/CheatSheet/table-insertion.md"
 
 - id: "3"
   tag: "MustKnow Layout Package"
-  title: "余白設定(geometryパッケージ)"
+  title: "余白設定（geometryパッケージ）"
   link: "/TeX/CheatSheet/geometry-margin-settings.md"
 
 - id: "4"
   tag: "MustKnow Eq"
-  title: "＄…＄ (インライン数式)"
+  title: "＄…＄ （インライン数式）"
   link: "/TeX/CheatSheet/inline-equation.md"
 
 - id: "5"
   tag: "MustKnow FigTabItm"
-  title: "記号付き箇条書き(item環境)"
+  title: "記号付き箇条書き（item環境）"
   link: "/TeX/CheatSheet/bullet-list.md"
 
 - id: "6"
   tag: "MustKnow FigTabItm Package"
-  title: "番号付き箇条書き(enumitem環境)"
+  title: "番号付き箇条書き（enumitem環境）"
   link: "/TeX/CheatSheet/numbered-list.md"
 
 - id: "7"
   tag: "FigTabItm"
-  title: "見出し付き箇条書き(description環境)"
+  title: "見出し付き箇条書き（description環境）"
   link: "/TeX/CheatSheet/description-list.md"
 
 - id: "8"
@@ -40,27 +40,27 @@
 
 - id: "9"
   tag: "MustKnow FigTabItm Package"
-  title: "好きな位置に図表を配置(floatパッケージ)"
+  title: "好きな位置に図表を配置（floatパッケージ）"
   link: "/TeX/CheatSheet/float-positioning.md"
 
 - id: "10"
   tag: "MustKnow Eq"
-  title: "align環境(ディスプレイ数式)"
+  title: "align環境（ディスプレイ数式）"
   link: "/TeX/CheatSheet/align-environment.md"
 
 - id: "11"
   tag: "MustKnow Eq EqSymbl Package HighLevel"
-  title: "大きなかっこ(数式)"
+  title: "大きなかっこ（数式）"
   link: "/TeX/CheatSheet/big-brackets-in-equations.md"
 
 - id: "12"
   tag: "MustKnow FigTabItm"
-  title: "図の挿入(figure環境)"
+  title: "図の挿入（figure環境）"
   link: "/TeX/CheatSheet/figure-insertion.md"
 
 - id: "13"
   tag: "MustKnow StyDocStr Package"
-  title: "文字などの色を指定(xcolorパッケージ)"
+  title: "文字などの色を指定（xcolorパッケージ）"
   link: "/TeX/CheatSheet/xcolor-text-color.md"
 
 - id: "14"
@@ -85,22 +85,22 @@
 
 - id: "18"
   tag: "MustKnow Layout"
-  title: "インデント(字下げ)調整"
+  title: "インデント（字下げ）調整"
   link: "/TeX/CheatSheet/indent-adjustment.md"
 
 - id: "19"
   tag: "MustKnow Eq Package"
-  title: "行列(数式)"
+  title: "行列（数式）"
   link: "/TeX/CheatSheet/matrix-in-equations.md"
 
 - id: "20"
   tag: "MustKnow Eq"
-  title: "場合分け(数式中)"
+  title: "場合分け（数式中）"
   link: "/TeX/CheatSheet/case-in-equations.md"
 
 - id: "21"
   tag: "Macro FigTabItm"
-  title: "シンプルに図を貼る(マクロ)"
+  title: "シンプルに図を貼る（マクロ）"
   link: "/TeX/CheatSheet/macro-simple-image-insert.md"
 
 - id: "22"
@@ -110,7 +110,7 @@
 
 - id: "23"
   tag: "Macro"
-  title: "色を定義して使う(マクロ)"
+  title: "色を定義して使う（マクロ）"
   link: "/TeX/CheatSheet/macro-define-color.md"
 
 - id: "24"
@@ -130,5 +130,10 @@
 
 - id: "27"
   tag: "StyDocStr Package"
-  title: "ハイパーリンクをつける(hyperrefパッケージ)"
+  title: "ハイパーリンクをつける（hyperrefパッケージ）"
   link: "/TeX/CheatSheet/hyperref.md"
+
+- id: "28"
+  tag: "MustKnow EqSymbl"
+  title: "微分記号2"
+  link: "/TeX/CheatSheet/diff.md"

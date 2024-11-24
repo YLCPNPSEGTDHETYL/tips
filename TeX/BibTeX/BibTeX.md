@@ -273,7 +273,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 - `volume`：巻。
 - `pages`：ページ数。
 - `year`：年数。
-- `url`：URL。myjunsrtURL.bstを用いている場合にのみ必要。URL不要ならいらないです。
+- `url`：URL。省略した場合はリンクが付きません。
 
 逆に、webからとってきた文献であっても、これらの記載がない場合、正しく文献情報を出力できない可能性があります。
 
@@ -359,7 +359,7 @@ sample.texのコンパイル結果。
 ## ②I was expecting a ',' or a '}'
 
 - `,`や`}`が期待される位置にない、というエラー。途中でエラー終了してしまうが、コンパイルは通るので気づきにくい。
-- エラーの要因は主に[ウムラウト処理](#header-16)、あるいは[単純に構文ミス](#header-17)の2パターン。
+- エラーの要因は主に<span class="familylink">[ウムラウト処理](#header-16)、あるいは<span class="familylink">[単純に構文ミス](#header-18)</span>の2パターン。
 
 ### 1. ウムラウト処理
 
@@ -428,23 +428,17 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
         
         <aside class="">
         <div>
-        <!-- <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> title, authorなどの項目の括弧は閉じているか？
-
-        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> 後ろに項目が続く場合、閉じ括弧の後ろに`,`があるか？
-        
-        <img class="ic ic-check" src="{{ '/assets/icon/check.svg' | relative_url }}" alt="check" /> `@article{ … }`のように、全体の括弧が閉じているか？ -->
-
         <ul class="check">
         <li>title, authorなどの項目の括弧は閉じているか？</li>
-        <li>後ろに項目が続く場合、閉じ括弧の後ろに`,`があるか？</li>
-        <li>`@article{ … }`のように、全体の括弧が閉じているか？</li>
+        <li>後ろに項目が続く場合、閉じ括弧の後ろに<code>,</code>があるか？</li>
+        <li><code>@article{ … }</code>のように、全体の括弧が閉じているか？</li>
         </ul>
 
         </div>
         </aside>
-        
+        <br>
 
-## （備忘録）REVTeX-ja.bstの中身
+## （以下備忘録）REVTeX-ja.bstの中身
 
 ---
 
@@ -469,15 +463,17 @@ Warning--empty journal in YJSato.PhysRevMaterials.5.034411
         4. 雑誌名と巻、ページ数と年の間のカンマを消す。
         5. ファーストネームをイニシャルに固定する。
 
-### まずはおおもとのjunsrt.bstを読む
+### まずはおおもとのbstを読む
 
 ---
 
-> おおもとファイルであるjunsrt.bstはここ。
-> 作成者の松井正一さんにはこの場を借りて御礼申し上げます。
-> <div class="iframely-embed">
-> <a href="https://github.com/texjporg/pbibtex-base/blob/master/junsrt.bst" data-iframely-url="//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fgithub.com%2Ftexjporg%2Fpbibtex-base%2Fblob%2Fmaster%2Fjunsrt.bst&key=94043bf13722791cf83e87024e8939e2"></a>
-> </div>
+ - junsrt.bst 
+   <span class="exlink">[https://github.com/texjporg/pbibtex-base/blob/master/junsrt.bst](https://github.com/texjporg/pbibtex-base/blob/master/junsrt.bst)</span>
+
+ - REVTeX 4.2 
+   APSで公式に配布されている。 
+   <span class="exlink">[https://journals.aps.org/revtex](https://journals.aps.org/revtex)</span>
+ 
 
 bstファイルは、<span class="exlink">[Designing BIBTEX Styles ---BIBTEXスタイルの作り方---](https://mirrors.ibiblio.org/CTAN/biblio/pbibtex/pbibtex-manual/jbtxhak.pdf)</span>とかを見ながら書き換えを行う。
 
@@ -485,7 +481,7 @@ bstファイルは、<span class="exlink">[Designing BIBTEX Styles ---BIBTEXス�
 
 bstファイルの構文は基本的にはスタックみたい。
 
-条件分岐は4行で1かたまりになっている。たとえば、、、
+条件分岐は4行で1かたまりになっている。たとえば…
 ```bibtex
   FUNCTION {example}
   { field empty$
@@ -494,14 +490,14 @@ bstファイルの構文は基本的にはスタックみたい。
     if$
   }
 ```
-上記のような場合、`example`というのが関数名。
+`example`が関数名。
 `field empty$`から`if$`までの4行が一つのかたまりになっていて、
 1行目の条件がTrueなら2行目の処理、Falseなら3行目の処理を行う。
-条件は当然入れ子にもできる。
+条件は入れ子にできる。
 
 論文誌（article）の場合では、元ファイルの787行目からの`FUNCTION {article}`が参考文献リストに載るスタイルの指定になっている（書籍ならもちろん`FUNCTION {book}` ）。
 
-```
+```bibtex
 （中略）
 
 FUNCTION {article}
@@ -540,9 +536,7 @@ FUNCTION {article}
 「著者の出力形式を指定>著者情報にあたるフィールドを読み込み>output形式を指定」
 という動作をすることになる。
 
-だいたいこのくらいの理解で多分なんとかなる
-
-重要な構文とかは自分の理解では説明が難しいので、他の文献を参照されたい。
+詳しい文法は説明が大変なので、他を参照してください。
 
 ### 改変した点
 
@@ -553,7 +547,7 @@ FUNCTION {article}
 - 雑誌名の表記は、`journal emphasize "journal" output.check` の行
 - `emphasize` が斜体にする関数なのでこれを消すだけでよい。
     
-    ```
+    ```bibtex
     %% 斜体 
     FUNCTION {emphasize}
     { duplicate$ empty$
@@ -583,7 +577,7 @@ FUNCTION {article}
 - format.dateを複製したformat.OnlyYearで、`month`に関する記述を消せばよい。
 - 年を丸かっこで囲むには、最後の`if$`の後に`" (" swap$ * ")" *`を追加すればよい。
 
-```
+```bibtex
 FUNCTION {format.OnlyYear}
 { year empty$
 %    { month empty$
@@ -607,7 +601,7 @@ FUNCTION {format.OnlyYear}
 
 - `FUNCTION {output.check}`を複製し、カンマを挿入しない関数`output.nonnullNONEcomma`を定義。
 
-```
+```bibtex
 FUNCTION {output.check}
 { 't :=
   duplicate$ empty$
@@ -624,15 +618,15 @@ FUNCTION {output.check}
 - `FUNCTION {format.names}`の記述を変更すればよい。
 - `{ff~}`がファミリーネームを表しているので、ここを`{f.~}`のようにする。
 
-```
+```bibtex
 %{s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=}
 {s nameptr "{f.~}{v.~}{ll}{, jj}" format.name$ 't :=}
 ```
 
-- （修論では使わないけど）ついでに、著者数が〇人以上になったら省略する、という設定もできるようにしてみた。
+- （修論では使わないけど）ついでに、著者数が〇人以上になったら省略する、という設定もできる。
 - `FUNCTION {format.authors}`で、`author format.names`を`author format.names.et.al.`にすればよい。
 
-```
+```bibtex
 FUNCTION {format.authors}
 { author empty$
     { "" }
@@ -642,171 +636,90 @@ FUNCTION {format.authors}
 }
 ```
 
-最終的に、変更、追加したコマンドをまとめると次のようになる。
+### 6. 雑誌名部分にハイパーリンクをつける
 
+RevTeXを参照しながら作成。
+
+```bibtex
+FUNCTION {doi.base}
+{
+  "https://doi.org/"
+}
+
+FUNCTION {doi.base.command}
+{
+  "http://dx.doi.org/"
+}
+
+FUNCTION {noop.command}
+{
+  "\href"
+}
+
+
+FUNCTION {href.command}
+{
+  "\href "
+}
+
+FUNCTION {link.tag.open}
+{
+	doi duplicate$ empty$
+	{
+    pop$
+    url duplicate$ empty$
+    {
+      pop$ "" noop.command
+    }{
+      href.command
+    }
+    if$
+  }{
+    "https://doi.org/" swap$ *
+    href.command
+  }
+    if$
+    "{" * swap$ * "} {" *
+}
+
+
+FUNCTION {link.tag.shut}
+{
+  "}"
+}
+
+FUNCTION {link.open}
+{
+  link.tag.open output.nopunct
+}
+
+FUNCTION {link.shut}
+{
+  link.tag.shut *
+}
 ```
-%% 太字 
-FUNCTION {bold}
-{ duplicate$ empty$
-    { pop$ "" }
-    { "{\bfseries " swap$ * "}" * }
-  if$
-}
 
-%% 巻、ページ設定
-FUNCTION {format.vol.pages}
-{ volume empty$
-	{""}
-	{ volume is.kanji.str$
-		{ volume  " , " * }
-		{"" volume bold tie.or.space.connect ", " * }
-		if$ 
-	}
-	if$
-	pages empty$
-	'skip$
-	{ duplicate$ empty$
-		{ pop$ format.pages }
-		{ number empty$
-			{ format.pages * }
-			{ "" * format.pages * }
-		if$
-		}
-	if$
-	}
-	if$
-}
+``link.tag.open``関数は、フィールド値のdoiまたはurlのどちらかが空でない場合、``\href``の一つ目の引数にその中身を書き込む（doiの場合は頭にhttps://doi.org/ をつけたものを書き込む）ような関数。
 
-%% カンマを挿入しない出力
-FUNCTION {output.nonnullNONEcomma}
-{ 's :=
-  output.state mid.sentence =
-    { " " * write$ }
-    { output.state after.block =
-        { add.period$ write$
-          newline$
-          "\newblock " write$
-        }
-        { output.state before.all =
-            'write$
-            { add.period$ " " * write$ }
-          if$
-        }
-      if$
-      mid.sentence 'output.state :=
-    }
-  if$
-  s
-}
+どちらのフィールド値も指定されていない場合は何も入らない。
 
-%% 年月スタイル
-FUNCTION {format.OnlyYear}
-{ year empty$
-	'year
-	{ year }
-      if$
-  " (" swap$ * ")" *
-}
+以下のように、hrefで囲みたい記述を``link.open``と``link.shut``で囲むことで、\hrefの二つ目の引数の値を指定する。
 
-%% イニシャル表記
-FUNCTION {format.names}		
-{ 's :=
-  #1 'nameptr :=
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-    { namesleft #0 > }
-    { s nameptr "{f.}{ll}" format.name$ is.kanji.str$
-	{s nameptr "{ff}{ll}" format.name$ 't :=}
- 	{s nameptr "{f.~}{v.~}{ll}{, jj}" format.name$ 't :=}
-      if$
-      nameptr #1 >
-	{ namesleft #1 >
-	    {", " * t * }
-	    { t "others" =
- 		{ s is.kanji.str$
- 			{"$B$[$+(B" * }
- 			{", et~al." * }
- 		  if$
- 		}
- 		{ s is.kanji.str$
- 		    {", " * t * }
-		    { numnames #2 =
- 			{" and " * t * }
- 			{", and " * t * }
-		      if$
-		    }
- 		   if$
- 		}
-	      if$
-	    }
-	  if$
-	}
-	't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
-  while$
-}
-
-（以下略）
-
-% アウトプット
-
-FUNCTION {article}	
-{ output.bibitem
-  format.authors "author" output.check	
-  new.block
-  format.title "title" output.check		
-%  new.block
-  crossref missing$
-    { journal "journal" output.check		
-%      format.vol.num.pages output
-%      format.date "year" output.check
+```bibtex
+  FUNCTION {article}
+{ 
+  （中略）
+    { link.open
+      journal "journal" output.checkNONEcomma
       before.all 'output.state :=
       format.vol.pages output.nonnullNONEcomma
       format.OnlyYear "year" output.checkNONEcomma
-
-}
-    { format.article.crossref output.nonnull
-      format.pages output
+      link.shut
     }
-  if$
-
-  new.block
-  note output
-  fin.entry
-}
-
-FUNCTION {book}	
-{ output.bibitem
-  author empty$
-    { format.editors "author and editor" output.check }
-    { format.authors output.nonnull
-      crossref missing$
-	{ "author and editor" editor either.or.check }
-	'skip$
-      if$
-    }
-  if$
-  new.block
-  format.btitle "title" output.check
-  crossref missing$
-    { format.bvolume output
-      new.block
-      format.number.series output
-      new.sentence
-      publisher "publisher" output.check
-      address output
-    }
-    { new.block
-      format.book.crossref output.nonnull
-    }
-  if$
-  format.edition output
-  format.OnlyYear "year" output.check
-  new.block
-  note output
-  fin.entry
+  （中略）
 }
 ```
+
+### 7. その他の細かい修正
+
+基本的に同じような考え方でいろいろと書き換えたけど、全容は省略。

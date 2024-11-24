@@ -1334,7 +1334,24 @@ img.not-select {
 	pointer-events: none;
 }
 
+.last-date {
+	font-size: 0.85rem;	
+    color: var(--col-gray);
+}
 
+
+.btm {
+	margin-bottom: 80px;
+}
+
+.bar {
+	padding: 0 2px;
+    color: var(--col-gray);
+}
+
+.inlink,.exlink,.familylink {
+	word-break: break-all;
+}
 
 @media (hover: hover) {
 

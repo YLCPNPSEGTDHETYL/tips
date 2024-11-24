@@ -122,7 +122,8 @@
 .modal-title,
 .modal-innertag,
 .modal-header-btn,
-.modal-content {
+.modal-content,
+.modal-container .last-date {
   padding: 0 8%;
 }
 
@@ -132,7 +133,6 @@
 }
 
 .modal-header {
-  padding-top: 30px;
   margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
@@ -140,7 +140,6 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fff;
 }
 
 .modal-footer {
@@ -152,6 +151,19 @@
   border-bottom: unset;
 }
 
+.modal-info {
+	width: 100%;  
+  background: #fff;
+  padding-bottom: 0.5rem;
+}
+
+.modal-info,
+.modal-topline {  
+	position: relative;
+	transition: 0.1s ease-in-out;
+}
+
+
 .popovermodal-header {
   display: flex;
   align-items: flex-end;
@@ -162,7 +174,7 @@
 
 .modal-title {
   line-height: 2;
-  margin-top: 0.2em;
+  margin-top: 0;
 }
 
 .modal-close,
@@ -178,6 +190,7 @@
 
 
 .modal-header-btn {
+  padding-top: 30px;
   position: relative;
   font-size: 1.2rem;
   display: flex;
@@ -185,6 +198,9 @@
   align-items: center;
   width: 100%;
   color: var(--col-highlight-gray);
+  background: #fff;
+  z-index: 1;
+  padding-bottom: 1rem;
 }
 
 .modal-content {
@@ -270,9 +286,11 @@
 }
 
 
-.modal-innertag {
+.modal-container .last-date{
   margin-bottom: 12px;
 }
+
+
 
 .checked-list {
   margin: 0 1rem;
@@ -1009,18 +1027,19 @@ pre.line-numbers code {
   .modal-title,
   .modal-innertag,
   .modal-header-btn,
-  .modal-content {
+  .modal-content,
+  .modal-container .last-date {
     padding: 0 4%;
   }
 
   .modal-tag,
   .modal-innertag,
-  .checked-list {
+  .checked-list,
+  .modal-container .last-date {
     font-size: 0.7rem;
   }
 
   .modal-header {
-    padding-top: 0;
     width: 100vw;
   }
 

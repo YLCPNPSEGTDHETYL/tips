@@ -1,6 +1,6 @@
 import { initCodeCopy } from './code.js';
 import { csData } from './csdata.js';
-import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize } from './main.js'
+import { isSmallTouchDevice,isTouchDevice,convertLatexBlocksToHTML,markdownImageSize,addLinkIcons } from './main.js'
 
 
 // *FUNC DEF* loader
@@ -151,6 +151,7 @@ function initializeMicroModal() {
         console.log('Modal opened, initializing ScrollHint');
         adjustBodyPadding();
         initializeScrollHint();
+        handleHeaderScroll();
         updateHistoryOnOpen(modal.id); // モーダルが開いたときに履歴を更新
         resetScrollPosition(modal); // スクロール位置をリセット
         addCloseButtonListener(modal.id);
@@ -359,6 +360,7 @@ function setupModalLinkListeners() {
                 adjustBodyPadding();
                 console.log('Modal opened, initializing ScrollHint');
                 initializeScrollHint();
+                handleHeaderScroll();
                 updateHistoryOnOpen(modal.id); // モーダルが開いたときに履歴を更新
                 resetScrollPosition(modal);
                 addCloseButtonListener(modal.id);
@@ -787,6 +789,29 @@ window.addEventListener('resize', handleResize);
 
 handleResize();
 
+function handleHeaderScroll() {
+  let start_position = 0;
+  let window_position;
+  $('.modal-container').each(function () {
+      const $modalContainer = $(this); 
+      const $modalHeader = $modalContainer.find('.modal-header');
+      const $headerContent = $modalContainer.find('.modal-info');
+      const $hr = $modalHeader.find('.modal-topline');
+      const headerHeight = $headerContent.outerHeight();
+
+      $modalContainer.on('scroll', function () {
+          window_position = $(this).scrollTop(); 
+          if (window_position > start_position) {
+              $headerContent.css({'top': `${-headerHeight}px`});
+              $hr.css({'top': `${-headerHeight}px`});
+          } else {
+              $headerContent.css({'top': `0`});
+              $hr.css({'top': `0`});
+          }
+          start_position = window_position;
+      });
+  });
+}
 
 
 let grid;
@@ -811,6 +836,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeMicroModal();
   setTimeout(async function () {
     await loadModalContent();
+    handleHeaderScroll();
+    addLinkIcons();
     wrapTablesInModalContent();
     setupModalLinkListeners();
     initCodeCopy();
@@ -819,3 +846,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.querySelectorAll('[data-micromodal-trigger]').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+      console.log(`Triggered Modal ID: ${trigger.getAttribute('data-micromodal-trigger')}`);
+  });
+});
