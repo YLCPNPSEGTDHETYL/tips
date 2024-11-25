@@ -1,6 +1,7 @@
 ---
 layout: md
 withTOC: true
+update: 2024/11/11 (Mon)
 ---
 
 # TeXを使って文書を書こう

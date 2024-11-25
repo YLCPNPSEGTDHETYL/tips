@@ -62,41 +62,6 @@ export function addLinkIcons() {
   });
 }
 
-export function LastDate() {
-  const elements = document.querySelectorAll('.last-date'); // クラス名で対象要素を取得
-  
-  // 現在のページのURLを使用してLast-Modifiedヘッダーを取得
-  fetch(window.location.href)
-    .then(response => {
-      const lastModified = response.headers.get('Last-Modified');
-      
-      if (lastModified) {
-        // サーバーから取得したLast-ModifiedをDateオブジェクトに変換
-        const date = new Date(lastModified);
-        
-        // 日付部分を取得 (例: 2024/11/24)
-        const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' });
-        
-        // 曜日部分を取得 (例: Sun)
-        const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
-        
-        // 最終的なフォーマットを作成
-        const formattedLastModified = `${formattedDate} (${weekday})`;
-
-        // 対象のすべての要素に更新日を設定
-        elements.forEach((element) => {
-          element.textContent = `最終更新日: ${formattedLastModified}`;
-        });
-      } else {
-        console.error('Last-Modifiedヘッダーが取得できませんでした');
-      }
-    })
-    .catch(error => {
-      console.error('エラーが発生しました:', error);
-    });
-}
-
-
 // ScrollHint初期化 
 let scrollHintInstance = null;
 function initializeScrollHint() {
@@ -293,7 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
   adjustHeaderAndArticle();
   cleanUpModalHash();
   toggleClassForSmallTouchDevice();
-  LastDate();
   setUpAccordion();
   addLinkIcons();
   preventInteractions();
