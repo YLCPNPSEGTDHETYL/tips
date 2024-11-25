@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2024/11/11 (Mon)
+update: 2024/11/26 (Tue)
 ---
 
 # 前提
