@@ -39,30 +39,30 @@ export function convertLatexBlocksToHTML(content) {
 export function addLinkIcons() {
   const exLinks = document.querySelectorAll("span.exlink a");
   exLinks.forEach(link => {
-      const icon = document.createElement("img");
-      icon.className = "ic ic-external-link";
-      icon.src = "/tips//assets/icon/external-link.svg";
-      icon.alt = "external-link";
-      link.insertAdjacentElement("afterbegin", icon);
-      link.setAttribute("target", "_blank");
+    const icon = document.createElement("img");
+    icon.className = "ic ic-external-link";
+    icon.src = "/tips//assets/icon/external-link.svg";
+    icon.alt = "external-link";
+    link.insertAdjacentElement("afterbegin", icon);
+    link.setAttribute("target", "_blank");
   });
 
   const familyLinks = document.querySelectorAll("span.familylink a");
   familyLinks.forEach(link => {
-      const icon = document.createElement("img");
-      icon.className = "ic ic-family-link";
-      icon.src = "/tips//assets/icon/family-link.svg";
-      icon.alt = "family-link";
-      link.insertAdjacentElement("afterbegin", icon);
+    const icon = document.createElement("img");
+    icon.className = "ic ic-family-link";
+    icon.src = "/tips//assets/icon/family-link.svg";
+    icon.alt = "family-link";
+    link.insertAdjacentElement("afterbegin", icon);
   });
 
   const inLinks = document.querySelectorAll("span.inlink a");
   inLinks.forEach(link => {
-      const icon = document.createElement("img");
-      icon.className = "ic ic-inside-link";
-      icon.src = "/tips/assets/icon/inside-link.svg";
-      icon.alt = "inside-link";
-      link.insertAdjacentElement("afterbegin", icon);
+    const icon = document.createElement("img");
+    icon.className = "ic ic-inside-link";
+    icon.src = "/tips/assets/icon/inside-link.svg";
+    icon.alt = "inside-link";
+    link.insertAdjacentElement("afterbegin", icon);
   });
 }
 
@@ -108,7 +108,7 @@ $window.trigger('scroll');
 // modal-*のhash消去
 function cleanUpModalHash() {
   if (window.location.hash && /^#modal-\d+$/.test(window.location.hash)) {
-      history.pushState("", document.title, window.location.pathname + window.location.search);
+    history.pushState("", document.title, window.location.pathname + window.location.search);
   }
 }
 
@@ -116,11 +116,11 @@ function cleanUpModalHash() {
 function toggleClassForSmallTouchDevice() {
   const element = document.querySelector('.all-wrapper');
   if (element) {
-      if (isSmallTouchDevice()) {
-          element.classList.add('SP-only');
-      } else {
-          element.classList.remove('SP-only');
-      }
+    if (isSmallTouchDevice()) {
+      element.classList.add('SP-only');
+    } else {
+      element.classList.remove('SP-only');
+    }
   }
 }
 
@@ -131,41 +131,41 @@ function setUpAccordion() {
   const IsOpenedClass = "is-opened";
 
   details.forEach((element) => {
-      const summary = element.querySelector(".summary");
-      const content = element.querySelector(".details-content");
+    const summary = element.querySelector(".summary");
+    const content = element.querySelector(".details-content");
 
-      summary.addEventListener("click", (event) => {
-          event.preventDefault();
-          if (element.classList.contains(IsOpenedClass)) {
-              element.classList.toggle(IsOpenedClass);
-              closingAnim(content, element).restart();
-          } else {
-              element.classList.toggle(IsOpenedClass);
-              element.setAttribute("open", "true");
-              openingAnim(content).restart();
-          }
-      });
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (element.classList.contains(IsOpenedClass)) {
+        element.classList.toggle(IsOpenedClass);
+        closingAnim(content, element).restart();
+      } else {
+        element.classList.toggle(IsOpenedClass);
+        element.setAttribute("open", "true");
+        openingAnim(content).restart();
+      }
+    });
   });
 }
 // アニメーション 閉
 function closingAnim(content, element) {
   return gsap.to(content, {
-      height: 0,
-      opacity: 0,
-      duration: 0.4,
-      ease: "power3.out",
-      overwrite: true,
-      onComplete: () => {
-          element.removeAttribute("open");
-      },
+    height: 0,
+    opacity: 0,
+    duration: 0.4,
+    ease: "power3.out",
+    overwrite: true,
+    onComplete: () => {
+      element.removeAttribute("open");
+    },
   });
 }
 // アニメーション 開
 function openingAnim(content) {
   return gsap.fromTo(
-      content,
-      { height: 0, opacity: 0 },
-      { height: "auto", opacity: 1, duration: 0.4, ease: "power3.out", overwrite: true }
+    content,
+    { height: 0, opacity: 0 },
+    { height: "auto", opacity: 1, duration: 0.4, ease: "power3.out", overwrite: true }
   );
 }
 
@@ -174,15 +174,15 @@ function openingAnim(content) {
 // クリック無効
 function preventInteractions() {
   document.querySelectorAll('.prevent-context').forEach(link => {
-      link.addEventListener('click', (event) => {
-          event.preventDefault();
-      });
-      link.addEventListener('contextmenu', (event) => {
-          event.preventDefault();
-      });
-      link.addEventListener('touchstart', (event) => {
-          event.preventDefault();
-      });
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+    link.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+    });
+    link.addEventListener('touchstart', (event) => {
+      event.preventDefault();
+    });
   });
 }
 
@@ -263,7 +263,7 @@ window.addEventListener('resize', function () {
 
 function initializeLightGallery() {
   const lightgalleryElement = document.getElementById('lightgallery');
-  
+
   if (lightgalleryElement) {
 
     lightGallery(lightgalleryElement, {
@@ -277,6 +277,45 @@ function initializeLightGallery() {
   } else {
   }
 }
+
+
+function addLightbox() {
+  document.querySelectorAll('img').forEach(function (img) {
+    if (img.classList.contains('thumbnail')) {
+      return;
+    }
+
+    var title = img.getAttribute('title');
+    var alt = img.getAttribute('alt');
+
+    var imgTitle = alt ? alt : title;
+
+    if (title) {
+      var maxWidth = title.split(' ').find(function (item) {
+        return item.startsWith('max-width=');
+      });
+
+      if (maxWidth) {
+        img.style.maxWidth = maxWidth.split('=')[1];
+      }
+
+      var relativeSrc = img.src.split('/').pop();
+
+      var aTag = document.createElement('a');
+      aTag.setAttribute('href', relativeSrc);  // hrefはimg.srcと同じ
+      aTag.setAttribute('data-lightbox', 'gallery');
+      aTag.setAttribute('data-title', imgTitle);  // data-titleはaltと同じ
+      aTag.setAttribute('class', 'lightbox-image');  // data-titleはaltと同じ
+
+      // 画像を新しいタグに挿入
+      img.parentNode.insertBefore(aTag, img);
+      aTag.appendChild(img);
+    }
+  });
+}
+
+
+addLightbox();
 
 
 document.addEventListener('DOMContentLoaded', () => {

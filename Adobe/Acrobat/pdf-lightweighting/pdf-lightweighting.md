@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2025/02/09 (日)
+update: 2025/02/09 (Sun)
 ---
 
 <aside class="bulb">

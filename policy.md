@@ -1,6 +1,7 @@
 ---
 layout: general
 title: サイトポリシー
+update: 2025/02/09 (Sun)
 ---
 
 # サイトポリシー {#policy}

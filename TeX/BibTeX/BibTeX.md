@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2024/11/26 (Tue)
+update: 2025/02/09 (Sun)
 ---
 
 # bibファイルで参考文献を自動作成しよう！

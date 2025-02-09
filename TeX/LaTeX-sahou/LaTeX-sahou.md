@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2024/11/26 (Tue)
+update: 2025/02/09 (Sun)
 ---
 
 # きれいなLaTeX文書を書くために
