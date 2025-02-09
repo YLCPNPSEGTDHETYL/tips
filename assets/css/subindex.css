@@ -43,16 +43,16 @@ p.entry-tag {
     padding-left: 1%;
 }
 
-.introduction .ic-circle {
+.first .ic-circle {
     color: var(--col-highlight-red);
 }
 
 
-.writing .ic-circle {
+.second .ic-circle {
     color: var(--col-highlight-blue);
 }
 
-.practice .ic-circle {
+.third .ic-circle {
     color: var(--col-highlight-green);
 }
 

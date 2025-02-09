@@ -33,7 +33,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url  }}" type="image/svg+xml">
 
 
 
@@ -49,10 +49,13 @@
             {% include radial.html %}
         </div>
 
-        <article class="sans article-wrapper">
-            <main>
-                {{ content }}
-            </main>
+        <article class="sans article-wrapper md-content">
+            <div class="sans main-wrapper">
+                <main class="main-content">
+                    {{ content }}
+                </main>
+            </div>
+            <div class="btm"></div>
         </article>
 
         <footer id="footer" class="PC-only">

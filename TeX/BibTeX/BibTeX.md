@@ -66,7 +66,7 @@ bstファイルの方は、既存の「junsrt.bst」を元にして、一部改�
 - ダウンロードしたbstファイルおよびbibファイルを、texファイルのおかれたディレクトリと同じ位置におきます。
     - あるいは、使いまわしたい場合は``C:\texlive\texmf-local\bibtex\bst``などに置くとよいです。
         
-        ![ディレクトリ](0.png "max-width=600px ディレクトリ構造。"){:.img-center}
+        ![ディレクトリ](0.png "max-width=600px ディレクトリ構造。")
         
         
 - `.tex`という拡張子のファイルと同じディレクトリに置きます。      
@@ -93,12 +93,13 @@ bstファイルの方は、既存の「junsrt.bst」を元にして、一部改�
   <span class="familylink">[エディタの準備（TeX Studioの場合）](../TeXstudio/TeXstudio.md)</span>でTeXStudioの設定を済ませている場合は、<span class="inlink">[bibtexコードの入手方法](#header-5)</span>まで飛んでください。
   </div>
 </aside>
-コンパイルの手順を説明します。本来、bibtexを含まないコンパイルでは、一番最後のdvi→pdfチェーンだけでよいですが、bibtexをかませるには次のようになります。
+コンパイルの手順を説明します。本来、bibtexを含まないコンパイルでは、`platex` > `dvi→pdfチェーン`だけでよいですが、bibtexをかませるには次のようになります。
 
 
 1. `platex` でコンパイル
 2. `bibtex`でコンパイル
-3. `dvi->pdfチェーン`でコンパイル
+3. `platex` でコンパイル
+4. `dvi->pdfチェーン`でコンパイル
 
 {::nomarkdown}
 <details  class= "details" markdown="1">
@@ -115,7 +116,8 @@ bstファイルの方は、既存の「junsrt.bst」を元にして、一部改�
     - bibファイルから、`\cite` で引用された文献のみを探し出す。
     - bstファイルで指定したスタイル通りに、参考文献の情報を生成する。
     - 生成された参考文献リストは、.bblという拡張子のファイルに順に書き込まれる。
-3. 最後の`dvi->pdfチェーン`で、作成された参考文献リストがbblから読み込まれます。
+3. 再度`platex` でコンパイルします。作成された参考文献リストがbblから読み込まれます。引用された文献がpdfに表示されます。
+4. 最後の`dvi->pdfチェーン`では、`dvipdfmx`を用いて、`platex`>`dvipdf`>`view-pdf` という一連の処理がされます。このplatexによって、相互参照の番号が「??」になってしまうエラーを直します。その後、生成されたdviをpdfに変換し、ビュワーで表示します。
 
 {::nomarkdown}
   </div>
@@ -134,24 +136,35 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 1. 左下の「高度なオプション」にチェックがない場合、チェックを入れます。
 2. コンパイラの設定をします。まずは「ビルド＆表示」の右側の設定ボタン（⚙）を押します。
 3. 下図のようなダイアログが出てきます。左の欄からコンパイラを選び、中央の<span class="wrap-btn-style">➡追加</span>ボタンを押すことで、右側の「Ordered list of commands」に追加できます。
-    1. 「ビルド＆表示」は、「DVI->PDF Chain」のみにします。
-    2. 「既定のコンパイラ」は、「LaTeX」>「BibTeX」>「DVI->PDF Chain」の順になるようにします（下図）。
-    
-    ![既定のコンパイラ](1.png "max-width=700px 「既定のコンパイラ」の設定。"){:.img-center}
-    
+    1. 「ビルド＆表示」は、「LaTeX」>「DVI->PDF Chain」にします。
+    ![ビルド＆表示](1-0.png "max-width=700px 「ビルド＆表示」の設定。")
+    2. 「既定のコンパイラ」は、「LaTeX」>「BibTeX」>「LaTeX」>「DVI->PDF Chain」の順になるようにします。    
+    ![既定のコンパイラ](1-1.png "max-width=700px 「既定のコンパイラ」の設定。")
+    <aside class="bulb">
+    <div>
+    ただし、コンパイルの速度を優先したい場合は、
+
+    - 「ビルド＆表示」は「DVI->PDF Chain」
+    - 「既定のコンパイラ」は、「LaTeX」>「BibTeX」>「DVI->PDF Chain」
+
+    のようにしてもよいです。この場合、コンパイル後に相互参照は「??」のままですが、タイプセットが一つ少ない分早くpdfを出力できます。
+
+    最終的に表示されるpdfの相互参照にエラーがないようにさえ気を付ければ、この方法でも問題ありません。
+    </div>
+    </aside>
 4. これで、コンパイラの設定はOKです。
 参考文献を増やしていないときはF5キー、参考文献を追加したときにだけF6キー、というように使い分けると良いでしょう。
 コマンドが次のようになっていたらOKです。
 
-  ![コンパイラ設定画面](2.png "max-width=700px コンパイラ設定画面。"){:.img-center}
-    
+  ![コンパイラ設定画面](2.png "max-width=700px コンパイラ設定画面。")
+
 1. 次に、オプション>コマンドで、LaTeXおよびBibTeXの欄のコマンド設定を確認し、LaTeXは「platex.exe」、BibTeXは「pbibtex.exe」にします。例えば以下のようになっていればOKです（※LaTeXの`-synctex=1`以降はオプションなので、違っていても大丈夫）。
     - **LaTeX：**<br>
-    `platex.exe -synctex=1 -kanji=utf8 -no-guess-input-enc -interaction=nonstopmode %.tex`
+    `uplatex.exe -synctex=1 -kanji=utf8 -no-guess-input-enc -interaction=nonstopmode %.tex`
     - **BibTeX：**<br>
-    `pbibtex.exe %`
+    `upbibtex.exe %`
     
-    ![コマンド設定。](3.png "max-width=700px コマンド設定。"){:.img-center}
+    ![コマンド設定。](3.png "max-width=700px コマンド設定。")
 
 これでTeXStudio側の設定は完了です。
 
@@ -196,11 +209,11 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
     
 1. このlatexmkrcファイルを、以下の図のようにtexやbib、bstファイルと同じ位置に配置します。拡張子は不要です。
     
-    ![Overleafでのディレクトリ構成。](4.png "max-width=300px Overleafでのディレクトリ構成。"){:.img-center}
+    ![Overleafでのディレクトリ構成。](4.png "max-width=300px Overleafでのディレクトリ構成。")
     
 2. 続いて、左上のメニュー>設定から、コンパイラを「LaTeX」にします。
     
-    ![コンパイラは標準はpdfLaTeXですが、LaTeXに変更します。](5.png "max-width=400px コンパイラをLaTeXに変更します。"){:.img-center}
+    ![コンパイラは標準はpdfLaTeXですが、LaTeXに変更します。](5.png "max-width=400px コンパイラをLaTeXに変更します。")
 
 これでOverleafの設定は完了です。
 
@@ -223,7 +236,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 - 通常の検索や<span class="exlink">[Google Books](https://books.google.co.jp/?hl=ja)</span>、<span class="exlink">[CiNii](https://ci.nii.ac.jp/books/)</span>などで、本のタイトルや著者で検索をかけることで入手できます。
     
     
-    ![Google booksの検索結果のスクショ。](6.png "max-width=800px Google booksの検索結果のスクショ。"){:.img-center}
+    ![Google booksの検索結果のスクショ。](6.png "max-width=800px Google booksの検索結果のスクショ。")
     
 - Google booksの場合、「引用を作成」>「BibTeX」とすればOK。    
 - こちらも、ダウンロードしたファイルをエディタで開くと、論文情報を確認できます。
@@ -281,7 +294,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 また、場合によっては、必要に応じて記述の一部を書き換える必要があります。
 
 - 数式用の記述（`_`や`\alpha`など）はインライン`$ $` で囲む。
-- ウムラウトや特殊文字などは、TeXの表記法に従って書き直します。このとき、**コマンドは必ず{}で囲むようにします。**
+- ウムラウトや特殊文字などは、TeXの表記法に従って書き直す必要がある場合があります（8ビットエンコードを行っている場合は書き直す必要はありません）。このとき、**コマンドは必ず{}で囲むようにします。**
     - 例：Ä→`{\"A}`
         
         特殊文字の記法については、 <span class="familylink">[LaTeX チートシート](/TeX/CheatSheet/LaTeX-CheatSheet.html){:target="_blank"}</span> も参照。
@@ -289,7 +302,7 @@ TeXStudioのショートカット設定では、F5キーで「ビルド&表示�
 
 次に、texファイルと同じディレクトリに置いたbibファイル（ref.bib）に、上記の情報をペーストします。論文の順序は気にしなくて大丈夫です。
 
-![ref.bibの中身。](7.png "max-width=800px ref.bibの中身。"){:.img-center}
+![ref.bibの中身。](7.png "max-width=800px ref.bibの中身。")
 
 ref.bibの中身。こんな感じでペタペタと貼っていきます。
 
@@ -299,7 +312,7 @@ ref.bibの中身。こんな感じでペタペタと貼っていきます。
 
 texファイルで引用したい箇所に`\cite`コマンドで引用します。
 
-- 引用は、論文誌であれば`@article{`から`,`の間に書かれている文字を引数とします。例えば、[上記の例で挙げた文献](BibTeX.md)なら、以下のようになります。
+- 引用は、論文誌であれば`@article{`から`,`の間に書かれている文字を引数とします。例えば、[上記の例で挙げた文献](#header-9)なら、以下のようになります。
 
 ```latex
 %TeXの本文中で、引用したい箇所に記載。
@@ -311,7 +324,7 @@ texファイルで引用したい箇所に`\cite`コマンドで引用します�
 - 本文中で引用した箇所に引用番号が付いている。
 - 参考文献一覧に、引用した順に文献が表示されている。
 
-![sample.texのコンパイル結果。](8.png "max-width=800px sample.texのコンパイル結果。"){:.img-center}
+![sample.texのコンパイル結果。](8.png "max-width=800px sample.texのコンパイル結果。")
 
 sample.texのコンパイル結果。
 
@@ -325,11 +338,48 @@ sample.texのコンパイル結果。
 </div>
 </aside>
 
-# おまけ：citeの形式を変更するには
+# おまけ｜citeの形式を変更するには
 
 ---
 
-準備中
+citeパッケージを用いると、自由に引用の形式を変更できます。
+
+例えば以下なら、引用形式を[]で囲んだ上付きにします。
+
+```latex
+%プリアンブル
+\usepackage{cite}
+
+\makeatletter
+\def\@cite#1{\hspace*{.15em}\textsuperscript{[#1]}}	%引用を[]で囲み、上付きにする
+\makeatother
+```
+
+さらに、以下のように記述を追記しておくと、例外的に引用を上付きにしたくない場合にも対応できます。
+
+この場合、`\cite`の代わりに`\Cite` を使えばよいです。
+
+```latex
+%プリアンブル
+\usepackage{cite}
+
+\makeatletter
+\def\@cite#1{\hspace*{.15em}\textsuperscript{[#1]}}	%引用を[]で囲み、上付きにする
+\makeatother
+
+%%%引用を上付きにしたくないとき（\Cite）
+\makeatletter
+\def\Cite{\@ifnextchar[% ]
+	{\@tempswatrue\let\@cite\@Cite\@citex}
+	{\@tempswafalse\let\@cite\@Cite\@citex[]}}
+\def\@Cite#1#2{\leavevmode %% \unskip
+	\ifnum\lastpenalty=\z@\penalty\@highpenalty\fi% 
+	[{\multiply\@highpenalty 3 #1% % 
+		\if@tempswa,\penalty\@highpenalty\ #2\fi % 
+	}]\spacefactor\@m}
+\makeatother
+%%% ここまで
+```
 
 # bibtex周りのよくあるエラーと対処法
 

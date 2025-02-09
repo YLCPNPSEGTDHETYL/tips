@@ -24,7 +24,7 @@
         {% endfor %}
     {% endfor %}
     
-    <title>{{ current_title | default: site.title }}</title>
+    <title>{{ current_title | default: site.title }} | Research Repository</title>
 
     <!-- reset.css destyle -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
@@ -70,6 +70,13 @@
     <!-- md, KaTeX -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+
+    <!-- lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lightgallery.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-zoom.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-fullscreen.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-pager.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-thumbnail.min.css" />
 
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css"
@@ -141,13 +148,13 @@
                                     <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                     </use>
                                 </svg>
-                                {{ tags[1] | default: 'tag' }}
+                                {{ tags | slice: 1, tags.size | join: ' ' | default: 'tag' }}
                             </p>
                             <span class="bar">|</span>
                             <span class="last-date">最終更新日: {{ page.update }}</span>
                         </div>
                         <div class="main-wrapper {% if page.withTOC %}withTOC{% endif %}">
-                            <main class="main-content">
+                            <main class="main-content" id="lightgallery">
                                 {% if child.thumbnail %}
                                 <img src="{{ child.thumbnail | relative_url }}" alt="{{ child.title }}" class="thumbnail">
                                 {% endif %}
@@ -199,6 +206,14 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/pager/lg-pager.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    
 
     <script src="{{ '/assets/js/main.js' | relative_url }} " type="module"></script>
     <script src="{{ '/assets/js/md.js' | relative_url }} " type="module"></script>

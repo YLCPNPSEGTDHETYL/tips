@@ -385,10 +385,10 @@ update: 2024/11/26 (Tue)
     
     ```latex
     % プリアンブル
-    \newcommand{\YBCO}{$YBa_{2}Cu_{3}O_{7-\delta}$}
+    \newcommand{\YBCO}{YBa$_{2}$Cu$_{3}$O$_{7-\delta}$}
     
     \begin{document}
-    	$YBa_{2}Cu_{3}O_{7-\delta}$と打ちたいときには、\YBCO と書けばよい。
+    	YBa$_{2}$Cu$_{3}$O$_{7-\delta}$と打ちたいときには、\YBCO と書けばよい。
     \end{document}
     ```
     

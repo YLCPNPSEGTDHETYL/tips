@@ -8,6 +8,10 @@ export function isTouchDevice() {
   return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 }
 
+
+
+
+
 // md 画像サイズ指定
 export function markdownImageSize(md) {
   md.renderer.rules.image = (tokens, idx, options, env, self) => {
@@ -254,6 +258,27 @@ window.addEventListener('resize', function () {
 });
 
 
+
+
+
+function initializeLightGallery() {
+  const lightgalleryElement = document.getElementById('lightgallery');
+  
+  if (lightgalleryElement) {
+
+    lightGallery(lightgalleryElement, {
+      plugins: [lgZoom, lgFullscreen, lgPager, lgThumbnail],
+      speed: 500,
+      selector: '.lightbox-image',
+      showZoomInOutIcons: true,
+      actualSize: false,
+      addClass: 'sans'
+    });
+  } else {
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   adjustHeaderAndArticle();
   cleanUpModalHash();
@@ -261,5 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setUpAccordion();
   addLinkIcons();
   preventInteractions();
+  initializeLightGallery();
 });
 

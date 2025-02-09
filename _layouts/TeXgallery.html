@@ -48,7 +48,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/TeXgallery.css' | relative_url }}">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
@@ -441,7 +441,7 @@
                     </div>
                     <div class="grid-container">
                         <div class="grid">
-                            {% for item in site.data.CS.CSitems %}
+                            {% for item in site.data.TeX.CSitems %}
                             <div class="item" data-category="{{ item.tag }}" data-title="">
                                 <div class="item-content">
                                     <div class="custom-content" data-micromodal-trigger="modal-{{ item.id }}">
@@ -454,7 +454,7 @@
                                                         xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                     </use>
                                                 </svg>
-                                                {{ site.data.CS.CStag[tag] }}
+                                                {{ site.data.TeX.CStag[tag] }}
                                             </span>
                                             {% endfor %}
                                         </div>
@@ -471,7 +471,7 @@
                 </section>
 
                 <!-- modal elements -->
-                {% for item in site.data.CS.CSitems %}
+                {% for item in site.data.TeX.CSitems %}
                 <div class="modal micromodal-slide" id="modal-{{ item.id }}" aria-hidden="true"
                     data-link="{{ item.link | relative_url }}">
                     <div class="modal-overlay" tabindex="-1" data-micromodal-close>
@@ -479,11 +479,11 @@
                             aria-labelledby="modal-{{ item.id }}-title">
                             <header class="modal-header">
                                 <div class="modal-header-btn">
-                                    <button class="modal-back" aria-label="back modal">
+                                    <button class="modal-back" aria-label="back modal" data-micromodal-close>
                                         <img class="ic ic-arrow-left"
                                             src="{{ '/assets/icon/arrow-left.svg' | relative_url }}" alt="arrow-left" />
                                     </button>
-                                    <button class="modal-close modal-btn" aria-label="Close modal">
+                                    <button class="modal-close modal-btn" aria-label="Close modal" data-micromodal-close>
                                         <img class="ic ic-x" src="{{ '/assets/icon/x.svg' | relative_url }}" alt="x" />
                                     </button>
                                 </div>
@@ -497,7 +497,7 @@
                                                 <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
-                                            {{ site.data.CS.CStag[tag] }}
+                                            {{ site.data.TeX.CStag[tag] }}
                                         </span>
                                         {% endfor %}
                                     </div>
@@ -547,7 +547,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
 
-    <script id="cs-data" type="application/json">{{ site.data.CS.CSitems | json }}</script>
+    <script id="cs-data" type="application/json">{{ site.data.TeX.CSitems | json }}</script>
     <!-- prism plugin -->
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
@@ -559,8 +559,8 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
 
     <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
-    <script src="{{ '/assets/js/csdata.js' | relative_url }}" type="module"></script>
-    <script src="{{ '/assets/js/gallery.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/TeXcsdata.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/TeXgallery.js' | relative_url }}" type="module"></script>
     <script src="{{ '/assets/js/code.js' | relative_url }}" type="module"></script>
 </body>
 

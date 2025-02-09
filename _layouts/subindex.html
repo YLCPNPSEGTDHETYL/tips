@@ -24,7 +24,7 @@
         {% endfor %}
     {% endfor %}
     
-    <title>{{ current_title | default: site.title }}</title>
+    <title>{{ current_title | default: site.title }} | Research Repository</title>
 
     <!-- reset.css destyle -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
@@ -98,7 +98,7 @@
                                                 <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
                                                 </use>
                                             </svg>
-                                            {{ tags[1] | default: 'tag' }}
+                                            {{ tags | slice: 1, tags.size | join: ' ' | default: 'tag' }}
                                         </span>
                                         <div class="entry-title">
                                             {{ child.title }}

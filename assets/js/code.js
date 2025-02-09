@@ -50,6 +50,38 @@ Prism.languages.bibtex = {
     punctuation: /[{}=,"']/,
 };
 
+Prism.languages.igor = {
+    comment: {
+        pattern: /\/\/.*|\/\*[\s\S]*?\*\//,
+        greedy: true
+    },
+    string: {
+        pattern: /"(?:\\.|[^"\\])*"/,
+        greedy: true
+    },
+    number: {
+        pattern: /\b\d+\.?\d*(?:[eE][-+]?\d+)?\b/,
+        alias: 'number'
+    },
+    keyword: {
+        pattern: /\b(?:Abort|AbortOnKeypress|AbortOnRTE|Append|AppendImage|AppendToGraph|AppendToLayout|AppendToTable|Button|Change|Chart|CheckBox|Close|ColorTab2Wave|ControlBar|ControlInfo|ControlUpdate|Cursor|CurveFit|DefaultFont|DefaultGUIControls|DefaultGUIFont|DelayUpdate|DeleteFolder|DeletePoints|DimSize|Display|DoAlert|DoUpdate|DoWindow|DrawArc|DrawBezier|DrawLine|DrawOval|DrawPICT|DrawPoly|DrawRect|DrawRRect|DrawText|DrawUserShape|Duplicate|DuplicateDataFolder|Edit|End|EndMacro|Exists|ExperimentInfo|ExperimentModified|Execute|FuncFit|Function|FunctionInfo|GetAxis|GetDataFolder|GetUserDataFolder|GetWaves|GetWavesData|Graph|GroupBox|HideInfo|HideProcedures|HideTools|If|InsertPoints|Integrate|Integrate2D|Interpolate2|Interpolate3D|KillControl|KillDataFolder|KillPath|KillStrings|KillVariables|KillWaves|KillWindow|Label|Layout|Legend|ListBox|Load|LoadData|LoadPICT|LoadWave|Make|MakeIndex|MatrixDeterminant|MatrixEigensystem|MatrixMultiply|MatrixRank|MatrixTranspose|Modify|ModifyControl|ModifyControlList|ModifyGraph|ModifyLayout|ModifyPanel|ModifyProcedure|ModifyTable|MoveDataFolder|MoveFile|MoveFolder|MoveString|MoveVariable|MoveWave|MoveWindow|NewImage|NewLayout|NewNotebook|NewPanel|NewPath|Note|Notebook|Open|PathInfo|PopupMenu|Preferences|Print|Printf|Redimension|Remove|RemoveFromGraph|RemoveFromLayout|RemoveFromTable|RemoveImage|Rename|RenameDataFolder|RenamePath|RenameWindow|Return|Rotate|Save|SaveData|SaveExperiment|SaveGraphCopy|SetAxis|SetDashPattern|SetDataFolder|SetDrawEnv|SetDrawLayer|SetScale|SetVariable|ShowIgorMenus|ShowInfo|ShowTools|Silent|Smooth|Sort|SortColumns|SplitString|SplitWave|Static|String|StringList|StrPrintf|StrSearch|StrSub|Switch|TabControl|Tag|Table|TextBox|TitleBox|Try|Variable|Wave|While|Window|WindowInfo)\b/,
+        alias: 'keyword'
+    },
+    
+    function: {
+        pattern: /\b(?:Inf|NaN|Pi|acos|acosh|alog|asin|asinh|atan|atan2|atanh|cos|cosIntegral|cosh|cot|coth|csc|csch|DataFolderDir|DataFolderExists|DataFolderList|Gauss|Gauss1D|Gauss2D|GetDataFolder|GetWavesDataFolder|date|date2secs|datetime|defined|e|ei|exp|expInt|expIntegralE1|interp|Interp2D|Interp3D|ln|log|max|min|mod|norm|note|num2char|num2istr|num2str|numpnts|numtype|sign|sin|sinIntegral|sinc|sinh|sqrt|stringmatch|strlen|strsearch|sum|tan|tanh)\b/,
+        alias: 'function'
+    },    
+    operator: {
+        pattern: /[-+*/^=<>!&|]/,
+        alias: 'operator'
+    },
+    punctuation: /[{}[\](),;.:]/,
+    variable: {
+        pattern: /\b[A-Za-z_]\w*(?!\s*\()/,
+        alias: 'variable'
+    }
+};
 
 
 
