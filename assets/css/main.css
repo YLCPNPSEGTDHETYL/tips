@@ -620,6 +620,9 @@ code {
 	overflow-wrap: break-word;
 }
 
+pre code {
+	padding:0 !important;
+}
 
 .code-wrapper {
 	font-size: 0.9rem;
@@ -829,6 +832,11 @@ blockquote {
 .highlight-red {
 	color: var(--col-highlight-red);
 	fill: var(--col-highlight-red);
+}
+
+.highlight-main {
+	color: var(--col-main);
+	fill: var(--col-main);
 }
 
 .highlight-gray_background {
@@ -1159,6 +1167,7 @@ aside div p {
 	overflow-x: auto;
 	display: block;
 	margin: 1em 0;
+	position: static !important;
 }
 
 .table-content table th,
@@ -1291,6 +1300,8 @@ thead {
 
 .submaster {
 	color: var(--col-text);
+	margin-top: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 
@@ -1373,6 +1384,11 @@ strong {
 .lg-outer .lg-thumb-item:hover {
 	border-color: var(--col-main) !important;
 }
+
+lite-youtube{
+	border-radius: 0.5rem;
+}
+
 
 @media (hover: hover) {
 

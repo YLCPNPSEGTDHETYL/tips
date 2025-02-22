@@ -67,6 +67,11 @@
                                 </a>
                                 {% endfor %}
                             </div>
+
+                            {% unless forloop.last %}
+                                <hr>
+                            {% endunless %}
+                            
                             {% endfor %}
                         </div>
                         {% endfor %}

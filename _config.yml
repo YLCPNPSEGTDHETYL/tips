@@ -35,6 +35,11 @@ kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
   parse_block_html: true
   html_to_native: true
+  transliterated_header_ids: true
+  auto_ids: true
+  auto_id_prefix: true
+  auto_id_stripping: true 
+  
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -24,6 +24,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
 
+
+    <!-- youtube facade -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.2/lite-yt-embed.min.css" />
+
     <!-- scroll -->
     <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
 
@@ -33,7 +38,8 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url  }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url  }}"
+        type="image/svg+xml">
 
 
 
@@ -68,8 +74,12 @@
     <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
-
-    <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
+    
+    <!-- youtube facade -->
+    <script type='text/javascript' defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.2/lite-yt-embed.min.js"></script>
+    
+        <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
 </body>
 
 </html>

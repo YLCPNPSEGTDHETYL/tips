@@ -173,7 +173,7 @@ function openingAnim(content) {
 
 // クリック無効
 function preventInteractions() {
-  document.querySelectorAll('.prevent-context').forEach(link => {
+  document.querySelectorAll('.prevent-events').forEach(link => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
     });
