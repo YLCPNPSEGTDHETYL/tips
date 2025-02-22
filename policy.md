@@ -4,6 +4,11 @@ title: サイトポリシー
 update: 2025/02/09 (Sun)
 ---
 
+# サイトの使い方 {#usage}
+--- 
+
+<lite-youtube videoid="tRkmqoSnnLU" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
+
 # サイトポリシー {#policy}
 ---
 
@@ -42,13 +47,12 @@ update: 2025/02/09 (Sun)
 本サイトのサイトポリシーは、利用者の個別の同意を要せず、管理者によって変更することができるものとします。
 
 ## お問い合わせ
-本サイトに関する質問やご意見・ご要望、外部共有の際の連絡については、メールまたは以下フォームにてご連絡ください。
+本サイトに関する質問やご意見・ご要望、外部共有の際の連絡については、メールまたは以下フォームにてご連絡ください。  
+*の項目は回答が必須です。
 
-<aside>
-   <div>
-   <iframe src="https://mulberry-reaction-0b7.notion.site/ebd/194c2bc6190780bf94c6e8955613d430" width="100%" height="600" frameborder="0" allowfullscreen />
-   </div>
-</aside>
+<div>
+<iframe src="https://mulberry-reaction-0b7.notion.site/ebd/194c2bc6190780bf94c6e8955613d430" width="100%" height="500" frameborder="0" allowfullscreen />
+</div>
 
 
 ## 制作者情報 {#creator-info}
