@@ -155,7 +155,7 @@
         position: absolute;
     }
 
-    .radial-menu-item a.completed{
+    .radial-menu-item a.completed {
         background-image: conic-gradient(#aeb6b9 0% 100%, #ffffff 100% 100%) !important;
     }
 
@@ -509,9 +509,10 @@
         function toggleMenu() {
             menu.classList.toggle('open'); // 'open'クラスをトグルして開閉
 
-            // オーバーレイが表示された場合、背景のスクロールを無効にする
             if (menu.classList.contains('open')) {
                 document.body.style.overflow = 'hidden'; // 背景のスクロールを無効化
+            } else {
+                document.body.style.overflow = ''; // メニューが閉じたときに元に戻す
             }
         }
 
@@ -781,8 +782,6 @@
         setupMenuEntries();
         setupMenuLinks();
         setupCloseButton();
-        setupMenuHistory();
-        setupMenuTransition();
     });
 
 
