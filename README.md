@@ -1,8 +1,7 @@
 # https://ylcpnpsegtdhetyl.github.io/tips/
 
 
-
-# 自分用メモ
+以下自分用メモ
 
 ## 画像
 
@@ -14,33 +13,33 @@
 
 ```html
 <aside class="">
-<div>
-text
-</div>
+  <div>
+  text
+  </div>
 </aside>
 ```
 
 ```html
 <aside class="warning">
-<div>
-text
-</div>
+  <div>
+  text
+  </div>
 </aside>
 ```
 
 ```html
 <aside class="bulb">
-<div>
-text
-</div>
+  <div>
+  text
+  </div>
 </aside>
 ```
 
 ```html
 <aside class="star">
-<div>
-text
-</div>
+  <div>
+  text
+  </div>
 </aside>
 ```
 
@@ -50,7 +49,12 @@ text
 ```html
 {::nomarkdown}
 <details  class= "details" markdown="1">
-    <summary class="summary"><span class="summary-inner">title<img class="ic ic-summary" src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="summary" /></span></summary>
+    <summary class="summary">
+    <span class="summary-inner">
+    title
+    <img class="ic ic-summary" src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="summary" />
+    </span>
+    </summary>
     <div class="details-content">
     <div class="details-content-inner">
 {:/nomarkdown}
