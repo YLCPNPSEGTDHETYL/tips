@@ -1,7 +1,7 @@
 ---
 layout: general
 title: サイトポリシー
-update: 2025/02/22 (Sat)
+update: 2025/03/11 (Tue)
 ---
 
 # サイトの使い方 {#usage}

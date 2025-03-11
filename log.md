@@ -1,6 +1,7 @@
 ---
 layout: general
 title: 更新履歴
+update: 2025/03/11 (Tue)
 ---
 
 ## 更新履歴
