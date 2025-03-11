@@ -1,5 +1,4 @@
 <style>
-
     .radial-container h2 {
         font-size: 1.3rem;
         margin-top: 1.1rem;
@@ -399,10 +398,11 @@
         mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
     }
 
-    @media (max-width : 442px) {
+
+    @media (max-width : 550px) {
         .article-info div:has(.active) {
             overflow-y: scroll;
-            max-height: calc(100dvh - 310px);
+            max-height: calc(100dvh - 340px);
         }
     }
 
@@ -559,6 +559,45 @@
         setupScrollListeners();
     }
 
+    function setupOthersEntries() {
+        const gnavOther = Gnav.find(item => item.title === "その他");
+        if (!gnavOther || !Array.isArray(gnavOther.children)) {
+            console.error("その他の children が見つかりません");
+            return;
+        }
+
+        const container = document.querySelector('.radial-entry-5');
+        if (!container) {
+            console.error("対象のコンテナが見つかりません");
+            return;
+        }
+
+        // 「その他」の children を処理
+        gnavOther.children.forEach(subcategory => {
+            const h1 = document.createElement('h2');
+            h1.style.fontSize = '180%';
+            h1.style.marginBottom = '0em';
+            h1.style.setProperty('padding-left', '8px', 'important'); 
+            const subcategoryLink = document.createElement('a');
+            subcategoryLink.href = `/tips${subcategory.url}`;
+            subcategoryLink.textContent = subcategory.title;
+            h1.appendChild(subcategoryLink);
+            container.appendChild(h1);
+
+            // さらに children（孫要素）がある場合
+            if (subcategory.children && Array.isArray(subcategory.children)) {
+                subcategory.children.forEach(child => {
+                    const h2 = document.createElement('h2');
+                    const childLink = document.createElement('a');
+                    childLink.href = `/tips${child.url}`;
+                    childLink.textContent = child.title;
+                    h2.appendChild(childLink);
+                    container.appendChild(h2);
+                });
+            }
+        });
+    }
+
     function hideAllEntries() {
         const allEntries = articleInfo.querySelectorAll('div[class^="radial-entry"]');
         allEntries.forEach(entry => {
@@ -649,10 +688,11 @@
     function handleLongPress(link) {
         const itemNumber = link.getAttribute('data-item').split('-')[1];
         const targetDiv = document.querySelector(`.radial-entry-${itemNumber}`);
+        let delayTime;
 
         if (targetDiv) {
             const h2Elements = targetDiv.querySelectorAll('h2');
-            let delayTime = 0;
+            delayTime = 0;
             h2Elements.forEach((h2, index) => {
                 setTimeout(() => {
                     h2.classList.add('active');
@@ -776,6 +816,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         setupMenuEntries();
+        setupOthersEntries();
         setupMenuLinks();
         setupCloseButton();
     });

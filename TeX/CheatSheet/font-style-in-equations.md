@@ -14,4 +14,12 @@
 | 筆記体`\mathcal`  | $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ |
 | 花文字`\mathscr` <br> ※mathrsfsパッケージ | $\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ |
 | ドイツ文字`\mathfrak` | $\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ |
+
 - **関連リンク**
+
+    <div class="related-link-wrapper">
+      [modal-10]<!--align環境（ディスプレイ数式）--><br>
+      [modal-2]<!--表の挿入（tabular環境）--><br>
+      [modal-3]<!--余白設定（geometryパッケージ）--><br>
+      [modal-4]<!--＄…＄ （インライン数式）-->
+    </div>

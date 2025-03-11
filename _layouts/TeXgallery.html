@@ -7,7 +7,28 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta property='og:type' content='website'>
     <meta property='og:url' content='{{ site.url }}{{ page.url }}'>
-    <title>{{ page.title | default: site.title }}</title>
+    {% assign current_url = page.url %}
+    {% assign current_title = site.title %}
+    
+    {% for category in site.data.Gnav %}
+        {% for subcategory in category.children %}
+            {% if subcategory.url == current_url %}
+                {% assign current_title = subcategory.title %}
+            {% endif %}
+            {% for child in subcategory.children %}
+                {% if child.url == current_url %}
+                    {% assign current_title = child.title %}
+                {% endif %}
+                {% for grandchild in child.children %}
+                    {% if grandchild.url == current_url %}
+                        {% assign current_title = grandchild.title %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    
+    <title>{{ current_title | default: site.title }} | Research Repository</title>
 
     <!-- reset.css destyle -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
@@ -15,8 +36,7 @@
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +50,34 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url }}"
-        type="image/svg+xml">
+    {% assign current_img = '' %}
+    {% for category in site.data.Gnav %}
+        {% for subcategory in category.children %}
+            {% if subcategory.url == current_url %}
+                {% if subcategory.img %}
+                    {% assign current_img = subcategory.img %}
+                {% endif %}
+            {% endif %}
+            
+            {% for child in subcategory.children %}
+                {% if child.url == current_url %}
+                    {% if child.img %}
+                        {% assign current_img = child.img %}
+                    {% endif %}
+                {% endif %}
+
+                    {% for grandchild in child.children %}
+                    {% if grandchild.url == current_url %}
+                        {% if grandchild.img %}
+                            {% assign current_img = grandchild.img %}
+                        {% endif %}
+                    {% endif %}
+                    {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    <link rel="icon" href="{{ current_img | default: '/assets/icon/emoji1f393.svg' | relative_url }}" type="image/svg+xml">
+
 
 
 
@@ -44,11 +90,18 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/code.css' | relative_url }}">
 
+    <!-- lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lightgallery.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-zoom.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-fullscreen.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-pager.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-thumbnail.min.css" />
 
 
     <!-- css -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/TeXgallery.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
@@ -100,7 +153,7 @@
             </div>
 
             {{ content }}
-            <main class="sans main-content full-width">
+            <main class="sans main-content full-width" id="lightgallery">
                 <!-- item -->
                 <section class="grid-wrapper">
                     <!-- PC -->
@@ -119,7 +172,8 @@
                                         alt="sort" />
                                 </div>
                                 <select class="sort-field form-control">
-                                    <option value="order">デフォルト:ドラッグ順</option>
+                                    <option value="order">デフォルト：ドラッグ順</option>
+                                    <option value="category">カテゴリ順</option>
                                     <option value="title">あいうえお順</option>
                                 </select>
                             </div>
@@ -209,8 +263,21 @@
                                         <img class="ic ic-x-circle"
                                             src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
-                                    <input id="PC-checkbox-7" type="checkbox" name="filter" value="HighLevel">
-                                    <label for="PC-checkbox-7" class="filter-btn HighLevel">
+                                    <input id="PC-checkbox-7" type="checkbox" name="filter" value="Package">
+                                    <label for="PC-checkbox-7" class="filter-btn Package">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Package-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        Package
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-8" type="checkbox" name="filter" value="HighLevel">
+                                    <label for="PC-checkbox-8" class="filter-btn HighLevel">
                                         <img class="ic ic-plus-circle"
                                             src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
@@ -222,8 +289,8 @@
                                         <img class="ic ic-x-circle"
                                             src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
-                                    <input id="PC-checkbox-8" type="checkbox" name="filter" value="Macro">
-                                    <label for="PC-checkbox-8" class="filter-btn Macro">
+                                    <input id="PC-checkbox-9" type="checkbox" name="filter" value="Macro">
+                                    <label for="PC-checkbox-9" class="filter-btn Macro">
                                         <img class="ic ic-plus-circle"
                                             src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                             alt="plus-circle" />
@@ -232,19 +299,6 @@
                                             </use>
                                         </svg>
                                         マクロ
-                                        <img class="ic ic-x-circle"
-                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
-                                    </label>
-                                    <input id="PC-checkbox-9" type="checkbox" name="filter" value="Package">
-                                    <label for="PC-checkbox-9" class="filter-btn Package">
-                                        <img class="ic ic-plus-circle"
-                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
-                                            alt="plus-circle" />
-                                        <svg class="ic ic-circle Package-icon">
-                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
-                                            </use>
-                                        </svg>
-                                        Package
                                         <img class="ic ic-x-circle"
                                             src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                     </label>
@@ -287,11 +341,16 @@
                                         <input id="sort-radio1" type="radio" name="sort-option" class="sort-radio"
                                             data-sort="order" checked>
                                         <label for="sort-radio1">
-                                            追加順
+                                            デフォルト
                                         </label>
                                         <input id="sort-radio2" type="radio" name="sort-option" class="sort-radio"
-                                            data-sort="title">
+                                            data-sort="category">
                                         <label for="sort-radio2">
+                                            カテゴリ順
+                                        </label>
+                                        <input id="sort-radio3" type="radio" name="sort-option" class="sort-radio"
+                                            data-sort="title">
+                                        <label for="sort-radio3">
                                             あいうえお順
                                         </label>
                                     </div>
@@ -381,8 +440,21 @@
                                             <img class="ic ic-x-circle"
                                                 src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                         </label>
-                                        <input id="SP-checkbox-7" type="checkbox" name="filter" value="HighLevel">
-                                        <label for="SP-checkbox-7" class="filter-btn HighLevel">
+                                        <input id="SP-checkbox-7" type="checkbox" name="filter" value="Package">
+                                        <label for="SP-checkbox-7" class="filter-btn Package">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Package-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            Package
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-8" type="checkbox" name="filter" value="HighLevel">
+                                        <label for="SP-checkbox-8" class="filter-btn HighLevel">
                                             <img class="ic ic-plus-circle"
                                                 src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
@@ -394,8 +466,8 @@
                                             <img class="ic ic-x-circle"
                                                 src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                         </label>
-                                        <input id="SP-checkbox-8" type="checkbox" name="filter" value="Macro">
-                                        <label for="SP-checkbox-8" class="filter-btn Macro">
+                                        <input id="SP-checkbox-9" type="checkbox" name="filter" value="Macro">
+                                        <label for="SP-checkbox-9" class="filter-btn Macro">
                                             <img class="ic ic-plus-circle"
                                                 src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
                                                 alt="plus-circle" />
@@ -404,19 +476,6 @@
                                                 </use>
                                             </svg>
                                             マクロ
-                                            <img class="ic ic-x-circle"
-                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
-                                        </label>
-                                        <input id="SP-checkbox-9" type="checkbox" name="filter" value="Package">
-                                        <label for="SP-checkbox-9" class="filter-btn Package">
-                                            <img class="ic ic-plus-circle"
-                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
-                                                alt="plus-circle" />
-                                            <svg class="ic ic-circle Package-icon">
-                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
-                                                </use>
-                                            </svg>
-                                            Package
                                             <img class="ic ic-x-circle"
                                                 src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
                                         </label>
@@ -545,23 +604,29 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
         integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
-
     <script id="cs-data" type="application/json">{{ site.data.TeX.CSitems | json }}</script>
     <!-- prism plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+    <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
+
 
     <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
     <script src="{{ '/assets/js/TeXcsdata.js' | relative_url }}" type="module"></script>
     <script src="{{ '/assets/js/TeXgallery.js' | relative_url }}" type="module"></script>
     <script src="{{ '/assets/js/code.js' | relative_url }}" type="module"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/pager/lg-pager.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
 </body>
 
 </html>

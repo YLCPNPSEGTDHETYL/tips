@@ -1,5 +1,5 @@
 <!--2-->
-<!--表挿入(tabular環境)-->
+<!--表挿入（tabular環境）-->
 
 - **入力**
 
@@ -23,14 +23,18 @@
 
 - **出力**
     
-    ![1](./table-insertion/1.png)
+    ![表挿入（tabular環境）](./table-insertion/1.png)
     
 
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-      [modal-9]<!--好きな位置に図表を配置(floatパッケージ)--><br>
-	  [modal-22]<!--Excel等で作った表をTeXに挿入-->
+      [modal-1]<!--数式内の書体関連--><br>
+      [modal-12]<!--図の挿入（figure環境）--><br>
+      [modal-21]<!--シンプルに図を貼る（マクロ）--><br>
+      [modal-22]<!--Excel等で作った表をTeXに挿入--><br>
+      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）--><br>
+      [modal-9]<!--好きな位置に図表を配置（floatパッケージ）-->
     </div>

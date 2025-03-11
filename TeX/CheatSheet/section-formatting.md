@@ -18,7 +18,7 @@
 ---
 
 ```latex
-    % 節.小節 の順にアラビア数字で表示する場合(1.1節など)
+    % 節.小節 の順にアラビア数字で表示する場合（1.1節など）
     \renewcommand{\thesection}{\arabic{section}}
     \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 ```
@@ -28,17 +28,16 @@
     
     | **命令** | **出力形式** |
     | --- | --- |
-    | ¥arabic{counter} | アラビア数字 (1, 2, …) |
-    | ¥roman{counter} | (大)ローマ数字 (i, ii, …) |
-    | ¥Roman{counter} | (小)ローマ数字 (I, II, …) |
-    | ¥alph{counter} | (大)アルファベット (a, b, …) |
-    | ¥Alph{counter} | (小)アルファベット(A, B, …) |
+    | ¥arabic{counter} | アラビア数字 （1, 2, …） |
+    | ¥roman{counter} | （大）ローマ数字 （i, ii, …） |
+    | ¥Roman{counter} | （小）ローマ数字 （I, II, …） |
+    | ¥alph{counter} | （大）アルファベット （a, b, …） |
+    | ¥Alph{counter} | （小）アルファベット（A, B, …） |
 
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
       [modal-8]<!--ドキュメントクラス-->
     </div>
-    

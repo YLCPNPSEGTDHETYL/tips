@@ -22,7 +22,7 @@
     
 - **出力**
 
-    ![1](./quotation-mark/1.png "max-width=450px")
+    ![ダブルクォーテーションの正誤](./quotation-mark/1.png "max-width=450px")
 
 
 ### シングルクォーテーション
@@ -39,12 +39,7 @@
     
 - **出力**    
 
-    ![2](./quotation-mark/2.png "max-width=450px")
+    ![シングルクォーテーションの正誤](./quotation-mark/2.png "max-width=450px")
 
 ---
 
-- **関連リンク**
-    
-    <div class="related-link-wrapper">
-    
-    </div>

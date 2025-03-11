@@ -5,16 +5,16 @@
 
 ---
 
-- <span class="exlink">[**Tables Generator(外部リンク)**](https://www.tablesgenerator.com/latex_tables)</span>などのサイト上で行うとよい。
+- <span class="exlink">[**Tables Generator（外部リンク）**](https://www.tablesgenerator.com/latex_tables)</span>などのサイト上で行うとよい。
     - File>Paste tabe dataで、Excelの表をコピペしたのち、Generateボタンを押すと生成される。
-    - 整列(左寄せ、中央、右寄せ)や罫線、行列のマージなどもでき、かなり複雑な表でも生成してくれるので便利。
+    - 整列（左寄せ、中央、右寄せ）や罫線、行列のマージなどもでき、かなり複雑な表でも生成してくれるので便利。
     - 「Extra options…」で「caption above」および「Center table horizontally」のチェックをしておくとよい。
 
 ### 入力、出力結果
 
 ---
 
-![1](./insert-excel-tables/1.png "max-width=500px")
+![Excelでつくった表をTeXに挿入](./insert-excel-tables/1.png "max-width=500px")
 
 上がExcelで作った表。
 
@@ -39,15 +39,14 @@
     \end{table}
 ```
 
-<span class="exlink">[**Tables Generator(外部リンク)**](https://www.tablesgenerator.com/latex_tables)</span>で実際に出力された表。簡単な表だけでなく、セル間の結合があるような複雑な表でも簡単に作ってくれて便利。
+<span class="exlink">[**Tables Generator（外部リンク）**](https://www.tablesgenerator.com/latex_tables)</span>で実際に出力された表。簡単な表だけでなく、セル間の結合があるような複雑な表でも簡単に作ってくれて便利。
 
 なお、`\multirow`を使うためには、`\usepackage{multirow}`が必要。
 
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-        [modal-2]<!--表挿入(tabular環境)--><br>    
-        [modal-9]<!--好きな位置に図表を配置(floatパッケージ)-->
+      [modal-2]<!--表の挿入（tabular環境）-->
     </div>

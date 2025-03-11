@@ -76,5 +76,5 @@ physicsパッケージはデフォルトで`d`がローマン体になる。
 - **関連リンク**
 
     <div class="related-link-wrapper">
-        [modal-25]<!--積分記号-->
+      [modal-25]<!--積分記号-->
     </div>

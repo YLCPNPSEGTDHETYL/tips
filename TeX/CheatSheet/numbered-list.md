@@ -1,5 +1,5 @@
 <!--6-->
-<!--番号付き箇条書き(enumitem環境)-->
+<!--番号付き箇条書き（enumitem環境）-->
 
 ### 基本的な使い方
 
@@ -20,7 +20,7 @@
     
 - **出力**
     
-    ![1](./numbered-list/1.png "max-width=200px")
+    ![番号付き箇条書き（enumitem環境）](./numbered-list/1.png "max-width=200px")
     
 
 ### **番号ルールを変更**
@@ -31,16 +31,16 @@
     
     ```latex
         %プリアンブルに記載
-        %第1階層をローマ数字(i, ii, ...)にし、(i), (ii)のような表示にしたい場合
+        %第1階層をローマ数字（i, ii, ...）にし、(i), (ii)のような表示にしたい場合
         \renewcommand{\theenumi}{\roman{enumi}} %ローマ数字に
         \renewcommand{\labelenumi}{(\theenumi)} %(i)形式に
     ```
     
 - 番号の振り方は、以下から変更できる。
-    - アラビア数字(1, 2, …)：`\arabic`
-    - ローマ数字(i, ii, …／I, II, …)：`\roman`, `\Roman`
-    - アルファベット(a, b, …／A, B, …)：`\alph`, `\Alph`
-- 第1 - 4階層まで指定できる(\the+enum+番号)。
+    - アラビア数字（1, 2, …）：`\arabic`
+    - ローマ数字（i, ii, …／I, II, …）：`\roman`, `\Roman`
+    - アルファベット（a, b, …／A, B, …）：`\alph`, `\Alph`
+- 第1 - 4階層まで指定できる（\the+enum+番号）。
     - 第1階層：`\theenumi`
     - 第2階層：`\theenumii`
     - 第3階層：`\theenumiii`
@@ -74,7 +74,7 @@
         \end{enumerate}
     ```
     
-    ![2](./numbered-list/2.png "max-width=280px")
+    ![ラベルルールを指定した番号付き箇条書き](./numbered-list/2.png "max-width=280px")
     
 - `\arabic*`の部分は、上記の番号の振り方に`*`をつければよい。
 
@@ -91,7 +91,7 @@
     
 - 各長さの名称は下図に準拠する。
     
-    ![3](./numbered-list/3.png)
+    ![箇条書き関連のレイアウト名称](./numbered-list/3.png)
     
 - あるいは、文書すべてで指定したいとき
     
@@ -107,7 +107,7 @@
     ```
     
 
-### **番号(カウンタ)の再設定**
+### **番号（カウンタ）の再設定**
 
 ---
 
@@ -135,14 +135,15 @@
     \end{enumerate}
     ```
     
-    ![4](./numbered-list/4.png "max-width=350px")
+    ![箇条書きの番号を続きから始める](./numbered-list/4.png "max-width=350px")
     
 
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-      [modal-5]<!--記号付き箇条書き(item環境)--><br>
-      [modal-7]<!--見出し付き箇条書き(description環境)-->
+      [modal-5]<!--記号付き箇条書き（item環境）--><br>
+      [modal-6]<!--番号付き箇条書き（enumitem環境）--><br>
+      [modal-7]<!--見出し付き箇条書き（description環境）-->
     </div>

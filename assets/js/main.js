@@ -17,18 +17,37 @@ export function markdownImageSize(md) {
   md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const token = tokens[idx];
     const src = token.attrGet('src');
-    const alt = token.content;
+    const alt = token.content || '';
     const title = token.attrGet('title') || '';
+    
     let style = '';
     const maxWidthMatch = title.match(/max-width\s*=\s*(\d+px)/);
     if (maxWidthMatch) {
       style = `max-width: ${maxWidthMatch[1]};`;
     }
-    return `<img src="${src}" alt="${alt}" style="${style}" />`;
+
+    return `<a href="${src}" data-lightbox="gallery" data-title="${alt}" class="lightbox-image">
+              <img src="${src}" alt="${alt}" title="${alt}" style="${style}" />
+            </a>`;
   };
 }
 
 // *FUNC DEF* コードブロック変換
+export function convertCodeBlocksToHTML(content) {
+  // バッククォートで囲まれたコードブロックを対象に変換
+  let updatedContent = content.replace(/```(\w+)/g, (match, lang) => {
+    // 言語名が指定された場合のみ、該当するクラスを追加
+    return `<pre class="line-numbers language-${lang}"><code class="language-${lang}">`;
+  });
+
+  // 閉じのバッククォートを </code></pre> に置換
+  updatedContent = updatedContent.replace(/```/g, '</code></pre>');
+
+  return updatedContent;
+}
+
+
+
 export function convertLatexBlocksToHTML(content) {
   let updatedContent = content.replace(/```latex/g, '<pre class="line-numbers language-latex"><code class="language-latex">');
   updatedContent = updatedContent.replace(/```/g, '</code></pre>');
@@ -261,8 +280,8 @@ window.addEventListener('resize', function () {
 
 
 
-function initializeLightGallery() {
-  const lightgalleryElement = document.getElementById('lightgallery');
+export function initializeLightGallery() {
+  let lightgalleryElement = document.getElementById('lightgallery');
 
   if (lightgalleryElement) {
 

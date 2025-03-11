@@ -1,11 +1,11 @@
 <!--11-->
-<!--大きなかっこ(数式)-->
+<!--大きなかっこ（数式）-->
 
 <aside class="warning">
 <div>
 本項目は、分数などの縦に長い数式を括弧で囲むときに、括弧の高さを調節するということをメインに扱います。
 
-・別行立ての数式の場合分け：[modal-20]<!--場合分け(数式中)-->
+・別行立ての数式の場合分け：[modal-20]<!--場合分け（数式中）-->
 ・行列を書きたいとき：[modal-19]
 </div>
 </aside>
@@ -34,7 +34,7 @@
 | $\Downarrow$ | `\Downarrow` |
 | $\Updownarrow$ | `\Updownarrow` |
 
-### 1. 自動調整(left, right)
+### 1. 自動調整（left, right）
 
 ---
 
@@ -109,7 +109,7 @@ $$
 $$
 </div>
 
-### 3. (高度)physics2パッケージ
+### 3. （高度）physics2パッケージ
 
 ---
 
@@ -143,9 +143,9 @@ physics パッケージの後継に相当する physics*2* パッケージが 2
   \ab <\frac{1}{2}>           %  < >
 ```
 
-![1](./big-brackets-in-equations/1.png "max-width=250px")
+![physics2パッケージで出力した括弧たち](./big-brackets-in-equations/1.png "max-width=250px")
 
-(上記画像はOverleafで出力。)
+（上記画像はOverleafで出力。）
 
 
 また、以下の接頭辞を使って書くこともできる。
@@ -178,7 +178,7 @@ physics パッケージの後継に相当する physics*2* パッケージが 2
 - [脱 physics パッケージして physics2 パッケージを使おう](https://qiita.com/Yarakashi_Kikohshi/items/131e2324f401c3effb84)
 - [【LaTeX】physicsパッケージを脱却し、physics2パッケージ（+α）へ移行すべきである](https://qiita.com/gawara-t/items/57834e06f7fd95c18d26)
 
-### **4. (旧)physicsパッケージ**
+### **4. （旧）physicsパッケージ**
 
 ---
 
@@ -214,8 +214,8 @@ physicsパッケージを使えば、通常は
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-      [modal-19]<!--行列(数式)--><br>
-      [modal-20]<!--場合分け(数式中)-->
+      [modal-19]<!--行列（数式）--><br>
+      [modal-20]<!--場合分け（数式中）-->
     </div>

@@ -16,7 +16,7 @@
     
 - optionなしでは、以下の色が使える。
     
-    ![1](./xcolor-text-color/1.png)
+    ![xcolorパッケージ：オプションなし](./xcolor-text-color/1.png)
     
     ```latex
         %テキストの色を変更(書き方は2通り)
@@ -40,28 +40,29 @@
     | `dvipsname` | 68色 |
     | `svgnames` | 151色 |
     | `x11names` | 317色 |
+
     - `dvipsname`
         
-        ![2](./xcolor-text-color/2.png)
+        ![オプション：dvipsname](./xcolor-text-color/2.png)
         
     - `svgnames`
         
-        ![3](./xcolor-text-color/3.png)
+        ![オプション：svgnames](./xcolor-text-color/3.png)
         
     - `x11names`
-    
-    ![4](./xcolor-text-color/4.png)
-    
-    ![5](./xcolor-text-color/5.png)
+      
+        ![オプション：x11names（1枚目）](./xcolor-text-color/4.png)
+
+        ![オプション：x11names（2枚目）](./xcolor-text-color/5.png)
     
 - **入力**
     ```latex
-        \textcolor{Orchid}{e.g.\ Orchid(＝淡紫色)という色にしてみました。}
+        \textcolor{Orchid}{e.g.)\ Orchid（＝淡紫色）になりました。}
     ```
 - **出力**
     <div>
     $$
-    \textcolor{Orchid}{\mathrm{e.g.)\ Orchid(＝淡紫色)という色にしてみました。}}
+    \textcolor{Orchid}{\text{e.g.)\ Orchid（＝淡紫色）になりました。}}
     $$
     </div>
 
@@ -71,7 +72,8 @@
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-      [modal-23]<!--(マクロ)色を定義して使う-->
+      [modal-23]<!--色を定義して使う（マクロ）--><br>
+      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）-->
     </div>

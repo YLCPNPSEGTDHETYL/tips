@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2025/02/16 (金)
+update: 2025/02/22 (Sat)
 ---
 
 それではいよいよ、実践的なマクロについてみていきましょう。  

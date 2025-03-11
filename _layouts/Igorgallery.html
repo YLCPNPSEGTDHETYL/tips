@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property='og:type' content='website'>
+    <meta property='og:url' content='{{ site.url }}{{ page.url }}'>
+    {% assign current_url = page.url %}
+    {% assign current_title = site.title %}
+
+    {% for category in site.data.Gnav %}
+    {% for subcategory in category.children %}
+    {% if subcategory.url == current_url %}
+    {% assign current_title = subcategory.title %}
+    {% endif %}
+    {% for child in subcategory.children %}
+    {% if child.url == current_url %}
+    {% assign current_title = child.title %}
+    {% endif %}
+    {% for grandchild in child.children %}
+    {% if grandchild.url == current_url %}
+    {% assign current_title = grandchild.title %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+
+    <title>{{ current_title | default: site.title }} | Research Repository</title>
+
+    <!-- reset.css destyle -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <!-- scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">
+
+
+
+    <!-- favicon -->
+    {% assign current_img = '' %}
+    {% for category in site.data.Gnav %}
+    {% for subcategory in category.children %}
+    {% if subcategory.url == current_url %}
+    {% if subcategory.img %}
+    {% assign current_img = subcategory.img %}
+    {% endif %}
+    {% endif %}
+
+    {% for child in subcategory.children %}
+    {% if child.url == current_url %}
+    {% if child.img %}
+    {% assign current_img = child.img %}
+    {% endif %}
+    {% endif %}
+
+    {% for grandchild in child.children %}
+    {% if grandchild.url == current_url %}
+    {% if grandchild.img %}
+    {% assign current_img = grandchild.img %}
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+    <link rel="icon" href="{{ current_img | default: '/assets/icon/emoji1f393.svg' | relative_url }}"
+        type="image/svg+xml">
+
+
+
+
+    <!-- md, KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+
+    <!-- lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lightgallery.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-zoom.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-fullscreen.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-pager.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/css/lg-thumbnail.min.css" />
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/code.css' | relative_url }}">
+
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/Igorgallery.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"
+        integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <script>
+        function renderMathInPage() {
+            $("script[type='math/tex']").replaceWith(function () {
+                var tex = $(this).text();
+                return "<span class=\"kdmath\">$" + tex + "$</span>";
+            });
+
+            $("script[type='math/tex; mode=display']").replaceWith(function () {
+                var tex = $(this).text();
+                tex = tex.replace('% <![CDATA[', '').replace('%]]>', '');
+                return "<div class=\"kdmath\">$$" + tex + "$$</div>";
+            });
+
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                ]
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInPage();
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <div class="all-wrapper">
+        <header id="header" class="PC-only">
+            {% include header.html %}
+        </header>
+
+
+        <article class="page sans">
+            <div class="page-title-wrapper">
+                <h1 class="page-title">{{ page.title }}</h1>
+            </div>
+
+            {{ content }}
+            <main class="sans main-content full-width" id="lightgallery">
+                <!-- item -->
+                <section class="grid-wrapper">
+                    <!-- PC -->
+                    <div class="Allfilter-controls PC-only">
+                        <div class="Search-Sort-control">
+                            <div class="control SeCont">
+                                <div class="ic-wrapper">
+                                    <img class="ic ic-search" src="{{ '/assets/icon/search.svg' | relative_url }}"
+                                        alt="search" />
+                                </div>
+                                <input class="search-field form-control" type="text" name="search"
+                                    placeholder="例：Duplicate">
+                            </div>
+                            <div class="control SoCont">
+                                <div class="ic-wrapper">
+                                    <img class="ic ic-sort" src="{{ '/assets/icon/sort.svg' | relative_url }}"
+                                        alt="sort" />
+                                </div>
+                                <select class="sort-field form-control">
+                                    <option value="order">デフォルト：ドラッグ順</option>
+                                    <option value="category">カテゴリ順</option>
+                                    <option value="title">あいうえお順</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-field">
+                            <div class="filter-control">
+                                <div class="filter-wrapper">
+                                    <input id="PC-checkbox-all" type="checkbox" name="filter" value="" checked>
+                                    <label for="PC-checkbox-all" class="filter-btn all"> すべて
+                                    </label>
+                                    <input id="PC-checkbox-1" type="checkbox" name="filter" value="MustKnow">
+                                    <label for="PC-checkbox-1" class="filter-btn MustKnow">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle MustKnow-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        基本
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-2" type="checkbox" name="filter" value="Graph">
+                                    <label for="PC-checkbox-2" class="filter-btn Graph">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Graph-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        グラフ
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-3" type="checkbox" name="filter" value="Table">
+                                    <label for="PC-checkbox-3" class="filter-btn Table">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Table-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        テーブル
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-4" type="checkbox" name="filter" value="Analysis">
+                                    <label for="PC-checkbox-4" class="filter-btn Analysis">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Analysis-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        解析
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-5" type="checkbox" name="filter" value="Wave">
+                                    <label for="PC-checkbox-5" class="filter-btn Wave">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Wave-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        Wave操作
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-6" type="checkbox" name="filter" value="Operation">
+                                    <label for="PC-checkbox-6" class="filter-btn Operation">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Operation-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        コマンド／操作関数
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-7" type="checkbox" name="filter" value="Programing">
+                                    <label for="PC-checkbox-7" class="filter-btn Programing">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Programing-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        マクロ／プロシージャ
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-8" type="checkbox" name="filter" value="Layout">
+                                    <label for="PC-checkbox-8" class="filter-btn Layout">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Layout-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        レイアウト
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-9" type="checkbox" name="filter" value="Utility">
+                                    <label for="PC-checkbox-9" class="filter-btn Utility">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle Utility-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        Utility
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                    <input id="PC-checkbox-10" type="checkbox" name="filter" value="HighLevel">
+                                    <label for="PC-checkbox-10" class="filter-btn HighLevel">
+                                        <img class="ic ic-plus-circle"
+                                            src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                            alt="plus-circle" />
+                                        <svg class="ic ic-circle HighLevel-icon">
+                                            <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                            </use>
+                                        </svg>
+                                        高度
+                                        <img class="ic ic-x-circle"
+                                            src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SP -->
+                    <div class="Allfilter-controls SP-only">
+                        <div class="Search-Sort-control">
+                            <div class="control SeCont">
+                                <div class="ic-wrapper">
+                                    <img class="ic ic-search" src="{{ '/assets/icon/search.svg' | relative_url }}"
+                                        alt="search" />
+                                </div>
+                                <input class="search-field form-control" type="text" name="search" placeholder="例：箇条書き">
+                                <button data-micromodal-trigger="popover-modal" class="settings-btn">
+                                    <img class="ic ic-sliders" src="{{ '/assets/icon/sliders.svg' | relative_url }}"
+                                        alt="sliders" />
+                                    <img class="ic ic-sliders colored"
+                                        src="{{ '/assets/icon/sliders-colored.svg' | relative_url }}"
+                                        alt="sliders-colored" />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="popover-modal" class="modal popovermodal-slide filter-field" aria-hidden="true">
+                            <div class="modal-overlay" tabindex="-1" data-micromodal-close></div>
+                            <div class="modal-container popover" role="dialog" aria-modal="true"
+                                aria-labelledby="popover-modal-title">
+                                <header class="popovermodal-header">
+                                    <button class="modal-close" aria-label="Close modal" data-micromodal-close>
+                                        <img class="ic ic-x" src="{{ '/assets/icon/x.svg' | relative_url }}" alt="x" />
+                                    </button>
+                                </header>
+                                <div class="popover-body SoCont">
+                                    <span>Sort</span>
+                                    <div class="sort-buttons sort-field">
+                                        <input id="sort-radio1" type="radio" name="sort-option" class="sort-radio"
+                                            data-sort="order" checked>
+                                        <label for="sort-radio1">
+                                            デフォルト
+                                        </label>
+                                        <input id="sort-radio2" type="radio" name="sort-option" class="sort-radio"
+                                            data-sort="category">
+                                        <label for="sort-radio2">
+                                            カテゴリ順
+                                        </label>
+                                        <input id="sort-radio3" type="radio" name="sort-option" class="sort-radio"
+                                            data-sort="title">
+                                        <label for="sort-radio3">
+                                            あいうえお順
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="popover-body filter-control">
+                                    <span>Category</span>
+                                    <div class="filter-wrapper">
+                                        <input id="SP-checkbox-all" type="checkbox" name="filter" value="" checked>
+                                        <label for="SP-checkbox-all" class="filter-btn all"> すべて
+                                        </label>
+                                        <input id="SP-checkbox-1" type="checkbox" name="filter" value="MustKnow">
+                                        <label for="SP-checkbox-1" class="filter-btn MustKnow">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle MustKnow-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            基本
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-2" type="checkbox" name="filter" value="Graph">
+                                        <label for="SP-checkbox-2" class="filter-btn Graph">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Graph-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            グラフ
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-3" type="checkbox" name="filter" value="Table">
+                                        <label for="SP-checkbox-3" class="filter-btn Table">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Table-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            テーブル
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-4" type="checkbox" name="filter" value="Analysis">
+                                        <label for="SP-checkbox-4" class="filter-btn Analysis">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Analysis-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            解析
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-5" type="checkbox" name="filter" value="Wave">
+                                        <label for="SP-checkbox-5" class="filter-btn Wave">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Wave-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            Wave操作
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-6" type="checkbox" name="filter" value="Operation">
+                                        <label for="SP-checkbox-6" class="filter-btn Operation">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Operation-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            コマンド／操作関数
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-7" type="checkbox" name="filter" value="Programing">
+                                        <label for="SP-checkbox-7" class="filter-btn Programing">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Programing-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            マクロ／プロシージャ
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-8" type="checkbox" name="filter" value="Layout">
+                                        <label for="SP-checkbox-8" class="filter-btn Layout">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Layout-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            レイアウト
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-9" type="checkbox" name="filter" value="Utility">
+                                        <label for="SP-checkbox-9" class="filter-btn Utility">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle Utility-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            Utility
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                        <input id="SP-checkbox-10" type="checkbox" name="filter" value="HighLevel">
+                                        <label for="SP-checkbox-10" class="filter-btn HighLevel">
+                                            <img class="ic ic-plus-circle"
+                                                src="{{ '/assets/icon/plus-circle.svg' | relative_url }}"
+                                                alt="plus-circle" />
+                                            <svg class="ic ic-circle HighLevel-icon">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            高度
+                                            <img class="ic ic-x-circle"
+                                                src="{{ '/assets/icon/x-circle.svg' | relative_url }}" alt="x-circle" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" radial SP-only">
+                        {% include radial.html %}
+                    </div>
+                    <div class="SP-only checked-list">
+                        <div class="checked-list-text">
+                            <img src="{{ '/assets/icon/tag.svg' | relative_url }}" alt="tag" class="ic ic-tag">
+                            絞り込み：
+                        </div>
+                    </div>
+
+
+                    <div class="load">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="grid-container">
+                        <div class="grid">
+                            {% for item in site.data.Igor.CSitems %}
+                            <div class="item" data-category="{{ item.tag }}" data-title="">
+                                <div class="item-content">
+                                    <div class="custom-content" data-micromodal-trigger="modal-{{ item.id }}">
+                                        <div class="modal-tag">
+                                            {% assign tags = item.tag | split: ' ' %}
+                                            {% for tag in tags %}
+                                            <span class="{{ tag }}">
+                                                <svg class="ic ic-circle">
+                                                    <use
+                                                        xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                    </use>
+                                                </svg>
+                                                {{ site.data.Igor.CStag[tag] }}
+                                            </span>
+                                            {% endfor %}
+                                        </div>
+                                        <div id="title-input" class="modal-link modal-link-primary" role="button">
+                                            {{ item.title }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- modal elements -->
+                {% for item in site.data.Igor.CSitems %}
+                <div class="modal micromodal-slide" id="modal-{{ item.id }}" aria-hidden="true"
+                    data-link="{{ item.link | relative_url }}">
+                    <div class="modal-overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal-container" role="dialog" aria-modal="true"
+                            aria-describedby="modal-{{ item.id }}-content" aria-labelledby="modal-{{ item.id }}-title">
+                            <header class="modal-header">
+                                <div class="modal-header-btn">
+                                    <button class="modal-back" aria-label="back modal" data-micromodal-close>
+                                        <img class="ic ic-arrow-left"
+                                            src="{{ '/assets/icon/arrow-left.svg' | relative_url }}" alt="arrow-left" />
+                                    </button>
+                                    <button class="modal-close modal-btn" aria-label="Close modal"
+                                        data-micromodal-close>
+                                        <img class="ic ic-x" src="{{ '/assets/icon/x.svg' | relative_url }}" alt="x" />
+                                    </button>
+                                </div>
+                                <div class="modal-info">
+                                    <h1 class="modal-title" id="modal-{{ item.id }}-title">{{ item.title }}</h1>
+                                    <div class="modal-innertag">
+                                        {% assign tags = item.tag | split: ' ' %}
+                                        {% for tag in tags %}
+                                        <span class="{{ tag }}">
+                                            <svg class="ic ic-circle">
+                                                <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                                </use>
+                                            </svg>
+                                            {{ site.data.Igor.CStag[tag] }}
+                                        </span>
+                                        {% endfor %}
+                                    </div>
+                                    <span class="last-date">最終更新日: {{ item.update }}</span>
+                                </div>
+                                <hr class="modal-topline">
+                            </header>
+
+                            <main class="modal-content" id="modal-{{ item.id }}-content">
+                            </main>
+                            <footer class="modal-footer">
+                                <a class="modal-btn modal-btn-under" href="#" aria-label="Close this dialog window">
+                                    閉じる
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </main>
+        </article>
+
+        {% include page-navi.html %}
+
+        <footer id="footer" class="PC-only">
+            {% include footer.html %}
+        </footer>
+
+    </div>
+
+
+
+    <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
+
+    <script src="{{ '/assets/js/lib/wanakana.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/lib/kuromoji.js' | relative_url }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+        integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+    <script id="cs-data" type="application/json">{{ site.data.TeX.CSitems | json }}</script>
+    <!-- prism plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+    <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
+
+
+    <script src="{{ '/assets/js/code.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/Igorcsdata.js' | relative_url }}" type="module"></script>
+    <script src="{{ '/assets/js/Igorgallery.js' | relative_url }}" type="module"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/pager/lg-pager.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+/* アイコンの色を指定 */
+
+.MustKnow-icon {
+  fill: var(--col-highlight-red);
+  color: var(--col-highlight-red);
+}
+
+.Graph-icon {
+  fill: var(--col-highlight-blue);
+  color: var(--col-highlight-blue);
+}
+
+.Table-icon {
+  fill: var(--col-highlight-green);
+  color: var(--col-highlight-green);
+}
+
+.Analysis-icon {
+  fill: var(--col-highlight-yellow);
+  color: var(--col-highlight-yellow);
+}
+
+.Wave-icon {
+  fill: var(--col-highlight-bluegreen);
+  color: var(--col-highlight-bluegreen);
+}
+
+.Operation-icon {
+  fill: var(--col-highlight-lightblue);
+  color: var(--col-highlight-lightblue);
+}
+
+.Programing-icon {
+  fill: var(--col-highlight-pink);
+  color: var(--col-highlight-pink);
+}
+
+.Layout-icon {
+  fill: var(--col-highlight-orange);
+  color: var(--col-highlight-orange);
+}
+
+.Utility-icon {
+  fill: var(--col-highlight-purple);
+  color: var(--col-highlight-purple);
+}
+
+.HighLevel-icon {
+  fill: var(--col-highlight-gray);
+  color: var(--col-highlight-gray);
+}
+
+.filter-field input[type="checkbox"] {
+  display: none;
+}
+
+.MustKnow .ic-circle {
+  color: var(--col-highlight-red);
+}
+
+.Graph .ic-circle {
+  color: var(--col-highlight-blue);
+}
+
+.Table .ic-circle {
+  color: var(--col-highlight-green);
+}
+
+.Analysis .ic-circle {
+  color: var(--col-highlight-yellow);
+}
+
+.Wave .ic-circle {
+  color: var(--col-highlight-bluegreen);
+}
+
+.Operation .ic-circle {
+  color: var(--col-highlight-lightblue);
+}
+
+.Programing .ic-circle {
+  color: var(--col-highlight-pink);
+}
+
+.Layout .ic-circle {
+  color: var(--col-highlight-orange);
+}
+
+.Utility .ic-circle {
+  color: var(--col-highlight-purple);
+}
+
+.HighLevel .ic-circle {
+  color: var(--col-highlight-gray);
+}
+
+
+#PC-checkbox-1:checked+label.MustKnow,
+#PC-checkbox-2:checked+label.Graph,
+#PC-checkbox-3:checked+label.Table,
+#PC-checkbox-4:checked+label.Analysis,
+#PC-checkbox-5:checked+label.Wave,
+#PC-checkbox-6:checked+label.Operation,
+#PC-checkbox-7:checked+label.Programing,
+#PC-checkbox-8:checked+label.Layout,
+#PC-checkbox-9:checked+label.Utility,
+#PC-checkbox-10:checked+label.HighLevel {
+  border-style: solid;
+  color: var(--col-text);
+}
+
+#PC-checkbox-1:checked+label.MustKnow {
+  background-color: var(--col-bg-red);
+  border-color: var(--col-highlight-red);
+}
+
+#PC-checkbox-2:checked+label.Graph {
+  background-color: var(--col-bg-blue);
+  border-color: var(--col-highlight-blue);
+}
+
+#PC-checkbox-3:checked+label.Table {
+  background-color: var(--col-bg-green);
+  border-color: var(--col-highlight-green);
+}
+
+#PC-checkbox-4:checked+label.Analysis {
+  background-color: var(--col-bg-yellow);
+  border-color: var(--col-highlight-yellow);
+}
+
+#PC-checkbox-5:checked+label.Wave {
+  background-color: var(--col-bg-bluegreen);
+  border-color: var(--col-highlight-bluegreen);
+}
+
+#PC-checkbox-6:checked+label.Operation {
+  background-color: var(--col-bg-lightblue);
+  border-color: var(--col-highlight-lightblue);
+}
+
+#PC-checkbox-7:checked+label.Programing {
+  background-color: var(--col-bg-pink);
+  border-color: var(--col-highlight-pink);
+}
+
+#PC-checkbox-8:checked+label.Layout {
+  background-color: var(--col-bg-orange);
+  border-color: var(--col-highlight-orange);
+}
+
+#PC-checkbox-9:checked+label.Utility {
+  background-color: var(--col-bg-purple);
+  border-color: var(--col-highlight-purple);
+}
+
+#PC-checkbox-10:checked+label.HighLevel {
+  background-color: var(--col-bg-gray);
+  border-color: var(--col-highlight-gray);
+}
+
+
+/* SP版のチェックボックスに対応するラベルの基本スタイル */
+#SP-checkbox-1:checked+label.MustKnow,
+#SP-checkbox-2:checked+label.Graph,
+#SP-checkbox-3:checked+label.Table,
+#SP-checkbox-4:checked+label.Analysis,
+#SP-checkbox-5:checked+label.Wave,
+#SP-checkbox-6:checked+label.Operation,
+#SP-checkbox-7:checked+label.Programing,
+#SP-checkbox-8:checked+label.Layout,
+#SP-checkbox-9:checked+label.Utility,
+#SP-checkbox-10:checked+label.HighLevel {
+  border-style: solid;
+  color: var(--col-text);
+}
+
+#SP-checkbox-1:checked+label.MustKnow {
+  background-color: var(--col-bg-red);
+  border-color: var(--col-highlight-red);
+}
+
+#SP-checkbox-2:checked+label.Graph {
+  background-color: var(--col-bg-blue);
+  border-color: var(--col-highlight-blue);
+}
+
+#SP-checkbox-3:checked+label.Table {
+  background-color: var(--col-bg-green);
+  border-color: var(--col-highlight-green);
+}
+
+#SP-checkbox-4:checked+label.Analysis {
+  background-color: var(--col-bg-yellow);
+  border-color: var(--col-highlight-yellow);
+}
+
+#SP-checkbox-5:checked+label.Wave {
+  background-color: var(--col-bg-bluegreen);
+  border-color: var(--col-highlight-bluegreen);
+}
+
+#SP-checkbox-6:checked+label.Operation {
+  background-color: var(--col-bg-lightblue);
+  border-color: var(--col-highlight-lightblue);
+}
+
+#SP-checkbox-7:checked+label.Programing {
+  background-color: var(--col-bg-pink);
+  border-color: var(--col-highlight-pink);
+}
+
+#SP-checkbox-8:checked+label.Layout {
+  background-color: var(--col-bg-orange);
+  border-color: var(--col-highlight-orange);
+}
+
+#SP-checkbox-9:checked+label.Utility {
+  background-color: var(--col-bg-purple);
+  border-color: var(--col-highlight-purple);
+}
+
+#SP-checkbox-10:checked+label.HighLevel {
+  background-color: var(--col-bg-gray);
+  border-color: var(--col-highlight-gray);
+}

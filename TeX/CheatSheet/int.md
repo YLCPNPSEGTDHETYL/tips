@@ -36,6 +36,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-        [modal-26]<!--微分記号-->
+      [modal-26]<!--微分記号-->
     </div>
-    

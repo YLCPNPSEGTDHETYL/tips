@@ -1,5 +1,5 @@
 <!--7-->
-<!--見出し付き箇条書き(description環境)-->
+<!--見出し付き箇条書き（description環境）-->
 
 ### 基本的な使い方
 
@@ -16,7 +16,7 @@
     
 - **出力**
     
-    ![1](/tips/TeX/CheatSheet/description-list/1.png "max-width=250px")
+    ![description環境での見出し付き箇条書き](./description-list/1.png "max-width=250px")
     
 
 ### **見出しと本文の間に改行**
@@ -48,7 +48,7 @@
     
 - **出力**
     
-    ![2](/tips/TeX/CheatSheet/description-list/2.png)
+    ![見出しを改行した箇条書き](./description-list/2.png)
     
 
 ### 見出しと文章の境目を合わせる
@@ -64,7 +64,7 @@
     ```latex
     \usepackage{enumitem}
     ...
-    \begin{description}[labelwidth=7em] %(一番長い見出しの文字数)emとする
+    \begin{description}[labelwidth=7em] %（一番長い見出しの文字数）emとする
         \item[長い見出し] 文
         \item[短] 文\\
         \vdots
@@ -75,14 +75,15 @@
 
 - **出力**
     
-    ![3](/tips/TeX/CheatSheet/description-list/3.png "max-width=250px")
+    ![見出しと文章の境目を合わせる](./description-list/3.png "max-width=250px")
     
 
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-      [modal-5]<!--記号付き箇条書き(item環境)--><br>
-      [modal-6]<!--番号付き箇条書き(enumitem環境)-->
+      [modal-5]<!--記号付き箇条書き（item環境）--><br>
+      [modal-6]<!--番号付き箇条書き（enumitem環境）--><br>
+      [modal-7]<!--見出し付き箇条書き（description環境）-->
     </div>

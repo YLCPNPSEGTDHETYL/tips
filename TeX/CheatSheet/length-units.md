@@ -22,9 +22,10 @@
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-      [modal-3]<!--余白設定(geometryパッケージ)--><br>
+      [modal-15]<!--ページレイアウト--><br>
       [modal-17]<!--行送り、行間の調整--><br>
-      [modal-15]<!--ページレイアウト-->
+      [modal-18]<!--インデント（字下げ）調整--><br>
+      [modal-3]<!--余白設定（geometryパッケージ）-->
     </div>

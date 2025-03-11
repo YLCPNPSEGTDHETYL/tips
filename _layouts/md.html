@@ -20,6 +20,11 @@
                 {% if child.url == current_url %}
                     {% assign current_title = child.title %}
                 {% endif %}
+                {% for grandchild in child.children %}
+                    {% if grandchild.url == current_url %}
+                        {% assign current_title = grandchild.title %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         {% endfor %}
     {% endfor %}
@@ -32,8 +37,7 @@
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +65,14 @@
                         {% assign current_img = child.img %}
                     {% endif %}
                 {% endif %}
+
+                    {% for grandchild in child.children %}
+                    {% if grandchild.url == current_url %}
+                        {% if grandchild.img %}
+                            {% assign current_img = grandchild.img %}
+                        {% endif %}
+                    {% endif %}
+                    {% endfor %}
             {% endfor %}
         {% endfor %}
     {% endfor %}
@@ -154,15 +166,47 @@
                             <span class="last-date">最終更新日: {{ page.update }}</span>
                         </div>
                         <div class="main-wrapper {% if page.withTOC %}withTOC{% endif %}">
-                            <main class="main-content" id="lightgallery">
+                            <main class="main-content {% unless page.withTOC %}mid-width{% endunless %}"" id="lightgallery">
                                 {% if child.thumbnail %}
-                                <img src="{{ child.thumbnail | relative_url }}" alt="{{ child.title }}" class="thumbnail">
+                                <img src="{{ child.thumbnail | relative_url }}" alt="{{ child.title }}" class="thumbnail {% if page.nothumbnail %}nothumbnail{% endif %}">
                                 {% endif %}
                                 {{ content }}
                             </main>
-                            <nav class="TOC"></nav>
+                            <nav class="{% if page.withTOC %}TOC{% endif %}"></nav>
                         </div>
                     {% endif %}
+
+
+                    {% for grandchild in child.children %}
+                        {% if grandchild.url == current_url %}
+                            <div class="page-title-wrapper">
+                                {% if grandchild.img %}
+                                    <img src="{{ grandchild.img | relative_url }}" alt="{{ grandchild.title }}" class="title-icon"/>
+                                {% endif %}
+                                <h1 class="page-title">{{ grandchild.title }}</h1>
+                                {% assign tags = grandchild.tag | split: ' ' %}
+                                <p class="entry-tag {{ tags[0] }}">
+                                    <svg class="ic ic-circle">
+                                        <use xlink:href="{{ '/assets/icon/circle.svg#circle' | relative_url }}">
+                                        </use>
+                                    </svg>
+                                    {{ tags | slice: 1, tags.size | join: ' ' | default: 'tag' }}
+                                </p>
+                                <span class="bar">|</span>
+                                <span class="last-date">最終更新日: {{ page.update }}</span>
+                            </div>
+                            <div class="main-wrapper {% if page.withTOC %}withTOC{% endif %}">
+                                <main class="main-content {% unless page.withTOC %}mid-width{% endunless %}"" id="lightgallery">
+                                    {% if grandchild.thumbnail %}
+                                    <img src="{{ grandchild.thumbnail | relative_url }}" alt="{{ grandchild.title }}" class="thumbnail {% if page.nothumbnail %}nothumbnail{% endif %}">
+                                    {% endif %}
+                                    {{ content }}
+                                </main>
+                                <nav class="{% if page.withTOC %}TOC{% endif %}"></nav>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
                 {% endfor %}
             {% endfor %}
         {% endfor %}
@@ -189,22 +233,16 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
         integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     
     <!-- prism plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
 
     

@@ -15,7 +15,7 @@
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -33,7 +33,8 @@
 
 
     <!-- favicon -->
-    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url  }}" type="image/svg+xml">
+    <link rel="icon" href="{{ page.favicon | default: '/assets/icon/emoji1f393.svg' | relative_url  }}"
+        type="image/svg+xml">
 
 
 
@@ -41,13 +42,14 @@
 
 <body>
     <div class="all-wrapper">
-
+        <div class="sans master-head">Research Repository</div>
         <main>
             <div class=" radial SP-only">
                 {% include radial.html %}
             </div>
 
             <article class="page sans">
+                
                 <div class="page-body">
                     <div class="column-list">
                         {% for category in site.data.Gnav %}
@@ -57,7 +59,8 @@
                             {% for subcategory in category.children %}
                             <div class="column-category">
                                 <h2 class="submaster">
-                                    <a href="{{ subcategory.url | relative_url }}" class="submaster-title">{{ subcategory.title }}
+                                    <a href="{{ subcategory.url | relative_url }}" class="submaster-title">{{
+                                        subcategory.title }}
                                     </a>
                                 </h2>
                                 {% for page in subcategory.children %}
@@ -69,19 +72,38 @@
                             </div>
 
                             {% unless forloop.last %}
-                                <hr>
+                            <hr>
                             {% endunless %}
-                            
+
                             {% endfor %}
                         </div>
                         {% endfor %}
                     </div>
+                    <details class="details" markdown="1" style="opacity: 1;">
+                        <summary class="summary"><span class="summary-inner"><strong style="font-size: 110%;">最近の更新内容（トグルで開閉します）</strong><img class="ic ic-summary"
+                                    src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="summary" /></span>
+                        </summary>
+                        <div class="details-content">
+                            <div class="log-section">
+                                <div class="log-content">
+                                    {% capture log %}
+                                    {% include_relative log.md %}
+                                    {% endcapture %}
+                                    {% assign log_br = log | strip | newline_to_br | split: "<br />"%}
+                                    {{ log_br | slice:6, 10 | join | markdownify }}
+                                </div>
+                                <div class="view-all">
+                                    <a href="{{ 'log.html' | relative_url }}" class="log-button">すべて表示</a>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </article>
             {{ content }}
             <div class="btm"></div>
         </main>
-        
+
         <footer id="footer" class="PC-only">
             {% include footer.html %}
         </footer>
@@ -92,6 +114,19 @@
     <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>
+
+    <!-- prism plugin -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
 
     <script src="{{ '/assets/js/main.js' | relative_url }}" type="module"></script>
 </body>

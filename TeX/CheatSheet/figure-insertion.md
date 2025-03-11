@@ -1,5 +1,5 @@
 <!--12-->
-<!--図挿入(figure環境)-->
+<!--図挿入（figure環境）-->
 
 - **入力**
     
@@ -17,12 +17,15 @@
 
 - **出力**
     
-    ![neko.png](./figure-insertion/neko.png "max-width=250px")
+    ![いらすとやさん：濡れて細くなった猫のイラスト](./figure-insertion/neko.png "max-width=250px")
 
 ---
 
 - **関連リンク**
+
     <div class="related-link-wrapper">
-        [modal-9]<!--好きな位置に図表を配置(floatパッケージ)--><br>
-        [modal-21]<!--(マクロ)シンプルに図を貼る-->
+      [modal-2]<!--表の挿入（tabular環境）--><br>
+      [modal-21]<!--シンプルに図を貼る（マクロ）--><br>
+      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）--><br>
+      [modal-9]<!--好きな位置に図表を配置（floatパッケージ）-->
     </div>

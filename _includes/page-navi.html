@@ -2,44 +2,52 @@
 <div class="page-navigation sans">
     {% assign current_url = page.url %}
     {% for category in site.data.Gnav %}
-    {% for subcategory in category.children %}
-    {% for page in subcategory.children %}
-    {% if page.url == current_url %}
-    {% assign current_index = forloop.index0 %}
-    {% assign previous_index = current_index | minus: 1 %}
-    {% assign next_index = current_index | plus: 1 %}
-    
-    <!-- Previous Page Button -->
-    {% if previous_index >= 0 %}
-        {% assign previous_page = subcategory.children[previous_index] %}
-        <div class="page-navigation-container">
-            <h3 class="page-navigation-text">前ページへ</h3>
-            <a href="{{ previous_page.url | relative_url }}" class="link-to-page">
-                <img src="{{ previous_page.img | relative_url }}" alt="previous page icon" class="navigation-icon">
-                {{ previous_page.title }}
-            </a>
-        </div>
-    {% else %}
-        <div class="page-navigation-container">
-        </div>
-    {% endif %}
+        {% for subcategory in category.children %}
+            {% for child in subcategory.children %}
+                {% for grandchild in child.children %}
+                    {% if grandchild.url == current_url %}
+                        {% assign current_list = child.children %}
+                        {% assign current_index = forloop.index0 %}
+                    {% endif %}
+                {% endfor %}
+                {% if child.url == current_url %}
+                    {% assign current_list = subcategory.children %}
+                    {% assign current_index = forloop.index0 %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
 
-    <!-- Next Page Button -->
-    {% if next_index < subcategory.children.size %}
-        {% assign next_page = subcategory.children[next_index] %}
-        <div class="page-navigation-container">
-            <h3 class="page-navigation-text">次ページへ</h3>
-            <a href="{{ next_page.url | relative_url }}" class="link-to-page">                
-                <img src="{{ next_page.img | relative_url }}" alt="next page icon" class="navigation-icon">
-                {{ next_page.title }}
-            </a>
-        </div>
-    {% else %}
-        <div class="page-navigation-container">
-        </div>
+    {% if current_list %}
+        {% assign previous_index = current_index | minus: 1 %}
+        {% assign next_index = current_index | plus: 1 %}
+
+        <!-- Previous Page Button -->
+        {% if previous_index >= 0 %}
+            {% assign previous_page = current_list[previous_index] %}
+            <div class="page-navigation-container">
+                <h3 class="page-navigation-text">前ページへ</h3>
+                <a href="{{ previous_page.url | relative_url }}" class="link-to-page">
+                    <img src="{{ previous_page.img | relative_url }}" alt="previous page icon" class="navigation-icon">
+                    {{ previous_page.title }}
+                </a>
+            </div>
+        {% else %}
+            <div class="page-navigation-container"></div>
+        {% endif %}
+
+        <!-- Next Page Button -->
+        {% if next_index < current_list.size %}
+            {% assign next_page = current_list[next_index] %}
+            <div class="page-navigation-container">
+                <h3 class="page-navigation-text">次ページへ</h3>
+                <a href="{{ next_page.url | relative_url }}" class="link-to-page">
+                    <img src="{{ next_page.img | relative_url }}" alt="next page icon" class="navigation-icon">
+                    {{ next_page.title }}
+                </a>
+            </div>
+        {% else %}
+            <div class="page-navigation-container"></div>
+        {% endif %}
     {% endif %}
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-    {% endfor %}
 </div>

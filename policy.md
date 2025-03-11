@@ -1,7 +1,7 @@
 ---
 layout: general
 title: サイトポリシー
-update: 2025/02/09 (Sun)
+update: 2025/02/22 (Sat)
 ---
 
 # サイトの使い方 {#usage}
@@ -51,7 +51,7 @@ update: 2025/02/09 (Sun)
 *の項目は回答が必須です。
 
 <div>
-<iframe src="https://mulberry-reaction-0b7.notion.site/ebd/194c2bc6190780bf94c6e8955613d430" width="100%" height="500" frameborder="0" allowfullscreen />
+<iframe src="https://mulberry-reaction-0b7.notion.site/ebd/194c2bc6190780bf94c6e8955613d430" width="100%" height="500" frameborder="0" allowfullscreen style="border-radius: 1em"/>
 </div>
 
 
@@ -61,8 +61,7 @@ update: 2025/02/09 (Sun)
 - 2024年度　修士卒
 - Mail: 6223529＊ed.tus.ac.jp（＊→＠）
 
-## 更新情報
-
+## サイトポリシー更新情報
 
 - 2025/02/09：フォームを追加。サイトポリシーの一部を更新。
 - 2025/01/13：サイトポリシーを作成。

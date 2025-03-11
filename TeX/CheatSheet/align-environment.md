@@ -1,5 +1,5 @@
 <!--10-->
-<!--align環境(ディスプレイ数式)-->
+<!--align環境（ディスプレイ数式）-->
 
 - **入力**
     
@@ -12,12 +12,13 @@
     
 - **出力**
 
-    ![align-environment](./align-environment/1.png "max-width=600px")
+    ![align環境(ディスプレイ数式)](./align-environment/1.png "max-width=600px")
 
 ---
 
 - **関連リンク**
-    
+
     <div class="related-link-wrapper">
-        [modal-4]<!--＄…＄ (インライン数式)-->
+      [modal-1]<!--数式内の書体関連--><br>
+      [modal-4]<!--＄…＄ （インライン数式）-->
     </div>
