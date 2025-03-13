@@ -6,8 +6,8 @@ update: 2025/03/13 (Thu)
 
 ## 更新履歴
 
-### 2025/03/11
-- <span class="log-mark">add</span> Igor >「Igor チートシート」を追加。
+### 2025/03/13
+- <span class="log-mark">add</span> Igor >「Igorチートシート」を公開、およびいくつかの項目を追加。
 - <span class="log-mark">fix</span> 細かなバグや文字サイズの変更。
 
 ### 2025/03/11
