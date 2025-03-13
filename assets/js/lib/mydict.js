@@ -12,4 +12,9 @@ export const RepDict = {
   "LaTeX":"らてふ",
   "TeX":"てふ",
   "align":"あらいん",
+  "Macro": "まくろ",
+  "Function": "ふぁんくしょん",
+  "Switch": "すうぃっち",
+  "Break":"ぶれいく",
+  "Procedure":"ぷろしーじゃ",
 };

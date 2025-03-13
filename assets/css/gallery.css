@@ -128,7 +128,7 @@
 }
 
 .modal-content h3 {
-  padding: 0;
+  padding: 0.5em;
   border-left: none;
 }
 
@@ -152,15 +152,15 @@
 }
 
 .modal-info {
-	width: 100%;  
+  width: 100%;
   background: #fff;
   padding-bottom: 0.5rem;
 }
 
 .modal-info,
-.modal-topline {  
-	position: relative;
-	transition: 0.1s ease-in-out;
+.modal-topline {
+  position: relative;
+  transition: 0.1s ease-in-out;
 }
 
 
@@ -181,11 +181,10 @@
 .modal-back {
   background: transparent;
   border: 0;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   display: flex;
   border-radius: 9999px;
-  padding: 5px;
 }
 
 
@@ -286,7 +285,7 @@
 }
 
 
-.modal-container .last-date{
+.modal-container .last-date {
   margin-bottom: 12px;
 }
 
@@ -551,7 +550,6 @@
 
 
 アイコンの色を指定
-
 /* .MustKnow-icon {
   fill: var(--col-highlight-red);
   color: var(--col-highlight-red);
@@ -822,8 +820,7 @@
 #SP-checkbox-6:checked+label .ic-x-circle,
 #SP-checkbox-7:checked+label .ic-x-circle,
 #SP-checkbox-8:checked+label .ic-x-circle,
-#SP-checkbox-9:checked+label .ic-x-circle
-#SP-checkbox-10:checked+label .ic-x-circle {
+#SP-checkbox-9:checked+label .ic-x-circle #SP-checkbox-10:checked+label .ic-x-circle {
   display: block;
   margin-left: 8px;
 }
@@ -1026,6 +1023,13 @@ pre.line-numbers code {
     padding: 5px 10px;
     font-size: 13px;
   }
+
+  .modal-close,
+  .modal-back {
+    width: 28px;
+    height: 28px;
+  }
+
 }
 
 @media (max-width : 640px) {
@@ -1158,7 +1162,7 @@ pre.line-numbers code {
 
   .modal-header-btn {
     width: 100dvw;
-    padding-top: 10px;
+    padding: 15px;
   }
 
   .modal-link {
@@ -1166,8 +1170,18 @@ pre.line-numbers code {
     padding: 0.5em 0.8em;
     padding-bottom: 1em;
   }
+
+  .lg-pager-outer {
+    display: none;
+  }
 }
 
+@media (max-width: 360px) {
+  
+  .sort-buttons {
+    font-size: 11px;
+  }
+}
 
 /* PC専用 */
 .PC-only {
@@ -1252,7 +1266,9 @@ pre.line-numbers code {
   z-index: 10;
 }
 
-
+.lg-outer .lg-pager-outer {
+  height: fit-content !important;
+}
 
 @media screen and (max-width: 640px) and (hover: none) and (pointer: coarse) {
 

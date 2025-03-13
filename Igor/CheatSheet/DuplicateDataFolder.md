@@ -32,6 +32,9 @@ DuplicateDataFolder sourceDataFolderSpec, destDataFolderSpec
 DuplicateDataFolder root:sourceFolder, root:destinationFolder
 ```
 
+
+---
+
 - **関連リンク**
 
     <div class="related-link-wrapper">

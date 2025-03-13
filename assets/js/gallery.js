@@ -517,7 +517,9 @@ function setUpSearchFilterSort(grid, tokenizer, checkboxMapping) {
     handleSearchFieldChange(tokenizer, checkboxMapping);
   });
   filterField.addEventListener('change', function (event) {
-    handleFilterChange(event, checkboxMapping);
+    setTimeout(function() {
+      handleFilterChange(event, checkboxMapping);
+    }, 50); 
   });
 
   if (isSP) {
@@ -889,13 +891,14 @@ export function initializeApp(checkboxMapping, csData) {
       initialtokenizer = tokenizer;
       romanizeTheTitle(tokenizer);
 
+      document.querySelectorAll(".modal-link").forEach(element => {
+        element.innerHTML = insertWbr(element.textContent);
+      });
+
       grid = initializeMuuriGrid();
       if (!isTouchDevice()) {
         setUpDragEventHandlers(grid);
       }
-      document.querySelectorAll(".modal-link").forEach(element => {
-        element.innerHTML = insertWbr(element.textContent);
-      });
 
       setUpSearchFilterSort(grid, tokenizer, checkboxMapping);
     });

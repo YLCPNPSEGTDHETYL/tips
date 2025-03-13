@@ -38,6 +38,8 @@ Duplicate wave1, wave2
 
 Duplicateについては：[modal-1]
 
+---
+
 - **関連リンク**
 
     <div class="related-link-wrapper">

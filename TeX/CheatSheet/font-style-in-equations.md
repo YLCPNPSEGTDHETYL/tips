@@ -15,6 +15,8 @@
 | 花文字`\mathscr` <br> ※mathrsfsパッケージ | $\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ |
 | ドイツ文字`\mathfrak` | $\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ |
 
+---
+
 - **関連リンク**
 
     <div class="related-link-wrapper">

@@ -7,6 +7,10 @@ update: 2025/03/11 (Tue)
 ## 更新履歴
 
 ### 2025/03/11
+- <span class="log-mark">add</span> Igor >「Igor チートシート」を追加。
+- <span class="log-mark">fix</span> 細かなバグや文字サイズの変更。
+
+### 2025/03/11
 - <span class="log-mark">update</span> PC、SP版両方のメインページUIを一部変更。
 - <span class="log-mark">fix</span> SPの下部メニューで、「その他」を選んだときに項目が表示されないバグを修正。
 - <span class="log-mark">add</span> プレゼン >「資料の作り方・発表の仕方（3PH向け）」を追加。

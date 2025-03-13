@@ -27,13 +27,26 @@
     
     Ctrl（command）を押さないと移動になります。
     
-    ![Wave-Duplicate1](./Wave-Duplicate/1.png "max-width=800px")
+    ![シンプルなwaveの複製方法](./Wave-Duplicate/1.png "max-width=500px")
     
 - **手法その②：テーブルを活用**
-    
-    行数の異なるwaveは、テーブル上で一括で選択できないので別途コピーペーストを行う必要があります。
+  
+  1. 現在のデータフォルダをコピー先に設定する。
+   
+     ![現在のデータフォルダをコピー先に設定](./Wave-Duplicate/2.png "max-width=500px")
+     
+  2. コピーしたいwaveをすべて選択→ダブルクリックでテーブルとして表示する。  
+     テーブル表示したwaveの列タイトルを押して全選択し、コピー。
+  3. テーブルの空白部分をクリックし、コピーしたwaveをペースト。
+   
+     ![テーブル表示してコピーペースト](./Wave-Duplicate/3.png "max-width=500px")
 
-    ![Wave-Duplicate2](./Wave-Duplicate/2.png "max-width=800px")
+  4. ペースト時に自動的にセットしたデータフォルダにwaveがコピーされる。
+   
+     ![ペースト時にwavwがコピーされる](./Wave-Duplicate/4.png "max-width=500px")
+
+
+    ただし、行数の異なるwaveは、テーブル上で一括で選択できないので別途コピーペーストを行う必要があります。
 
 ---
 

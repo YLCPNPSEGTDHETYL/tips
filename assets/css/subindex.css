@@ -43,17 +43,43 @@ p.entry-tag {
     padding-left: 1%;
 }
 
-.first .ic-circle {
-    color: var(--col-highlight-red);
+.lightblue .ic-circle {
+    color: var(--col-highlight-lightblue);
 }
 
 
-.second .ic-circle {
+.blue .ic-circle {
     color: var(--col-highlight-blue);
 }
 
-.third .ic-circle {
+.purple .ic-circle {
+    color: var(--col-highlight-purple);
+}
+
+.pink .ic-circle {
+    color: var(--col-highlight-pink);
+}
+
+
+.red .ic-circle {
+    color: var(--col-highlight-red);
+}
+
+.orange .ic-circle {
+    color: var(--col-highlight-orange);
+}
+
+.yellow .ic-circle {
+    color: var(--col-highlight-yellow);
+}
+
+
+.green .ic-circle {
     color: var(--col-highlight-green);
+}
+
+.bluegreen .ic-circle {
+    color: var(--col-highlight-bluegreen);
 }
 
 

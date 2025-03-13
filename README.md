@@ -9,6 +9,12 @@
 ![alt](1.png "max-width=900px alt")
 ```
 
+## modal内ジャンプ
+```md
+{キャプション}[modal-1]
+```
+
+
 ## aside
 
 ```html
@@ -90,3 +96,14 @@ md text
 ```
 
 
+
+## 文中のアイコン
+
+```html
+<span><img class="ic" src="xxx.png" alt="xxxアイコン" style="max-width: 28px; border-radius: 0; margin: 0 2px"></span>
+```
+
+
+## 準備中
+
+<!-- 準備中 -->
