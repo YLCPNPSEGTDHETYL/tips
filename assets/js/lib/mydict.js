@@ -16,5 +16,8 @@ export const RepDict = {
   "Function": "ふぁんくしょん",
   "Switch": "すうぃっち",
   "Break":"ぶれいく",
+  "jouken":"じょうけん",
+  "enzanko":"えんざんし",
+  "return":"りたーん",
   "Procedure":"ぷろしーじゃ",
 };
