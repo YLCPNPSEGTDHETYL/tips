@@ -7,7 +7,8 @@
   - '4'
   tag: MustKnow Eq Package
   title: 数式内の書体関連
-  update: 2025/03/11 (Tue)
+  update: 2025/03/13 (Thu)
+
 - id: '2'
   link: /TeX/CheatSheet/table-insertion.md
   related:
@@ -20,6 +21,7 @@
   tag: MustKnow FigTabItm
   title: 表の挿入（tabular環境）
   update: 2025/03/11 (Tue)
+
 - id: '3'
   link: /TeX/CheatSheet/geometry-margin-settings.md
   related:
@@ -30,6 +32,7 @@
   tag: MustKnow Layout Package
   title: 余白設定（geometryパッケージ）
   update: 2025/03/11 (Tue)
+
 - id: '4'
   link: /TeX/CheatSheet/inline-equation.md
   related:
@@ -38,6 +41,7 @@
   tag: MustKnow Eq
   title: ＄…＄ （インライン数式）
   update: 2025/03/11 (Tue)
+
 - id: '5'
   link: /TeX/CheatSheet/bullet-list.md
   related:
@@ -46,6 +50,7 @@
   tag: MustKnow FigTabItm
   title: 記号付き箇条書き（item環境）
   update: 2025/03/11 (Tue)
+
 - id: '6'
   link: /TeX/CheatSheet/numbered-list.md
   related:
@@ -55,6 +60,7 @@
   tag: MustKnow FigTabItm Package
   title: 番号付き箇条書き（enumitem環境）
   update: 2025/03/11 (Tue)
+
 - id: '7'
   link: /TeX/CheatSheet/description-list.md
   related:
@@ -64,6 +70,7 @@
   tag: FigTabItm
   title: 見出し付き箇条書き（description環境）
   update: 2025/03/11 (Tue)
+
 - id: '8'
   link: /TeX/CheatSheet/document-class.md
   related:
@@ -71,7 +78,8 @@
   - '16'
   tag: MustKnow StyDocStr
   title: ドキュメントクラス
-  update: 2025/03/11 (Tue)
+  update: 2025/03/13 (Thu)
+
 - id: '9'
   link: /TeX/CheatSheet/float-positioning.md
   related:
@@ -81,6 +89,7 @@
   tag: MustKnow FigTabItm Package
   title: 好きな位置に図表を配置（floatパッケージ）
   update: 2025/03/11 (Tue)
+
 - id: '10'
   link: /TeX/CheatSheet/align-environment.md
   related:
@@ -89,6 +98,7 @@
   tag: MustKnow Eq
   title: align環境（ディスプレイ数式）
   update: 2025/03/11 (Tue)
+
 - id: '11'
   link: /TeX/CheatSheet/big-brackets-in-equations.md
   related:
@@ -97,6 +107,7 @@
   tag: MustKnow Eq EqSymbl Package HighLevel
   title: 大きなかっこ（数式）
   update: 2025/03/11 (Tue)
+
 - id: '12'
   link: /TeX/CheatSheet/figure-insertion.md
   related:
@@ -107,6 +118,7 @@
   tag: MustKnow FigTabItm
   title: 図の挿入（figure環境）
   update: 2025/03/11 (Tue)
+
 - id: '13'
   link: /TeX/CheatSheet/xcolor-text-color.md
   related:
@@ -115,6 +127,7 @@
   tag: MustKnow StyDocStr Package
   title: 文字などの色を指定（xcolorパッケージ）
   update: 2025/03/11 (Tue)
+
 - id: '14'
   link: /TeX/CheatSheet/length-units.md
   related:
@@ -125,6 +138,7 @@
   tag: MustKnow Layout
   title: 長さの単位
   update: 2025/03/11 (Tue)
+
 - id: '15'
   link: /TeX/CheatSheet/page-layout.md
   related:
@@ -134,7 +148,8 @@
   - '8'
   tag: MustKnow Layout
   title: ページレイアウト
-  update: 2025/03/11 (Tue)
+  update: 2025/03/13 (Thu)
+
 - id: '16'
   link: /TeX/CheatSheet/section-formatting.md
   related:
@@ -142,6 +157,7 @@
   tag: MustKnow StyDocStr
   title: sectionなどの書式変更
   update: 2025/03/11 (Tue)
+
 - id: '17'
   link: /TeX/CheatSheet/line-spacing-adjustments.md
   related:
@@ -152,6 +168,7 @@
   tag: MustKnow Layout Package
   title: 行送り、行間の調整
   update: 2025/03/11 (Tue)
+
 - id: '18'
   link: /TeX/CheatSheet/indent-adjustment.md
   related:
@@ -160,6 +177,7 @@
   tag: MustKnow Layout
   title: インデント（字下げ）調整
   update: 2025/03/11 (Tue)
+
 - id: '19'
   link: /TeX/CheatSheet/matrix-in-equations.md
   related:
@@ -168,6 +186,7 @@
   tag: MustKnow Eq Package
   title: 行列（数式）
   update: 2025/03/11 (Tue)
+
 - id: '20'
   link: /TeX/CheatSheet/case-in-equations.md
   related:
@@ -176,6 +195,7 @@
   tag: MustKnow Eq
   title: 場合分け（数式中）
   update: 2025/03/11 (Tue)
+
 - id: '21'
   link: /TeX/CheatSheet/macro-simple-image-insert.md
   related:
@@ -185,6 +205,7 @@
   tag: Macro FigTabItm
   title: シンプルに図を貼る（マクロ）
   update: 2025/03/11 (Tue)
+
 - id: '22'
   link: /TeX/CheatSheet/insert-excel-tables.md
   related:
@@ -192,6 +213,7 @@
   tag: FigTabItm
   title: Excel等で作った表をTeXに挿入
   update: 2025/03/11 (Tue)
+
 - id: '23'
   link: /TeX/CheatSheet/macro-define-color.md
   related:
@@ -199,12 +221,14 @@
   tag: Macro
   title: 色を定義して使う（マクロ）
   update: 2025/03/11 (Tue)
+
 - id: '24'
   link: /TeX/CheatSheet/quotation-mark.md
   related: []
   tag: MustKnow StyDocStr
   title: クォーテーションの書き方
   update: 2025/03/11 (Tue)
+
 - id: '25'
   link: /TeX/CheatSheet/int.md
   related:
@@ -212,6 +236,7 @@
   tag: MustKnow EqSymbl
   title: 積分記号
   update: 2025/03/11 (Tue)
+
 - id: '26'
   link: /TeX/CheatSheet/diff.md
   related:
@@ -219,6 +244,7 @@
   tag: MustKnow EqSymbl
   title: 微分記号
   update: 2025/03/11 (Tue)
+
 - id: '27'
   link: /TeX/CheatSheet/hyperref.md
   related:

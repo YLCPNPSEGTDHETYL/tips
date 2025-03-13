@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2025/03/11 (Tue)
+update: 2025/03/13 (Thu)
 ---
 
 # はじめに
@@ -70,7 +70,7 @@ Igorでの操作にまだ慣れていない人向けの内容になっている�
 - セーブです。
 - オートセーブの設定をしておくとよいです。ツールバーの「Miscellaneous Setting」（⚙マーク）から、一番上のAutosaveを選び、たとえば以下のように設定しておきます。
     
-![オートセーブ](Autosave.png "max-width=900px Autosave")
+![オートセーブ](autosave.png "max-width=900px Autosave")
     
 
 ### **Save Experiment As…**

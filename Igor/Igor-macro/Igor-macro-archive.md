@@ -1,7 +1,7 @@
 ---
 layout: md
 withTOC: true
-update: 2025/03/11 (Tue)
+update: 2025/03/13 (Thu)
 ---
 
 少しだけですが、いくつかプロシージャを置いておきます。
