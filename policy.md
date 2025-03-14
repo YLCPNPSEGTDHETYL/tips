@@ -1,14 +1,14 @@
 ---
 layout: general
 title: サイトポリシー
-update: 2025/03/13 (Thu)
+update: 2025/03/14 (Fri)
 ---
 
 # サイトの使い方 {#usage}
 --- 
 
-<!-- <lite-youtube videoid="tRkmqoSnnLU" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube> -->
-{::nomarkdown}
+<lite-youtube videoid="o19Yw2ftdS0" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
+<!-- {::nomarkdown}
 <div style="background-color: #000; position: relative; display: block; contain: content; background-position: center center; background-size: cover; cursor: pointer; max-width: 720px;width: 100%; aspect-ratio: calc(16 / 9); margin: auto; margin-top: 1em; border-radius: 0.5rem;;">
    <svg width="85" height="60" viewBox="0 0 322 226" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); fill="none" xmlns="http://www.w3.org/2000/svg">
    
@@ -17,7 +17,7 @@ update: 2025/03/13 (Thu)
    </svg>
 </div>
 
-{:/nomarkdown}
+{:/nomarkdown} -->
 
 # サイトポリシー {#policy}
 ---
