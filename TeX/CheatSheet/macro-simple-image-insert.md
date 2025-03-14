@@ -46,7 +46,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-12]<!--図の挿入（figure環境）--><br>
-      [modal-2]<!--表の挿入（tabular環境）--><br>
-      [modal-9]<!--好きな位置に図表を配置（floatパッケージ）-->
+      [modal-12]<!--図の挿入（figure環境）-->
     </div>

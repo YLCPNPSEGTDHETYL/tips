@@ -72,7 +72,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-12]<!--図の挿入（figure環境）--><br>
-      [modal-13]<!--文字などの色を指定（xcolorパッケージ）--><br>
-      [modal-2]<!--表の挿入（tabular環境）-->
+      [modal-8]<!--ドキュメントクラス-->
     </div>

@@ -144,6 +144,5 @@
 
     <div class="related-link-wrapper">
       [modal-5]<!--記号付き箇条書き（item環境）--><br>
-      [modal-6]<!--番号付き箇条書き（enumitem環境）--><br>
       [modal-7]<!--見出し付き箇条書き（description環境）-->
     </div>

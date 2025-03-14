@@ -60,5 +60,5 @@
 
     <div class="related-link-wrapper">
       [modal-15]<!--ページレイアウト--><br>
-      [modal-16]<!--sectionなどの書式変更-->
+      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）-->
     </div>

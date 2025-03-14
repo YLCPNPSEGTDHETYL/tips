@@ -25,6 +25,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-14]<!--長さの単位--><br>
       [modal-17]<!--行送り、行間の調整-->
     </div>

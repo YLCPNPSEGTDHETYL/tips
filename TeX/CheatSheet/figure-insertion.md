@@ -26,6 +26,6 @@
     <div class="related-link-wrapper">
       [modal-2]<!--表の挿入（tabular環境）--><br>
       [modal-21]<!--シンプルに図を貼る（マクロ）--><br>
-      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）--><br>
+      [modal-22]<!--Excel等で作った表をTeXに挿入--><br>
       [modal-9]<!--好きな位置に図表を配置（floatパッケージ）-->
     </div>

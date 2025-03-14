@@ -35,9 +35,3 @@
     | ¥Alph{counter} | （小）アルファベット（A, B, …） |
 
 ---
-
-- **関連リンク**
-
-    <div class="related-link-wrapper">
-      [modal-8]<!--ドキュメントクラス-->
-    </div>

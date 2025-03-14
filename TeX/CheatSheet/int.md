@@ -36,5 +36,6 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
+      [modal-1]<!--数式内の書体関連--><br>
       [modal-26]<!--微分記号-->
     </div>

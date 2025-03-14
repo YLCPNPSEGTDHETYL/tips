@@ -56,8 +56,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-14]<!--長さの単位--><br>
-      [modal-15]<!--ページレイアウト--><br>
-      [modal-18]<!--インデント（字下げ）調整--><br>
-      [modal-3]<!--余白設定（geometryパッケージ）-->
+      [modal-18]<!--インデント（字下げ）調整-->
     </div>

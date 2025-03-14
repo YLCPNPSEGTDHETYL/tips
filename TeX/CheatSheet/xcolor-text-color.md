@@ -74,6 +74,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-23]<!--色を定義して使う（マクロ）--><br>
-      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）-->
+      [modal-23]<!--色を定義して使う（マクロ）-->
     </div>

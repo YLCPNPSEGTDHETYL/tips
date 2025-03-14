@@ -27,7 +27,5 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-12]<!--図の挿入（figure環境）--><br>
-      [modal-2]<!--表の挿入（tabular環境）--><br>
-      [modal-21]<!--シンプルに図を貼る（マクロ）-->
+      [modal-12]<!--図の挿入（figure環境）-->
     </div>

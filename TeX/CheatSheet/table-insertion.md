@@ -31,10 +31,6 @@
 - **関連リンク**
 
     <div class="related-link-wrapper">
-      [modal-1]<!--数式内の書体関連--><br>
       [modal-12]<!--図の挿入（figure環境）--><br>
-      [modal-21]<!--シンプルに図を貼る（マクロ）--><br>
-      [modal-22]<!--Excel等で作った表をTeXに挿入--><br>
-      [modal-27]<!--ハイパーリンクをつける（hyperrefパッケージ）--><br>
-      [modal-9]<!--好きな位置に図表を配置（floatパッケージ）-->
+      [modal-22]<!--Excel等で作った表をTeXに挿入-->
     </div>
