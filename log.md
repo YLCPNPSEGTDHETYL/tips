@@ -8,6 +8,7 @@ update: 2025/03/14 (Fri)
 
 ### 2025/03/14
 - <span class="log-mark">update</span> サイトの使い方動画を公開。サイトポリシーのページに埋め込みしました。
+- <span class="log-mark">fix</span> TeX > 「TeXチートシート」におけるリレーションを修正。
 
 ### 2025/03/13
 - <span class="log-mark">add</span> Igor >「Igorチートシート」を公開、およびいくつかの項目を追加。
