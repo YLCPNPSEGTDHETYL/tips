@@ -49,7 +49,7 @@
             </div>
 
             <article class="page sans">
-                
+
                 <div class="page-body">
                     <div class="column-list">
                         {% for category in site.data.Gnav %}
@@ -80,7 +80,8 @@
                         {% endfor %}
                     </div>
                     <details class="details" markdown="1" style="opacity: 1;">
-                        <summary class="summary"><span class="summary-inner"><strong style="font-size: 110%;">最近の更新内容（トグルで開閉します）</strong><img class="ic ic-summary"
+                        <summary class="summary"><span class="summary-inner"><strong
+                                    style="font-size: 110%;">最近の更新内容（トグルで開閉します）</strong><img class="ic ic-summary"
                                     src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="summary" /></span>
                         </summary>
                         <div class="details-content">
@@ -110,6 +111,15 @@
 
     </div>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VJLESZVBH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1VJLESZVBH');
+    </script>
 
     <script type='text/javascript' src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
