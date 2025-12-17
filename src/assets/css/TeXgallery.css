@@ -1,0 +1,203 @@
+/* アイコンの色を指定 */
+
+.MustKnow-icon {
+  fill: var(--col-highlight-red);
+  color: var(--col-highlight-red);
+}
+
+.Eq-icon {
+  fill: var(--col-highlight-blue);
+  color: var(--col-highlight-blue);
+}
+
+.EqSymbl-icon {
+  fill: var(--col-highlight-green);
+  color: var(--col-highlight-green);
+}
+
+.FigTabItm-icon {
+  fill: var(--col-highlight-yellow);
+  color: var(--col-highlight-yellow);
+}
+
+.Layout-icon {
+  fill: var(--col-highlight-orange);
+  color: var(--col-highlight-orange);
+}
+
+.StyDocStr-icon {
+  fill: var(--col-highlight-lightblue);
+  color: var(--col-highlight-lightblue);
+}
+
+.HighLevel-icon {
+  fill: var(--col-highlight-pink);
+  color: var(--col-highlight-pink);
+}
+
+.Macro-icon {
+  fill: var(--col-gray);
+  color: var(--col-gray);
+}
+
+.Package-icon {
+  fill: var(--col-highlight-purple);
+  color: var(--col-highlight-purple);
+}
+
+.filter-field input[type="checkbox"] {
+  display: none;
+}
+
+.MustKnow .ic-circle {
+  color: var(--col-highlight-red);
+}
+
+.Eq .ic-circle {
+  color: var(--col-highlight-blue);
+}
+
+.EqSymbl .ic-circle {
+  color: var(--col-highlight-green);
+}
+
+.FigTabItm .ic-circle {
+  color: var(--col-highlight-yellow);
+}
+
+.Layout .ic-circle {
+  color: var(--col-highlight-orange);
+}
+
+.StyDocStr .ic-circle {
+  color: var(--col-highlight-lightblue);
+}
+
+.HighLevel .ic-circle {
+  color: var(--col-highlight-pink);
+}
+
+.Macro .ic-circle {
+  color: var(--col-gray);
+}
+
+.Package .ic-circle {
+  color: var(--col-highlight-purple);
+}
+
+#PC-checkbox-1:checked+label.MustKnow,
+#PC-checkbox-2:checked+label.Eq,
+#PC-checkbox-3:checked+label.EqSymbl,
+#PC-checkbox-4:checked+label.FigTabItm,
+#PC-checkbox-5:checked+label.Layout,
+#PC-checkbox-6:checked+label.StyDocStr,
+#PC-checkbox-7:checked+label.Package,
+#PC-checkbox-8:checked+label.HighLevel,
+#PC-checkbox-9:checked+label.Macro {
+  border-style: solid;
+  color: var(--col-text);
+}
+
+#PC-checkbox-1:checked+label.MustKnow {
+  background-color: var(--col-bg-red);
+  border-color: var(--col-highlight-red);
+}
+
+#PC-checkbox-2:checked+label.Eq {
+  background-color: var(--col-bg-blue);
+  border-color: var(--col-highlight-blue);
+}
+
+#PC-checkbox-3:checked+label.EqSymbl {
+  background-color: var(--col-bg-green);
+  border-color: var(--col-highlight-green);
+}
+
+#PC-checkbox-4:checked+label.FigTabItm {
+  background-color: var(--col-bg-yellow);
+  border-color: var(--col-highlight-yellow);
+}
+
+#PC-checkbox-5:checked+label.Layout {
+  background-color: var(--col-bg-orange);
+  border-color: var(--col-highlight-orange);
+}
+
+#PC-checkbox-6:checked+label.StyDocStr {
+  background-color: var(--col-bg-lightblue);
+  border-color: var(--col-highlight-lightblue);
+}
+
+#PC-checkbox-7:checked+label.Package {
+  background-color: var(--col-bg-purple);
+  border-color: var(--col-highlight-purple);
+}
+
+#PC-checkbox-8:checked+label.HighLevel {
+  background-color: var(--col-bg-pink);
+  border-color: var(--col-highlight-pink);
+}
+
+#PC-checkbox-9:checked+label.Macro {
+  background-color: var(--col-bg-gray);
+  border-color: var(--col-gray);
+}
+
+/* SP版のチェックボックスに対応するラベルの基本スタイル */
+#SP-checkbox-1:checked+label.MustKnow,
+#SP-checkbox-2:checked+label.Eq,
+#SP-checkbox-3:checked+label.EqSymbl,
+#SP-checkbox-4:checked+label.FigTabItm,
+#SP-checkbox-5:checked+label.Layout,
+#SP-checkbox-6:checked+label.StyDocStr,
+#SP-checkbox-7:checked+label.Package,
+#SP-checkbox-8:checked+label.HighLevel,
+#SP-checkbox-9:checked+label.Macro {
+  border-style: solid;
+  color: var(--col-text);
+}
+
+#SP-checkbox-1:checked+label.MustKnow {
+  background-color: var(--col-bg-red);
+  border-color: var(--col-highlight-red);
+}
+
+#SP-checkbox-2:checked+label.Eq {
+  background-color: var(--col-bg-blue);
+  border-color: var(--col-highlight-blue);
+}
+
+#SP-checkbox-3:checked+label.EqSymbl {
+  background-color: var(--col-bg-green);
+  border-color: var(--col-highlight-green);
+}
+
+#SP-checkbox-4:checked+label.FigTabItm {
+  background-color: var(--col-bg-yellow);
+  border-color: var(--col-highlight-yellow);
+}
+
+#SP-checkbox-5:checked+label.Layout {
+  background-color: var(--col-bg-orange);
+  border-color: var(--col-highlight-orange);
+}
+
+#SP-checkbox-6:checked+label.StyDocStr {
+  background-color: var(--col-bg-lightblue);
+  border-color: var(--col-highlight-lightblue);
+}
+
+#SP-checkbox-7:checked+label.Package {
+  background-color: var(--col-bg-purple);
+  border-color: var(--col-highlight-purple);
+}
+
+#SP-checkbox-8:checked+label.HighLevel {
+  background-color: var(--col-bg-pink);
+  border-color: var(--col-highlight-pink);
+}
+
+#SP-checkbox-9:checked+label.Macro {
+  background-color: var(--col-bg-gray);
+  border-color: var(--col-gray);
+}
