@@ -1,10 +1,10 @@
-import { Component, Input, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-tips-accordion',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './tips-accordion.component.html',
   styleUrl: './tips-accordion.component.scss'
 })

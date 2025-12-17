@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
-import { NAVIGATION_DATA, NavigationItem, getTagColor, getTagText } from '../../data/navigation';
+import { NAVIGATION_DATA, getTagColor, getTagText } from '../../data/navigation';
 
 @Component({
 	selector: 'app-home',
 	standalone: true,
-	imports: [CommonModule, RouterLink],
+	imports: [RouterLink],
 	templateUrl: './home.component.html',
 	styleUrl: './home.component.scss'
 })

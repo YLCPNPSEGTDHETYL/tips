@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-	selector: 'app-article',
-	standalone: true,
-	imports: [CommonModule],
-	template: `
+  selector: 'app-article',
+  standalone: true,
+  imports: [],
+  template: `
     <div class="article-container">
       <h1>{{ articlePath }}</h1>
       <p>記事ページ（準備中）</p>
       <p>マークダウンコンテンツの読み込み機能は次のタスクで実装します。</p>
     </div>
   `,
-	styles: [`
+  styles: [`
     .article-container {
       max-width: 800px;
       margin: 2rem auto;
@@ -36,11 +36,12 @@ import { ActivatedRoute } from '@angular/router';
   `]
 })
 export class ArticleComponent {
-	articlePath: string = '';
+  private route = inject(ActivatedRoute);
+  articlePath = '';
 
-	constructor(private route: ActivatedRoute) {
-		this.route.url.subscribe(segments => {
-			this.articlePath = segments.map(s => s.path).join('/');
-		});
-	}
+  constructor() {
+    this.route.url.subscribe(segments => {
+      this.articlePath = segments.map(s => s.path).join('/');
+    });
+  }
 }
