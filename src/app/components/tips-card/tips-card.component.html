@@ -1,0 +1,32 @@
+<a [routerLink]="link" class="tips-card">
+  @if (thumbnail) {
+    <div class="tips-card__thumbnail">
+      <img [src]="thumbnail" [alt]="title" loading="lazy">
+    </div>
+  }
+
+  <div class="tips-card__content">
+    @if (date || tags.length > 0) {
+      <div class="tips-card__meta">
+        @if (date) {
+          <span class="tips-card__date">{{ date }}</span>
+        }
+        @if (tags.length > 0) {
+          <div class="tips-card__tags">
+            @for (tag of tags; track tag) {
+              <span class="tips-card__tag">#{{ tag }}</span>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    <h3 class="tips-card__title">{{ title }}</h3>
+
+    @if (description) {
+      <p class="tips-card__description">
+        {{ description }}
+      </p>
+    }
+  </div>
+</a>

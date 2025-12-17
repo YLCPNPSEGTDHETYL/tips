@@ -1,0 +1,6 @@
+{
+	"framework": "angular",
+	"buildCommand": "ng build",
+	"outputDirectory": "dist/tips/browser",
+	"ignoreCommand": "git diff --quiet HEAD^ HEAD ./"
+}

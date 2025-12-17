@@ -1,0 +1,90 @@
+@use '../../../styles/tokens' as tokens;
+
+.tips-card {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--tips-surface-base);
+	border: 1px solid var(--tips-border-neutral);
+	border-radius: var(--tips-radius-md);
+	overflow: hidden;
+	text-decoration: none;
+	transition: all 0.2s ease;
+	height: 100%;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--tips-shadow-md);
+		border-color: var(--tips-primary-200);
+
+		.tips-card__title {
+			color: var(--tips-primary-600);
+		}
+	}
+
+	&__thumbnail {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		background-color: var(--tips-surface-alt);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+	}
+
+	&:hover &__thumbnail img {
+		transform: scale(1.05);
+	}
+
+	&__content {
+		padding: var(--tips-spacing-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--tips-spacing-sm);
+		flex: 1;
+	}
+
+	&__meta {
+		display: flex;
+		align-items: center;
+		gap: var(--tips-spacing-sm);
+		flex-wrap: wrap;
+		font-size: var(--tips-font-size-xs);
+		color: var(--tips-text-secondary);
+	}
+
+	&__tags {
+		display: flex;
+		gap: var(--tips-spacing-xs);
+	}
+
+	&__tag {
+		background-color: var(--tips-surface-alt);
+		padding: 2px 6px;
+		border-radius: var(--tips-radius-sm);
+	}
+
+	&__title {
+		margin: 0;
+		font-size: var(--tips-font-size-lg);
+		font-weight: var(--tips-font-weight-bold);
+		color: var(--tips-text-primary);
+		line-height: 1.4;
+		transition: color 0.2s ease;
+	}
+
+	&__description {
+		margin: 0;
+		font-size: var(--tips-font-size-sm);
+		color: var(--tips-text-secondary);
+		line-height: 1.6;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+}

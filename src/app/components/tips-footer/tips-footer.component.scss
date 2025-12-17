@@ -1,0 +1,51 @@
+@use '../../../styles/tokens' as tokens;
+
+.tips-footer {
+	width: 100%;
+	background-color: var(--tips-surface-base);
+	border-top: 1px solid var(--tips-border-neutral);
+	padding: var(--tips-spacing-lg) 0;
+	margin-top: auto;
+	/* フッターを最下部に固定するため */
+
+	&__container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 var(--tips-spacing-md);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--tips-spacing-md);
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__copyright {
+		color: var(--tips-text-secondary);
+		font-size: var(--tips-font-size-sm);
+		margin: 0;
+	}
+
+	&__links {
+		display: flex;
+		gap: var(--tips-spacing-md);
+
+		a {
+			color: var(--tips-text-secondary);
+			text-decoration: none;
+			font-size: var(--tips-font-size-sm);
+			transition: color 0.2s ease;
+
+			&:hover {
+				color: var(--tips-primary-500);
+				text-decoration: underline;
+			}
+		}
+	}
+}
