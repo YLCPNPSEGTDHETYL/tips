@@ -1,4 +1,4 @@
-@use 'src/styles/tokens' as tokens;
+@use '../../../styles/tokens' as tokens;
 
 .tips-accordion {
 	border: 1px solid var(--tips-border-neutral);
