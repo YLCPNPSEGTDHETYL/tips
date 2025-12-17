@@ -10,10 +10,11 @@ describe('TipsAccordionComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TipsAccordionComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TipsAccordionComponent);
     component = fixture.componentInstance;
+    component.title = 'Test Title';
     fixture.detectChanges();
   });
 

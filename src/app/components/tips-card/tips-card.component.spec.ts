@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { TipsCardComponent } from './tips-card.component';
 
 describe('TipsCardComponent', () => {
@@ -8,12 +8,15 @@ describe('TipsCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TipsCardComponent]
+      imports: [TipsCardComponent],
+      providers: [provideRouter([])]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TipsCardComponent);
     component = fixture.componentInstance;
+    component.title = 'Test Title';
+    component.link = '/test-link';
     fixture.detectChanges();
   });
 

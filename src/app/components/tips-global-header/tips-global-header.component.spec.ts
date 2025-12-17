@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { TipsGlobalHeaderComponent } from './tips-global-header.component';
 
 describe('TipsGlobalHeaderComponent', () => {
@@ -8,10 +8,11 @@ describe('TipsGlobalHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TipsGlobalHeaderComponent]
+      imports: [TipsGlobalHeaderComponent],
+      providers: [provideRouter([])]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TipsGlobalHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
