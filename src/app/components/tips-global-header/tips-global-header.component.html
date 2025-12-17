@@ -1,0 +1,24 @@
+<header class="tips-header">
+	<div class="tips-header__container">
+		<!-- Logo -->
+		<a routerLink="/" class="tips-header__logo">
+			<span class="tips-header__logo-text">Tips</span>
+		</a>
+
+		<!-- Desktop Navigation -->
+		<nav class="tips-header__nav">
+			<ul class="tips-header__nav-list">
+				<li class="tips-header__nav-item">
+					<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+				</li>
+				<li class="tips-header__nav-item">
+					<a routerLink="/about" routerLinkActive="active">About</a>
+				</li>
+				<!-- 他のリンクは必要に応じて追加 -->
+			</ul>
+		</nav>
+
+		<!-- Mobile Menu Button (Future implementation) -->
+		<!-- <button class="tips-header__menu-btn">Menu</button> -->
+	</div>
+</header>
