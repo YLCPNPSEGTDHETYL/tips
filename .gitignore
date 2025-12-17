@@ -26,3 +26,9 @@ Thumbs.db
 
 # Test coverage
 coverage/
+
+# Local authentication (contains tokens)
+setup-gh-auth-local.ps1
+
+# Temporary issue body files (keep these for editing)
+# issue-*-body.md files are intentionally NOT ignored

@@ -1,109 +1,122 @@
-# https://ylcpnpsegtdhetyl.github.io/tips/
+# Tips - Research Repository
 
+既存のJekyllサイトをAngularに移行するプロジェクト
 
-以下自分用メモ
+## 🚀 開発環境セットアップ
 
-## 画像
+### 前提条件
+- Node.js v20.19以上 または v22.12以上
+- npm 11.x以上
+- Angular CLI 17.3以上
 
-```md
-![alt](1.png "max-width=900px alt")
+### 初回セットアップ
+
+```bash
+# 依存関係をインストール
+npm install
+
+# このプロジェクト専用のGitHub CLI認証を設定
+. .\setup-gh-auth.ps1
 ```
 
-## modal内ジャンプ
-```md
-{キャプション}[modal-1]
+### 開発サーバー起動
+
+```bash
+# 開発サーバー起動
+npm start
 ```
 
+ブラウザで `http://localhost:4200/` にアクセス
 
-## aside
+## 📋 開発ワークフロー
 
-```html
-<aside class="">
-  <div>
-  text
-  </div>
-</aside>
+### ⚠️ 重要: 作業開始時の手順
+
+**このプロジェクトで作業する前に、必ず以下を実行してください：**
+
+```powershell
+# YLCPNPSEGTDHETYL認証を有効化（このセッションのみ有効）
+. .\setup-gh-auth.ps1
 ```
 
-```html
-<aside class="warning">
-  <div>
-  text
-  </div>
-</aside>
+このコマンドを実行しないと、GitHub CLIコマンド（`gh`）がM0G3K0アカウントで実行されてしまいます。
+
+### ブランチ戦略
+
+```
+main (現行Jekyllサイト - 保護)
+  ↑
+beta (Angular統合ブランチ)
+  ↑
+feature/* (機能開発ブランチ)
 ```
 
-```html
-<aside class="bulb">
-  <div>
-  text
-  </div>
-</aside>
+- `main`: 現在動作しているJekyllサイト（触らない）
+- `beta`: Angular開発用の統合ブランチ
+- `feature/*`: 各機能の開発ブランチ
+
+### 新機能開発フロー
+
+1. **認証設定を有効化**
+   ```powershell
+   . .\setup-gh-auth.ps1
+   ```
+
+2. **betaブランチから新しいブランチを作成**
+   ```bash
+   git checkout beta
+   git pull origin beta
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **開発・コミット**
+   ```bash
+   # タスクごとに細かくコミット
+   git add .
+   git commit -m "feat: add specific feature"
+   ```
+
+4. **プッシュ・PR作成**
+   ```bash
+   git push -u origin feature/your-feature-name
+   gh pr create --base beta --title "feat: your feature" --body-file pr-body.md
+   ```
+
+5. **CIチェックとレビュー**
+   - すべてのCIチェックがパス
+   - レビュー承認後、betaへマージ
+
+### ブランチ切り替え時の注意
+
+`.gitignore`されていないファイル（`issue-*-body.md`など）は、ブランチ切り替え前に`git stash`してください：
+
+```bash
+git stash
+git checkout other-branch
+git stash pop  # 必要に応じて
 ```
 
-```html
-<aside class="star">
-  <div>
-  text
-  </div>
-</aside>
+## 🏗️ プロジェクト構成
+
+```
+tips/
+├── src/
+│   ├── app/
+│   │   ├── pages/          # ページコンポーネント
+│   │   ├── components/     # 再利用可能コンポーネント
+│   │   ├── services/       # サービス
+│   │   └── data/          # 静的データ
+│   ├── assets/            # 画像、アイコン
+│   └── styles/
+│       └── tokens/        # デザイントークン
+├── .github/
+│   ├── workflows/         # CI/CD設定
+│   └── ISSUE_TEMPLATE/    # Issueテンプレート
+└── issue-*-body.md       # Issue編集用（git管理外）
 ```
 
+## 📚 参考資料
 
-## detail
-
-```html
-{::nomarkdown}
-<details  class= "details" markdown="1">
-    <summary class="summary">
-    <span class="summary-inner">
-    title
-    <img class="ic ic-summary" src="{{ '/assets/icon/chevron-down.svg' | relative_url }}" alt="summary" />
-    </span>
-    </summary>
-    <div class="details-content">
-    <div class="details-content-inner">
-{:/nomarkdown}
-
-md text
-
-{::nomarkdown}
-  </div>
-  </div>
-</details>
-{:/nomarkdown}
-```
-
-## ボタン風
-
-```html
-<span class="wrap-btn-style">➡追加</span>
-```
-
-
-## リンク
-
-```html
-<span class="inlink">[text](#header-xxx)</span>
-```
-
-```html
-<span class="familylink">[text](link.md)</span>
-```
-
-```html
-<span class="exlink">[text](url)</span>
-```
-
-
-
-## 文中のアイコン
-
-```html
-<span><img class="ic" src="xxx.png" alt="xxxアイコン" style="max-width: 28px; border-radius: 0; margin: 0 2px"></span>
-```
-
-
-## 準備中
-
-<!-- 準備中 -->
+- [CONTRIBUTING.md](./CONTRIBUTING.md) - コントリビューションガイド
+- [Angular公式ドキュメント](https://angular.io/)
+- [デザインシステム](./src/styles/tokens/) - トークンベースのデザインシステム

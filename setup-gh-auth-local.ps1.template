@@ -1,0 +1,11 @@
+# ローカル専用の認証設定ファイル（git管理外）
+# このファイルをsetup-gh-auth-local.ps1としてコピーして使用
+
+# グローバル設定を一時的にYLCPNPSEGTDHETYLに切り替え
+gh auth switch -u YLCPNPSEGTDHETYL
+
+# トークン認証（オプション）
+# $env:GH_TOKEN = "YOUR_PERSONAL_ACCESS_TOKEN_HERE"
+
+Write-Host "✅ GitHub CLI switched to YLCPNPSEGTDHETYL account" -ForegroundColor Green
+Write-Host "   Remember to switch back when done: gh auth switch -u M0G3K0" -ForegroundColor Yellow

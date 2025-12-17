@@ -146,23 +146,48 @@ docs: update contributing guidelines
 
 ## 📋 Issue運用
 
+### Issueタイトルの命名規則
+
+**Conventional Commits形式**で記載（PRと同じ形式）：
+
+```
+<type>: <description>
+```
+
+- **typeは小文字**で開始
+- **descriptionは小文字英語**で記述
+- **簡潔に**（50文字以内推奨）
+
+#### 例
+
+- ✅ `feat: implement core ui components`
+- ✅ `fix: resolve navigation menu overlap`
+- ✅ `docs: add contributing guidelines`
+- ❌ `Feature: Implement Core UI Components` （大文字使用）
+- ❌ `コアコンポーネントの実装` （日本語使用）
+
 ### Issueを立てるタイミング
 
 - 新機能の提案
 - バグの報告
 - ドキュメントの改善提案
-- 質問・議論
+- リファクタリング・最適化の提案
 
-### Issueラベルの使い方
+### Issueラベルの使い方（Conventional Commits準拠）
 
-| ラベル | 用途 |
-|--------|------|
-| `bug` | バグ報告 |
-| `enhancement` | 新機能・改善 |
-| `documentation` | ドキュメント |
-| `question` | 質問 |
-| `help wanted` | ヘルプ募集 |
-| `good first issue` | 初心者向け |
+| ラベル | 用途 | 例 |
+|--------|------|-----|
+| `feat` | 新機能 | 新しいコンポーネント追加 |
+| `fix` | バグ修正 | レイアウト崩れの修正 |
+| `docs` | ドキュメント | README更新 |
+| `style` | スタイル・デザイン | CSS調整 |
+| `refactor` | リファクタリング | コード整理 |
+| `perf` | パフォーマンス | 表示速度改善 |
+| `test` | テスト | テストケース追加 |
+| `build` | ビルドシステム | webpack設定変更 |
+| `ci` | CI/CD | GitHub Actions設定 |
+| `chore` | その他・メンテナンス | 依存関係更新 |
+| `revert` | 変更の取り消し | 以前のコミットに戻す |
 
 ### 関連Issueの記載方法（PRで使用）
 
