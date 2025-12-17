@@ -1,0 +1,35 @@
+// ============================================
+// COMPONENT TOKENS
+// コンポーネント固有のスタイル定義
+// ============================================
+
+:root {
+	// Header
+	--tips-header-bg: var(--tips-surface-default);
+	--tips-header-height: 60px;
+	--tips-header-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	// Card
+	--tips-card-bg: var(--tips-surface-default);
+	--tips-card-border: var(--tips-border-default);
+	--tips-card-radius: 3px;
+	--tips-card-padding: 1rem;
+	--tips-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+	// Code Block
+	--tips-code-bg: var(--tips-bg-translucent);
+	--tips-code-text: var(--tips-accent-red);
+	--tips-code-border-radius: 3px;
+	--tips-code-padding: 0.2em 0.4em;
+
+	// Accordion
+	--tips-accordion-bg: var(--tips-bg-translucent);
+	--tips-accordion-border-radius: 5px;
+	--tips-accordion-padding: 16px 24px;
+
+	// Button
+	--tips-button-primary-bg: var(--tips-accent-primary);
+	--tips-button-primary-text: var(--tips-text-inverse);
+	--tips-button-border-radius: 3px;
+	--tips-button-padding: 0.5em 1em;
+}

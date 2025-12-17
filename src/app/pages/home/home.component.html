@@ -1,0 +1,45 @@
+<div class="home-wrapper">
+	<div class="master-head">{{ title }}</div>
+
+	<main class="home-main">
+		<article class="page sans">
+			<div class="page-body">
+				<div class="column-list">
+					@for (category of categories; track category.title) {
+					<div class="column">
+						<h1>{{ category.title }}</h1>
+						<hr>
+
+						@for (subcategory of category.children; track subcategory.title) {
+						<div class="column-category">
+							<h2 class="submaster">
+								@if (subcategory.url) {
+								<a [routerLink]="subcategory.url" class="submaster-title">
+									{{ subcategory.title }}
+								</a>
+								} @else {
+								<span class="submaster-title">{{ subcategory.title }}</span>
+								}
+							</h2>
+
+							@for (page of subcategory.children; track page.title) {
+							<a [routerLink]="page.url" class="link-to-page">
+								@if (page.img) {
+								<img [src]="page.img" [alt]="page.title" class="navigation-icon">
+								}
+								{{ page.title }}
+							</a>
+							}
+						</div>
+
+						@if (!$last) {
+						<hr>
+						}
+						}
+					</div>
+					}
+				</div>
+			</div>
+		</article>
+	</main>
+</div>

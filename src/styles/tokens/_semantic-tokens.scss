@@ -1,0 +1,44 @@
+// ============================================
+// SEMANTIC COLOR TOKENS
+// Primary Tokensを意味的な名前で参照
+// ============================================
+
+:root {
+	// Text Colors
+	--tips-text-primary: var(--color-text);
+	--tips-text-secondary: var(--color-gray);
+	--tips-text-inverse: var(--color-white);
+
+	// Background Colors
+	--tips-bg-primary: var(--color-bg);
+	--tips-bg-secondary: var(--color-white);
+	--tips-bg-translucent: var(--color-bg-translucent-gray);
+
+	// Surface Colors
+	--tips-surface-default: var(--color-white);
+	--tips-surface-elevated: var(--color-bg);
+
+	// Border Colors
+	--tips-border-default: var(--color-bg-gray);
+	--tips-border-subtle: rgba(55, 53, 47, 0.09);
+
+	// Accent Colors
+	--tips-accent-primary: var(--color-main);
+	--tips-accent-lightblue: var(--color-lightblue);
+	--tips-accent-blue: var(--color-blue);
+	--tips-accent-purple: var(--color-purple);
+	--tips-accent-pink: var(--color-pink);
+	--tips-accent-red: var(--color-red);
+	--tips-accent-orange: var(--color-orange);
+	--tips-accent-yellow: var(--color-yellow);
+	--tips-accent-green: var(--color-green);
+	--tips-accent-bluegreen: var(--color-bluegreen);
+
+	// Tag Colors (for tag labels)
+	--tips-tag-red-bg: var(--color-bg-red);
+	--tips-tag-red-text: var(--color-red);
+	--tips-tag-blue-bg: var(--color-bg-blue);
+	--tips-tag-blue-text: var(--color-blue);
+	--tips-tag-green-bg: var(--color-bg-green);
+	--tips-tag-green-text: var(--color-green);
+}

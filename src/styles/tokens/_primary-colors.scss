@@ -1,0 +1,38 @@
+// ============================================
+// PRIMARY COLOR TOKENS
+// 既存Tipsサイトの配色を踏襲
+// ============================================
+
+:root {
+	// Base Colors
+	--color-text: rgb(58, 58, 58);
+	--color-gray: rgb(126, 126, 126);
+	--color-main: rgb(0, 188, 212);
+	--color-bg: rgb(248, 248, 248);
+	--color-white: rgb(255, 255, 255);
+	--color-black: rgb(0, 0, 0);
+
+	// Highlight Colors (9 colors from existing site)
+	--color-lightblue: rgb(57, 210, 208);
+	--color-blue: rgb(86, 158, 209);
+	--color-purple: rgb(154, 120, 195);
+	--color-pink: rgb(239, 100, 183);
+	--color-red: rgb(240, 91, 120);
+	--color-orange: rgb(244, 148, 82);
+	--color-yellow: rgb(240, 182, 56);
+	--color-green: rgb(159, 191, 91);
+	--color-bluegreen: rgb(90, 158, 129);
+
+	// Background Colors (with transparency)
+	--color-bg-lightblue: rgb(65, 193, 158, 0.25);
+	--color-bg-blue: rgb(67, 164, 194, 0.3);
+	--color-bg-purple: rgb(154, 140, 215, 0.35);
+	--color-bg-pink: rgb(206, 0, 21, 0.15);
+	--color-bg-red: rgb(240, 14, 17, 0.2);
+	--color-bg-orange: rgb(293, 180, 113, 0.5);
+	--color-bg-yellow: rgb(245, 179, 30, 0.35);
+	--color-bg-green: rgb(163, 205, 67, 0.35);
+	--color-bg-bluegreen: rgb(65, 193, 89, 0.35);
+	--color-bg-gray: rgb(146, 146, 146, 0.2);
+	--color-bg-translucent-gray: rgb(0, 0, 0, 0.06);
+}

@@ -1,4 +1,28 @@
+# Jekyll
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# Angular / Node.js
+node_modules/
+dist/
+.angular/
+.vscode/
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Test coverage
+coverage/

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+// ============================================
+// DESIGN TOKENS
+// CSS Variables for Design System
+// ============================================
+@import './styles/tokens/index.scss';
+
+// ============================================
+// GLOBAL STYLES
+// ============================================
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: var(--tips-font-sans);
+  color: var(--tips-text-primary);
+  background-color: var(--tips-bg-primary);
+  scroll-behavior: smooth;
+}
