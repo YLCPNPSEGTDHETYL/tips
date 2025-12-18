@@ -9,6 +9,12 @@
 @import './styles/tokens/index.scss';
 
 // ============================================
+// EXTERNAL LIBRARIES
+// ============================================
+@import 'katex/dist/katex.min.css';
+@import 'prismjs/themes/prism-tomorrow.css';
+
+// ============================================
 // GLOBAL STYLES
 // ============================================
 * {
